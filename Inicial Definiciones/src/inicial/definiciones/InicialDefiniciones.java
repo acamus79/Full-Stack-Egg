@@ -27,7 +27,17 @@ public class InicialDefiniciones {
 
         //ESCRIBIR (como atajo sout + tab)
         System.out.println("El texto que quiero mostrar: " + cadena);
-
+        
+        System.out.println("Hola mundo"); // Escribir normal
+        
+        System.out.print("Hola"); // Escribir Sin Saltar
+        
+        System.out.print("Mundo"); // Escribir Sin Saltar
+        
+        int numero = 20;
+        
+        System.out.println("El valor del numero es: " + numero); // Mostramos el valor de numero
+        
         //LEER (mucha atencion!)
         //Un nuevo objeto de la clase Scanner llamado 'leer'
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
