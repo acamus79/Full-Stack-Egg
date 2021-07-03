@@ -25,7 +25,7 @@ public class EncuestaCondicionales {
         if (opinion >= 1 && opinion <= 5) {
 
             switch (opinion) {
-                case 1://no pongo instruccion entonces si opinion es uno tomara las instrucciones del caso 2
+                case 1://no pongo instruccion entonces si opinion es 1 tomará las instrucciones del caso 2
                 case 2:
                     System.out.println("Nos sentimos apenados de que no hayas disfrutado la peli...");
                     break;//aqui finaliza el caso 1 y 2
@@ -42,7 +42,7 @@ public class EncuestaCondicionales {
                 //<<acciones>>                                            
             }
 
-        } //sino si
+        } //sino si, permite concatenar condicionales
         else if (opinion < 0) {
             System.out.println("una opinion negativa? tannn mala fue la pelicula?");
 
