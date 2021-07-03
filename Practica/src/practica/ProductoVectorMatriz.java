@@ -56,10 +56,39 @@ public class ProductoVectorMatriz {
                 suma += vector[i] * matriz [i][j];
             
             }
-            
+            producto[j]=suma;
         }
-            
+            String aux = "";
        
+//mostrar vector
+       
+       System.out.println("* Vector:");
+        //bucle for mejorado "enhanced"
+        //for (tipo variable : arreglo)
+        for (int elemento: vector){
+            aux = aux + " "+elemento;
+        }
+        System.out.println(aux);
+        
+        //mostrar matriz
+        
+        System.out.println("\n* Matriz:");
+        //para cada fila de la matriz
+        for (int[] fila: matriz){
+            aux = "";
+            //para cada elemento de la fila
+            for (int elemento: fila){
+                aux += " "+elemento;//aux +=, es lo mismo que aux = aux +...
+                }
+            System.out.println(aux);
+        }
+        //mostrar resultado
+        aux = "";
+        System.out.println("\n * Vector x Matriz: ");
+        for (int elemento:producto){
+            aux += " "+elemento;
+        }
+        System.out.println(aux);
     }
     
 }
