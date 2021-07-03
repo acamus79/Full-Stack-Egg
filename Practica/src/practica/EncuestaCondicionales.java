@@ -25,16 +25,16 @@ public class EncuestaCondicionales {
         if (opinion >= 1 && opinion <= 5) {
 
             switch (opinion) {
-                case 1:
+                case 1://no pongo instruccion entonces si opinion es uno tomara las instrucciones del caso 2
                 case 2:
                     System.out.println("Nos sentimos apenados de que no hayas disfrutado la peli...");
-                    break;
+                    break;//aqui finaliza el caso 1 y 2
                 case 3:
                     System.out.println("Has calificado la peli como Buena");
-                    break;
+                    break;//aqui finaliza el caso 3
                 case 4:
                     System.out.println("Has calificado la peli como Muy Buena");
-                    break;
+                    break;//aqui finaliza el caso 4
                 case 5:
                     System.out.println("Fastastico que haya disfrutado un excelente entretenimiento");
                 //El equivalente a **De Otro Modo** es default
