@@ -10,6 +10,8 @@
 */
 package guia.java.intro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -20,7 +22,13 @@ public class ej_4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         
+        System.out.println("Dame un frase");
+        String frase = leer.next();
+        
+        System.out.println("La frase en mayusculas queda "+frase.toUpperCase());
+        System.out.println("La frase en minusculas queda "+frase.toLowerCase());
     }
     
 }
