@@ -26,6 +26,15 @@ public class ej_7 {
         int n1 = leer.nextInt();
         int n2 = leer.nextInt();
         
+        if (n1>n2){
+            System.out.println("El numero "+n1+" es el mayor");
+                               
+        }
+        else {
+            System.out.println("El numero "+n2+" es el mayor");
+        }
+            
+        
     }
     
 }
