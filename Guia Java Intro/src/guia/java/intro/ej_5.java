@@ -24,7 +24,7 @@ public class ej_5 {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         
         System.out.println("que temperatura hace?");
-        int centigrados = leer.nextInt();
+        float centigrados = leer.nextInt(); //si declaro uno como entero el resultado da entero
         
         float farenheit = 32+(9*centigrados/5);
         
