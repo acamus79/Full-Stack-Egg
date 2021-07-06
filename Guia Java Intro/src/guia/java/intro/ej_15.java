@@ -26,6 +26,7 @@
  */
 package guia.java.intro;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -37,7 +38,7 @@ public class ej_15 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int opcion;
 		do {
@@ -54,7 +55,30 @@ public class ej_15 {
 			System.out.println("Elija Opcion:");
                 opcion = leer.nextInt();
                 
-		
+		switch (opcion){
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                       System.out.println("¿Está seguro que desea salir del programa (S/N)?");
+                       String confirma = leer.next();
+                       
+                       if ("s".equals(confirma.substring(0,1).toLowerCase())){
+                           opcion = 0;
+                           break;
+                       }
+                        
+                    default:
+                            System.out.println("Ingresaste una opción errónea");
+                            System.out.println("Presione ENTER para continuar");
+                            System.in.read();// a diferencia del pseudocódigo, espera un Enter, no cualquier tecla
+                
+                }
     
 		} while (opcion!=0);// Fin Menu por opcion 5
 		leer.close();
