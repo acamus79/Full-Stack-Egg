@@ -11,7 +11,9 @@
     
     la secuencia especial “&&&&&” marca el final de los envíos (llamémosla FDE), 
     y toda secuencia distinta de FDE, que no respete el formato se considera 
-    incorrecta. Al finalizar el proceso, se imprime un informe indicando la cantidad
+    incorrecta. 
+    
+    Al finalizar el proceso, se imprime un informe indicando la cantidad
     de lecturas correctas e incorrectas recibidas. 
     Para resolver el ejercicio deberá investigar cómo se utilizan las siguientes 
     funciones de JavaSubstring(),Length(), equals().
