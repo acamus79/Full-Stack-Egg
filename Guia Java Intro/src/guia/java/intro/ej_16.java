@@ -30,14 +30,16 @@ public class ej_16 {
         int suma = 0;
         int n1;
         
-        do {
+        do {//hacer
             System.out.println("Ingrese un numero");
                 n1 = leer.nextInt();
+                //si n1 es mayor que cero entonces hace una sumatoria tipo acumulacion
+                //si es menor que cero quiere decir que es negativo entonces no hace nada
                 if (n1>0){
                     suma = suma + n1;
                 }
                                 
-        }while (n1!=0);
+        }while (n1!=0);//mientras n1 sea distinto de cero
         System.out.println("Se capturó el numero cero");
         System.out.println("La suma de los numeros capturados es "+suma);
     }
