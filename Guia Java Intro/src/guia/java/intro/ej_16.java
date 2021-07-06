@@ -37,7 +37,7 @@ public class ej_16 {
                     suma = suma + n1;
                 }
                                 
-        }while (n1==0);
+        }while (n1!=0);
         System.out.println("Se capturó el numero cero");
         System.out.println("La suma de los numeros capturados es "+suma);
     }
