@@ -26,6 +26,8 @@
  */
 package guia.java.intro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -36,7 +38,32 @@ public class ej_15 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        int opcion;
+		do {
+			System.out.println("\n\n\n\n\n");
+                        System.out.println("*********************");
+                        System.out.println("***      MENU     ***");
+			System.out.println("*********************");
+                        System.out.println("** 1 SUMAR         **");
+			System.out.println("** 2 RESTAR        **");
+			System.out.println("** 3 MULTIPLICAR   **");
+			System.out.println("** 4 DIVIDIR       **");
+                        System.out.println("** 5 para SALIR    **");
+			System.out.println("*********************");
+			System.out.println("Elija Opcion:");
+                opcion = leer.nextInt();
+                
+		
+    
+		} while (opcion!=0);// Fin Menu por opcion 5
+		leer.close();
+                System.out.println("\n\n\n\n\n\n");
+                System.out.println("\n\n\n\n\n\n");
+                System.out.println("*** CHAU!!! ***");
+        
+        
+        
     }
     
 }
