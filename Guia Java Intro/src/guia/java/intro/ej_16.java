@@ -40,6 +40,7 @@ public class ej_16 {
                 }
                                 
         }while (n1!=0);//mientras n1 sea distinto de cero
+        leer.close();//cierro el scanner porque ya no lo voy a usar mas
         System.out.println("Se capturó el numero cero");
         System.out.println("La suma de los numeros capturados es "+suma);
     }
