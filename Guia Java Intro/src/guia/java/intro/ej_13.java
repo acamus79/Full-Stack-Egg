@@ -9,6 +9,8 @@
  */
 package guia.java.intro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -20,6 +22,18 @@ public class ej_13 {
      */
     public static void main(String[] args) {
         
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        
+        int nota = 11;
+        
+        while (nota >= 10 && nota >= 0) {
+            System.out.println("Ingrese una nota del 0 a 10");
+            nota = leer.nextInt();
+        if (nota <= 10 && nota >= 0){
+            System.out.println("La nota fue ingresada correctamente");
+        }
+        
+        } 
         
         
     }
