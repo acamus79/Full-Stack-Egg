@@ -65,4 +65,3 @@ public class ej_17 {
         System.out.println("La suma de las secuencias incorrectas es "+contI);
         }
 }
-          
