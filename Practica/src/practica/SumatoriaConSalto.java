@@ -25,7 +25,7 @@ public class SumatoriaConSalto {
             System.out.println("Ingrese un numero entero positivo");
             num = leer.nextInt();
             if (num > 1000){
-                System.out.println("Estre programa podria tardar, ¿Esta Seguro? s/n");
+                System.out.println("Este programa podria tardar, ¿Esta Seguro? s/n");
                 String confirma = leer.next();
                 if (confirma.equals("s")){
                     break;//detiene el bucle lo abandona y sigue con el proximo bloque
