@@ -5,8 +5,10 @@
 
     20.Realizar un programa que lea 4 números (comprendidos entre 1 y 20) 
     e imprima el número ingresado seguido de tantos asteriscos como indique 
-    su valor. 
+    su valor.
+
     Por ejemplo:
+
     5 *****
     3 ***
     11 ***********
