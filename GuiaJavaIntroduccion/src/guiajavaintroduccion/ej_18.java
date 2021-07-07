@@ -34,34 +34,33 @@ public class ej_18 {
      * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
-        int a=0;
-        int b=0;
-        int c=0;
-        
+        int a = 0;        
         do{ 
-            //TimeUnit.SECONDS.sleep(1);
+            
             
               for (int i=0;i<=9;i++){
+                  a++;
+                  TimeUnit.SECONDS.sleep(1);
                   if (i==3){
                       
                   }
                   for (int j=0;j<=9;j++){
+                      TimeUnit.SECONDS.sleep(1);
                       if (j==3){
                           
                       }   
                       for (int k=0;k<=9;k++){
+                          //TimeUnit.SECONDS.sleep(1);
                           if (k==3){
                               
                           }
+                      System.out.println("CONTADOR: "+ i+" - "+j+" - "+k); 
                       }
                   }
                   
               }
-
         
-        System.out.println("CONTADOR: "+ a+" - "+b+" - "+c);                     
-        
-        }while (a>=9);
+        }while (a<=9);
         
         
     }
