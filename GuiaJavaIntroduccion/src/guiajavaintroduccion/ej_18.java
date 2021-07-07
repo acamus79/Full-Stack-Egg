@@ -21,6 +21,8 @@ Nota: investigar función equals() y como convertir números a String.
  */
 package guiajavaintroduccion;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  * @author Adrian E. Camus
@@ -29,11 +31,37 @@ public class ej_18 {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        int a=0;
+        int b=0;
+        int c=0;
         
+        do{ 
+            //TimeUnit.SECONDS.sleep(1);
+            
+              for (int i=0;i<=9;i++){
+                  if (i==3){
+                      
+                  }
+                  for (int j=0;j<=9;j++){
+                      if (j==3){
+                          
+                      }   
+                      for (int k=0;k<=9;k++){
+                          if (k==3){
+                              
+                          }
+                      }
+                  }
+                  
+              }
+
         
+        System.out.println("CONTADOR: "+ a+" - "+b+" - "+c);                     
         
+        }while (a>=9);
         
         
     }
