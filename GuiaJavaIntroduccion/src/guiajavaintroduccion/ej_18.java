@@ -36,8 +36,7 @@ public class ej_18 {
     public static void main(String[] args) throws InterruptedException {
         int a = 0;        
         do{ 
-            
-            
+                        
               for (int i=0;i<=9;i++){
                   a++;
                   TimeUnit.SECONDS.sleep(1);
