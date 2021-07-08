@@ -26,8 +26,9 @@ public class ej_23 {
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         
-        int n;
-        System.out.println("Ingresa el tamañ del arreglo");
+        int n,busq,cont = 0;
+        boolean bandera = false;
+        System.out.println("Ingresa el tamaño del arreglo");
         n=leer.nextInt();
         
         int[] vectorN = new int[n];
@@ -41,9 +42,29 @@ public class ej_23 {
         }
         
         System.out.println("Ingresa el numero a buscar");
-        n=leer.nextInt();
-    
-    
+        busq=leer.nextInt();
+            for (int i=0;i<vectorN.length;i++){
+                
+                if (vectorN[i]==busq){
+                    cont++;
+                    System.out.println("Se encontro el numero en "+cont+" oportunidades");
+                    System.out.println("En la posicion "+i);
+                     
+                }else
+                {
+                   bandera = true;                                
+                }
+                
+            }
+            
+            if (bandera=true && cont==0){
+                
+                System.out.println("No se encontro el Numero buscado "+busq);
+                System.out.println("en el vector ");
+                for (int i=0;i<vectorN.length;i++){
+                System.out.print("[" + vectorN[i] + "]");
+                }
+                System.out.println("");
+            }
     }
-    
 }
