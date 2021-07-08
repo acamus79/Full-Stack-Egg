@@ -102,7 +102,7 @@ public class ej_21 {
     /* 
     Esta es la funcion o metodo o como le quieran llamar por lo que entiendo
     se puede hacer pero seria mejor hacerlo de otra manera, ya que no tiene
-    mucho sentido
+    mucho sentido en este caso
     */
 public static double cambioeuro (double euros, int opcion) {
         double cambio = 0.0;  
