@@ -95,11 +95,15 @@ public class ej_21 {
                 System.out.println("\n\n\n\n\n\n");
                 System.out.println("\n\n\n\n\n\n");
                 System.out.println("*** CHAU!!! ***");                             
-
-       
+     
     
 }
 
+    /* 
+    Esta es la funcion o metodo o como le quieran llamar por lo que entiendo
+    se puede hacer pero seria mejor hacerlo de otra manera, ya que no tiene
+    mucho sentido
+    */
 public static double cambioeuro (double euros, int opcion) {
         double cambio = 0.0;  
         final double libra,dolar,yen;
@@ -116,7 +120,6 @@ public static double cambioeuro (double euros, int opcion) {
 			cambio=yen*euros;
 			break;
 		default:
-	
     }
 return cambio;
        }
