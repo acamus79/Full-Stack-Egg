@@ -61,6 +61,7 @@ public class ej_23 {
                 
                 System.out.println("No se encontro el Numero buscado "+busq);
                 System.out.println("en el vector ");
+                //muestro el vector
                 for (int i=0;i<vectorN.length;i++){
                 System.out.print("[" + vectorN[i] + "]");
                 }
