@@ -31,7 +31,7 @@ public class ej_24 {
     static int[] vectores(int n){
     int[] V= new int[n];
         for (int pos = 0; pos < n; pos++){
-            V[pos] = (int)(Math.random()*9999+1);
+            V[pos] = (int)(Math.random()*99999+1);
         
             System.out.print("["+V[pos]+"]");
         }
