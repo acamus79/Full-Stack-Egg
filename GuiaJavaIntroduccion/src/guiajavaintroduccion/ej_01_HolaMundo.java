@@ -26,7 +26,7 @@ public class ej_01_HolaMundo {
         
         nombre = leer.next();
         
-        System.out.println("Hola Mundo, soy"+nombre+"y estoy programando en Java");
+        System.out.println("Hola Mundo, soy "+nombre+" y estoy programando en Java");
         
     }
     
