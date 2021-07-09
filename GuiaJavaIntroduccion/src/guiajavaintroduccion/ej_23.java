@@ -35,7 +35,7 @@ public class ej_23 {
         
         //lleno con enteros aleatorios del 1 al 60
         for (int i=0;i<n;i++){
-        //fuerzo que los generados sean enteros con (in) y luego limito que sean
+        //fuerzo que los generados sean enteros con (int) y luego limito que sean
         //desde 0 a 60 los aleatorios pero al final le sumo +1 para que nunca
         //me toque el 0 como aleatorio
             vectorN[i]=(int)(Math.random()*60)+1;;
@@ -57,7 +57,7 @@ public class ej_23 {
                 
             }
             
-            if (bandera=true && cont==0){
+            if (bandera==true && cont==0){
                 
                 System.out.println("No se encontro el Numero buscado "+busq);
                 System.out.println("en el vector ");
