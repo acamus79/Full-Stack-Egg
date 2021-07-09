@@ -29,6 +29,12 @@ public class ej_22 {
         }
                         
         System.out.println(" ");//este solo lo uso para el salto de linea final
+        
+        //para mostrarlos de forma descendiente
+            for(int i=99;i>=0;i--){
+             System.out.print("[" + vectorN[i] + "]");
+            }
+            System.out.println(" ");
     }
     
 }
