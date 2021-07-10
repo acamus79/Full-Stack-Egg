@@ -14,33 +14,29 @@ package guiajavaintroduccion;
  * @author Adrian E. Camus
  * 
  */
-
-
-//Funcion llena y muestra con aleatorios una Matriz de indice N 
-    
-/*
-    fuerzo que los generados sean enteros con (int) y luego limito que sean
-    desde 0 a 99 los aleatorios pero al final le sumo +1 para que nunca
-    me toque el 0 como aleatorio
-*/
     
   public class ej_25 {
 
     /**
      * @param args the command line arguments
      */
-    
-    static void llenaMatriz(int matrix[][],int n){
-        matrix= new int[n][n];
+      
+      
+      
+      
+    //Funcion llena con aleatorios una Matriz cuadrada de indice N 
+    public static int[][] llenaMatriz(int matrix[][],int n){
+       matrix= new int[n][n];
             for (int i = 0; i < n; i++){
                 for (int j = 0; j < n; j++) {
                     matrix[i][j] = (int)(Math.random()*99+1); 
                 }
             }
-    }
-    
-    static void muestraMatriz (int matrix[][],int n){
-         matrix= new int[n][n];
+        return matrix;
+   }
+      
+     //Funcion para Mostrar una matriz cuadrada de indice N
+    public static void muestraMatriz (int matrix[][],int n){
             for (int i = 0; i < n; i++){
                 for (int j = 0; j < n; j++) {
                     System.out.print("[" + matrix[i][j] + "]"); 
@@ -51,9 +47,19 @@ package guiajavaintroduccion;
     
     public static void main(String[] args) {
         
-        
-        
-        
+        int n = 4;
+        int[][] matriz = new int[n][n];
+
+        matriz = llenaMatriz(matriz,n);
+        System.out.println("la matriz generada es:");
+        muestraMatriz(matriz,n);
+        System.out.println("Su transpuesta es:");
+        for (int i = 0; i < n; i++){
+               for (int j = 0; j < n; j++) {
+                    System.out.print("[" + matriz[j][i] + "]"); 
+                }
+                System.out.println(" ");
+            }
     }
     
 }
