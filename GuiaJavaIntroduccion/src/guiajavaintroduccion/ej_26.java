@@ -113,7 +113,7 @@ public class ej_26 {
             }   
         }
         if (bandera==true){
-            System.out.println("\n"+"**SI**"+"\nEs una Matriz Antisimetrica!");;
+            System.out.println("\n"+"**SI**"+"\nEs una Matriz Antisimetrica!");
         } else {
             System.out.println("\n"+"**NO**"+"\nEs una Matriz Antisimetrica");
         }
