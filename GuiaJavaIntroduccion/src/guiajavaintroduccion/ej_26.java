@@ -23,12 +23,10 @@ package guiajavaintroduccion;
  * @author Adrian E. Camus
  */
 public class ej_26 {
-    /**
-     * @param args the command line arguments
-     */
+
     
     //Funcion llena con aleatorios una Matriz cuadrada de indice N 
-    public static int[][] llenaMatriz(int matrix[][],int n){
+    public static int[][] llenaMatrizA(int matrix[][],int n){
        matrix= new int[n][n];
             for (int i = 0; i < n; i++){
                 for (int j = 0; j < n; j++) {
@@ -71,12 +69,15 @@ public class ej_26 {
     
     
     //Main
-    
+     /*
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         
         int n = 3;
         int[][] matriz = new int[n][n];
         int[][] matrizT = new int[n][n];
+        boolean bandera= true;
         
         //lleno con estos datos para comprobar la antisimetrica
         matriz[0][0] = 0;
@@ -89,13 +90,33 @@ public class ej_26 {
         matriz[2][1] = -2;
         matriz[2][2] = 0;
         
-        //matriz = llenaMatriz(matriz,n);
+        //matriz = llenaMatrizA(matriz,n);
         System.out.println("la matriz generada es:");
         muestraMatriz(matriz,n);
         System.out.println("la matriz Transpuesta es:");
         matrizT = matrizT(matriz,n);
         muestraMatriz(matrizT,n);
         //muestraMT(matriz,n);
+        
+     
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) { 
+                if (i!=j){
+                    if (matriz [i][j] != -matriz[j][i]){
+                        bandera = bandera && false;
+                    }
+                } else {
+                    if (matriz [i][j] != matrizT[i][j]){
+                        bandera = bandera && false;
+                    }
+                } 
+            }   
+        }
+        if (bandera==true){
+            System.out.println("\n"+"**SI**"+"\nEs una Matriz Antisimetrica!");;
+        } else {
+            System.out.println("\n"+"**NO**"+"\nEs una Matriz Antisimetrica");
+        }
         
         
     }
