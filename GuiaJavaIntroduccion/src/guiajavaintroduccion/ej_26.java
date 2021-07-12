@@ -25,11 +25,37 @@ package guiajavaintroduccion;
  */
 public class ej_26 {
 
+    //Funcion llena con aleatorios una Matriz cuadrada de indice N 
+    public static int[][] llenaMatriz(int matrix[][],int n){
+       matrix= new int[n][n];
+            for (int i = 0; i < n; i++){
+                for (int j = 0; j < n; j++) {
+                    matrix[i][j] = (int)(Math.random()*99+1); 
+                }
+            }
+        return matrix;
+   }
+      
+     //Funcion para Mostrar una matriz cuadrada de indice N
+    public static void muestraMatriz (int matrix[][],int n){
+            for (int i = 0; i < n; i++){
+                for (int j = 0; j < n; j++) {
+                    System.out.print("[" + matrix[i][j] + "]"); 
+                }
+                System.out.println(" ");
+            }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+        
+        
+        
     }
     
 }
