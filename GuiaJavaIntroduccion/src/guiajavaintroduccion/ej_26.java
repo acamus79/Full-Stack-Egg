@@ -18,16 +18,15 @@
 
  */
 package guiajavaintroduccion;
-
-import static guiajavaintroduccion.ej_25.llenaMatriz;
-import static guiajavaintroduccion.ej_25.muestraMatriz;
-
 /**
  *
  * @author Adrian E. Camus
  */
 public class ej_26 {
-
+    /**
+     * @param args the command line arguments
+     */
+    
     //Funcion llena con aleatorios una Matriz cuadrada de indice N 
     public static int[][] llenaMatriz(int matrix[][],int n){
        matrix= new int[n][n];
@@ -49,19 +48,54 @@ public class ej_26 {
             }
     }
     
+    //Funcion mostrar matriz transpuesta
+    public static void muestraMT (int matrix[][],int n){
+            for (int i = 0; i < n; i++){
+                for (int j = 0; j < n; j++) {
+                    System.out.print("[" + matrix[j][i] + "]"); 
+                }
+                System.out.println(" ");
+                 }
+     }
     
-    /**
-     * @param args the command line arguments
-     */
+    public static int[][] matrizT(int matriz[][],int n){
+       int [][] matrix= new int[n][n];
+            for (int i = 0; i < n; i++){
+                for (int j = 0; j < n; j++) {
+                    matrix[j][i] = matriz[i][j]; 
+                }
+            }
+        return matrix;
+   }
+    
+    
+    
+    //Main
+    
     public static void main(String[] args) {
         
         int n = 3;
         int[][] matriz = new int[n][n];
-
-        matriz = llenaMatriz(matriz,n);
+        int[][] matrizT = new int[n][n];
+        
+        //lleno con estos datos para comprobar la antisimetrica
+        matriz[0][0] = 0;
+        matriz[0][1] = -2;
+        matriz[0][2] = 4;
+        matriz[1][0] = 2;
+        matriz[1][1] = 0;
+        matriz[1][2] = 2;
+        matriz[2][0] = -4;
+        matriz[2][1] = -2;
+        matriz[2][2] = 0;
+        
+        //matriz = llenaMatriz(matriz,n);
         System.out.println("la matriz generada es:");
         muestraMatriz(matriz,n);
-        
+        System.out.println("la matriz Transpuesta es:");
+        matrizT = matrizT(matriz,n);
+        muestraMatriz(matrizT,n);
+        //muestraMT(matriz,n);
         
         
     }
