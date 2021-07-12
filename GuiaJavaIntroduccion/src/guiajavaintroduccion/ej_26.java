@@ -100,7 +100,7 @@ public class ej_26 {
         //muestraMT(matriz,n);
         
         //Recorro la matriz comparando con la transpuesta negativa
-        //usando una bandera logica que inicio en verdadero
+        //con una bandera logica que inicio en **verdadero**
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) { 
                 if (i!=j){
