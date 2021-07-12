@@ -19,6 +19,9 @@
  */
 package guiajavaintroduccion;
 
+import static guiajavaintroduccion.ej_25.llenaMatriz;
+import static guiajavaintroduccion.ej_25.muestraMatriz;
+
 /**
  *
  * @author Adrian E. Camus
@@ -30,7 +33,7 @@ public class ej_26 {
        matrix= new int[n][n];
             for (int i = 0; i < n; i++){
                 for (int j = 0; j < n; j++) {
-                    matrix[i][j] = (int)(Math.random()*99+1); 
+                    matrix[i][j] = (int)(Math.random()*10+1); 
                 }
             }
         return matrix;
@@ -52,7 +55,12 @@ public class ej_26 {
      */
     public static void main(String[] args) {
         
-        
+        int n = 3;
+        int[][] matriz = new int[n][n];
+
+        matriz = llenaMatriz(matriz,n);
+        System.out.println("la matriz generada es:");
+        muestraMatriz(matriz,n);
         
         
         
