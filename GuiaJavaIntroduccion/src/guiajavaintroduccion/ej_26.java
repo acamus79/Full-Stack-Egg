@@ -118,7 +118,7 @@ public class ej_26 {
             System.out.println("\n"+"**NO**"+"\nEs una Matriz Antisimetrica");
         }
         
-        
+        System.out.println("\n"); 
     }
     
 }
