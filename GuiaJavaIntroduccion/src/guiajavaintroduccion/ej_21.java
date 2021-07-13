@@ -30,11 +30,12 @@ public class ej_21 {
      * @param args the command line arguments
      * @throws java.io.IOException
      */
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) throws IOException {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         double euros;
 	int opcion;
-            
+       //mansomenu      
        do {
 			System.out.println("\n\n\n\n\n");
                         System.out.println("*********************");
@@ -99,9 +100,8 @@ public class ej_21 {
 }
 
     /* 
-    Esta es la funcion o metodo o como le quieran llamar por lo que entiendo
-    se puede hacer pero seria mejor hacerlo de otra manera, ya que no tiene
-    mucho sentido en este caso
+    Esta es la funcion o metodo cambioeuro es estatica porque tiene una variable
+    "cambio" definida en su interior que va a retornar
     */
 
     /**
@@ -111,7 +111,7 @@ public class ej_21 {
      * @return
      */
 
-public static double cambioeuro (double euros, int opcion) {
+static double cambioeuro (double euros, int opcion) {
         double cambio = 0.0;  
         final double libra,dolar,yen;
         libra = 57;
