@@ -31,7 +31,8 @@ public class ej_extra_01 {
         int hr = (int)Math.floor(min/ 60);
         int dias = hr /24;
         
-        //verifico si las horas se pasan de 24, le asigno 24 y a dias le sumo 1
+        //verifico si las horas se pasan de 24, 
+        //le asigno el resultado de hr - 24 
         if (hr>=24){
             hr -= 24;
             }
