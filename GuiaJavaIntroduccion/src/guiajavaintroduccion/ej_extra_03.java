@@ -22,6 +22,7 @@ public class ej_extra_03 {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         // El Código va AQUI!!!
@@ -30,6 +31,7 @@ public class ej_extra_03 {
         String var = leer.nextLine();
         var = var.toUpperCase();
         var = var.substring(0, 1);
+        
         switch (var){
                 case "A":System.out.println(var+" Es la primera Vocal");
                 break;
