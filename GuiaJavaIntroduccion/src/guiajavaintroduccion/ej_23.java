@@ -38,7 +38,7 @@ public class ej_23 {
         //fuerzo que los generados sean enteros con (int) y luego limito que sean
         //desde 0 a 60 los aleatorios pero al final le sumo +1 para que nunca
         //me toque el 0 como aleatorio
-            vectorN[i]=(int)(Math.random()*60)+1;;
+            vectorN[i]=(int)(Math.random()*60)+1;
         }
         
         System.out.println("Ingresa el numero a buscar");
