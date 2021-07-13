@@ -113,7 +113,7 @@ public class ej_27 {
 			System.out.print(sumacolumnas[i]+" ");
 		}
 		System.out.println("");
-        //recoorro la matriz para sumar la diagonal        
+        //recorro con un for la matriz para sumar la diagonal        
         for (int i=0;i<filas;i++) {
 			suma = 0;
 			for (int j=0;j<filas;j++) {
