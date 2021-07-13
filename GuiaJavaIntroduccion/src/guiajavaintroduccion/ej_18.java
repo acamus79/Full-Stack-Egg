@@ -36,7 +36,6 @@ public class ej_18 {
     public static void main(String[] args) throws InterruptedException {
         int a = 0;        
         do{ 
-                        
               for (int i=0;i<=9;i++){
                   a++;
                   String convI = String.valueOf(i); //convierto i a cadena
@@ -57,7 +56,6 @@ public class ej_18 {
                       System.out.println("CONTADOR: "+ convI+" - "+convJ+" - "+convK); 
                       }
                   }
-                  
               }
         
         }while (a<=9);
