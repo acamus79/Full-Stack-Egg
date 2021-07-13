@@ -62,7 +62,6 @@ public class ej_27 {
         int[] sumafilas = new int[filas];
 	int[] sumacolumnas = new int[filas];
         
-//        //al entrar al metodo se pide el tamaño de la matriz
 //        System.out.println("Ingrese el numero de columnas");
 //        int columnas  = leer.nextInt();
 //        System.out.println("Ingrese el numero de filas");
