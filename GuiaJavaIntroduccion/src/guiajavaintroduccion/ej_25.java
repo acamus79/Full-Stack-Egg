@@ -17,12 +17,6 @@ package guiajavaintroduccion;
     
   public class ej_25 {
 
-    /**
-     * @param args the command line arguments
-     */
-      
-      
-      
       
     //Funcion llena con aleatorios una Matriz cuadrada de indice N 
     public static int[][] llenaMatriz(int matrix[][],int n){
@@ -44,7 +38,9 @@ package guiajavaintroduccion;
                 System.out.println(" ");
             }
     }
-    
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         
         int n = 4;

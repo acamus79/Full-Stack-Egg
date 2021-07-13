@@ -68,11 +68,12 @@ public class ej_26 {
     
     
     
-   
-     /*
-     * @param args the command line arguments
+    //Main
+     /**
+     *
+     * @param args
      */
-     //Main
+
     public static void main(String[] args) {
         
         int n = 3;

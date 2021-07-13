@@ -28,7 +28,6 @@ public class ej_21 {
 
     /**
      * @param args the command line arguments
-     * @param cambioeuro
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
@@ -104,6 +103,14 @@ public class ej_21 {
     se puede hacer pero seria mejor hacerlo de otra manera, ya que no tiene
     mucho sentido en este caso
     */
+
+    /**
+     *
+     * @param euros
+     * @param opcion
+     * @return
+     */
+
 public static double cambioeuro (double euros, int opcion) {
         double cambio = 0.0;  
         final double libra,dolar,yen;

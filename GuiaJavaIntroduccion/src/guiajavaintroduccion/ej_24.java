@@ -17,9 +17,7 @@ import java.util.Scanner;
  */
 public class ej_24 {
 
-    /**
-     * @param args the command line arguments
-     */
+   
    
 //Funcion llena y muestra con aleatorios un vector de indice N 
     /*
@@ -43,6 +41,9 @@ public class ej_24 {
        
     
     //main
+     /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         
         Scanner leer = new Scanner(System.in).useDelimiter("\n");

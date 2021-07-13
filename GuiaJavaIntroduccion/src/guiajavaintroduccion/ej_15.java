@@ -37,6 +37,7 @@ public class ej_15 {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
