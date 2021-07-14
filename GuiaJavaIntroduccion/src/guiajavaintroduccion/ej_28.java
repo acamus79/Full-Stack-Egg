@@ -94,8 +94,8 @@ public class ej_28 {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if (matriz10[i][j] == matriz3[0][0]) {
-                    System.out.println("Coordenada " + cont);
-                    System.out.println(i + "," + j);
+//                    System.out.println("Coordenada " + cont);
+//                    System.out.println(i + "," + j);
                     col[cont] = i;
                     fil[cont] = j;
                     cont += 1;
@@ -111,7 +111,7 @@ public class ej_28 {
         int y = 0;
         for (int i = 0; i < cont; i++) {
             iguales = 0;
-            System.out.println("Para la coordenada: " + i);
+            //System.out.println("Para la coordenada: " + i);
             x = 0;
             // Posicion desde la coordenada hasta la misma coordenada corrida 3 lugares (3 x
             // 3) para verificar la matriz chica dentro de la grande
@@ -123,7 +123,7 @@ public class ej_28 {
                     
                     if (matriz10[j][k] == matriz3[x][y]) {
                         iguales += 1;
-                        System.out.println("Son iguales en: " + x + ", " + y);
+                        //System.out.println("Son iguales en: " + x + ", " + y);
                     }
                     y += 1;
                 }
@@ -138,7 +138,7 @@ public class ej_28 {
                                    + " de la matriz 10x10");
                 
             } else {
-                System.out.println("No existe una matriz P dentro de la matriz M");
+                //System.out.println("No existe una matriz P dentro de la matriz M");
             }
         }
     }
