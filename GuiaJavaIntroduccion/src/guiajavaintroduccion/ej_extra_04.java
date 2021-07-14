@@ -53,7 +53,7 @@ public class ej_extra_04 {
                         System.out.println("Ingresaste un valor que no corresponde");
                         
             }
-        
+        leer.close();
     }
 
 }
