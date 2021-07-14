@@ -135,11 +135,10 @@ public class ej_28 {
             if (iguales == 9) {
                 System.out.println("La Matriz 3x3 comienza las coordenadas: "
                                    + col[i] + " - " + fil[i]+""
-                                   + " de la matriz 10x10");
-                
-            } else {
-                //System.out.println("No existe una matriz P dentro de la matriz M");
-            }
+                                   + "\ny termina en la coordenada "
+                                   + (col[i]+2)+ " - " + (fil[i]+2)
+                                   +" de la matriz 10x10");
+            } 
         }
     }
 }
