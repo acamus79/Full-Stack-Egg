@@ -50,15 +50,30 @@ public class ej_28 {
     
     
     public static void buscaMatriz (int[][] matrizM, int[][] matrizP){
-        
+        boolean bandera;
         for (int i = 0; i < matrizM.length-2; i++) {
             for (int j = 0; j < matrizM.length-2; j++) {
-                
-                
+                bandera = true;
+                for (int k = 0; k < matrizP.length; k++) {
+                    for (int l = 0; l < matrizP.length; l++) {
+                        if (matrizM[i+k][j+l] != matrizP[k][l]) {
+                            bandera = false;
+                            break;
+                        }
+                        
+                    }
+                    
+                }
+                if (bandera){
+                    System.out.println("La Matriz pequeña comienza las coordenadas: (Fila-Columna)\n"
+                                   +j+" - "+i+" y termina en la cordenada "
+                                   +(j+2)+ " - " +(i+2)+" de la matriz Mayor");
+                    return;
+                }
             }
             
         }
-        
+        System.out.println("No se encontro coincidencia");
     }
     
     
@@ -86,72 +101,10 @@ public class ej_28 {
         System.out.println("Matriz 3 x 3");
         muestraMatriz(matriz3,3);
         System.out.println("\n");
-        //cuento las veces que el primer numero de la matriz chica se encuentra 
-        //en la matriz grande       
-        for (int i=0; i<10;i++){
-            for (int j=0; j<10;j++){
-                if (matriz3[0][0] == matriz10[i][j]){
-                   cont +=1; 
-                }
-            }
-        }
-        //declaro dos vectores del tamaño del contador para buscar por cada
-        //posible inicio de la matriz chica
         
-        int[] col = new int[cont];
-        int[] fil = new int[cont];
+        buscaMatriz(matriz10, matriz3);
         
-        //relleno los vectores
-        cont = 0;
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (matriz10[i][j] == matriz3[0][0]) {
-//                    System.out.println("Coordenada " + cont);
-//                    System.out.println(i + "," + j);
-                    col[cont] = i;
-                    fil[cont] = j;
-                    cont += 1;
-                }
-            }
-        }
-        
-        // Uso x e y para recorrer la matriz chica mientras que j y k recorren la matriz
-        // grande; i es para iterar las distintas coordenadas validas para las cuales
-        // el primer valor de la matriz chica coincide dentro de la grande
-        int iguales;
-        int x = 0;
-        int y = 0;
-        for (int i = 0; i < cont; i++) {
-            iguales = 0;
-            //System.out.println("Para la coordenada: " + i);
-            x = 0;
-            // Posicion desde la coordenada hasta la misma coordenada corrida 3 lugares (3 x
-            // 3) para verificar la matriz chica dentro de la grande
-            for (int j = fil[i]; j < fil[i] + 3; j++) {
-                y = 0;
-                for (int k = col[i]; k < col[i] + 3; k++) {
-                    
-                    // Cada vez que los valores sean iguales se suma al contador
-                    
-                    if (matriz10[j][k] == matriz3[x][y]) {
-                        iguales += 1;
-                        //System.out.println("Son iguales en: " + x + ", " + y);
-                    }
-                    y += 1;
-                }
-                x += 1;
-                // System.out.println("Iguales: " + iguales);
-            }
-            // Se verifica que la cantidad de valores iguales sea igual que la
-            //maxima cantidad de numeros de la matriz chica 3 x 3 = [9]
-            if (iguales == 9) {
-                System.out.println("La Matriz 3x3 comienza las coordenadas: "
-                                   + col[i] + " - " + fil[i]+""
-                                   + "\ny termina en la coordenada "
-                                   + (col[i]+2)+ " - " + (fil[i]+2)
-                                   +" de la matriz 10x10");
-            } 
-        }
+
     }
 }
     
