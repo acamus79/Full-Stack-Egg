@@ -49,6 +49,18 @@ public class ej_28 {
     }
     
     
+    public static void buscaMatriz (int[][] matrizM, int[][] matrizP){
+        
+        for (int i = 0; i < matrizM.length-2; i++) {
+            for (int j = 0; j < matrizM.length-2; j++) {
+                
+                
+            }
+            
+        }
+        
+    }
+    
     
     /**
      * @param args the command line arguments
