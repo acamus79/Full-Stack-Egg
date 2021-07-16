@@ -51,7 +51,7 @@ public class ej_extra_10 {
                     confirma = "s";
                     System.out.println("ADIVINASTE FELICITACIONES!!");
                 } else {
-                    System.out.println("mmm no, ese no es el resultado...");
+                    System.out.println("...mmm, ese no es el resultado...");
                     System.out.println("queres volverlo a intentar? S/N");
                     confirma = leer.next().substring(0, 1).toLowerCase();
 
