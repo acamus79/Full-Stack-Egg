@@ -54,7 +54,6 @@ public class ej_extra_10 {
                     System.out.println("...mmm, ese no es el resultado...");
                     System.out.println("queres volverlo a intentar? S/N");
                     confirma = leer.next().substring(0, 1).toLowerCase();
-
                 }
             } while ("s".equals(confirma));
 
