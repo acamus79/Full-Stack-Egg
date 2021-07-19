@@ -25,6 +25,9 @@
 
 package guia2_poo_ej03;
 
+import guia2_poo_ej03.entidades.Operacion;
+import guia2_poo_ej03.servicios.ServiciosOperacion;
+
 /**
  *
  * @author Adrian E. Camus
@@ -36,6 +39,14 @@ public class Guia2_POO_ej03 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        ServiciosOperacion so = new ServiciosOperacion();
+        Operacion op = so.crearOperacion();
+        System.out.println("la suma de los numeros es "+so.sumar());
+        System.out.println("la resta de los numeros es "+so.restar());
+        System.out.println("el producto es "+so.multiplicar());
+        System.out.println("la division es "+so.dividir());
+        
+        
     }
 
 }

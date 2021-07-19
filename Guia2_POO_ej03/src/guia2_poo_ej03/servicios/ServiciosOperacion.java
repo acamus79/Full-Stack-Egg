@@ -63,7 +63,7 @@ public class ServiciosOperacion {
         }
     }
     
-    public int dividir(){
+    public double dividir(){
         if (num1==0 || num2==0){
             System.out.println("Dividendo o Divisor es 0");   
         return 0;
