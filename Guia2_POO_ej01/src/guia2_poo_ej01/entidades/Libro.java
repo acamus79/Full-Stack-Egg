@@ -68,10 +68,10 @@ public class Libro {
     @Override
     public String toString() {
         return "Libro: \n" 
-                + "isbn=" + isbn 
-                + "\n, titulo=" + titulo 
-                + "\n, autor=" + autor 
-                + "\n, nroPaginas=" + nroPaginas;
+                + "ISBN = " + isbn 
+                + "\nTitulo = " + titulo 
+                + "\nAutor = " + autor 
+                + "\nPaginas = " + nroPaginas;
     }
     
     
