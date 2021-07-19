@@ -63,8 +63,7 @@ public class ej_extra_21 {
         suma = sumaMatriz(matriz, n, m);
         
         System.out.println("La suma de sus elementos es " + suma);
-        
-        
+                
     }
 
 }
