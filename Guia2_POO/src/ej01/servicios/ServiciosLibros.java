@@ -3,9 +3,9 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-package guia2_POO.ej01.servicios;
+package ej01.servicios;
 
-import guia2_POO.ej01.entidades.Libro;
+import ej01.entidades.Libro;
 import java.util.Scanner;
 
 /**
