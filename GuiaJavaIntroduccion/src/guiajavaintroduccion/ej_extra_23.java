@@ -38,7 +38,7 @@ public class ej_extra_23 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int n, m, numero, fibonacci;
+        int n, m, num, fibonacci;
         String fibo = "";
         // n - 1 = n
         // n - 2 = m
@@ -46,8 +46,8 @@ public class ej_extra_23 {
         n = 1;
         m = 1;
         System.out.println("Ingrese hasta donde quiere imprimir");
-        numero = scan.nextInt();
-        for (int i = 0; i < numero; i++) {
+        num = scan.nextInt();
+        for (int i = 0; i < num; i++) {
             if (i == 0) {
                 n = 1;
                 m = 0;
@@ -59,13 +59,13 @@ public class ej_extra_23 {
                 m = n;
                 n = fibonacci;
             }
-            if (i < (numero - 1)) {
-                fibo += Integer.toString(fibonacci) + " + ";
+            if (i < (num - 1)) {
+                fibo += Integer.toString(fibonacci) + " - ";
             } else {
                 fibo += Integer.toString(fibonacci);
             }
         }
-        System.out.println("Fibonacci:");
+        System.out.println("Primeros "+num+" numeros de Fibonacci:");
         System.out.println(fibo);
         scan.close();
             
