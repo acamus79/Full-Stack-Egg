@@ -24,17 +24,17 @@ public class ej_extra_18 {
         int[] vectorA = { 1, 2, 3, 5, 6 };
         int[] vectorB = { 1, 3, 3, 5, 67 };
         int contador = 0;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < vectorA.length; i++) {
             if (vectorA[i] != vectorB[i]) {
                 System.out.println(vectorA[i] + " != " + vectorB[i]);
                 System.out.println("Los vectores no son iguales");
                 break;
             } else {
                 System.out.println(vectorA[i] + " = " + vectorB[i]);
-                contador += 1;
+                contador++;
             }
         }
-        if (contador == 5) {
+        if (contador == vectorA.length) {
             System.out.println("Los vectores son iguales");
         }
     }
