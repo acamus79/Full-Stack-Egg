@@ -17,10 +17,10 @@ public class ej_extra_21 {
 
     //Funcion llena con aleatorios una Matriz de indice N x M
     public static int[][] llenaMatriz(int n, int m, int matrix[][]) {
-        matrix = new int[n][n];
+        //matrix = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                matrix[i][j] = (int) (Math.random() * 99 + 1);
+                matrix[i][j] = (int) (Math.random() * 50 + 1);
             }
         }
         return matrix;
@@ -57,11 +57,11 @@ public class ej_extra_21 {
         int m = 4;
         double suma;
         int[][] matriz = new int[n][m];
-
         llenaMatriz(n, m, matriz);
         muestraMatriz(n, m, matriz);
-        
+                      
         suma = sumaMatriz(matriz, n, m);
+        
         System.out.println("La suma de sus elementos es " + suma);
         
         
