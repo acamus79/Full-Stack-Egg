@@ -33,4 +33,19 @@ public class ServiciosRectangulo {
     public int perimetro() {
         return (base + altura) * 2;
     }
+
+    public void dibujar(){
+        int i=0,j=0;
+        while(i<altura) {
+            while(j<base) {
+             System.out.print("*");
+                j++;
+            }
+        System.out.println();
+        j=0;
+        i++;
+        }
+
+ }
+
 }
