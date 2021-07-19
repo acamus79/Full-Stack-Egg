@@ -18,6 +18,9 @@
 
 package guia2_poo_ej02;
 
+import guia2_poo_ej02.entidades.Circunferencia;
+import guia2_poo_ej02.servicios.ServiciosCircunferencia;
+
 /**
  *
  * @author Adrian E. Camus
@@ -29,6 +32,11 @@ public class Guia2_POO_ej02 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        
+        ServiciosCircunferencia sc = new ServiciosCircunferencia();
+        Circunferencia c = sc.crearCircunsferencia();
+        System.out.println("El Area de la circunsferencia es "+sc.calculaArea());
+        System.out.println("El Perimetro de la circunferencia es "+sc.calculaPerimetro());
     }
 
 }
