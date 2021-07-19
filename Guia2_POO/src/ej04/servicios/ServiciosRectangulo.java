@@ -22,7 +22,15 @@ public class ServiciosRectangulo {
         base = leer.nextInt();
         System.out.println("Ingresa la altura del rectangulo");
         altura = leer.nextInt();
-        return new Rectangulo(base,altura);
+        return new Rectangulo(base, altura);
     }
 
+    public int superficie() {
+
+        return base * altura;
+    }
+
+    public int perimetro() {
+        return (base + altura) * 2;
+    }
 }
