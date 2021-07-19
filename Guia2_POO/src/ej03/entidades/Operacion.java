@@ -8,7 +8,7 @@
  c) Métodos get y set.    
 
  */
-package guia2_poo_ej03.entidades;
+package ej03.entidades;
 
 /**
  *

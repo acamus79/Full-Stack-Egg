@@ -23,9 +23,9 @@ al usuario el error se le informa al usuario. Si no, se hace la división y se
 devuelve el resultado al main.
 
  */
-package guia2_poo_ej03.servicios;
+package ej03.servicios;
 
-import guia2_poo_ej03.entidades.Operacion;
+import ej03.entidades.Operacion;
 import java.util.Scanner;
 
 /**
