@@ -14,7 +14,7 @@
 package guia2_poo_ej01;
 
 import guia2_poo_ej01.entidades.Libro;
-import guia2_poo_ej01.servicios.ServLibros;
+import guia2_poo_ej01.servicios.ServiciosLibros;
 
 /**
  *
@@ -28,7 +28,7 @@ public class Guia2_POO_ej01 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ServLibros sv = new ServLibros();
+        ServiciosLibros sv = new ServiciosLibros();
         Libro l1 = sv.crearLibro();
         System.out.println(l1);
         
