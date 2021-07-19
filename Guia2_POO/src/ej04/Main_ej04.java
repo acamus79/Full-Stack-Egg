@@ -18,6 +18,9 @@ Formulas: Superficie = base ∗ altura / Perímetro = (base + altura) ∗ 2.
 
 package ej04;
 
+import ej04.entidades.Rectangulo;
+import ej04.servicios.ServiciosRectangulo;
+
 /**
  *
  * @author Adrian E. Camus
@@ -29,6 +32,11 @@ public class Main_ej04 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        
+        ServiciosRectangulo sr = new ServiciosRectangulo();
+        Rectangulo r = sr.crearRectangulo();
+        
+        
     }
 
 }
