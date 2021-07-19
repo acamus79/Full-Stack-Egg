@@ -28,11 +28,11 @@ public class ej_extra_17 {
         int suma = 0;
         int[] vector = new int[n];
         for (int i = 0; i < n; i++) {
-            System.out.println("Elemento "+i+1);
+            System.out.println("Elemento "+(i+1));
             vector[i] = leer.nextInt();
             suma += vector[i];
         }
-        System.out.println("La suma es: " + suma);
+        System.out.println("La suma de los "+n+" numeros es: " + suma);
         leer.close();
         
         
