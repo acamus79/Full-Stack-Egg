@@ -38,6 +38,5 @@ public class ej_extra_18 {
             System.out.println("Los vectores son iguales");
         }
     }
-        
-        
+                
 }
