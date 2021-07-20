@@ -44,9 +44,15 @@ public class ServiciosCuenta {
         System.out.println("Ingrese el Interes de la cuenta");
         interes = leer.nextDouble();
         c1.setInteres(interes);
+        leer.close();
         return c1;
     }
 
+    public void ingreso(Cuenta c,double ingreso){
+        saldoActual = c.getSaldoActual()+ingreso;
+        c.setSaldoActual(saldoActual);
+    }
+    
     public void retiro(Cuenta c, double retiro) {
 
         if (c.getSaldoActual() > retiro) {
@@ -63,5 +69,5 @@ public class ServiciosCuenta {
         c.setSaldoActual(saldoActual - retiro);
         System.out.println("Monto a retirar $ " + retiro);
     }
-
+    
 }

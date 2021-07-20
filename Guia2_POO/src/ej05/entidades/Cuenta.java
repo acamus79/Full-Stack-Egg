@@ -24,7 +24,7 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(int numeroCuenta, long dni, float saldoActual, float interes) {
+    public Cuenta(int numeroCuenta, long dni, double saldoActual, double interes) {
         this.numeroCuenta = numeroCuenta;
         this.dni = dni;
         this.saldoActual = saldoActual;
