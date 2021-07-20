@@ -46,9 +46,13 @@ public class ServiciosPersona {
             String sexo = leer.next();
             sexo = sexo.toUpperCase();
             if (sexo.length() > 1) {
-                System.out.println("ERROR Ingresó un sexo mas de una letra");
+                System.out.println("ERROR Ingresó mas de una letra");
                 bandera = false;
-            } else if (sexo.charAt(0) != 'H' || sexo.charAt(0) != 'M' || sexo.charAt(0) != 'O') {
+            } 
+            
+            if (sexo.startsWith("H") || sexo.startsWith("M") || sexo.startsWith("O")) {
+                bandera = true;
+            }else{
                 System.out.println("ERROR Ingresó un sexo no valido");
                 bandera = false;
             }
