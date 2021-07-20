@@ -18,10 +18,16 @@ método lo recibe y se añade a la cafetera la cantidad de café indicada.
 
 package ej06.servicios;
 
+import java.util.Scanner;
+
 /**
  * 
  * @author Adrian E. Camus
  */
 public class ServiciosCafetera {
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    public void llenarCafetera(){
+        
+    }
 
 }

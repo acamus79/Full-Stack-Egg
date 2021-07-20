@@ -57,6 +57,7 @@ public class Main_ej05 {
         System.out.println("Extraccion Rapida Cuenta 2");
         sc.extraccionRapida(c2);
         System.out.println("Consulta Saldo Cuenta 2 $ " + c2.getSaldoActual());
+        leer.close();
     }
 
 }
