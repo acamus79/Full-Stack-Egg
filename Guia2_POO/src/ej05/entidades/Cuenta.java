@@ -51,7 +51,7 @@ public class Cuenta {
         return saldoActual;
     }
 
-    public void setSaldoActual(float saldoActual) {
+    public void setSaldoActual(double saldoActual) {
         this.saldoActual = saldoActual;
     }
 
@@ -59,7 +59,7 @@ public class Cuenta {
         return interes;
     }
 
-    public void setInteres(float interes) {
+    public void setInteres(double interes) {
         this.interes = interes;
     }
 
