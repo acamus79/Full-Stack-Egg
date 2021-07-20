@@ -24,13 +24,37 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosCuenta {
+
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    
-    public Cuenta crearCuenta(){
+    int numeroCuenta;
+    long dni;
+    double saldoActual, interes;
+    Cuenta c = new Cuenta();
+
+    public Cuenta crearCuenta() {
+        System.out.println("Ingrese el Nro de la Cuenta");
+        numeroCuenta = leer.nextInt();
+        c.setNumeroCuenta(numeroCuenta);
+        System.out.println("Ingrese el DNI del titular de la Cuenta");
+        dni = leer.nextLong();
+        c.setDni(dni);
+        System.out.println("Ingrese el Saldo");
+        saldoActual = leer.nextDouble();
+        c.setSaldoActual(saldoActual);
+        System.out.println("Ingrese el Interes de la cuenta");
+        interes = leer.nextDouble();
+        c.setInteres(interes);
+        return c;
+    }
+
+    public void retiro(double retiro) {
         
-        return null;
+        if(c.getSaldoActual()>retiro){
+            saldoActual= c.getSaldoActual()- retiro;
+            c.setSaldoActual(saldoActual);    
+        }else {
+            c.setSaldoActual(0);
+        }
         
     }
-    
-    
 }
