@@ -13,9 +13,10 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosLibros {
-     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    
-    public Libro crearLibro(){
+
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+    public Libro crearLibro() {
         System.out.println("Ingresa el ISNB del Libro");
         String isnb = leer.next();
         System.out.println("Ingresa el Titulo del Libro");
@@ -24,8 +25,8 @@ public class ServiciosLibros {
         String autor = leer.next();
         System.out.println("Ingresa la cantidad de Paginas");
         int nroPaginas = leer.nextInt();
-        
-        return new Libro(isnb,titulo,autor,nroPaginas);
-        
+
+        return new Libro(isnb, titulo, autor, nroPaginas);
+
     }
 }
