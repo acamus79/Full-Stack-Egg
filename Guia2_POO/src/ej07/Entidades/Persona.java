@@ -79,7 +79,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona: "
+        return "\nPersona: "
                 + "\nNombre: " + nombre
                 + "\nEdad:   " + edad
                 + "\nSexo:   " + sexo
