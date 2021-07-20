@@ -25,6 +25,9 @@ método lo recibe y se añade a la cafetera la cantidad de café indicada.
  */
 package ej06;
 
+import ej06.entidades.Cafetera;
+import ej06.servicios.ServiciosCafetera;
+
 /**
  *
  * @author Adrian E. Camus
@@ -36,6 +39,13 @@ public class Main_ej06 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ServiciosCafetera sc = new ServiciosCafetera();
+        Cafetera c1 = sc.crearCafetera();
+        
+        sc.llenarCafetera(c1);
+        sc.servirTaza(c1);
+        
     }
     
 }
