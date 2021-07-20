@@ -77,4 +77,14 @@ public class Persona {
         this.altura = altura;
     }
 
+    @Override
+    public String toString() {
+        return "Persona: "
+                + "Nombre: " + nombre
+                + "Edad:   " + edad
+                + "Sexo:   " + sexo
+                + "Peso:   " + peso + " kg"
+                + "Altura: " + altura + " mts";
+    }
+
 }
