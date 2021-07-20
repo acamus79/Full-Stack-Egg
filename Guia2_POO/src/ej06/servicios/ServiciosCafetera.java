@@ -18,6 +18,7 @@ método lo recibe y se añade a la cafetera la cantidad de café indicada.
 
 package ej06.servicios;
 
+import ej06.entidades.Cafetera;
 import java.util.Scanner;
 
 /**
@@ -25,9 +26,25 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosCafetera {
+    
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    public void llenarCafetera(){
-        
+
+    public void llenarCafetera(Cafetera c){
+        int llenar = c.getCapacidadMaxima();
+        c.setCantidadActual(llenar);
+    }
+    
+    public void vaciarCafetera(Cafetera c){
+        c.setCantidadActual(0);
     }
 
+    public void servirTaza(int tamaño,Cafetera c){
+        int cantidad = c.getCantidadActual();
+        cantidad -= tamaño;
+        c.setCantidadActual(cantidad);
+    }
+    
+    public void agregarCafe(int cantCafe){
+        
+    }
 }
