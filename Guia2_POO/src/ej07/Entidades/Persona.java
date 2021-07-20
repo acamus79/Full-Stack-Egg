@@ -80,11 +80,11 @@ public class Persona {
     @Override
     public String toString() {
         return "Persona: "
-                + "Nombre: " + nombre
-                + "Edad:   " + edad
-                + "Sexo:   " + sexo
-                + "Peso:   " + peso + " kg"
-                + "Altura: " + altura + " mts";
+                + "\nNombre: " + nombre
+                + "\nEdad:   " + edad
+                + "\nSexo:   " + sexo
+                + "\nPeso:   " + peso + " kg"
+                + "\nAltura: " + altura + " mts";
     }
 
 }

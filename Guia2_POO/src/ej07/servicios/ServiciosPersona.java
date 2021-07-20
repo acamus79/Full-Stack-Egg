@@ -72,7 +72,7 @@ public class ServiciosPersona {
 
         if ((p.getPeso()) / (p.getAltura() * p.getAltura()) > 25) {
             imc = 1;
-            
+            sp++;
             System.out.println("Sobrepeso");            
         } else if ((p.getPeso()) / (p.getAltura() * p.getAltura()) >= 20) {
             imc = 0;
