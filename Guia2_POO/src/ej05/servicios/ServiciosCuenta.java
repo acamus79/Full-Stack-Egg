@@ -44,7 +44,6 @@ public class ServiciosCuenta {
         System.out.println("Ingrese el Interes de la cuenta");
         interes = leer.nextDouble();
         c1.setInteres(interes);
-        leer.close();
         return c1;
     }
 
