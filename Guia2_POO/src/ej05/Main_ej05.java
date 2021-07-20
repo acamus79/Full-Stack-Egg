@@ -45,17 +45,18 @@ public class Main_ej05 {
 
         System.out.println("Crear Cuenta 2");
         Cuenta c2 = sc.crearCuenta();
-
+        System.out.println("************************\n");
         System.out.println("Ingrese el monto a transferir de la Cuenta 1 a la Cuenta 2");
         double deposito = leer.nextDouble();
         sc.retiro(c1, deposito);
         sc.ingreso(c2, deposito);
-
+        System.out.println("************************\n");
         System.out.println("Consulta Saldo Cuenta 1 $ " + c1.getSaldoActual());
         System.out.println("Consulta Saldo Cuenta 2 $ " + c2.getSaldoActual());
-
+        System.out.println("************************\n");
         System.out.println("Extraccion Rapida Cuenta 2");
         sc.extraccionRapida(c2);
+        System.out.println("************************\n");
         System.out.println("Consulta Saldo Cuenta 2 $ " + c2.getSaldoActual());
         leer.close();
     }
