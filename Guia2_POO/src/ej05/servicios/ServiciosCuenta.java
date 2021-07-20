@@ -26,47 +26,39 @@ import java.util.Scanner;
 public class ServiciosCuenta {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    int numeroCuenta;
-    long dni;
-    double saldoActual, interes;
-    Cuenta c1 = new Cuenta();
-
+    
     public Cuenta crearCuenta() {
         System.out.println("Ingrese el Nro de la Cuenta");
-        numeroCuenta = leer.nextInt();
-        c1.setNumeroCuenta(numeroCuenta);
+        int numeroCuenta = leer.nextInt();
         System.out.println("Ingrese el DNI del titular de la Cuenta");
-        dni = leer.nextLong();
-        c1.setDni(dni);
+        long dni = leer.nextLong();
         System.out.println("Ingrese el Saldo");
-        saldoActual = leer.nextDouble();
-        c1.setSaldoActual(saldoActual);
+        double saldoActual = leer.nextDouble();
         System.out.println("Ingrese el Interes de la cuenta");
-        interes = leer.nextDouble();
-        c1.setInteres(interes);
-        return c1;
+        double interes = leer.nextDouble();
+        return new Cuenta(numeroCuenta, dni, saldoActual, interes);
     }
 
-    public void ingreso(Cuenta c,double ingreso){
-        saldoActual = c.getSaldoActual()+ingreso;
-        c.setSaldoActual(saldoActual);
+    public void ingreso(Cuenta c, double ingreso) {
+        double saldoActual = c.getSaldoActual();
+        c.setSaldoActual(saldoActual + ingreso);
     }
-    
+
     public void retiro(Cuenta c, double retiro) {
 
         if (c.getSaldoActual() > retiro) {
-            saldoActual = c.getSaldoActual() - retiro;
-            c.setSaldoActual(saldoActual);
+            double saldoActual = c.getSaldoActual();
+            c.setSaldoActual(saldoActual - retiro);
         } else {
             c.setSaldoActual(0);
         }
     }
 
     public void extraccionRapida(Cuenta c) {
-        saldoActual = c.getSaldoActual();
+        double saldoActual = c.getSaldoActual();
         double retiro = saldoActual * .20;
         c.setSaldoActual(saldoActual - retiro);
         System.out.println("Monto a retirar $ " + retiro);
     }
-    
+
 }
