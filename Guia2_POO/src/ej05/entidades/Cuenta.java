@@ -19,7 +19,7 @@ public class Cuenta {
 
     private int numeroCuenta;
     private long dni;
-    private float saldoActual, interes;
+    private double saldoActual, interes;
 
     public Cuenta() {
     }
@@ -47,7 +47,7 @@ public class Cuenta {
         this.dni = dni;
     }
 
-    public float getSaldoActual() {
+    public double getSaldoActual() {
         return saldoActual;
     }
 
@@ -55,7 +55,7 @@ public class Cuenta {
         this.saldoActual = saldoActual;
     }
 
-    public float getInteres() {
+    public double getInteres() {
         return interes;
     }
 
