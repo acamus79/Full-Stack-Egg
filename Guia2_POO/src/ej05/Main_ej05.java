@@ -20,7 +20,6 @@ que el usuario no saque más del 20%.
 • Método consultarDatos(): permitirá mostrar todos los datos de la cuenta
 
  */
-
 package ej05;
 
 import ej05.entidades.Cuenta;
@@ -39,24 +38,25 @@ public class Main_ej05 {
     public static void main(String[] args) {
         // El Código va AQUI!!!
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        
+
         ServiciosCuenta sc = new ServiciosCuenta();
         System.out.println("Crear Cuenta 1");
         Cuenta c1 = sc.crearCuenta();
-              
+
         System.out.println("Crear Cuenta 2");
         Cuenta c2 = sc.crearCuenta();
-        
+
         System.out.println("Ingrese el monto a transferir de la Cuenta 1 a la Cuenta 2");
         double deposito = leer.nextDouble();
         sc.retiro(c1, deposito);
         sc.ingreso(c2, deposito);
-        
-        System.out.println("Consulta Saldo Cuenta 2 $ "+c2.getSaldoActual());
-        
+
+        System.out.println("Consulta Saldo Cuenta 1 $ " + c1.getSaldoActual());
+        System.out.println("Consulta Saldo Cuenta 2 $ " + c2.getSaldoActual());
+
         System.out.println("Extraccion Rapida Cuenta 2");
         sc.extraccionRapida(c2);
-                
+        System.out.println("Consulta Saldo Cuenta 2 $ " + c2.getSaldoActual());
     }
 
 }
