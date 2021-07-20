@@ -24,7 +24,7 @@ public class ServiciosCircunferencia {
 
     public double calculaArea(Circunferencia c) {
         double radio = c.getRadio();
-        double area = Math.PI * radio;
+        double area = Math.PI * (radio*radio);
         return area;
     }
 
