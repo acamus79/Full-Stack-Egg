@@ -52,9 +52,11 @@ public class Main_ej05 {
         sc.retiro(c1, deposito);
         sc.ingreso(c2, deposito);
         
+        System.out.println("Consulta Saldo Cuenta 2 $ "+c2.getSaldoActual());
+        
         System.out.println("Extraccion Rapida Cuenta 2");
         sc.extraccionRapida(c2);
-        
+                
     }
 
 }
