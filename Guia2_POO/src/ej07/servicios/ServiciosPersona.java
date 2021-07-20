@@ -36,6 +36,7 @@ public class ServiciosPersona {
     //(String nombre, int edad, String sexo, float peso, float altura)
     public Persona crearPersona() {
         boolean bandera = true;
+        String sexo;
         System.out.println("Ingrese el Nombre de la Persona");
         String nom = leer.next();
         System.out.println("Ingrese la Edad de la Persona");
@@ -43,7 +44,7 @@ public class ServiciosPersona {
 
         do {
             System.out.println("Ingrese el sexo de persona ´H´ para Hombre, ´M´ para Mujer ú ´O´ para Otro");
-            String sexo = leer.next();
+            sexo = leer.next();
             sexo = sexo.toUpperCase();
             if (sexo.length() > 1) {
                 System.out.println("ERROR Ingresó mas de una letra");
@@ -62,8 +63,8 @@ public class ServiciosPersona {
         System.out.println("Ingrese el peso de la Persona");
         float p = leer.nextFloat();
         System.out.println("Ingrese la altura de la Persona");
-        float al = leer.nextFloat();
-        return new Persona();
+        double al = leer.nextDouble();
+        return new Persona(nom,edad,sexo,p,al);
     }
 
     public int calcularIMC(Persona p) {

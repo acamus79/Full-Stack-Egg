@@ -24,12 +24,12 @@ public class Persona {
     private int edad;
     private String sexo;
     private float peso;
-    private float altura;
+    private double altura;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int edad, String sexo, float peso, float altura) {
+    public Persona(String nombre, int edad, String sexo, float peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
@@ -69,11 +69,11 @@ public class Persona {
         this.peso = peso;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 

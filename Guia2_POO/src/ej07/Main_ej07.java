@@ -55,22 +55,31 @@ public class Main_ej07 {
 
         ServiciosPersona sp = new ServiciosPersona();
         //String nombre, int edad, String sexo, float peso, float altura
-        Persona p1 = new Persona("Adrian", 42, "H", 98, (1.80)); 
+        Persona p1 = new Persona();
+        p1.setNombre("Adrian");
+        p1.setEdad(42);
+        p1.setSexo("H");
+        p1.setPeso(98);
+        p1.setAltura((1.80));
         //Persona p1 = sp.crearPersona();
-        int p1imc = sp.calcularIMC(p1);
-        boolean p1edad = sp.esMayorDeEdad(p1);
-
+        
         Persona p2 = new Persona("William", 33, "H", 78, (1.86));
         //Persona p2 = sp.crearPersona();
-        int p2imc = sp.calcularIMC(p2);
-        boolean p2edad = sp.esMayorDeEdad(p2);
-
+        
         Persona p3 = new Persona("Alina", 9, "M", 37, (1.52));
         //Persona p3 = sp.crearPersona();
+        
+        Persona p4 = sp.crearPersona();
+
+        int p1imc = sp.calcularIMC(p1);
+        boolean p1edad = sp.esMayorDeEdad(p1);
+        
+        int p2imc = sp.calcularIMC(p2);
+        boolean p2edad = sp.esMayorDeEdad(p2);
+        
         int p3imc = sp.calcularIMC(p3);
         boolean p3edad = sp.esMayorDeEdad(p3);
-
-        Persona p4 = sp.crearPersona();
+        
         int p4imc = sp.calcularIMC(p4);
         boolean p4edad = sp.esMayorDeEdad(p4);
         
