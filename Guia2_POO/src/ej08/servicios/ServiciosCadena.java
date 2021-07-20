@@ -3,7 +3,7 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
 
- Método  vecesRepetido(String  letra),  deberá  recibir  por  parámetro  un  
+Método  vecesRepetido(String  letra),  deberá  recibir  por  parámetro  un  
 carácter ingresado  por  el  usuario  y  contabilizar  cuántas  veces  se  
 repite  el  carácter  en  la frase, por ejemplo:  
 Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.
@@ -60,7 +60,7 @@ Salida: "acnalb asac".*/
     public void invertirFrase(Cadena f){
         String frase = f.getFrase().toLowerCase();    
         
-        char[] cambio = frase.toCharArray();
+        char[] cambio = frase.toCharArray();//metodo toCharArray
 	int inicio = 0;
 	int fin = cambio.length-1;
 	char aux;
