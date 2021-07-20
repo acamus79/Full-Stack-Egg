@@ -57,8 +57,23 @@ tiene la frase ingresada.*/
 /* Método invertirFrase(), deberá invertir la frase ingresada y mostrar la 
 frase invertida por pantalla. Por ejemplo: Entrada: "casa blanca", 
 Salida: "acnalb asac".*/ 
-    public void invertirFrase(){
+    public void invertirFrase(Cadena f){
+        String frase = f.getFrase().toLowerCase();    
         
+        char[] cambio = frase.toCharArray();
+	int inicio = 0;
+	int fin = cambio.length-1;
+	char aux;
+        //mientras el fin del vector sea mayor al inicio, hacer
+	    while(fin>inicio){
+	        aux = cambio[inicio];//guardo en auxiliar la primer letra
+	        cambio[inicio] = cambio[fin];//invierto la ultima con la primera
+	        cambio[fin] = aux;//pongo al final lo que tiene auxiliar
+	        fin--;//resto 1 al fin
+	        inicio++;//sumo 1 al inicio
+	    }
+	frase = new String(cambio);//le asigno a frase lo que tiene el vector
+	System.out.println(frase);
     }
     
 }
