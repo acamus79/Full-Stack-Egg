@@ -57,16 +57,19 @@ public class Main_ej07 {
 
         Persona p1 = sp.crearPersona();
         int p1imc = sp.calcularIMC(p1);
+        boolean p1edad = sp.esMayorDeEdad(p1);
 
         Persona p2 = sp.crearPersona();
         int p2imc = sp.calcularIMC(p2);
+        boolean p2edad = sp.esMayorDeEdad(p2);
 
         Persona p3 = sp.crearPersona();
         int p3imc = sp.calcularIMC(p3);
+        boolean p3edad = sp.esMayorDeEdad(p3);
 
         Persona p4 = sp.crearPersona();
         int p4imc = sp.calcularIMC(p4);
-
+        boolean p4edad = sp.esMayorDeEdad(p4);
     }
 
 }
