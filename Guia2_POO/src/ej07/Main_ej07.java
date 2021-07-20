@@ -38,6 +38,9 @@ cuantos son mayores de edad y cuantos menores.
  */
 package ej07;
 
+import ej07.Entidades.Persona;
+import ej07.servicios.ServiciosPersona;
+
 /**
  *
  * @author Adrian E. Camus
@@ -49,6 +52,14 @@ public class Main_ej07 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ServiciosPersona sp = new ServiciosPersona();
+        Persona p1 = sp.crearPersona();
+        Persona p2 = sp.crearPersona();
+        Persona p3 = sp.crearPersona();
+        Persona p4 = sp.crearPersona();
+        
+        
     }
     
 }
