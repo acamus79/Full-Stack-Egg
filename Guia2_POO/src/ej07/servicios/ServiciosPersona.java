@@ -54,7 +54,7 @@ public class ServiciosPersona {
             }
 
         } while (!bandera);
-        
+
         System.out.println("Ingrese el peso de la Persona");
         float p = leer.nextFloat();
         System.out.println("Ingrese la altura de la Persona");
@@ -62,6 +62,28 @@ public class ServiciosPersona {
         return new Persona();
     }
 
-    
-    
+    public int calcularIMC(Persona p) {
+        int imc = 0;
+
+        if ((p.getPeso()) / (p.getAltura() * p.getAltura()) > 25) {
+            imc = 1;
+        } else if ((p.getPeso()) / (p.getAltura() * p.getAltura()) >= 20) {
+            imc = 0;
+        } else {
+            imc = -1;
+        }
+
+        return imc;
+    }
+
+    public boolean esMayorDeEdad(Persona p) {
+        boolean mayor = false;
+        if (p.getEdad() > 18) {
+            mayor = true;
+        }
+
+        return mayor;
+
+    }
+
 }
