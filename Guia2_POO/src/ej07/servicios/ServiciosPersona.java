@@ -20,14 +20,47 @@ un 1. Se recomienda hacer uso de constantes para devolver estos valores.
 devuelve un booleano.
 
  */
-
 package ej07.servicios;
 
+import ej07.Entidades.Persona;
+import java.util.Scanner;
+
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 public class ServiciosPersona {
+
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+    //(String nombre, int edad, String sexo, float peso, float altura)
+    public Persona crearPersona() {
+        boolean bandera = true;
+        System.out.println("Ingrese el Nombre de la Persona");
+        String nom = leer.next();
+        System.out.println("Ingrese la Edad de la Persona");
+        int edad = leer.nextInt();
+
+        do {
+            System.out.println("Ingrese el sexo de persona ´H´ para Hombre, ´M´ para Mujer ú ´O´ para Otro");
+            String sexo = leer.next();
+            sexo = sexo.toUpperCase();
+            if (sexo.length() > 1) {
+                System.out.println("ERROR Ingresó un sexo mas de una letra");
+                bandera = false;
+            } else if (sexo.charAt(0) != 'H' || sexo.charAt(0) != 'M' || sexo.charAt(0) != 'O') {
+                System.out.println("ERROR Ingresó un sexo no valido");
+                bandera = false;
+            }
+
+        } while (!bandera);
+        
+        System.out.println("Ingrese el peso de la Persona");
+        float p = leer.nextFloat();
+        System.out.println("Ingrese la altura de la Persona");
+        float al = leer.nextFloat();
+        return new Persona();
+    }
 
     
     
