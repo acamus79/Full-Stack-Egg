@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class ServiciosCircunferencia {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    
+
     public Circunferencia crearCircunsferencia() {
         System.out.println("Ingresa el radio de la circunsferencia");
         double radio = leer.nextDouble();
@@ -24,16 +24,14 @@ public class ServiciosCircunferencia {
 
     public double calculaArea(Circunferencia c) {
         double radio = c.getRadio();
-        double area;
-        area = Math.PI*radio;
+        double area = Math.PI * radio;
         return area;
     }
-    
+
     public double calculaPerimetro(Circunferencia c) {
         double radio = c.getRadio();
-        double perimetro;
-        perimetro = (2*Math.PI)*radio;
+        double perimetro = (2 * Math.PI) * radio;
         return perimetro;
     }
-    
+
 }
