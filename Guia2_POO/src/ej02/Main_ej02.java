@@ -14,7 +14,6 @@
     e) Método perimetro(): para calcular el perímetro (Perimetro=2∗π∗radio)
 
  */
-
 package ej02;
 
 import ej02.entidades.Circunferencia;
@@ -31,11 +30,11 @@ public class Main_ej02 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
-        
+
         ServiciosCircunferencia sc = new ServiciosCircunferencia();
         Circunferencia c = sc.crearCircunsferencia();
-        System.out.println("El Area de la circunsferencia es "+sc.calculaArea());
-        System.out.println("El Perimetro de la circunferencia es "+sc.calculaPerimetro());
+        System.out.println("El Area de la circunsferencia es " + sc.calculaArea(c));
+        System.out.println("El Perimetro de la circunferencia es " + sc.calculaPerimetro(c));
     }
 
 }
