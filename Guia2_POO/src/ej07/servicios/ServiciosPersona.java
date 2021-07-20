@@ -30,7 +30,7 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosPersona {
-
+    int pi=0,bp=0,sp=0,contMayor=0, contMenor=0;
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     //(String nombre, int edad, String sexo, float peso, float altura)
@@ -71,10 +71,16 @@ public class ServiciosPersona {
 
         if ((p.getPeso()) / (p.getAltura() * p.getAltura()) > 25) {
             imc = 1;
+            
+            System.out.println("Sobrepeso");            
         } else if ((p.getPeso()) / (p.getAltura() * p.getAltura()) >= 20) {
             imc = 0;
+            pi++;
+            System.out.println("Peso Ideal");
         } else {
             imc = -1;
+            bp++;
+            System.out.println("Bajo Peso");
         }
 
         return imc;
@@ -84,10 +90,32 @@ public class ServiciosPersona {
         boolean mayor = false;
         if (p.getEdad() > 18) {
             mayor = true;
+            contMayor++;
+        }else{
+            contMenor++;
         }
-
         return mayor;
 
     }
 
+    public void estadistica(int cantPersonas){
+        System.out.println("***********************************");
+        System.out.println("**           NUMERICO            **");
+        System.out.println("***********************************");
+        System.out.println(contMayor+" Personas son mayores de edad");
+        System.out.println(contMenor+" Personas son menores de edad");
+        System.out.println(pi+" Personas tienen el peso ideal");
+        System.out.println(bp+" Personas tienen bajo peso");
+        System.out.println(sp+" Personas tienen sobrepeso");
+        System.out.println("***********************************");
+        System.out.println("**           PORCENTAJES         **");
+        System.out.println("***********************************");
+        System.out.println("El % de personas Mayores es "+(contMayor*100)/cantPersonas+"%");
+        System.out.println("El % de personas Menores es "+(contMenor*100)/cantPersonas+"%");
+        System.out.println("El % de personas con peso ideal es "+(pi*100)/cantPersonas+"%");
+        System.out.println("El % de personas con sobrepeso es "+(sp*100)/cantPersonas+"%");
+        System.out.println("El % de personas con bajo peso es "+(bp*100)/cantPersonas+"%");
+    }
+      
+    
 }
