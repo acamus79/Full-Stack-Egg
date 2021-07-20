@@ -29,6 +29,14 @@ public class ServiciosCafetera {
     
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
+    public Cafetera crearCafetera(){
+        System.out.println("Ingrese la cantidad Maxima de la cafetera en cm3");
+        int cantMax = leer.nextInt();
+        System.out.println("Ingrese la cantidad actual de la cafetera");
+        int cantAct = leer.nextInt();
+        return new Cafetera(cantMax,cantAct);
+    }
+    
     public void llenarCafetera(Cafetera c){
         int llenar = c.getCapacidadMaxima();
         c.setCantidadActual(llenar);
@@ -38,10 +46,19 @@ public class ServiciosCafetera {
         c.setCantidadActual(0);
     }
 
-    public void servirTaza(int tamaño,Cafetera c){
-        int cantidad = c.getCantidadActual();
-        cantidad -= tamaño;
-        c.setCantidadActual(cantidad);
+    public void servirTaza(Cafetera c){
+        System.out.println("Tamaño de taza en cm3");
+        int taza = leer.nextInt();
+        
+        if(c.getCantidadActual()>taza){
+            int cantidad = c.getCantidadActual();
+            cantidad -= taza;
+            c.setCantidadActual(cantidad);
+        }else{
+            int resto = taza - c.getCantidadActual();
+            c.setCantidadActual(0);
+            System.out.println("Se sirvio la taza con "+resto+" cm3 y la cafetera quedo vacia");
+        }
     }
     
     public void agregarCafe(int cantCafe){
