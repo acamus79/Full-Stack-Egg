@@ -21,7 +21,7 @@ package ej06.entidades;
  */
 public class Cafetera {
     
-    private int capacidadMaxima;
+    private int capacidadMaxima=120;
     private int cantidadActual;
 
     public Cafetera() {
