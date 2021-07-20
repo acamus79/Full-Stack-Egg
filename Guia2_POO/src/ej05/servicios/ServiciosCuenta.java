@@ -29,32 +29,39 @@ public class ServiciosCuenta {
     int numeroCuenta;
     long dni;
     double saldoActual, interes;
-    Cuenta c = new Cuenta();
+    Cuenta c1 = new Cuenta();
 
     public Cuenta crearCuenta() {
         System.out.println("Ingrese el Nro de la Cuenta");
         numeroCuenta = leer.nextInt();
-        c.setNumeroCuenta(numeroCuenta);
+        c1.setNumeroCuenta(numeroCuenta);
         System.out.println("Ingrese el DNI del titular de la Cuenta");
         dni = leer.nextLong();
-        c.setDni(dni);
+        c1.setDni(dni);
         System.out.println("Ingrese el Saldo");
         saldoActual = leer.nextDouble();
-        c.setSaldoActual(saldoActual);
+        c1.setSaldoActual(saldoActual);
         System.out.println("Ingrese el Interes de la cuenta");
         interes = leer.nextDouble();
-        c.setInteres(interes);
-        return c;
+        c1.setInteres(interes);
+        return c1;
     }
 
-    public void retiro(double retiro) {
-        
-        if(c.getSaldoActual()>retiro){
-            saldoActual= c.getSaldoActual()- retiro;
-            c.setSaldoActual(saldoActual);    
-        }else {
+    public void retiro(Cuenta c, double retiro) {
+
+        if (c.getSaldoActual() > retiro) {
+            saldoActual = c.getSaldoActual() - retiro;
+            c.setSaldoActual(saldoActual);
+        } else {
             c.setSaldoActual(0);
         }
-        
     }
+
+    public void extraccionRapida(Cuenta c) {
+        saldoActual = c.getSaldoActual();
+        double retiro = saldoActual * .20;
+        c.setSaldoActual(saldoActual - retiro);
+        System.out.println("Monto a retirar $ " + retiro);
+    }
+
 }
