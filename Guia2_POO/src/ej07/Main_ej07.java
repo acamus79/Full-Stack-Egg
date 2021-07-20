@@ -52,14 +52,21 @@ public class Main_ej07 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         ServiciosPersona sp = new ServiciosPersona();
+
         Persona p1 = sp.crearPersona();
+        int p1imc = sp.calcularIMC(p1);
+
         Persona p2 = sp.crearPersona();
+        int p2imc = sp.calcularIMC(p2);
+
         Persona p3 = sp.crearPersona();
+        int p3imc = sp.calcularIMC(p3);
+
         Persona p4 = sp.crearPersona();
-        
-        
+        int p4imc = sp.calcularIMC(p4);
+
     }
-    
+
 }
