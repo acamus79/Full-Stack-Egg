@@ -63,4 +63,9 @@ public class Cuenta {
         this.interes = interes;
     }
 
+    @Override
+    public String toString() {
+        return "Cuenta{" + "numeroCuenta=" + numeroCuenta + ", dni=" + dni + ", saldoActual=" + saldoActual + ", interes=" + interes + '}';
+    }
+
 }
