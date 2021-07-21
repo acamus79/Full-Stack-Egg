@@ -15,26 +15,31 @@ import java.util.Scanner;
 public class ServiciosRectangulo {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    int base, altura;
+    
 
     public Rectangulo crearRectangulo() {
         System.out.println("Ingresa la base del rectangulo");
-        base = leer.nextInt();
+        int base = leer.nextInt();
         System.out.println("Ingresa la altura del rectangulo");
-        altura = leer.nextInt();
+        int altura = leer.nextInt();
         return new Rectangulo(base, altura);
     }
 
-    public int superficie() {
-
+    public int superficie(Rectangulo r) {
+        int base = r.getBase();
+        int altura = r.getAltura();
         return base * altura;
     }
 
-    public int perimetro() {
+    public int perimetro(Rectangulo r) {
+        int base = r.getBase();
+        int altura = r.getAltura();
         return (base + altura) * 2;
     }
 
-    public void dibujar(){
+    public void dibujar(Rectangulo r){
+        int base = r.getBase();
+        int altura = r.getAltura();
         int i=0,j=0;
         while(i<altura) {
             while(j<base) {
