@@ -2,18 +2,6 @@
  * Sin licencia.
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
-
-
-
-
-
-• Método  reemplazar(String  letra),  deberá  reemplazar  todas  las  letras  
-“a”  que  se encuentren  en  la  frase,  por  algún  otro  carácter  
-seleccionado  por  el  usuario  y mostrar la frase resultante. 
-
-• Método contiene(String letra), deberá comprobar si la frase contiene una 
-letra que ingresa el usuario y devuelve verdadero si la contiene y falso si no
-
  */
 package ej08.servicios;
 
@@ -100,5 +88,27 @@ resultante. */
         String cadena = c.getFrase();
         String nuevaFrase = cadena.concat(frase);
         System.out.println("LA NUEVA FRASE ES: \n"+nuevaFrase);
+    }
+    
+/*Método  reemplazar(String  letra),  deberá  reemplazar  todas  las  letras  
+“a”  que  se encuentren  en  la  frase,  por  algún  otro  carácter  
+seleccionado  por  el  usuario  y mostrar la frase resultante.*/
+    public void reemplazar(Cadena f, char c){
+        String frase = f.getFrase(); 
+        char[] cambio = frase.toCharArray();//metodo toCharArray
+	
+	//recorro el vector y voy cambiando si coincide con 'a'
+	       for (int i = 0; i < cambio.length; i++) {
+                   if (cambio[i]=='a')
+                       cambio[i]=c;
+        }
+	frase = new String(cambio);//le asigno a frase lo que tiene el vector
+	System.out.println(frase);
+    }
+    
+/*Método contiene(String letra), deberá comprobar si la frase contiene una 
+letra que ingresa el usuario y devuelve verdadero si la contiene y falso si no*/
+    public void contiene(Cadena f,char c){
+        
     }
 }
