@@ -96,5 +96,9 @@ frase que compone la clase con otra nueva frase ingresada por el usuario.*/
 /*Método unirFrases(String frase), deberá unir la frase contenida en la clase 
 Cadena con  una nueva frase ingresada por el usuario y mostrar la frase 
 resultante. */    
-    
+    public void unirFrases(Cadena c, String frase){
+        String cadena = c.getFrase();
+        String nuevaFrase = cadena.concat(frase);
+        System.out.println("LA NUEVA FRASE ES: \n"+nuevaFrase);
+    }
 }
