@@ -35,10 +35,10 @@ public class Main_ej04 {
         
         ServiciosRectangulo sr = new ServiciosRectangulo();
         Rectangulo r = sr.crearRectangulo();
-        sr.dibujar();
+        sr.dibujar(r);
         
-        System.out.println("La Superficie del rectangulo es "+sr.superficie());
-        System.out.println("El perimetro del rectangulo es "+sr.perimetro());
+        System.out.println("La Superficie del rectangulo es "+sr.superficie(r));
+        System.out.println("El perimetro del rectangulo es "+sr.perimetro(r));
     }
 
 }
