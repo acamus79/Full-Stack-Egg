@@ -3,10 +3,7 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
 
-Método  vecesRepetido(String  letra),  deberá  recibir  por  parámetro  un  
-carácter ingresado  por  el  usuario  y  contabilizar  cuántas  veces  se  
-repite  el  carácter  en  la frase, por ejemplo:  
-Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.
+
 
 • Método compararLongitud(String frase), deberá comparar la longitud de la
 frase que compone la clase con otra nueva frase ingresada por el usuario. 
@@ -59,7 +56,6 @@ frase invertida por pantalla. Por ejemplo: Entrada: "casa blanca",
 Salida: "acnalb asac".*/ 
     public void invertirFrase(Cadena f){
         String frase = f.getFrase().toLowerCase();    
-        
         char[] cambio = frase.toCharArray();//metodo toCharArray
 	int inicio = 0;
 	int fin = cambio.length-1;
@@ -74,6 +70,25 @@ Salida: "acnalb asac".*/
 	    }
 	frase = new String(cambio);//le asigno a frase lo que tiene el vector
 	System.out.println(frase);
+    }
+
+/* Método  vecesRepetido(String  letra),  deberá  recibir  por  parámetro  un  
+carácter ingresado  por  el  usuario  y  contabilizar  cuántas  veces  se  
+repite  el  carácter  en  la frase, por ejemplo:  
+Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.*/
+    public void vecesRepetido(Cadena c, char letra){
+        String frase = c.getFrase().toLowerCase();    
+        char[] cuenta = frase.toCharArray();//metodo toCharArray
+        int contador=0;
+        for (int i = 0; i < cuenta.length; i++) {
+            if (cuenta[i]==letra)
+                contador++;
+        }
+        if (contador!=0){
+        System.out.println(letra+" Se repite "+contador+" veces en la palabra y/o frase "+frase);
+        }else{
+            System.out.println(letra+" NO se repite en la palabra y/o frase "+frase);
+        }
     }
     
 }
