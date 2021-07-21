@@ -20,8 +20,8 @@ package ej08.entidades;
 public class Cadena {
     
     private String frase;
-    private int longFrase = frase.length();
-
+    private int longFrase;
+        
     public Cadena(String frase) {
         this.frase = frase;
     }
@@ -36,7 +36,7 @@ public class Cadena {
     }
 
     public int getLongFrase() {
-        return longFrase;
+        return frase.length();
     }
 
     @Override
