@@ -65,7 +65,7 @@ public class ServiciosCafetera {
         if (c.getCapacidadMaxima()<=6 && cantCafe>25){
             System.out.println("para un cafetera de 6 o menos tazas se recomienda 20 gr de cafe");
         }else if(c.getCapacidadMaxima()<=12 && cantCafe>45){
-            System.out.println("para un cafetera de 6 o menos tazas se recomienda 40 gr de cafe");
+            System.out.println("para un cafetera de entre 6 y 12 tazas se recomienda 40 gr de cafe");
         }else{
             c.setCantidadCafe(cantCafe);
         }
