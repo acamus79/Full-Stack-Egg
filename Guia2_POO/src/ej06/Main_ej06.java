@@ -44,6 +44,7 @@ public class Main_ej06 {
         Cafetera c1 = sc.crearCafetera();
         
         sc.llenarCafetera(c1);
+        sc.agregarCafe(c1,40);
         sc.servirTaza(c1);
         
     }
