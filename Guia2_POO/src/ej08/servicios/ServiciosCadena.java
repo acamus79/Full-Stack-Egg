@@ -5,8 +5,7 @@
 
 
 
-• Método compararLongitud(String frase), deberá comparar la longitud de la
-frase que compone la clase con otra nueva frase ingresada por el usuario. 
+
 
 • Método unirFrases(String frase), deberá unir la frase contenida en la clase 
 Cadena con  una nueva frase ingresada por el usuario y mostrar la frase 
@@ -89,6 +88,13 @@ Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.*/
         }else{
             System.out.println(letra+" NO se repite en la palabra y/o frase "+frase);
         }
+    }
+    
+/*Método compararLongitud(String frase), deberá comparar la longitud de la
+frase que compone la clase con otra nueva frase ingresada por el usuario.*/ 
+    public void compararLongitud(Cadena c, String str){
+        System.out.println("Longitud de la Cadena "+c.getLongFrase());
+        System.out.println("Longitud de la Frase "+str.length());
     }
     
 }
