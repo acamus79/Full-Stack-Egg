@@ -40,6 +40,10 @@ letra que ingresa el usuario y devuelve verdadero si la contiene y falso si no.
 
 package ej08;
 
+import ej08.entidades.Cadena;
+import ej08.servicios.ServiciosCadena;
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -51,6 +55,20 @@ public class Main_ej08 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println("Ingresa la palabra o frase");
+        Cadena cad = new Cadena(leer.next());
+        ServiciosCadena sc = new ServiciosCadena();
+        
+        
+        
+        
+        System.out.println("Ingrese la letra a buscar");
+        if (sc.contiene(cad, leer.next())) {
+            System.out.println("La frase Si contiene la letra");
+        } else {
+            System.out.println("La frase No contiene la letra");
+        }
     }
 
 }

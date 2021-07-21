@@ -108,7 +108,13 @@ seleccionado  por  el  usuario  y mostrar la frase resultante.*/
     
 /*Método contiene(String letra), deberá comprobar si la frase contiene una 
 letra que ingresa el usuario y devuelve verdadero si la contiene y falso si no*/
-    public void contiene(Cadena f,char c){
-        
+    public boolean contiene(Cadena f,String c){
+        String frase = f.getFrase();
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.substring(i, (i + 1)).equals(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
