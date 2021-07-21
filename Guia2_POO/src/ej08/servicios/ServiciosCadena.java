@@ -7,10 +7,6 @@
 
 
 
-• Método unirFrases(String frase), deberá unir la frase contenida en la clase 
-Cadena con  una nueva frase ingresada por el usuario y mostrar la frase 
-resultante. 
-
 • Método  reemplazar(String  letra),  deberá  reemplazar  todas  las  letras  
 “a”  que  se encuentren  en  la  frase,  por  algún  otro  carácter  
 seleccionado  por  el  usuario  y mostrar la frase resultante. 
@@ -96,5 +92,9 @@ frase que compone la clase con otra nueva frase ingresada por el usuario.*/
         System.out.println("Longitud de la Cadena "+c.getLongFrase());
         System.out.println("Longitud de la Frase "+str.length());
     }
+
+/*Método unirFrases(String frase), deberá unir la frase contenida en la clase 
+Cadena con  una nueva frase ingresada por el usuario y mostrar la frase 
+resultante. */    
     
 }
