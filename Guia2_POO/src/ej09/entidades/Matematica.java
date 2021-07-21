@@ -2,6 +2,11 @@
  * Sin licencia.
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
+
+Realizar una clase llamada Matemática que tenga como atributos dos números 
+reales con los cuales se realizarán diferentes operaciones matemáticas. La 
+clase deber tener un  constructor  vacío,  parametrizado  y  get  y  set.
+
  */
 package ej09.entidades;
 
