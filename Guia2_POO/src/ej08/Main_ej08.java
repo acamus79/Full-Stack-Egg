@@ -37,7 +37,6 @@ seleccionado  por  el  usuario  y mostrar la frase resultante.
 letra que ingresa el usuario y devuelve verdadero si la contiene y falso si no. 
 
  */
-
 package ej08;
 
 import ej08.entidades.Cadena;
@@ -60,8 +59,25 @@ public class Main_ej08 {
         Cadena cad = new Cadena(leer.next());
         ServiciosCadena sc = new ServiciosCadena();
         
+        sc.mostrarVocales(cad);
         
+        sc.invertirFrase(cad);
         
+        System.out.println("Ingrese la letra a buscar");
+        String let = leer.next().toLowerCase();
+        char letra = let.charAt(0);
+        sc.vecesRepetido(cad, letra);
+        
+        System.out.println("Ingrese frase a comparar la longitud");
+        sc.compararLongitud(cad, leer.next());
+        
+        System.out.println("Ingrese la frase para unir");
+        sc.unirFrases(cad, leer.next());
+        
+        System.out.println("Ingrese la letra para remplazar");
+        let = leer.next().toLowerCase();
+        letra = let.charAt(0);
+        sc.reemplazar(cad, letra);
         
         System.out.println("Ingrese la letra a buscar");
         if (sc.contiene(cad, leer.next())) {
