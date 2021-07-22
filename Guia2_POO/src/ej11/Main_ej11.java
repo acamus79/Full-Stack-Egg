@@ -36,30 +36,28 @@ public class Main_ej11 {
      */
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        try {
-
-            System.out.println("Ingrese el Dia (dd)");
-            int d = leer.nextInt();
-            System.out.println("Ingrese el Mes(mm)");
-            int m = leer.nextInt();
-            System.out.println("Ingrese el Año (aaa)");
-            int a = leer.nextInt();
-
-            String str = new String();
-            str = String.valueOf(a) + "/" + String.valueOf(m) + "/" + String.valueOf(d);
-
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
-
-            Date fecha = formato.parse(str);
-            System.out.println(fecha.toString());
-            Date ahora = new Date();
-            System.out.println(ahora.toString());
-            int year = ahora.getYear() - fecha.getYear();
-            System.out.println("Edad: "+year);
-            
-        } catch (ParseException ex) {
-            Logger.getLogger(Main_ej11.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        System.out.println("Ingrese el Dia (dd)");
+        int d = leer.nextInt();
+        System.out.println("Ingrese el Mes(mm)");
+        int m = leer.nextInt();
+        System.out.println("Ingrese el Año (aa)");
+        int a = leer.nextInt();
+        /*
+        String str = new String();
+        str = String.valueOf(a) + "/" + String.valueOf(m) + "/" + String.valueOf(d);
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        Date fecha = formato.parse(str);
+        */
+        
+        //por alguna razon le tengo que restar 1 al mes
+        Date fecha = new Date(a, m-1, d);
+        
+        System.out.println(fecha.toString());
+        Date ahora = new Date();
+        System.out.println(ahora.toString());
+        int year = ahora.getYear() - fecha.getYear();
+        System.out.println("Edad: "+year);
         
         
     }
