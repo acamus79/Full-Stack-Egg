@@ -16,6 +16,9 @@ de  50 elementos y el combinado de 20.
 
 package ej10;
 
+import ej10.entidades.Arreglo;
+import ej10.servicios.ServiciosArreglo;
+
 /**
  *
  * @author Adrian E. Camus
@@ -27,6 +30,22 @@ public class Main_ej10 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        
+        ServiciosArreglo sa = new ServiciosArreglo();
+        Arreglo arregloA = sa.crearArreglo();
+        
+        sa.llenaArregloRandom(arregloA);
+        System.out.println("Arreglo creado");
+        sa.mostrarArreglo(arregloA);
+        System.out.println("Arreglo Ordenado");
+        sa.ordenaArreglo(arregloA);
+        sa.mostrarArreglo(arregloA);
+        
+        Arreglo arregloB = sa.crearArreglo();
+        
+        
+        
+        
     }
 
 }

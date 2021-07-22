@@ -19,8 +19,8 @@ public class Arreglo {
     }
 
       
-    public Arreglo(float a[]) {
-        this.arreglo = a;
+    public Arreglo(int n) {
+        this.n = n;
         
     }
 
