@@ -27,7 +27,7 @@ public class ServiciosArreglo {
         for (int i = 0; i < a.getN(); i++) {
             System.out.print("[" + a.getArreglo()[i] + "] ");
         }
-        System.out.println("");
+        System.out.println("\n");
     }
 
     public void llenaArregloRandom(Arreglo a) {
@@ -47,14 +47,19 @@ public class ServiciosArreglo {
         a.setArreglo(v);
      }
     
-    public void copiaContenido(Arreglo a, Arreglo b, int n){
-        float v1[] = new float[n];
-        float v2[] = new float[b.getN()];
+    public void copiaContenido(Arreglo a, Arreglo b){
         
-        for (int i = 0; i < v1.length; i++) {
-             v1[i] = a.getArreglo()[i];
-        }
-        
+        System.out.println("Ingrese hasta que indice desea copiar del Arreglo A al Arreglo B");
+        int n = leer.nextInt();
+        //declaro un vector que lo voy a usar para setear el Arreglo
+        float v[] = new float[b.getN()];
+        //Lleno el vector 2 con 0.5
+        Arrays.fill(v, 0.5F);
+        //copio los n primeros numeros del Arreglo A al vector
+        System.arraycopy(a.getArreglo(), 0, v, 0, n);
+        //seteo el contenido del vector en el Arreglo B
+        b.setArreglo(v);
+                
     }
     
 }
