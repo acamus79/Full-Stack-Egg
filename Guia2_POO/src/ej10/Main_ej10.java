@@ -35,16 +35,18 @@ public class Main_ej10 {
         Arreglo arregloA = sa.crearArreglo();
         
         sa.llenaArregloRandom(arregloA);
-        System.out.println("Arreglo creado");
+        System.out.println("Arreglo A");
         sa.mostrarArreglo(arregloA);
-        System.out.println("Arreglo Ordenado");
+        System.out.println("Arreglo A Ordenado");
         sa.ordenaArreglo(arregloA);
         sa.mostrarArreglo(arregloA);
         
         Arreglo arregloB = sa.crearArreglo();
+        sa.copiaContenido(arregloA, arregloB);
+        System.out.println("Arreglo B");
+        sa.mostrarArreglo(arregloB);
         
-        
-        
+               
         
     }
 
