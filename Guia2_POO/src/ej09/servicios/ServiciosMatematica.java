@@ -41,10 +41,10 @@ la  clase elevado al menor número. Previamente se deben redondear ambos valores
                 
         if (may>num1){
             System.out.println("La potencia del mayor valor de la clase "
-                    + "elevado al menor numero es: "+ Math.pow(num2, num1));
+                    + "elevado al menor numero es: "+ Math.pow(num1, num2));
         }else{
             System.out.println("La potencia del mayor valor de la clase "
-                    + "elevado al menor numero es: "+ Math.pow(num1, num2));
+                    + "elevado al menor numero es: "+ Math.pow(num2, num1));
         }
     }
     

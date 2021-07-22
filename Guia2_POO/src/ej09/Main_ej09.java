@@ -24,6 +24,9 @@ absoluto del número.
 
 package ej09;
 
+import ej09.entidades.Matematica;
+import ej09.servicios.ServiciosMatematica;
+
 /**
  *
  * @author Adrian E. Camus
@@ -35,6 +38,19 @@ public class Main_ej09 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        //Constructor Vacio de la clase Matematica
+        Matematica m = new Matematica();
+        //Utilizo random en dos variables para setear
+        //seteos de "m" con n1 y n2
+        m.setNumero1(Math.random()*60+1);
+        m.setNumero2(Math.random()*60+1);
+        System.out.println(m);
+        
+        //Constructor Vacio de la clase ServiciosMatematica
+        ServiciosMatematica sm = new ServiciosMatematica();
+        sm.calcularPotencia(m);
+        sm.calculaRaiz(m);
+                
     }
 
 }
