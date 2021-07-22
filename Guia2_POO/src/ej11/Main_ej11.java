@@ -54,6 +54,8 @@ public class Main_ej11 {
             System.out.println(fecha.toString());
             Date ahora = new Date();
             System.out.println(ahora.toString());
+            int year = ahora.getYear() - fecha.getYear();
+            System.out.println("Edad: "+year);
             
         } catch (ParseException ex) {
             Logger.getLogger(Main_ej11.class.getName()).log(Level.SEVERE, null, ex);
