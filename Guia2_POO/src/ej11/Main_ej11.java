@@ -39,16 +39,23 @@ public class Main_ej11 {
         int m = leer.nextInt();
         System.out.println("Ingrese el Año (aa)");
         int a = leer.nextInt();
-        /*
+        
+        /* Usando una cadena y SimpleDateFormat
         String str = new String();
         str = String.valueOf(a) + "/" + String.valueOf(m) + "/" + String.valueOf(d);
         SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         Date fecha = formato.parse(str);
-         */
-
+        
+        Otra manera
         //por alguna razon le tengo que restar 1 al mes
-        Date fecha = new Date(a, m - 1, d);
-
+        Date fecha = new Date(a-1900, m - 1, d);
+         */
+        //usando los set de Date
+        Date fecha = new Date();
+        fecha.setDate(d);
+        fecha.setMonth(m-1);
+        fecha.setYear(a-1900);
+        
         System.out.println(fecha.toString());
         Date ahora = new Date();
         System.out.println(ahora.toString());
