@@ -10,40 +10,40 @@ package ej03.entidades;
  * @author Adrian E. Camus
  */
 public class Raiz {
-    private int a;
-    private int b;
-    private int c;
+    private double a;
+    private double b;
+    private double c;
 
     public Raiz() {
     }
 
-    public Raiz(int a, int b, int c) {
+    public Raiz(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
-    public int getA() {
+    public double getA() {
         return a;
     }
 
-    public void setA(int a) {
+    public void setA(double a) {
         this.a = a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
-    public void setB(int b) {
+    public void setB(double b) {
         this.b = b;
     }
 
-    public int getC() {
+    public double getC() {
         return c;
     }
 
-    public void setC(int c) {
+    public void setC(double c) {
         this.c = c;
     }
 
@@ -52,7 +52,7 @@ Método getDiscriminante(): devuelve el valor del discriminante (double). El
 discriminante tiene la siguiente formula: (b^2)-4*a*c     
 */    
   
-    public int getDiscriminante(){
+    public double getDiscriminante(){
         return (b*b)-(4*a*c);
     }
     
