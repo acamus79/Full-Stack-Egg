@@ -18,6 +18,9 @@ Ejemplo fecha actual: Date fechaActual = new Date();
  */
 package ej11;
 
+import java.util.Date;
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -29,8 +32,17 @@ public class Main_ej11 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        
+        System.out.println("Ingrese el Dia (dd)");
+        int d = leer.nextInt();
+        System.out.println("Ingrese el Mes(mm)");
+        int m = leer.nextInt();
+        System.out.println("Ingrese el Año (aaa)");
+        int a = leer.nextInt();
         
         
+        Date ahora = new Date();
         
         
     }
