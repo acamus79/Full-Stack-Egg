@@ -16,6 +16,9 @@ http://www.matematicatuya.com/GRAFICAecuaciones/S1a.html.
 
 package ej02;
 
+import ej02.entidades.Puntos;
+import ej02.servicios.ServiciosPuntos;
+
 /**
  *
  * @author Adrian E. Camus
@@ -27,6 +30,11 @@ public class Main_ej02 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        ServiciosPuntos sp = new ServiciosPuntos();
+        Puntos p1 = sp.crearPuntos();
+        
+        sp.calculaDistancia(p1);
+        
     }
 
 }
