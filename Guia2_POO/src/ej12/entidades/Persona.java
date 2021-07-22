@@ -2,6 +2,11 @@
  * Sin licencia.
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
+
+Implemente la clase Persona. Una persona tiene un nombre y una fecha de
+nacimiento (Tipo Date), constructor vacío, constructor parametrizado, 
+get y set. Y los siguientes métodos: 
+
  */
 
 package ej12.entidades;
