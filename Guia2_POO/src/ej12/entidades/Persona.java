@@ -6,10 +6,19 @@
 
 package ej12.entidades;
 
+import java.util.Date;
+
 /**
  * 
  * @author Adrian E. Camus
  */
 public class Persona {
 
+    private String nombre;
+    private Date fechaNac;
+    
+    
+    
+    
+    
 }
