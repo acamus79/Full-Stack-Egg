@@ -18,12 +18,8 @@ Ejemplo fecha actual: Date fechaActual = new Date();
  */
 package ej11;
 
-
-
 import java.util.Date;
 import java.util.Scanner;
-
-
 
 /**
  *
@@ -36,7 +32,7 @@ public class Main_ej11 {
      */
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        
+
         System.out.println("Ingrese el Dia (dd)");
         int d = leer.nextInt();
         System.out.println("Ingrese el Mes(mm)");
@@ -48,18 +44,17 @@ public class Main_ej11 {
         str = String.valueOf(a) + "/" + String.valueOf(m) + "/" + String.valueOf(d);
         SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         Date fecha = formato.parse(str);
-        */
-        
+         */
+
         //por alguna razon le tengo que restar 1 al mes
-        Date fecha = new Date(a, m-1, d);
-        
+        Date fecha = new Date(a, m - 1, d);
+
         System.out.println(fecha.toString());
         Date ahora = new Date();
         System.out.println(ahora.toString());
         int year = ahora.getYear() - fecha.getYear();
-        System.out.println("Edad: "+year);
-        
-        
+        System.out.println("Edad: " + year);
+
     }
 
 }
