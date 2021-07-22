@@ -28,6 +28,9 @@ anterior.
  */
 package ej12;
 
+import ej12.entidades.Persona;
+import ej12.servicios.ServiciosPersona;
+
 /**
  *
  * @author Adrian E. Camus
@@ -39,6 +42,14 @@ public class Main_ej12 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ServiciosPersona sp = new ServiciosPersona();
+        Persona p1 = sp.crearPersona();
+        
+        sp.mostrarPersona(p1);
+        System.out.println("Es menor de 25 años: "+sp.menorQue(p1, 25));
+        sp.calcularEdad(p1);
+        
+        
     }
     
 }
