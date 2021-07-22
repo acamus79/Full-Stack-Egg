@@ -34,21 +34,21 @@ public class ServiciosArreglo {
         float v[] = new float[a.getN()];
         float num;
         for (int i = 0; i < v.length; i++) {
-            num = (float) (Math.random()*60+1);    
+            num = (float) (Math.random() * 60 + 1);
             v[i] = num;
         }
         a.setArreglo(v);
     }
 
-    public void ordenaArreglo(Arreglo a){
+    public void ordenaArreglo(Arreglo a) {
         float v[] = new float[a.getN()];
         v = a.getArreglo();
         Arrays.sort(v);
         a.setArreglo(v);
-     }
-    
-    public void copiaContenido(Arreglo a, Arreglo b){
-        
+    }
+
+    public void copiaContenido(Arreglo a, Arreglo b) {
+
         System.out.println("Ingrese hasta que indice desea copiar del Arreglo A al Arreglo B");
         int n = leer.nextInt();
         //declaro un vector que lo voy a usar para setear el Arreglo
@@ -59,7 +59,7 @@ public class ServiciosArreglo {
         System.arraycopy(a.getArreglo(), 0, v, 0, n);
         //seteo el contenido del vector en el Arreglo B
         b.setArreglo(v);
-                
+
     }
-    
+
 }
