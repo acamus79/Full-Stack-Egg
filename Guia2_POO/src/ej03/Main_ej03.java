@@ -23,10 +23,10 @@ public class Main_ej03 {
         
         ServiciosOperacion so = new ServiciosOperacion();
         Operacion op = so.crearOperacion();
-        System.out.println("la suma de los numeros es "+so.sumar());
-        System.out.println("la resta de los numeros es "+so.restar());
-        System.out.println("el producto es "+so.multiplicar());
-        System.out.println("la division es "+so.dividir());
+        System.out.println("la suma de los numeros es "+so.sumar(op));
+        System.out.println("la resta de los numeros es "+so.restar(op));
+        System.out.println("el producto es "+so.multiplicar(op));
+        System.out.println("la division es "+so.dividir(op));
     }
 
 }
