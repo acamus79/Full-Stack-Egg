@@ -28,5 +28,17 @@ public class ServiciosPuntos {
         return new Puntos(x1,y1,x2,y2);
     }
     
-    
+    public void calculaDistancia(Puntos p){
+/*
+La distancia es igual a la Raiz cuadrada de la suma de la
+potencia cuadrada de la resta de x2 - x1, mas la
+potencia cuadrada de la resta de y2-y1
+        d = √(x2-x1)^2+(y2-y1)^2
+*/
+    int f1 = (int)Math.pow ((p.getX2()-p.getX1()),2);
+        int f2 = (int)Math.pow ((p.getY2()-p.getY1()),2);
+        int dis =(int)Math.sqrt(f1+f2);
+        
+        System.out.println("La distancia entre los puntos es "+dis);
+    }
 }
