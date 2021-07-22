@@ -39,6 +39,6 @@ potencia cuadrada de la resta de y2-y1
         int f2 = (int)Math.pow ((p.getY2()-p.getY1()),2);
         int dis =(int)Math.sqrt(f1+f2);
         
-        System.out.println("La distancia entre los puntos es "+dis);
+        System.out.println("La distancia entre los puntos es: "+dis);
     }
 }
