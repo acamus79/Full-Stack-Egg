@@ -12,6 +12,10 @@ como calcular la distancia entre dos puntos consulte el siguiente link:
 
 http://www.matematicatuya.com/GRAFICAecuaciones/S1a.html.
 
+***Nota Personal: ** no deberia ser una clase puntos sino PUNTO en singular con
+dos coordenadas, y para hacer lo mismo se deberian crear dos objetos Punto y 
+ahi comparar las coordenadas y calcular la distancia.
+
  */
 
 package ej02;
