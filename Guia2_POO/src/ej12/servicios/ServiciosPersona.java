@@ -52,7 +52,9 @@ public class ServiciosPersona {
     }
     
     public void calcularEdad (Persona p){
-        
+        Date ahora = new Date();
+        int year = ahora.getYear() - p.getFechaNac().getYear();
+        System.out.println("Edad: " + year);
     }
     
     
