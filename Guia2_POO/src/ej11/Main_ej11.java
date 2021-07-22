@@ -18,8 +18,12 @@ Ejemplo fecha actual: Date fechaActual = new Date();
  */
 package ej11;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,20 +35,31 @@ public class Main_ej11 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        
-        System.out.println("Ingrese el Dia (dd)");
-        int d = leer.nextInt();
-        System.out.println("Ingrese el Mes(mm)");
-        int m = leer.nextInt();
-        System.out.println("Ingrese el Año (aaa)");
-        int a = leer.nextInt();
-        
-        
-        Date ahora = new Date();
+        try {
+
+            System.out.println("Ingrese el Dia (dd)");
+            int d = leer.nextInt();
+            System.out.println("Ingrese el Mes(mm)");
+            int m = leer.nextInt();
+            System.out.println("Ingrese el Año (aaa)");
+            int a = leer.nextInt();
+
+            String str = new String();
+            str = String.valueOf(a) + "/" + String.valueOf(m) + "/" + String.valueOf(d);
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+
+            Date fecha = formato.parse(str);
+            System.out.println(fecha.toString());
+            Date ahora = new Date();
+            System.out.println(ahora.toString());
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(Main_ej11.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }
-    
+
 }
