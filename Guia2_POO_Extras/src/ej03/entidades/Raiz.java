@@ -46,6 +46,14 @@ public class Raiz {
     public void setC(int c) {
         this.c = c;
     }
-    
+
+/*
+Método getDiscriminante(): devuelve el valor del discriminante (double). El 
+discriminante tiene la siguiente formula: (b^2)-4*a*c     
+*/    
+  
+    public int getDiscriminante(){
+        return (b*b)-(4*a*c);
+    }
     
 }
