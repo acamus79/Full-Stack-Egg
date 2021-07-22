@@ -40,8 +40,7 @@ public class Main_ej09 {
         // El Código va AQUI!!!
         //Constructor Vacio de la clase Matematica
         Matematica m = new Matematica();
-        //Utilizo random en dos variables para setear
-        //seteos de "m" con n1 y n2
+        //Utilizo random en los setters de la clase Matematica
         m.setNumero1(Math.random()*60+1);
         m.setNumero2(Math.random()*60+1);
         System.out.println(m);
