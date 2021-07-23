@@ -3,17 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
 
- 
-
-
-• Método obtenerRaiz(): llama a tieneRaiz() y si devolvió́true imprime una única raíz. 
-Es en el caso en que se tenga una única solución posible. 
-
-• Método calcular(): esté método llamará tieneRaices() y a tieneRaíz(), y mostrará por 
-pantalla las posibles soluciones que tiene nuestra ecuación con los métodos 
-obtenerRaices() o obtenerRaiz(), según lo que devuelvan nuestros métodos y en 
-caso de no existir solución, se mostrará un mensaje. 
-
 Nota: Formula ecuación 2o grado: (-b±√((b^2)-(4*a*c)))/(2*a) Solo varia el signo 
 delante de -b
 
@@ -85,6 +74,34 @@ posibles soluciones.
         }
         
     }
-    
-    
+/*
+Método obtenerRaiz(): llama a tieneRaiz() y si devolvió́true imprime una 
+única raíz. Es en el caso en que se tenga una única solución posible.
+*/    
+     private static void obtenerRaiz(Raiz r){
+         if (tieneRaiz(r)==true){
+            System.out.println("La ecuacion tiene una solucion");
+            double res1 = (-r.getB())+(Math.sqrt(r.getDiscriminante()))/2*r.getA();
+            System.out.println("Solucion: "+res1);
+            
+        }
+         
+         
+     }
+/*
+Método calcular(): esté método llamará tieneRaices() y a tieneRaíz(), y 
+mostrará por pantalla las posibles soluciones que tiene nuestra ecuación
+con los métodos obtenerRaices() o obtenerRaiz(), según lo que devuelvan 
+nuestros métodos y en caso de no existir solución, se mostrará un mensaje.
+*/
+     public void calcular(Raiz r){
+         if(tieneRaices(r)==true){
+             obtenerRaices(r);
+         }else if(tieneRaiz(r)==true) {
+             obtenerRaiz(r);
+         }else{
+             System.out.println("La ecuacion no tiene solucion");
+         }
+         
+     }
 }
