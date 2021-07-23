@@ -58,6 +58,7 @@ public class ServiciosNIF {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     
     public NIF crearNIF(){
+        System.out.println("Ingrese el DNI");
         long dni = leer.nextLong();
         return new NIF(dni,calculaNIF(dni));
     }
@@ -67,9 +68,11 @@ public class ServiciosNIF {
         String vector[] = {"T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"};
 
     //obtengo el DNI del objeto y al dividirlo por 23 tengo el indice del vector        
-        int indice = (int) dni/23;
+        int indice = (int) dni%23;
         return vector[indice];
     }
             
-
+    public void mostrarNIF(NIF n){
+        System.out.println("NIF: "+n.getDnis()+"-"+n.getLetraNIF());
+    }
 }

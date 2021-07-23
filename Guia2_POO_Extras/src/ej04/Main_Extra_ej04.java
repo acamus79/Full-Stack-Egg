@@ -70,7 +70,7 @@ public class Main_Extra_ej04 {
         
         ServiciosNIF sn = new ServiciosNIF();
         NIF n1 = sn.crearNIF();
-        n1.toString();
+        sn.mostrarNIF(n1);
                         
     }
     
