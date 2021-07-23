@@ -2,13 +2,6 @@
  * Sin licencia.
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
-
-
-
-• Método juego(): el método juego se encargará de llamar todos los métodos
-previamente mencionados e informará cuando el usuario descubra toda la palabra
-o se quede sin intentos. Este método se llamará en el main.
-
  */
 package ej06.servicios;
 
@@ -29,7 +22,7 @@ letra, quedando cada letra de la palabra en un índice del vector. Y también,
 guarda en cantidad de jugadas máximas, el valor que ingresó el usuario y 
 encontradas en 0.
      */
-    public Ahorcado crearJuego() {
+    private static Ahorcado crearJuego() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingresa la Palabra para adivinar");
         String palabra = leer.next();
@@ -99,4 +92,24 @@ Método intentos(): para mostrar cuantas oportunidades le queda al jugador.*/
         System.out.println("Quedan " + a.getJugadas() + " intentos");
     }
 
+    /*
+Método juego(): el método juego se encargará de llamar todos los métodos
+previamente mencionados e informará cuando el usuario descubra toda la palabra
+o se quede sin intentos. Este método se llamará en el main.*/
+    public void juego(Ahorcado a) {
+        while (a.getJugadas() > 0) {
+            encontradas(a);
+            longitud(a);
+            intentos(a);
+            if (a.getJugadas() > 1 && a.getLetrasEncontradas() == a.getPalabra().length) {
+                System.out.println("MUY BIEN Ganaste!");
+                break;
+            }
+            if (a.getJugadas() == 0) {
+                System.out.println("Ahorcado!");
+                break;
+            }
+
+        }
+    }
 }
