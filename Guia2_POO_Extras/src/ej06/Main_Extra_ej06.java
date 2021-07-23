@@ -40,6 +40,9 @@ o se quede sin intentos. Este método se llamará en el main.
  */
 package ej06;
 
+import ej06.entidades.Ahorcado;
+import ej06.servicios.ServiciosAhorcado;
+
 /**
  *
  * @author Adrian E. Camus
@@ -51,6 +54,10 @@ public class Main_Extra_ej06 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ServiciosAhorcado sa = new ServiciosAhorcado();
+        Ahorcado a1 = sa.crearJuego();
+        sa.juego(a1);
+               
     }
     
 }
