@@ -12,13 +12,15 @@ Definir los siguientes métodos con los parámetros que sean necesarios:
 
 package ej06.entidades;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author Adrian E. Camus
  */
 public class Ahorcado {
     
-    private String palabra[];
+    private ArrayList palabra= new ArrayList();
     private int letrasEncontradas;
     private int jugadas;
 
@@ -29,8 +31,11 @@ public class Ahorcado {
         
     }
 
-    public Ahorcado(String[] palabra, int letrasEncontradas, int jugadas) {
-        this.palabra = palabra;
+    public Ahorcado(String letra, int letrasEncontradas, int jugadas) {
+        for (int i = 0; i < letra.length(); i++) {
+            this.palabra.add(letra.substring(i, i));
+        }
+        
         this.letrasEncontradas = letrasEncontradas;
         this.jugadas = jugadas;
     }
