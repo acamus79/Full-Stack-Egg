@@ -84,9 +84,7 @@ Método obtenerRaiz(): llama a tieneRaiz() y si devolvió́true imprime una
             System.out.println("La ecuacion tiene una solucion");
             double res1 = (-r.getB()) + (Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
             System.out.println("Solucion: " + res1);
-
         }
-
     }
 
     /*
