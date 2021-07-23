@@ -30,7 +30,6 @@ b= -5                       -2                      -6
 c= 6                        1                       10
 dos resultados 3 y 2        un resultado 1          no tiene solucion
  */
-
 package ej03;
 
 import ej03.entidades.Raiz;
@@ -47,11 +46,11 @@ public class Main_ej03 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
-        
+
         ServiciosRaiz sr = new ServiciosRaiz();
         Raiz r1 = sr.crearRaiz();
         sr.calcular(r1);
-        
+
     }
 
 }
