@@ -101,6 +101,5 @@ nuestros métodos y en caso de no existir solución, se mostrará un mensaje.
         } else {
             System.out.println("La ecuacion no tiene solucion");
         }
-
     }
 }
