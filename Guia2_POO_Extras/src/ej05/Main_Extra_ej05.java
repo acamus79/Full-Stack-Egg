@@ -22,6 +22,8 @@ octubre
  */
 package ej05;
 
+import ej05.servicios.ServiciosCalendario;
+
 /**
  *
  * @author Adrian E. Camus
@@ -33,6 +35,10 @@ public class Main_Extra_ej05 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ServiciosCalendario sc = new ServiciosCalendario();
+        sc.adivinaCalendario();
+        
     }
     
 }
