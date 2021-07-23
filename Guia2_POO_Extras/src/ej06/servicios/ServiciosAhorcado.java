@@ -22,7 +22,7 @@ letra, quedando cada letra de la palabra en un índice del vector. Y también,
 guarda en cantidad de jugadas máximas, el valor que ingresó el usuario y 
 encontradas en 0.
      */
-    private static Ahorcado crearJuego() {
+    public Ahorcado crearJuego() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingresa la Palabra para adivinar");
         String palabra = leer.next();
