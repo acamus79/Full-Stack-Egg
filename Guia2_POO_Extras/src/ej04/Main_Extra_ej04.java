@@ -57,7 +57,7 @@ package ej04;
  *
  * @author Adrian E. Camus
  */
-public class Main_Extra_ej01 {
+public class Main_Extra_ej04 {
 
     /**
      * @param args the command line arguments
