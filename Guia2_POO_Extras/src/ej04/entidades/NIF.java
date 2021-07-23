@@ -27,6 +27,8 @@ public class NIF {
         this.letraNIF = letraNIF;
     }
 
+    
+
     public long getDnis() {
         return dnis;
     }

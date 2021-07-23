@@ -53,6 +53,9 @@ POSICIÓN    LETRA
 */
 package ej04;
 
+import ej04.entidades.NIF;
+import ej04.servicios.ServiciosNIF;
+
 /**
  *
  * @author Adrian E. Camus
@@ -64,6 +67,11 @@ public class Main_Extra_ej04 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ServiciosNIF sn = new ServiciosNIF();
+        NIF n1 = sn.crearNIF();
+        n1.toString();
+                        
     }
     
 }
