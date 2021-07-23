@@ -24,10 +24,17 @@ caso de no existir solución, se mostrará un mensaje.
 Nota: Formula ecuación 2o grado: (-b±√((b^2)-(4*a*c)))/(2*a) Solo varia el signo 
 delante de -b
 
-
+NOTA:
+a= 1                        1                       1
+b= -5                       -2                      -6
+c= 6                        1                       10
+dos resultados 3 y 2        un resultado 1          no tiene solucion
  */
 
 package ej03;
+
+import ej03.entidades.Raiz;
+import ej03.servicios.ServiciosRaiz;
 
 /**
  *
@@ -40,6 +47,12 @@ public class Main_ej03 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        
+        ServiciosRaiz sr = new ServiciosRaiz();
+        Raiz r1 = sr.crearRaiz();
+        
+        sr.calcular(r1);
+        
     }
 
 }
