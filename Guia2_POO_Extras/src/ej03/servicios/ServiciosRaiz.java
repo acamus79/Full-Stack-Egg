@@ -72,7 +72,6 @@ posibles soluciones.
             System.out.println("Primera solucion: " + res1);
             System.out.println("Segunda solucion: " + res2);
         }
-
     }
 
     /*
