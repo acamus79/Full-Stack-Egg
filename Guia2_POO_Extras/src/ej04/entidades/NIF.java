@@ -22,6 +22,11 @@ public class NIF {
     private long dnis;
     private String letraNIF;
 
+    public NIF(long dnis, String letraNIF) {
+        this.dnis = dnis;
+        this.letraNIF = letraNIF;
+    }
+
     public long getDnis() {
         return dnis;
     }
