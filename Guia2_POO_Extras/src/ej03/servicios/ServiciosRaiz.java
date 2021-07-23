@@ -37,12 +37,12 @@ Método tieneRaices(): devuelve un booleano indicando si tiene dos soluciones,
 para que esto ocurra, el discriminante debe ser mayor o igual que 0.
      */
     private static boolean tieneRaices(Raiz r) {
-//        if(r.getDiscriminante()>=0){
-//            return true;
-//        }else{
-//            return false;
-//        }
-        return r.getDiscriminante() > 0;
+        if (r.getDiscriminante() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+//        return r.getDiscriminante() > 0;
     }
 
     /*
@@ -50,12 +50,12 @@ Método tieneRaiz(): devuelve un booleano indicando si tiene una única solució
 para que esto ocurra, el discriminante debe ser igual que 0.     
      */
     private static boolean tieneRaiz(Raiz r) {
-        return r.getDiscriminante() == 0;
-//        if(r.getDiscriminante()==0){
-//            return true;
-//        }else {
-//            return false;
-//        }
+        // return r.getDiscriminante() == 0;
+        if (r.getDiscriminante() == 0) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
@@ -65,10 +65,11 @@ posibles soluciones.
      */
     private static void obtenerRaices(Raiz r) {
         //(-b±√((b^2)-(4*a*c)))/(2*a)
+
         if (tieneRaices(r) == true) {
             System.out.println("La ecuacion tiene dos soluciones");
-            double res1 = (-r.getB()) + (Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
-            double res2 = (-r.getB()) - (Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
+            double res1 = (-r.getB() + Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
+            double res2 = (-r.getB() - Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
             System.out.println("Primera solucion: " + res1);
             System.out.println("Segunda solucion: " + res2);
         }
@@ -81,7 +82,7 @@ Método obtenerRaiz(): llama a tieneRaiz() y si devolvió́true imprime una
     private static void obtenerRaiz(Raiz r) {
         if (tieneRaiz(r) == true) {
             System.out.println("La ecuacion tiene una solucion");
-            double res1 = (-r.getB()) + (Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
+            double res1 = (-r.getB() + Math.sqrt(r.getDiscriminante())) / 2 * r.getA();
             System.out.println("Solucion: " + res1);
         }
     }
