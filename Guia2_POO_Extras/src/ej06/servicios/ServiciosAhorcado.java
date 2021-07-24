@@ -67,8 +67,8 @@ sus oportunidades.*/
 
         if (buscarLetra(a, letra)) {
             System.out.println("La letra SI esta en la palabra");
-            for (int i = 0; i < a.getPalabra().size(); i++) {
-                if (letra == a.getPalabra().elementAt(i).toString().charAt(0)) {
+            for (int i = 0; i < a.getPalabra().length; i++) {
+                if (letra == a.getPalabra()[i]) {
                     cuentaLetra++;
                 }
             }
@@ -96,7 +96,7 @@ o se quede sin intentos. Este método se llamará en el main.*/
             encontradas(a);
             longitud(a);
             intentos(a);
-            if (a.getJugadas() > 1 && a.getLetrasEncontradas() == a.getPalabra().size()) {
+            if (a.getJugadas() > 1 && a.getLetrasEncontradas() == a.getPalabra().length) {
                 System.out.println("MUY BIEN Ganaste!");
                 break;
             }
