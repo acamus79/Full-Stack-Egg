@@ -12,7 +12,8 @@ Definir los siguientes métodos con los parámetros que sean necesarios:
 
 package ej06.entidades;
 
-import java.util.ArrayList;
+
+import java.util.Vector;
 
 /**
  * 
@@ -20,31 +21,33 @@ import java.util.ArrayList;
  */
 public class Ahorcado {
     
-    private ArrayList palabra= new ArrayList();
+    private int n;
     private int letrasEncontradas;
-    private int jugadas;
+    private int jugadasMax;
+    private char[] palabra= new char[n];
+    
 
 //= {"electroencefalograma","psicofarmaco","prohibido","atencion","","credencial","coronavirus","vacuna","abogado","cirujano","noviembre","abril"};
     
-
+//constructor vacio
     public Ahorcado() {
         
     }
-
-    public Ahorcado(String letra, int letrasEncontradas, int jugadas) {
-        for (int i = 0; i < letra.length(); i++) {
-            this.palabra.add(letra.substring(i, i));
+//constructor con paramatros recibe un String y rellena el vector de caracteres
+    public Ahorcado(String letras, int letrasEncontradas, int jugadas) {
+        this.n = letras.length();
+        for (int i = 0; i < n; i++) {
+            this.palabra[i]= letras.charAt(i);
         }
-        
         this.letrasEncontradas = letrasEncontradas;
-        this.jugadas = jugadas;
+        this.jugadasMax = jugadas;
     }
 
-    public String[] getPalabra() {
+    public char[] getPalabra() {
         return palabra;
     }
 
-    public void setPalabra(String[] palabra) {
+    public void setPalabra(char[] palabra) {
         this.palabra = palabra;
     }
 
@@ -57,16 +60,16 @@ public class Ahorcado {
     }
 
     public int getJugadas() {
-        return jugadas;
+        return jugadasMax;
     }
 
     public void setJugadas(int jugadas) {
-        this.jugadas = jugadas;
+        this.jugadasMax = jugadas;
     }
 
     @Override
     public String toString() {
-        return "Ahorcado{" + "palabra=" + palabra + ", letrasEncontradas=" + letrasEncontradas + ", jugadas=" + jugadas + '}';
+        return "Ahorcado{" + "palabra=" + palabra + ", letrasEncontradas=" + letrasEncontradas + ", jugadas=" + jugadasMax + '}';
     }
 
 
