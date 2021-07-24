@@ -25,11 +25,11 @@ encontradas en 0.
     public Ahorcado crearJuego() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingresa la Palabra para adivinar");
-        String palabra = leer.next();
+        String letras = leer.next().toLowerCase();
         System.out.println("Ingresa la cantidad de jugadas maximas");
         int cantJug = leer.nextInt();
 
-        return new Ahorcado(palabra, 0, cantJug);
+        return new Ahorcado(letras, 0, cantJug);
     }
 
     /*
