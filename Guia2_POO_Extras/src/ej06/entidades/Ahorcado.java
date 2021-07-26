@@ -25,6 +25,8 @@ public class Ahorcado {
     private int letrasEncontradas;
     private int jugadasMax;
     private char[] palabra= new char[n];
+   //creo otro vector del mismo tamaño para ir mostrando las letras encontradas
+    private char[] mostrar= new char[n];
     
 
 //= {"electroencefalograma","psicofarmaco","prohibido","atencion","","credencial","coronavirus","vacuna","abogado","cirujano","noviembre","abril"};
@@ -39,6 +41,10 @@ public class Ahorcado {
         this.palabra= letras.toCharArray();
         this.letrasEncontradas = letrasEncontradas;
         this.jugadasMax = jugadas;
+        //lleno el vector a mostrar con guiones
+        for (int i = 0; i < n; i++) {
+            this.mostrar[i] = '_';
+        }
     }
 
     public char[] getPalabra() {
@@ -65,6 +71,14 @@ public class Ahorcado {
         this.jugadasMax = jugadas;
     }
 
+    public char[] getMostrar() {
+        return mostrar;
+    }
+
+    public void setMostrar(char[] mostrar) {
+        this.mostrar = mostrar;
+    }
+    
     @Override
     public String toString() {
         return "Ahorcado{" + "palabra=" + palabra + ", letrasEncontradas=" + letrasEncontradas + ", jugadas=" + jugadasMax + '}';
