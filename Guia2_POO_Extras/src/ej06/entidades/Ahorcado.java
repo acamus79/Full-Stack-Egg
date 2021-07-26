@@ -13,6 +13,7 @@ Definir los siguientes métodos con los parámetros que sean necesarios:
 package ej06.entidades;
 
 
+import java.awt.AWTEventMulticaster;
 import java.util.Vector;
 
 /**
@@ -41,10 +42,7 @@ public class Ahorcado {
         this.palabra= letras.toCharArray();
         this.letrasEncontradas = letrasEncontradas;
         this.jugadasMax = jugadas;
-        //lleno el vector a mostrar con guiones
-        for (int i = 0; i < n; i++) {
-            this.mostrar[i] = '_';
-        }
+        
     }
 
     public char[] getPalabra() {
