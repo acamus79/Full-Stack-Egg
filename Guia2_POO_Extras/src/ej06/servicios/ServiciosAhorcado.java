@@ -13,27 +13,30 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosAhorcado {
-//creo un vector de caracteres para ir mostrando las letras encontradas
-
+/*
+Creo un vector de caracteres para ir mostrando las letras encontradas
+de forma estatica como variable de la clase para que otros metodos puedan
+acceder a este vector para asignarle valores, recorrerlo y mostrarlo.
+*/
     private static char[] mostrar = new char[40];
 
-    /*
+/*
 Metodo crearJuego(): le pide la palabra al usuario y cantidad de jugadas 
 máxima. Con la palabra del usuario, pone la longitud de la palabra, como la 
 longitud del vector. Después ingresa la palabra en el vector, letra por 
 letra, quedando cada letra de la palabra en un índice del vector. Y también, 
 guarda en cantidad de jugadas máximas, el valor que ingresó el usuario y 
 encontradas en 0.
-     */
+*/
     public Ahorcado crearJuego() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingresa la Palabra para adivinar");
         String letras = leer.next().toLowerCase();
         System.out.println("Ingresa la cantidad de jugadas maximas");
         int cantJug = leer.nextInt();
-        //por cada juego creo un vector para mostrar
+        //por cada juego creo un vector igual al tamaño de la palabra para mostrar cada letra encontrada
         char m[] = new char[letras.length()];
-        //lleno el vector m con guines segun el tamaño de la palabra
+        //lleno el vector m con guiones segun el tamaño de la palabra
         for (int i = 0; i < m.length; i++) {
             mostrar[i] = '_';
         }
