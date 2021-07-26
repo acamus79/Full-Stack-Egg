@@ -50,7 +50,7 @@ correcto, es decir, H, M ú O. Si no es correcto se deberá mostrar un mensaje
             }
 
         } while (!bandera);
-        leer.close;
+        leer.close();
         System.out.println("Ingrese el peso de la Persona");
         float p = leer.nextFloat();
         System.out.println("Ingrese la altura de la Persona");
@@ -100,7 +100,13 @@ devuelve un booleano.
         return mayor;
 
     }
-
+/*
+calcular un porcentaje de esas 4 personas cuantas están por debajo de su peso,
+cuantas en su peso ideal y cuantos, por encima, y también calcularemos un 
+porcentaje de cuantos son mayores de edad y cuantos menores. 
+    Metodo estadistica recibe la cantidad de personas para poder calcular los
+    porcentajes utilizando las varibles contadores locales
+*/
     public void estadistica(int cantPersonas){
         System.out.println("***********************************");
         System.out.println("**           NUMERICO            **");
