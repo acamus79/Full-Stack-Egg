@@ -13,6 +13,9 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosAhorcado {
+//creo un vector de caracteres para ir mostrando las letras encontradas
+
+    private static char[] mostrar = new char[40];
 
     /*
 Metodo crearJuego(): le pide la palabra al usuario y cantidad de jugadas 
@@ -28,7 +31,13 @@ encontradas en 0.
         String letras = leer.next().toLowerCase();
         System.out.println("Ingresa la cantidad de jugadas maximas");
         int cantJug = leer.nextInt();
-
+        //por cada juego creo un vector para mostrar
+        char m[] = new char[letras.length()];
+        //lleno el vector m con guines segun el tamaño de la palabra
+        for (int i = 0; i < m.length; i++) {
+            mostrar[i] = '_';
+        }
+        mostrar = m;//asigno el vector de guiones al vector mostrar estatico
         return new Ahorcado(letras, 0, cantJug);
     }
 
@@ -62,6 +71,7 @@ sus oportunidades.*/
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int cuentaLetra = 0;
         int oportunidades = a.getJugadas();
+
         System.out.println("Ingresa la letra a buscar");
         char letra = leer.next().toLowerCase().charAt(0);
 
@@ -69,22 +79,30 @@ sus oportunidades.*/
             System.out.println("La letra SI esta en la palabra");
             for (int i = 0; i < a.getPalabra().length; i++) {
                 if (letra == a.getPalabra()[i]) {
-                    cuentaLetra++;
+                    cuentaLetra+=1;
+                    mostrar[i] = letra;//asigno la letra al vector mostrar
                 }
             }
             cuentaLetra += a.getLetrasEncontradas();
             a.setLetrasEncontradas(cuentaLetra);
+            
         } else {
             System.out.println("La letra NO es parte de la palabra");
-            oportunidades--;
+            oportunidades-=1;
             a.setJugadas(oportunidades);
         }
+        //muestro el vector "mostrar" con las legras encontradas
+        for (int i = 0; i < mostrar.length; i++) {
+            System.out.print("[ " + mostrar[i] + " ] ");
+
+        }
+        System.out.println("");
     }
 
     /*
 Método intentos(): para mostrar cuantas oportunidades le queda al jugador.*/
     private static void intentos(Ahorcado a) {
-        System.out.println("Quedan " + a.getJugadas() + " intentos");
+        System.out.println("Quedan " + a.getJugadas() + " posibles fallas");
     }
 
     /*
