@@ -47,7 +47,7 @@ import ej06.servicios.ServiciosAhorcado;
  *
  * @author Adrian E. Camus
  */
-public class Main_Extra_ej06 {
+public class Main_Ahorcado {
 
     /**
      * @param args the command line arguments
