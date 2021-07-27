@@ -35,6 +35,9 @@ public class Ahorcado {
 //constructor con paramatros recibe un String y rellena el vector de caracteres
 
     public Ahorcado(String letras, int letrasEncontradas, int jugadas) {
+        //recibe un String llamado letras a la longitud de ese string le asigno
+        //n, y esa String utilizo el metodo toCharArray para convertirlo en mi
+        //vector de caracteres
         this.n = letras.length();
         this.palabra = letras.toCharArray();
         this.letrasEncontradas = letrasEncontradas;
