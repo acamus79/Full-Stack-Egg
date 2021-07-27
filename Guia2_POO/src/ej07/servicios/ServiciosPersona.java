@@ -35,8 +35,7 @@ correcto, es decir, H, M ú O. Si no es correcto se deberá mostrar un mensaje
 
         do {
             System.out.println("Ingrese el sexo de persona ´H´ para Hombre, ´M´ para Mujer ú ´O´ para Otro");
-            sexo = leer.next();
-            sexo = sexo.toUpperCase();
+            sexo = leer.next().toUpperCase();
             if (sexo.length() > 1) {
                 System.out.println("ERROR Ingresó mas de una letra");
                 bandera = false;
@@ -50,11 +49,12 @@ correcto, es decir, H, M ú O. Si no es correcto se deberá mostrar un mensaje
             }
 
         } while (!bandera);
-        leer.close();
+        
         System.out.println("Ingrese el peso de la Persona");
         float p = leer.nextFloat();
         System.out.println("Ingrese la altura de la Persona");
         double al = leer.nextDouble();
+        leer.close();
         return new Persona(nom,edad,sexo,p,al);
     }
 /*
