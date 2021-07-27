@@ -10,7 +10,7 @@ en los atributos del objeto. Después, a través de otro método calcular y devo
 distancia que existe entre los dos puntos que existen en la clase Puntos. Para conocer
 como calcular la distancia entre dos puntos consulte el siguiente link:
 
-http://www.matematicatuya.com/GRAFICAecuaciones/S1a.html.
+http://www.matematicatuya.com/GRAFICAecuaciones/S1a.html
 
 ***Nota Personal: ** no deberia ser una clase puntos sino PUNTO en singular con
 dos coordenadas, y para hacer lo mismo se deberian crear dos objetos Punto y 
