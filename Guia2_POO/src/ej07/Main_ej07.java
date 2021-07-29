@@ -62,28 +62,28 @@ public class Main_ej07 {
         p1.setPeso(98);
         p1.setAltura((1.80));
         //Persona p1 = sp.crearPersona();
-        
+
         Persona p2 = new Persona("William", 33, "H", 78, (1.86));
         //Persona p2 = sp.crearPersona();
-        
+
         Persona p3 = new Persona("Alina", 9, "M", 37, (1.52));
         //Persona p3 = sp.crearPersona();
-        
+
         Persona p4 = sp.crearPersona();
         
-        System.out.println(p1);
-        int p1imc = sp.calcularIMC(p1);
-        boolean p1edad = sp.esMayorDeEdad(p1);
-        System.out.println(p2);
-        int p2imc = sp.calcularIMC(p2);
-        boolean p2edad = sp.esMayorDeEdad(p2);
-        System.out.println(p3);
-        int p3imc = sp.calcularIMC(p3);
-        boolean p3edad = sp.esMayorDeEdad(p3);
-        System.out.println(p4);
-        int p4imc = sp.calcularIMC(p4);
-        boolean p4edad = sp.esMayorDeEdad(p4);
         
+        System.out.println(p1);
+        sp.calcularIMC(p1);
+        sp.esMayorDeEdad(p1);
+        System.out.println(p2);
+        sp.calcularIMC(p2);
+        sp.esMayorDeEdad(p2);
+        System.out.println(p3);
+        sp.calcularIMC(p3);
+        sp.esMayorDeEdad(p3);
+        System.out.println(p4);
+        sp.calcularIMC(p4);
+        sp.esMayorDeEdad(p4);
         sp.estadistica(4);
     }
 
