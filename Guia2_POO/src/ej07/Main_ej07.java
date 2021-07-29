@@ -71,7 +71,6 @@ public class Main_ej07 {
 
         Persona p4 = sp.crearPersona();
         
-        
         System.out.println(p1);
         sp.calcularIMC(p1);
         sp.esMayorDeEdad(p1);
