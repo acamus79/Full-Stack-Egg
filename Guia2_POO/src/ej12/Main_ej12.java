@@ -44,7 +44,6 @@ public class Main_ej12 {
         // TODO code application logic here
         ServiciosPersona sp = new ServiciosPersona();
         Persona p1 = sp.crearPersona();
-        
         sp.mostrarPersona(p1);
         System.out.println("Es menor de 25 años: "+sp.menorQue(p1, 25));
         sp.calcularEdad(p1);
