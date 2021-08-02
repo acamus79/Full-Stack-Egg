@@ -67,7 +67,7 @@ public class ServiciosNIF {
     //vector de tipo Cadena con todas las letras
         String vector[] = {"T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"};
 
-    //obtengo el DNI del objeto y al dividirlo por 23 tengo el indice del vector        
+    //obtengo el DNI del objeto y al dividirlo por 23 con el resto tengo el indice del vector        
         int indice = (int) dni%23;
         return vector[indice];
     }
