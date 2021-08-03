@@ -1,0 +1,71 @@
+/*
+ * Sin licencia.
+ * Uso para capacitación
+ * 2021 Año de la Prevención y Lucha contra el COVID-19.
+ */
+package ej07_y_ej12_meet.entidades;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+/**
+ *
+ * @author Adrian E. Camus
+ */
+public class Persona {
+    
+    private String nombre;
+    private int edad;
+    private char sexo;
+    private int peso;
+    
+    private LocalDate fechaNac;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre,char sexo, LocalDate fechaNac) {
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.fechaNac = fechaNac;
+        
+        LocalDate fechaHoy = LocalDate.now();
+        Period periodo = Period.between(fechaNac, fechaHoy);
+        
+        this.edad = periodo.getYears();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public LocalDate getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(LocalDate fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+    
+    
+}
