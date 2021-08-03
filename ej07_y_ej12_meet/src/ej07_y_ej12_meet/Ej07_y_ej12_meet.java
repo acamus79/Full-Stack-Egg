@@ -62,7 +62,6 @@ persona que se recibe como parámetro, o false en caso contrario.
 anterior.
 
  */
-
 package ej07_y_ej12_meet;
 
 import ej07_y_ej12_meet.entidades.Persona;
@@ -80,24 +79,24 @@ public class Ej07_y_ej12_meet {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
-        
+
         ServiciosPersona sp = new ServiciosPersona();
         Persona p1 = sp.crearPersona();
         //Persona p2 = sp.crearPersona();
         //String nombre, char sexo, double peso, double altura, LocalDate fechaNac
-        Persona p3 = new Persona("Juan",'H',75.0,1.85,LocalDate.of(2006, 3, 25));
-        Persona p4 = new Persona("Margarita",'M',48.0,1.62,LocalDate.of(1991, 5, 17));
-        Persona p2 = new Persona("Jose",'O',99.0,1.82,LocalDate.of(1999, 8, 10));
+        Persona p3 = new Persona("Juan", 'H', 75.0, 1.85, LocalDate.of(2006, 3, 25));
+        Persona p4 = new Persona("Margarita", 'M', 48.0, 1.62, LocalDate.of(1991, 5, 17));
+        Persona p2 = new Persona("Jose", 'O', 99.0, 1.82, LocalDate.of(1999, 8, 10));
         //System.out.println(p1.toString());
-        
-        
+
         sp.mostrarPersona(p1);
         sp.mostrarPersona(p2);
+        sp.esMenorQue(p1, p2);
         sp.mostrarPersona(p3);
         sp.mostrarPersona(p4);
+        sp.esMenorQue(p3, p4);
         sp.calculos(4);
-        
-        
+
     }
 
 }
