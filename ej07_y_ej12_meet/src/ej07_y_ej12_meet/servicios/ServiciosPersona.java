@@ -25,6 +25,7 @@ public class ServiciosPersona {
 
     //String nombre, char sexo, double peso, double altura, LocalDate fechaNac
     public Persona crearPersona() {
+        
         System.out.println("Ingrese el nombre de la Persona");
         String nomb = leer.next();
         System.out.println("Cual es esl Sexo de la persona, H para Hombre - M para Mujer ú O para Otros");
