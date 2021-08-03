@@ -15,6 +15,12 @@ import java.util.Scanner;
  */
 public class ServiciosPersona {
 
+    int cSobrepeso = 0;
+    int cPesoIdeal = 0;
+    int cBajoPeso = 0;
+    int cMayorEdad = 0;
+    int cMenorEdad = 0;
+
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     //String nombre, char sexo, double peso, double altura, LocalDate fechaNac
@@ -39,4 +45,74 @@ public class ServiciosPersona {
 
     }
 
+    private static int calcularIMC(Persona p) {
+        double imc = p.getPeso() / (p.getAltura() * p.getAltura());
+        int retorno;
+        if (imc > 25) {
+            retorno = 1;
+
+        } else if (imc > 20) {
+            retorno = 0;
+        } else {
+            retorno = -1;
+        }
+
+        return retorno;
+
+    }
+
+    private static boolean esMayorDeEdad(Persona p) {
+        return p.getEdad() > 18;
+
+    }
+
+    public void mostrarPersona(Persona p) {
+
+        switch (calcularIMC(p)) {
+            case 0:
+                cPesoIdeal++;
+                break;
+            case 1:
+                cSobrepeso++;
+                break;
+            case -1:
+                cBajoPeso++;
+                break;
+        }
+
+        System.out.println("Persona de Nombre " + p.getNombre());
+        System.out.println("\nDe sexo " + p.getSexo());
+        if (esMayorDeEdad(p)) {
+            System.out.println("Mayor de Edad \n");
+            cMayorEdad++;
+        } else {
+            System.out.println("Menor de Edad\n");
+            cMenorEdad++;
+        }
+        System.out.println("\nEdad: " + p.getEdad());
+
+    }
+
+    public void calculos(int cant) {
+
+        System.out.println("Bajo Peso " + cBajoPeso * 100 / cant + " %");
+
+        System.out.println("Peso Ideal " + cPesoIdeal * 100 / cant + " %");
+
+        System.out.println("Sobrepeso " + cSobrepeso * 100 / cant + " %");
+
+        System.out.println("Mayores de Edad " + cMayorEdad * 100 / cant + " %");
+
+        System.out.println("Menores de Edad " + cMenorEdad * 100 / cant + " %");
+
+    }
+
+    public void esMenorQue(Persona m, Persona p) {
+        if (m.getEdad() > p.getEdad()) {
+            System.out.println(m.getNombre() + " es mayor que " + p.getNombre());
+        } else {
+            System.out.println(p.getNombre() + " es mayor que " + m.getNombre());
+        }
+
+    }
 }
