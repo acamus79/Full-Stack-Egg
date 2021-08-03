@@ -85,4 +85,11 @@ public class Persona {
         this.fechaNac = fechaNac;
     }
 
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo + ", peso=" + peso + ", altura=" + altura + ", fechaNac=" + fechaNac + '}';
+    }
+
+    
+    
 }

@@ -17,7 +17,7 @@ llenar el objeto Persona. Además, comprueba que el sexo introducido sea
 correcto, es decir, H, M o O. Si no es correcto se deberá mostrar un mensaje
 
 • Método calcularIMC(): calculara si la persona está en su peso ideal (peso en
-kg/(altura^2 en mt2)). Si esta fórmula da por resultado un valor menor que 20, 
+kg /(altura^2 en mt2)). Si esta fórmula da por resultado un valor menor que 20, 
 la función devuelve un -1. Si la fórmula da por resultado un número entre 20 y 
 25 (incluidos), significa que el peso está por debajo de su peso ideal y la 
 función devuelve un 0. Finalmente, si el resultado de la fórmula es un valor 
@@ -67,6 +67,7 @@ package ej07_y_ej12_meet;
 
 import ej07_y_ej12_meet.entidades.Persona;
 import ej07_y_ej12_meet.servicios.ServiciosPersona;
+import java.time.LocalDate;
 
 /**
  *
@@ -82,6 +83,20 @@ public class Ej07_y_ej12_meet {
         
         ServiciosPersona sp = new ServiciosPersona();
         Persona p1 = sp.crearPersona();
+        //Persona p2 = sp.crearPersona();
+        //String nombre, char sexo, double peso, double altura, LocalDate fechaNac
+        Persona p3 = new Persona("Juan",'H',75.0,1.85,LocalDate.of(2006, 3, 25));
+        Persona p4 = new Persona("Margarita",'M',48.0,1.62,LocalDate.of(1991, 5, 17));
+        Persona p2 = new Persona("Jose",'O',99.0,1.82,LocalDate.of(1999, 8, 10));
+        //System.out.println(p1.toString());
+        
+        
+        sp.mostrarPersona(p1);
+        sp.mostrarPersona(p2);
+        sp.mostrarPersona(p3);
+        sp.mostrarPersona(p4);
+        sp.calculos(4);
+        
         
     }
 
