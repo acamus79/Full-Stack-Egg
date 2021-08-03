@@ -17,12 +17,16 @@ public class ServiciosPersona {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    //String nombre, char sexo, LocalDate fechaNac
+    //String nombre, char sexo, double peso, double altura, LocalDate fechaNac
     public Persona crearPersona() {
         System.out.println("Ingrese el nombre de la Persona");
         String nomb = leer.next();
         System.out.println("Cual es esl Sexo de la persona, H para Hombre - M para Mujer ú O para Otros");
         char sexo = leer.next().charAt(0);
+        System.out.println("Cuanto pesa la persona?");
+        double peso = leer.nextDouble();
+        System.out.println("Que altura tiene?");
+        double altura = leer.nextDouble();
         System.out.println("Ingresa el año de nacimiento");
         int anio = leer.nextInt();
         System.out.println("Ingrese el mes de nacimiento");
@@ -31,7 +35,7 @@ public class ServiciosPersona {
         int dia = leer.nextInt();
         LocalDate fechaNac = LocalDate.of(anio, mes, dia);
 
-        return new Persona(nomb, sexo, fechaNac);
+        return new Persona(nomb, sexo, peso, altura, fechaNac);
 
     }
 
