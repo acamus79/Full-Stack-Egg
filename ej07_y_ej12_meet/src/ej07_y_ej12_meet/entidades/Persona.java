@@ -30,13 +30,12 @@ public class Persona {
         this.peso = peso;
         this.altura = altura;
         this.fechaNac = fechaNac;
-
-        LocalDate fechaHoy = LocalDate.now();
-        Period periodo = Period.between(fechaNac, fechaHoy);
-
-        this.edad = periodo.getYears();
+        LocalDate fechaActual = LocalDate.now();
+        Period diferencia = Period.between(fechaNac, fechaActual);
+        this.edad = diferencia.getYears();
     }
 
+    
     public double getPeso() {
         return peso;
     }

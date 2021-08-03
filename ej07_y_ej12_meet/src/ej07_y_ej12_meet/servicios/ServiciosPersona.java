@@ -39,6 +39,7 @@ public class ServiciosPersona {
         int mes = leer.nextInt();
         System.out.println("Que dia nacio la persona?");
         int dia = leer.nextInt();
+        
         LocalDate fechaNac = LocalDate.of(anio, mes, dia);
 
         return new Persona(nomb, sexo, peso, altura, fechaNac);
