@@ -13,26 +13,44 @@ import java.time.Period;
  * @author Adrian E. Camus
  */
 public class Persona {
-    
+
     private String nombre;
     private int edad;
     private char sexo;
-    private int peso;
-    
+    private double peso;
+    private double altura;
     private LocalDate fechaNac;
 
     public Persona() {
     }
 
-    public Persona(String nombre,char sexo, LocalDate fechaNac) {
+    public Persona(String nombre, char sexo, double peso, double altura, LocalDate fechaNac) {
         this.nombre = nombre;
         this.sexo = sexo;
+        this.peso = peso;
+        this.altura = altura;
         this.fechaNac = fechaNac;
-        
+
         LocalDate fechaHoy = LocalDate.now();
         Period periodo = Period.between(fechaNac, fechaHoy);
-        
+
         this.edad = periodo.getYears();
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
     public String getNombre() {
@@ -66,6 +84,5 @@ public class Persona {
     public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
-    
-    
+
 }
