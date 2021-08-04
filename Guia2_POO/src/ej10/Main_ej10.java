@@ -34,8 +34,10 @@ public class Main_ej10 {
         Arreglo arregloA = sa.crearArreglo();
 
         sa.llenaArregloRandom(arregloA);
+        
         System.out.println("Arreglo A");
         sa.mostrarArreglo(arregloA);
+        
         System.out.println("Arreglo A Ordenado");
         sa.ordenaArreglo(arregloA);
         sa.mostrarArreglo(arregloA);
