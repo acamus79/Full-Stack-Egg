@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @author Adrian E. Camus
  */
 public class Control {
+//Creo el Objeto de la clase Tiempo
 
     public Tiempo creaReloj() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
@@ -25,10 +26,12 @@ public class Control {
         int seg = leer.nextInt();
         return new Tiempo(hr, min, seg);
     }
+//un metodo para mostrar el tiempo
 
     private static void imprimirHoraCompleta(Tiempo t) {
         System.out.println(t.getHora() + " : " + t.getMinuto() + " : " + t.getSegundo() + "\n");
     }
+//un metodo que simula un reloj por consola
 
     public void reloj(Tiempo t) throws InterruptedException {
         int a = 0;//lo uso como para ponerle un limite en este caso muy aplio porque sera de 24 hs
@@ -38,7 +41,7 @@ public class Control {
 
         do {
             for (i = t.getHora(); i <= 24; i++) {
-                a++;
+                a++;//por cada vez que pase por 'i' va a incrementar 'a'
                 if (t.getHora() == 24) {
                     i = 0;
                     t.setHora(i);
@@ -61,10 +64,8 @@ public class Control {
                         TimeUnit.SECONDS.sleep(1);//mando a dormir un segundo para que parezca un reloj
                         imprimirHoraCompleta(t);
                     }
-
                 }
             }
-
         } while (a <= 24);
     }
 }
