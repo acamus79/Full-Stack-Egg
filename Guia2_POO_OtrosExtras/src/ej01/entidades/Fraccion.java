@@ -11,10 +11,10 @@ package ej01.entidades;
  * @author Adrian E. Camus
  */
 public class Fraccion {
-private double denominador;
-private double numerador;
+private int denominador;
+private int numerador;
 
-    public Fraccion(double numerador, double denominador) {
+    public Fraccion(int numerador, int denominador) {
         this.denominador = denominador;
         this.numerador = numerador;
     }
@@ -23,7 +23,7 @@ private double numerador;
         return denominador;
     }
 
-    public void setDenominador(double denominador) {
+    public void setDenominador(int denominador) {
         this.denominador = denominador;
     }
 
@@ -31,7 +31,7 @@ private double numerador;
         return numerador;
     }
 
-    public void setNumerador(double numerador) {
+    public void setNumerador(int numerador) {
         this.numerador = numerador;
     }
 
