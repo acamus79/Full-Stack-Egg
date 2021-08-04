@@ -12,11 +12,7 @@ Te animas a simular el paso del tiempo en consola?
 
 
  */
-
 package ej02;
-
-import java.util.concurrent.TimeUnit;
-
 
 /**
  *
@@ -29,12 +25,12 @@ public class Principal02 {
      * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
+
+        // El Código va AQUI!!!
         
-            // El Código va AQUI!!!
-            
-            TimeUnit.SECONDS.sleep(1);//mando a dormir un segundo para que parezca un reloj
-        
-        
+        Control ct = new Control();
+        Tiempo t1 = ct.creaReloj();
+        ct.reloj(t1);
     }
 
 }
