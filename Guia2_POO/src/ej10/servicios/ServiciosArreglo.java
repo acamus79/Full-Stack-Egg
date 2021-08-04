@@ -31,29 +31,39 @@ public class ServiciosArreglo {
     }
 
     public void llenaArregloRandom(Arreglo a) {
+        
         float v[] = new float[a.getN()];
-        float num;
+        
+        double num;
+        
         for (int i = 0; i < v.length; i++) {
-            num = (float) (Math.random() * 60 + 1);
-            v[i] = num;
+            num = (float) (Math.random() * 10 + 1);
+            v[i] = (float) (Math.rint(num*100)/100);
+//        v[i]= (float)(Math.random()*10+1);
+                
         }
         a.setArreglo(v);
     }
 
     public void ordenaArreglo(Arreglo a) {
+        //Creo un vector auxiliar
         float v[] = new float[a.getN()];
+        //Lleno mi vector auxiliar con el contenido de mi Objeto Arreglo
         v = a.getArreglo();
+        //Utilizo el metrodo SORT de la clase Arrays para ordenar mi vector auxiliar
         Arrays.sort(v);
+        //COn el verctor ya ordenado seteo a mi objeto de la clase Arreglo
         a.setArreglo(v);
     }
 
     public void copiaContenido(Arreglo a, Arreglo b) {
 
-        System.out.println("Ingrese hasta que indice desea copiar del Arreglo A al Arreglo B");
-        int n = leer.nextInt();
+//        System.out.println("Ingrese hasta que indice desea copiar del Arreglo A al Arreglo B");
+        int n = 10;//leer.nextInt();
+
         //declaro un vector que lo voy a usar para setear el Arreglo
         float v[] = new float[b.getN()];
-        //Lleno el vector 2 con 0.5
+        //Lleno el vector 2 con 0.5 utilizando el metodo fill de la clase Arrays
         Arrays.fill(v, 0.5F);
         //copio los n primeros numeros del Arreglo A al vector
         System.arraycopy(a.getArreglo(), 0, v, 0, n);
