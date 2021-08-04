@@ -15,6 +15,9 @@ Te animas a simular el paso del tiempo en consola?
 
 package ej02;
 
+import java.util.concurrent.TimeUnit;
+
+
 /**
  *
  * @author Adrian E. Camus
@@ -23,9 +26,15 @@ public class Principal02 {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
-        // El Código va AQUI!!!
+    public static void main(String[] args) throws InterruptedException {
+        
+            // El Código va AQUI!!!
+            
+            TimeUnit.SECONDS.sleep(1);//mando a dormir un segundo para que parezca un reloj
+        
+        
     }
 
 }
