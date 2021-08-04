@@ -13,9 +13,9 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ServiciosFraccion {
-
+    //declaro el Scaner porque lo uso para mas de 1 metodo
     private static Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    //Numerador y Denominador de los Resultados
+    //Numerador y Denominador de los Resultados usado en varios metodos
     private static int resNum = 0, resDeno = 0;
 
     private static Fraccion creaFraccion() {
@@ -90,6 +90,7 @@ public class ServiciosFraccion {
     }
 
     private static void muestraOP(Fraccion f1, Fraccion f2, Fraccion r, char o) {
+        System.out.println("\n");
         System.out.println(f1.getNumerador() + "    " + f2.getNumerador() + "    " + r.getNumerador());
         System.out.println("----- " + o + " ----- " + "=  ----- ");
         System.out.println(f1.getDenominador() + "     " + f2.getDenominador() + "    " + r.getDenominador());
@@ -97,7 +98,6 @@ public class ServiciosFraccion {
     }
     
         public void menu() {
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int op = 0;
         do {
             System.out.println("***** FRACCIONES *****");
@@ -107,7 +107,7 @@ public class ServiciosFraccion {
             System.out.println("** 4 DIVISION       **");
             System.out.println("** 5 PARA SALIR     **");
             System.out.println("**********************");
-            System.out.println("Ingrese la opcion...");
+            System.out.println("Ingrese la opcion...\n");
             op = leer.nextInt();
 
             switch (op) {
@@ -124,7 +124,7 @@ public class ServiciosFraccion {
                     divideF();
                     break;
                 case 5:
-                    System.out.println("CHAU!!");
+                    System.out.println("CHAU!!\n");
                     break;
                 default:
                     System.out.println("Ingreso una opcion no validad");
@@ -132,7 +132,5 @@ public class ServiciosFraccion {
             }
 
         } while (op != 5);//hacer..... mientras op sea diferente de 5
-
     }
-
 }
