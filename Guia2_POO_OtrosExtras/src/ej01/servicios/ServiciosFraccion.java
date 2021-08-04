@@ -27,6 +27,7 @@ public class ServiciosFraccion {
     }
 
     private static void sumaF() {
+        System.out.println("SUMA DE FRACCIONES");
     //Creo dos fracciones con mi metodo creaFracion
         Fraccion f1 = creaFraccion();
         Fraccion f2 = creaFraccion();
@@ -45,6 +46,7 @@ public class ServiciosFraccion {
     }
 
     private static void restaF() {
+        System.out.println("RESTA DE FRACCIONES");
     //Creo dos fracciones con mi metodo creaFracion
         Fraccion f1 = creaFraccion();
         Fraccion f2 = creaFraccion();
@@ -63,21 +65,34 @@ public class ServiciosFraccion {
     }
 
     private static void multiplicaF() {
+        System.out.println("MULTIPLICACION DE FRACCIONES");
         //Creo dos fracciones con mi metodo creaFracion
         Fraccion f1 = creaFraccion();
         Fraccion f2 = creaFraccion();
-        
+        resNum=(int) (f1.getNumerador()*f2.getNumerador());
+        resDeno=(int) (f1.getDenominador()*f2.getDenominador());
+        //una nueva fraccion con los resultados
+        Fraccion resultado = new Fraccion(resNum, resDeno);
+        muestraOP(f1, f2, resultado, 'x');//llamo a mi metodo muestraOP
         
     }
 
     private static void divideF() {
-
+        System.out.println("DIVISION DE FRACCIONES");
+        //Creo dos fracciones con mi metodo creaFracion
+        Fraccion f1 = creaFraccion();
+        Fraccion f2 = creaFraccion();
+        resNum=(int) (f1.getNumerador()*f2.getDenominador());
+        resDeno=(int) (f1.getDenominador()*f2.getNumerador());
+        //una nueva fraccion con los resultados
+        Fraccion resultado = new Fraccion(resNum, resDeno);
+        muestraOP(f1, f2, resultado, '/');//llamo a mi metodo muestraOP
     }
 
     private static void muestraOP(Fraccion f1, Fraccion f2, Fraccion r, char o) {
         System.out.println(f1.getNumerador() + "    " + f2.getNumerador() + "    " + r.getNumerador());
-        System.out.println("----- " + o + " ----- " + "= ----- ");
-        System.out.println(f1.getDenominador() + "    " + f2.getDenominador() + "    " + r.getDenominador());
+        System.out.println("----- " + o + " ----- " + "=  ----- ");
+        System.out.println(f1.getDenominador() + "     " + f2.getDenominador() + "    " + r.getDenominador());
         System.out.println("\n");
     }
     
