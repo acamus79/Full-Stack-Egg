@@ -37,7 +37,7 @@ private int numerador;
 
     @Override
     public String toString() {
-        return numerador + "\n-----\n"+denominador;
+        return numerador + "\n-----\n"+denominador+"\n";
     }
 
 

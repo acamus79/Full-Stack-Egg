@@ -14,7 +14,7 @@ Mostrar por pantalla un menú de opciones para que el usuario decida que ver.
 
 package ej01;
 
-import ej01.entidades.Fraccion;
+import ej01.servicios.ServiciosFraccion;
 
 /**
  *
@@ -28,8 +28,8 @@ public class Principal01 {
     public static void main(String[] args) {
         // El Código va AQUI!!!
         
-        Fraccion f1 = new Fraccion(5,10);
-        System.out.println(f1.toString());
+        ServiciosFraccion sf = new ServiciosFraccion();
+        sf.menu();
         
     }
 
