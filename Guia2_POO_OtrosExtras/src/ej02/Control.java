@@ -6,7 +6,7 @@
 
 package ej02;
 
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
+import java.util.Scanner;
 
 /**
  * 
@@ -14,14 +14,21 @@ import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
  */
 public class Control {
 
-    public Tiempo creaTiempo(){
-        
+    public Tiempo creaReloj(){
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("VAMOS A SIMULAR UN RELOJ");
         System.out.println("Dame la hora...");
+        int hr = leer.nextInt();
         System.out.println("Dame los minutos...");
+        int min = leer.nextInt();
         System.out.println("y ahora los segundos");
-        
-        return null;
-        
+        int seg = leer.nextInt();
+        return new Tiempo(hr,min,seg);
     }
+    
+    public void imprimirHoraCompleta(Tiempo t){
+        System.out.println(t.getHora()+" : "+t.getMinuto()+" : "+t.getSegundo()+"\n");
+    }
+    
+    
 }
