@@ -6,7 +6,9 @@
 package ej12.servicios;
 
 import ej12.entidades.Persona;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+//import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -16,7 +18,8 @@ import java.util.Scanner;
 public class ServiciosPersona {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd MMM yyyy");
+    
     /*
 Agregar un método de creación del objeto que respete la siguiente firma:
 crearPersona(). Este método rellena el objeto mediante un Scanner y le pregunta
@@ -35,7 +38,7 @@ que la fecha de nacimiento debe guardarse en un Date y los guarda en el objeto.
         System.out.println("Ingrese el Año de nacimiento (aaa)");
         int a = leer.nextInt();
 
-        Date fecha = new Date(a - 1900, m - 1, d);
+        LocalDate fecha = LocalDate.of(a, m, d);
 
         return new Persona(p1, fecha);
     }
@@ -46,7 +49,7 @@ Tener en cuenta que para conocer la edad de la persona también se debe
 conocer la fecha actual.    
      */
     public void calcularEdad(Persona p) {
-        Date ahora = new Date();
+        LocalDate ahora = LocalDate.now();
         int year = ahora.getYear() - p.getFechaNac().getYear();
         System.out.println("Edad: " + year);
     }
@@ -57,7 +60,7 @@ otra edad y retorna true en caso de que el receptor tenga menor edad que la
 persona que se recibe como parámetro, o false en caso contrario.
      */
     public boolean menorQue(Persona p, int edad) {
-        Date ahora = new Date();
+        LocalDate ahora = LocalDate.now();
         int year = ahora.getYear() - p.getFechaNac().getYear();
         return edad > year;
     }
