@@ -11,7 +11,10 @@ get y set. Y los siguientes métodos:
 
 package ej12.entidades;
 
-import java.util.Date;
+//import java.util.Date;
+
+import java.time.LocalDate;
+
 
 /**
  * 
@@ -20,12 +23,13 @@ import java.util.Date;
 public class Persona {
 
     private String nombre;
-    private Date fechaNac;
+//    private Date fechaNac;
+    private LocalDate fechaNac;
 
     public Persona() {
     }
 
-    public Persona(String nombre, Date fechaNac) {
+    public Persona(String nombre, LocalDate fechaNac) {
         this.nombre = nombre;
         this.fechaNac = fechaNac;
     }
@@ -38,11 +42,11 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public Date getFechaNac() {
+    public LocalDate getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
     
