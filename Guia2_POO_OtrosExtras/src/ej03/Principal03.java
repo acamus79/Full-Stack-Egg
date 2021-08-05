@@ -51,13 +51,7 @@ public class Principal03 {
     public static void main(String[] args) {
         // El Código va AQUI!!!
         ControlPass cp = new ControlPass();
-        //Ingresar datos de usuarios (usando el constructor. 
-        //HACER INGRESO DE DATOS FIJOS (no por teclado)        
-        Pass p1 = new Pass("laclavees1","root",27449885);
-        Pass p2 = new Pass("password22","admin",3577484);
-        Pass p3 = new Pass("clave-12345","administrador",40788421);
-        Pass p4 = new Pass("contrasenia","usuario",26547124);
-        
+           
         cp.menu();
     }
 

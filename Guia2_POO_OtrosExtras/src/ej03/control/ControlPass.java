@@ -51,35 +51,35 @@ public class ControlPass {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         char op = 'O';
         do {
-            System.out.println("***** I N G R E S O *****");
-            System.out.println("**  DNI y CONTRASEÑA   **");
-            System.out.println("*************************");
-            System.out.println("Ingrese los dos valores...\n");
+            System.out.println("***** O P C I O N E S ******");
+            System.out.println("** A. Modificar Contraseña**");
+            System.out.println("** B. Modificar nombre    **");
+            System.out.println("** C. Modificar DNI       **");
+            System.out.println("** X. Para Salir          **");
+            System.out.println("***************************");
+            System.out.println("Ingrese la opcion...\n");
 
-            op = leer.next().charAt(0);
+            op = leer.next().toUpperCase().charAt(0);
 
             switch (op) {
                 case 'A':
 
                     break;
-                case 2:
+                case 'B':
 
                     break;
-                case 3:
+                case 'C':
 
                     break;
-                case 4:
-
-                    break;
-                case 5:
+                case 'X':
                     System.out.println("CHAU!!\n");
                     break;
                 default:
-                    System.out.println("Ingreso una opcion no validad");
-                    op = 0;
+                    System.out.println("Ingresó una opcion no validad");
+                    op = 'O';
             }
 
-        } while (op != 'S');//hacer..... mientras op sea diferente de S
+        } while (op != 'X');//hacer..... mientras op sea diferente de X
     }
 
     public void menu() {
