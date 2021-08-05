@@ -34,6 +34,7 @@ SINO impedir cambios
  */
 package ej03.control;
 
+import ej03.entidades.Pass;
 import java.util.Scanner;
 
 /**
@@ -41,6 +42,10 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public class ControlPass {
+
+    //Ingresar datos de usuarios (usando el constructor. 
+    //HACER INGRESO DE DATOS FIJOS (no por teclado)        
+    Pass p1 = new Pass("laclavees1", "root", 27449880);
 
     public void menuOpciones() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
@@ -78,6 +83,7 @@ public class ControlPass {
     }
 
     public void menu() {
+
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int dni = 0;
         String pass = " ";
@@ -93,13 +99,29 @@ public class ControlPass {
                 dni = leer.nextInt();
             }
             pass = leer.next();
-            while (!(pass.length()>=10 && pass.length()<20)){
+            while (!(pass.length() >= 10 && pass.length() < 20)) {
                 System.out.println("No es una contraseña validad");
                 pass = leer.next();
             }
-            
+            if (verificaUsuario(p1, dni, pass)) {
+                bandera = false;
+                menuOpciones();
+            } else {
+                System.out.println("DNI o Contraseña no valida");
+                bandera = true;
+            }
 
-        } while (bandera != false);//hacer..... mientras op sea diferente de S
+        } while (bandera != false);//hacer..... mientras bandera sea true
+    }
+
+    private static boolean verificaUsuario(Pass p, int dni, String clave) {
+        if (dni == p.getDni() && (clave.equals(p.getPass()))) {
+            System.out.println("Bienvenido " + p.getNombre());
+            return true;
+        } else {
+            System.out.println("El DNI corresponde");
+            return false;
+        }
     }
 
 }
