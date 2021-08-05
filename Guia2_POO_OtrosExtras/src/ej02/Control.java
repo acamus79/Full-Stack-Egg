@@ -13,17 +13,29 @@ import java.util.concurrent.TimeUnit;
  * @author Adrian E. Camus
  */
 public class Control {
-//Creo el Objeto de la clase Tiempo
+//Creo el Objeto de la clase Tiempo con verificacion por cada atributo
 
     public Tiempo creaReloj() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("VAMOS A SIMULAR UN RELOJ");
         System.out.println("Dame la hora...");
         int hr = leer.nextInt();
+        while (!(hr >= 0 && hr < 24)) {
+            System.out.println("no es una hora valida");
+            hr = leer.nextInt();
+        }
         System.out.println("Dame los minutos...");
         int min = leer.nextInt();
+        while (!(min >= 0 && hr < 60)) {
+            System.out.println("los minutos no cumplen el estandar");
+            min = leer.nextInt();
+        }
         System.out.println("y ahora los segundos");
         int seg = leer.nextInt();
+        while (!(seg >= 0 && hr < 60)) {
+            System.out.println("los segundos no son validos");
+            seg = leer.nextInt();
+        }
         return new Tiempo(hr, min, seg);
     }
 //un metodo para mostrar el tiempo
@@ -34,38 +46,21 @@ public class Control {
 //un metodo que simula un reloj por consola
 
     public void reloj(Tiempo t) throws InterruptedException {
-        int a = 0;//lo uso como para ponerle un limite en este caso muy aplio porque sera de 24 hs
-        int i = t.getHora();
-        int j = t.getMinuto();
-        int k = t.getSegundo();
-
         do {
-            for (i = t.getHora(); i <= 24; i++) {
-                a++;//por cada vez que pase por 'i' va a incrementar 'a'
-                if (t.getHora() == 24) {
-                    i = 0;
-                    t.setHora(i);
-                }
-                for (j = t.getMinuto(); j < 60; j++) {
-                    t.setMinuto(j);
-                    if (t.getMinuto() == 60) {
-                        j = 0;
-                        t.setMinuto(0);
-                        t.setHora(t.getHora() + 1);
-                    }
-                    while (j < 60) {
-                        k++;
-                        t.setSegundo(k);
-                        if (t.getSegundo() == 60) {
-                            k = 0;
-                            t.setSegundo(0);
-                            t.setMinuto(t.getMinuto() + 1);
-                        }
-                        TimeUnit.SECONDS.sleep(1);//mando a dormir un segundo para que parezca un reloj
-                        imprimirHoraCompleta(t);
+            TimeUnit.SECONDS.sleep(1);//mando a dormir un segundo para que parezca un reloj
+            t.setSegundo(t.getSegundo() + 1);
+            if (t.getSegundo() > 59) {
+                t.setMinuto(t.getMinuto() + 1);
+                t.setSegundo(0);
+                if (t.getMinuto() > 59) {
+                    t.setHora(t.getHora() + 1);
+                    t.setMinuto(0);
+                    if (t.getHora() > 23) {
+                        t.setHora(0);
                     }
                 }
             }
-        } while (a <= 24);
+            imprimirHoraCompleta(t);
+        } while (t.getHora() < 24);
     }
 }
