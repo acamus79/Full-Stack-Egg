@@ -34,15 +34,70 @@ SINO impedir cambios
  */
 package ej03.control;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
  */
 public class ControlPass {
-    
-    
-    public void menu(){
-        
+
+    public void menuOpciones() {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        char op = 'O';
+        do {
+            System.out.println("***** I N G R E S O *****");
+            System.out.println("**  DNI y CONTRASEÑA   **");
+            System.out.println("*************************");
+            System.out.println("Ingrese los dos valores...\n");
+
+            op = leer.next().charAt(0);
+
+            switch (op) {
+                case 'A':
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    System.out.println("CHAU!!\n");
+                    break;
+                default:
+                    System.out.println("Ingreso una opcion no validad");
+                    op = 0;
+            }
+
+        } while (op != 'S');//hacer..... mientras op sea diferente de S
     }
-    
+
+    public void menu() {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        int dni = 0;
+        String pass;
+        do {
+            System.out.println("***** I N G R E S O *****");
+            System.out.println("**  DNI y CONTRASEÑA   **");
+            System.out.println("*************************");
+            System.out.println("Ingrese los dos valores...\n");
+            dni = leer.nextInt();
+            while (!(dni >= 4000000 && dni < 99999999)) {
+                System.out.println("no es un DNI valido");
+                dni = leer.nextInt();
+            }
+            pass = leer.next();
+            while (!(pass.length()>=10 && pass.length()<20)){
+                System.out.println("No es una contraseña validad");
+                pass = leer.next();
+            }
+
+        } while (op != 'S');//hacer..... mientras op sea diferente de S
+    }
+
 }
