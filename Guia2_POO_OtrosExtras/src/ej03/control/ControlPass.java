@@ -80,7 +80,8 @@ public class ControlPass {
     public void menu() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int dni = 0;
-        String pass;
+        String pass = " ";
+        boolean bandera = true;
         do {
             System.out.println("***** I N G R E S O *****");
             System.out.println("**  DNI y CONTRASEÑA   **");
@@ -96,8 +97,9 @@ public class ControlPass {
                 System.out.println("No es una contraseña validad");
                 pass = leer.next();
             }
+            
 
-        } while (op != 'S');//hacer..... mientras op sea diferente de S
+        } while (bandera != false);//hacer..... mientras op sea diferente de S
     }
 
 }
