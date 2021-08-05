@@ -41,6 +41,8 @@ package ej03.control;
 public class ControlPass {
     
     
-    
+    public void menu(){
+        
+    }
     
 }
