@@ -14,6 +14,9 @@ Te animas a simular el paso del tiempo en consola?
  */
 package ej02;
 
+import ej02.entidades.Tiempo;
+import ej02.servicio.Control;
+
 /**
  *
  * @author Adrian E. Camus
