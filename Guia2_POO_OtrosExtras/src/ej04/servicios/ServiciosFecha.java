@@ -29,13 +29,7 @@ import java.util.Scanner;
 public class ServiciosFecha {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    /* dos vectorres de 13 elementos dejo el indice 0 con valores vacios al principio
-para que no se me haga lio con los indices y poder igualar el mes 1 con enero 
-(indice uno) los declaro privados estaticos y finales porque solo los voy a 
-usar en esta clase por varios metodos y no se van a modificar*/
-    private static final String mesesString[] = {"nada", "Enero", "Febrero", "Marzo", "Abril",
-        "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"};
-    private static final int mesesInt[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
 
     public Fecha crearFecha() {
         //la creo si parametros cosa que si no ingresan bien la fecha quede 
@@ -94,5 +88,18 @@ usar en esta clase por varios metodos y no se van a modificar*/
         }
 
     }
-
+    
+    public void verificaMes(Fecha f){
+/* dos vectorres de 13 elementos dejo el indice 0 con valores vacios al principio
+para que no se me haga lio con los indices y poder igualar el mes 1 con enero 
+(indice uno) los declaro privados estaticos y finales porque solo los voy a 
+usar en esta clase por varios metodos y no se van a modificar*/
+    String mesesString[] = {"nada", "Enero", "Febrero", "Marzo", "Abril",
+        "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"};
+    int mesesInt[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    //Ahora muestro los vectores segun el indice con el metodo getMes del objeto Fecha
+        System.out.println("El mes ingresado es "+mesesString[f.getMes()]+
+                " y tiene "+mesesInt[f.getMes()]+" dias");
+       
+    }
 }
