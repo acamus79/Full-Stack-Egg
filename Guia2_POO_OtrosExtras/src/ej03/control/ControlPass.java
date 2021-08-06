@@ -42,7 +42,7 @@ public class ControlPass {
     Pass p1 = new Pass("laclavees1", "root", 27449880);
 
     public void menuOpciones() {
-        System.out.println("BIENVENIDO "+p1.getNombre()+" - "+p1.getDni());
+        System.out.println("BIENVENIDO " + p1.getNombre() + " - " + p1.getDni());
         char op = 'O';
         do {
             System.out.println("***** O P C I O N E S ******");
@@ -121,14 +121,25 @@ public class ControlPass {
     }
 
     private static void modificaPass(Pass p) {
+        boolean b = true;
         if (verificaPass(p)) {
-            System.out.println("Ingrese la nueva contraseña");
-            p.setPass(leer.next());
+            do {
+                System.out.println("Ingrese la nueva contraseña");
+                String nueva = leer.next();
+                if (nueva.length() > 10) {
+                    b = true;
+                    p.setPass(nueva);
+                }else{
+                    System.out.println("La contraseña debe contener 10 o mas caracteres");
+                    b=false;
+                }
+            } while (b == false);
         } else {
             System.out.println("Metiste mal la pass");
         }
     }
-/*
+
+    /*
 Crear los métodos correspondientes para modificar el nombre o DNI. 
 Atención! Primero debe ingresar el pass para poder realizar dicha gestión. 
 Caso contrario se impedirá el acceso a modificar los datos.   */
@@ -156,7 +167,6 @@ Crear un método para analizar la contraseña(analizarPass). Donde:
 o SI Existe al menos una letra z : Es nivel MEDIO
 o Si Existe al menos una letra z y al menos 2 letras a: Es nivel ALTO
 o Si ninguna condición se cumple es nivel BAJO    */
-
     private static void analizaPass(Pass p) {
         String clave = p.getPass().toLowerCase();
         int contA = 0;
