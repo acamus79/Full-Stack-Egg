@@ -2,6 +2,7 @@
  * Sin licencia.
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
+
 Métodos para desarrollar:
  Ingresar datos de usuarios (usando el constructor. HACER INGRESO DE DATOS FIJOS (no
 por teclado)
@@ -43,12 +44,13 @@ import java.util.Scanner;
  */
 public class ControlPass {
 
+    private static final Scanner leer = new Scanner(System.in).useDelimiter("\n");
     //Ingresar datos de usuarios (usando el constructor. 
     //HACER INGRESO DE DATOS FIJOS (no por teclado)        
     Pass p1 = new Pass("laclavees1", "root", 27449880);
 
     public void menuOpciones() {
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
         char op = 'O';
         do {
             System.out.println("***** O P C I O N E S ******");
@@ -83,11 +85,9 @@ public class ControlPass {
     }
 
     public void menu() {
-
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int dni = 0;
         String pass = " ";
-        boolean bandera = true;
+        boolean bandera = false;
         do {
             System.out.println("***** I N G R E S O *****");
             System.out.println("**  DNI y CONTRASEÑA   **");
@@ -104,14 +104,14 @@ public class ControlPass {
                 pass = leer.next();
             }
             if (verificaUsuario(p1, dni, pass)) {
-                bandera = false;
+                bandera = true;
                 menuOpciones();
             } else {
                 System.out.println("DNI o Contraseña no valida");
-                bandera = true;
+                bandera = false;
             }
 
-        } while (bandera != false);//hacer..... mientras bandera sea true
+        } while (bandera != true);//hacer..... mientras bandera sea true
     }
 
     private static boolean verificaUsuario(Pass p, int dni, String clave) {
@@ -124,4 +124,19 @@ public class ControlPass {
         }
     }
 
+    private static void modificaPass(Pass p) {
+        if (verificaPass(p)) {
+            System.out.println("Ingrese la nueva contraseña");
+            p.setPass(leer.next());
+        }else{
+            System.out.println("Metiste mal la pass");
+        }
+
+    }
+
+    private static boolean verificaPass(Pass p) {
+        System.out.println("Ingrese su contraseña actual");
+        String clave = leer.next();
+        return clave.equals(p.getPass());
+    }
 }
