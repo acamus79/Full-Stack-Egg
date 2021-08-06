@@ -42,7 +42,7 @@ public class ControlPass {
     Pass p1 = new Pass("laclavees1", "root", 27449880);
 
     public void menuOpciones() {
-
+        System.out.println("BIENVENIDO "+p1.getNombre()+" - "+p1.getDni());
         char op = 'O';
         do {
             System.out.println("***** O P C I O N E S ******");
