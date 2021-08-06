@@ -54,9 +54,10 @@ public class ControlPass {
         char op = 'O';
         do {
             System.out.println("***** O P C I O N E S ******");
-            System.out.println("** A. Modificar Contraseña**");
+            System.out.println("** A. Cambiar Contraseña  **");
             System.out.println("** B. Modificar nombre    **");
             System.out.println("** C. Modificar DNI       **");
+            System.out.println("** D. Nivel de Contraseña **");
             System.out.println("** X. Para Salir          **");
             System.out.println("***************************");
             System.out.println("Ingrese la opcion...\n");
@@ -64,17 +65,20 @@ public class ControlPass {
             op = leer.next().toUpperCase().charAt(0);
 
             switch (op) {
-                case 'A': modificaPass(p1);
-
-                    break; 
-                case 'B':modificaName(p1);
-
+                case 'A':
+                    modificaPass(p1);
                     break;
-                case 'C':modificaDNI(p1);
-
+                case 'B':
+                    modificaName(p1);
+                    break;
+                case 'C':
+                    modificaDNI(p1);
+                    break;
+                case 'D':
+                    analizaPass(p1);
                     break;
                 case 'X':
-                    System.out.println("CHAU!!\n");
+                    System.out.println("CHAU!!  " + p1.getNombre() + "\n");
                     break;
                 default:
                     System.out.println("Ingresó una opcion no validad");
@@ -128,7 +132,7 @@ public class ControlPass {
         if (verificaPass(p)) {
             System.out.println("Ingrese la nueva contraseña");
             p.setPass(leer.next());
-        }else{
+        } else {
             System.out.println("Metiste mal la pass");
         }
     }
@@ -137,21 +141,25 @@ public class ControlPass {
         if (verificaPass(p)) {
             System.out.println("Ingrese el nuevo Nombre de Usuario");
             p.setNombre(leer.next());
-        }else{
+        } else {
             System.out.println("Metiste mal la clave papa");
         }
     }
-    
+
     private static void modificaDNI(Pass p) {
         if (verificaPass(p)) {
             System.out.println("Ingrese el nuevo DNI");
             p.setDni(leer.nextInt());
-        }else{
+        } else {
             System.out.println("Metiste mal la clave papa");
         }
     }
-    
 
+    private static void analizaPass(Pass p){
+        
+    }
+    
+    
     private static boolean verificaPass(Pass p) {
         System.out.println("Ingrese su contraseña actual");
         String clave = leer.next();
