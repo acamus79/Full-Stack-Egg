@@ -4,7 +4,7 @@
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
 
-package ej02;
+package ej02.entidades;
 
 /**
  * 

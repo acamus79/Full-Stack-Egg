@@ -3,8 +3,9 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-package ej02;
+package ej02.servicio;
 
+import ej02.entidades.Tiempo;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
