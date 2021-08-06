@@ -64,13 +64,13 @@ public class ControlPass {
             op = leer.next().toUpperCase().charAt(0);
 
             switch (op) {
-                case 'A':
+                case 'A': modificaPass(p1);
+
+                    break; 
+                case 'B':modificaName(p1);
 
                     break;
-                case 'B':
-
-                    break;
-                case 'C':
+                case 'C':modificaDNI(p1);
 
                     break;
                 case 'X':
@@ -131,8 +131,26 @@ public class ControlPass {
         }else{
             System.out.println("Metiste mal la pass");
         }
-
     }
+
+    private static void modificaName(Pass p) {
+        if (verificaPass(p)) {
+            System.out.println("Ingrese el nuevo Nombre de Usuario");
+            p.setNombre(leer.next());
+        }else{
+            System.out.println("Metiste mal la clave papa");
+        }
+    }
+    
+    private static void modificaDNI(Pass p) {
+        if (verificaPass(p)) {
+            System.out.println("Ingrese el nuevo DNI");
+            p.setDni(leer.nextInt());
+        }else{
+            System.out.println("Metiste mal la clave papa");
+        }
+    }
+    
 
     private static boolean verificaPass(Pass p) {
         System.out.println("Ingrese su contraseña actual");
