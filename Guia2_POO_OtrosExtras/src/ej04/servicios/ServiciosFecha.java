@@ -75,17 +75,10 @@ public class ServiciosFecha {
 
     private static boolean esBiciesto(int anio) {
         //Si es divisible entre 4 y no es divisible entre 100 o es divisible entre 100 y 400.
-        if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 100 == 0 && anio % 400 == 0)) {
-            //System.out.println("El año " + anio + " SI es bisiesto");
-            return true;
-        } else {
-            //System.out.println("El año " + anio + " NO es bisiesto");
-            return false;
-        }
-
+        return (anio % 4 == 0 && anio % 100 != 0) || (anio % 100 == 0 && anio % 400 == 0);
     }
 
-    public void verificaMes(Fecha f) {
+    private static void verificaMes(Fecha f) {
         /* dos vectorres de 13 elementos dejo el indice 0 con valores vacios al principio
 para que no se me haga lio con los indices y poder igualar el mes 1 con enero 
 (indice uno) los declaro en este metodo porque solo los uso aca no se van a modificar*/
@@ -97,7 +90,7 @@ para que no se me haga lio con los indices y poder igualar el mes 1 con enero
                 + " y tiene " + mesesInt[f.getMes()] + " dias");
     }
 
-    public void diaPosterior(Fecha f) {
+    private static void diaPosterior(Fecha f) {
 
         int pD = f.getDia() + 1;
         int mm = f.getMes();
@@ -124,7 +117,7 @@ para que no se me haga lio con los indices y poder igualar el mes 1 con enero
         System.out.println("El dia Posterior es " + pD + "/" + mm + "/" + aa);
     }
 
-    public void diaAnterior(Fecha f) {
+    private static void diaAnterior(Fecha f) {
         int dA = f.getDia() - 1;//dia Anterior
         int mm = f.getMes();
         int mA = f.getMes() - 1;//mes Anterior
@@ -153,5 +146,19 @@ para que no se me haga lio con los indices y poder igualar el mes 1 con enero
         }
 
         System.out.println("El dia Anterior es " + dA + "/" + mm + "/" + aa);
+    }
+
+    public void verificaMBAP(Fecha f) {
+
+        verificaMes(f);
+        if (esBiciesto(f.getAnio())) {
+            System.out.println("El año " + f.getAnio() + " SI es bisiesto");
+        } else {
+            System.out.println("El año " + f.getAnio() + " NO es bisiesto");
+        }
+
+        diaAnterior(f);
+
+        diaPosterior(f);
     }
 }
