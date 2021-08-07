@@ -43,15 +43,15 @@ public class ServiciosFecha {
         int aa = leer.nextInt();
 
         if (verifica(dd, mm, aa)) {
-            if(aa<1900||aa>2021){
+            if (aa < 1900 || aa > 2021) {
                 System.out.println("EL año no es aceptado tomara el valor por defecto");
-                
-            }else{
+
+            } else {
                 laFecha.setAnio(aa);
                 laFecha.setDia(dd);
                 laFecha.setMes(mm);
             }
-            
+
         } else {
             System.out.println("Los Datos ingresados no son una fecha posible");
             System.out.println("La fecha se registro con los valores por defecto");
@@ -61,7 +61,7 @@ public class ServiciosFecha {
 
     private static boolean verifica(int dd, int mm, int aa) {
         boolean bandera = false;
-                       
+
         if (mm > 0 && mm < 13) {//verifico que los meses sean del 1 al 12
             //verifico por los meses que tengan 31 dias
             if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) {
@@ -116,12 +116,15 @@ para que no se me haga lio con los indices y poder igualar el mes 1 con enero
             } else if (mm == 2 && pD > 29 && esBiciesto(aa)) {
                 pD = 1;
                 mm++;
+            } else if (mm == 2 && pD > 28 && !esBiciesto(aa)) {//sino si el dia posterior es mayor que 29
+                pD = 1;
+                mm++;
             } else if (pD > 30) {//sino si el dia posterior es mayor que 30
                 pD = 1;
                 mm++;
             }
+            System.out.println("El dia Posterior es " + pD + "/" + mm + "/" + aa);
         }
-        System.out.println("El dia Posterior es " + pD + "/" + mm + "/" + aa);
     }
 
     private static void diaAnterior(Fecha f) {
