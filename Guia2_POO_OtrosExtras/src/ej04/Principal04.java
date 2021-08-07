@@ -22,6 +22,9 @@ mes)
 
 package ej04;
 
+import ej04.entidades.Fecha;
+import ej04.servicios.ServiciosFecha;
+
 /**
  *
  * @author Adrian E. Camus
@@ -33,6 +36,14 @@ public class Principal04 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        
+        ServiciosFecha sf = new ServiciosFecha();
+        Fecha f1 = sf.crearFecha();
+        //Uso de toString
+        System.out.println(f1);
+        //Verifico Mes, año Biciesto, dia Anterior y dia Posterior
+        sf.verificaMBAP(f1);
+        
     }
 
 }
