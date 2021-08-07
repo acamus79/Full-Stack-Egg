@@ -102,6 +102,15 @@ para que no se me haga lio con los indices y poder igualar el mes 1 con enero
         int pD = f.getDia() + 1;
         int mm = f.getMes();
         int aa = f.getAnio();
+
+        if (mm == 2 && pD > 29 && esBiciesto(aa)) {
+            pD = 1;
+            mm++;
+        }else if(!esBiciesto(aa)){
+            pD = 1;
+            mm++;
+        }
+
         //si el mes es alguno de los que tiene 31 dias
         if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) {
             if (pD > 31) {//si el dia posterior es mayor que 31
@@ -113,12 +122,7 @@ para que no se me haga lio con los indices y poder igualar el mes 1 con enero
                     pD = 1;
                     mm++;
                 }
-            } else if (mm == 2 && pD > 29 && esBiciesto(aa)) {
-                pD = 1;
-                mm++;
-            } else if (mm == 2 && pD > 28 && !esBiciesto(aa)) {//sino si el dia posterior es mayor que 29
-                pD = 1;
-                mm++;
+            
             } else if (pD > 30) {//sino si el dia posterior es mayor que 30
                 pD = 1;
                 mm++;
