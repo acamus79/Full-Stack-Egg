@@ -43,9 +43,15 @@ public class ServiciosFecha {
         int aa = leer.nextInt();
 
         if (verifica(dd, mm, aa)) {
-            laFecha.setAnio(aa);
-            laFecha.setDia(dd);
-            laFecha.setMes(mm);
+            if(aa<1900||aa>2021){
+                System.out.println("EL año no es aceptado tomara el valor por defecto");
+                
+            }else{
+                laFecha.setAnio(aa);
+                laFecha.setDia(dd);
+                laFecha.setMes(mm);
+            }
+            
         } else {
             System.out.println("Los Datos ingresados no son una fecha posible");
             System.out.println("La fecha se registro con los valores por defecto");
@@ -55,6 +61,7 @@ public class ServiciosFecha {
 
     private static boolean verifica(int dd, int mm, int aa) {
         boolean bandera = false;
+                       
         if (mm > 0 && mm < 13) {//verifico que los meses sean del 1 al 12
             //verifico por los meses que tengan 31 dias
             if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) {
