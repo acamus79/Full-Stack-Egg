@@ -20,6 +20,8 @@ y mostrado en el main.
 
 package guia07_ej_03;
 
+import guia07_ej_03.servicios.ServiciosAlumno;
+
 /**
  *
  * @author Adrian E. Camus
@@ -30,7 +32,12 @@ public class Guia07_ej_03 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // El Código va AQUI!!!
+        // El Código va AQUI!!
+        
+        ServiciosAlumno sa = new ServiciosAlumno();
+        sa.crearAlumnos();
+        sa.notaFinal();
+        
     }
 
 }

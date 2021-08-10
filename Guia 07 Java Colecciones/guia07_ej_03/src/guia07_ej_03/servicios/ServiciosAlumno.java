@@ -30,7 +30,7 @@ public class ServiciosAlumno {
         this.alumnosList = new ArrayList();
     }
 
-    public Alumno creaAlumno() {
+    private Alumno creaAlumno() {
         System.out.println("Ingrese el nombre del Alumno");
         String nombre = leer.next().toUpperCase();
         HashSet<Integer> notas = new HashSet(3);
@@ -53,7 +53,7 @@ public class ServiciosAlumno {
         do {
             creaAlumno();
             System.out.println("Desea agregar otro Alumno"
-                    + "'S' para Continuar o 'N' para Salir");
+                    + " 'S' para Continuar o 'N' para Salir");
             op = leer.next().toUpperCase().charAt(0);
         } while (op != 'N');
     }
@@ -64,14 +64,15 @@ public class ServiciosAlumno {
         
        Iterator<Alumno> it = alumnosList.iterator();
         while (it.hasNext()) {
+            Integer notaFinal=0;
             Alumno aux = it.next();
             if (aux.getNombreAlumno().equals(buscado)) {
                 HashSet<Integer> notasAux = aux.getNotas();
                     for (Integer notaFin : notasAux) {
-                        notaFin+=notaFin;
+                        notaFinal+=notaFin;
                     
                 }
-                    System.out.println("");
+                    System.out.println("La nota final promedio es: "+notaFinal/3);
                 }
                 
                 }
