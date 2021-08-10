@@ -36,7 +36,7 @@ public class Principal01_02 {
         
         ServiciosPerro sp = new ServiciosPerro();
         sp.criaderoDeChiquitos();
-        sp.buscarRaza();
+        sp.perrera();
         
         
     }
