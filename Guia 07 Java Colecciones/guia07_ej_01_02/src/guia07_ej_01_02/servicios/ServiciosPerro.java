@@ -15,10 +15,12 @@ import java.util.Scanner;
  */
 public class ServiciosPerro {
     private Scanner leer;
-    private ArrayList perrosList;
+    //aca creo mi Coleccion de Objetos Perros
+    private ArrayList<Perro> perrosList;
 
     public ServiciosPerro() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
+        //aca la instancio
         this.perrosList = new ArrayList();
     }
     
@@ -33,6 +35,15 @@ public class ServiciosPerro {
         perrosList.add(p);
         return p;
     }
+    
+    public void mostrarPerros(){
+        System.out.println("Las razas cargadas son");
+        for (Perro aux : perrosList) {
+            System.out.println(aux.toString());
+        }
+    System.out.println("Cantidad de razas de perro: "+perrosList.size());
+        }
+        
     /**
      * para vos dolape
      */
@@ -40,17 +51,17 @@ public class ServiciosPerro {
         char op;
         do{
             creaPerro();
-            System.out.println("Desea agregar otro Perro");
+            System.out.println("Desea agregar otro Perro"+
+                    "'S' para Continuar o 'N' para Salir");
             op = leer.next().toUpperCase().charAt(0);
         }while (op!='N');
-            
-        
+       
+        mostrarPerros();
+    }
+    
+    
         
     }
     
     
-    
-    
-    
-    
-}
+
