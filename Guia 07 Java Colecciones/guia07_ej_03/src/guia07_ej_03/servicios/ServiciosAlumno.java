@@ -7,6 +7,7 @@ package guia07_ej_03.servicios;
 
 import guia07_ej_03.entidades.Alumno;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -31,7 +32,7 @@ public class ServiciosAlumno {
     public Alumno creaAlumno() {
         System.out.println("Ingrese el nombre del Alumno");
         String nombre = leer.next().toUpperCase();
-        ArrayList<Integer> notas = new ArrayList(3);
+        HashSet<Integer> notas = new HashSet(3);
         System.out.println("Ingrese las 3 notas del alumno");
         int n1 = leer.nextInt();
         notas.add(n1);
