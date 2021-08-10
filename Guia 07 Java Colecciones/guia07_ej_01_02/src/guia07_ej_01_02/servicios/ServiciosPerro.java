@@ -33,8 +33,20 @@ public class ServiciosPerro {
         perrosList.add(p);
         return p;
     }
-    
-    
+    /**
+     * para vos dolape
+     */
+    public void criaderoDeChiquitos(){
+        char op;
+        do{
+            creaPerro();
+            System.out.println("Desea agregar otro Perro");
+            op = leer.next().toUpperCase().charAt(0);
+        }while (op!='N');
+            
+        
+        
+    }
     
     
     
