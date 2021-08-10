@@ -8,6 +8,7 @@ package guia07_ej_03.servicios;
 import guia07_ej_03.entidades.Alumno;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -61,7 +62,21 @@ public class ServiciosAlumno {
         System.out.println("Ingrese el nombre del alumno a calcular");
         String buscado = leer.next().toUpperCase();
         
-        
+       Iterator<Alumno> it = alumnosList.iterator();
+        while (it.hasNext()) {
+            Alumno aux = it.next();
+            if (aux.getNombreAlumno().equals(buscado)) {
+                HashSet<Integer> notasAux = aux.getNotas();
+                    for (Integer notaFin : notasAux) {
+                        notaFin+=notaFin;
+                    
+                }
+                }
+                
+                }
+            }
+
+        }
     }
 }
  
