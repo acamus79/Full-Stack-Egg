@@ -36,6 +36,7 @@ public class Guia06_ej_01 {
         
         ServiciosPerro sp = new ServiciosPerro();
         sp.criaderoDeChiquitos();
+        sp.buscarRaza();
         
         
     }
