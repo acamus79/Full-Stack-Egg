@@ -29,7 +29,7 @@ public class ServiciosAlumno {
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.alumnosList = new ArrayList();
     }
-
+//Metodo privado porque lo voy a llamar solo desde esta clase
     private Alumno creaAlumno() {
         System.out.println("Ingrese el nombre del Alumno");
         String nombre = leer.next().toUpperCase();
@@ -50,12 +50,13 @@ public class ServiciosAlumno {
 
     public void crearAlumnos() {
         char op;
+        //Hacer...
         do {
-            creaAlumno();
+            creaAlumno();//llamo al metodo privado que pide los datos al usuario
             System.out.println("Desea agregar otro Alumno"
                     + " 'S' para Continuar o 'N' para Salir");
             op = leer.next().toUpperCase().charAt(0);
-        } while (op != 'N');
+        } while (op != 'N');//Mientras op sea distinto de N
     }
 
     public void notaFinal() {
