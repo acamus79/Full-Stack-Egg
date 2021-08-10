@@ -19,7 +19,6 @@ public class ServiciosAlumno {
     //aca creo mi Coleccion de Objetos Perros
     private ArrayList<Alumno> alumnosList;
 
-
  /**
   * constructor sin parametros (o vacio) pero 
   * que instacia el scanner y la lista
@@ -47,6 +46,15 @@ public class ServiciosAlumno {
         return a;
     }
     
-    
+    public void crearAlumnos(){
+        char op;
+        do {
+            creaAlumno();
+            System.out.println("Desea agregar otro Alumno"
+                    + "'S' para Continuar o 'N' para Salir");
+            op = leer.next().toUpperCase().charAt(0);
+        } while (op != 'N');
+    }
+ 
 }
  
