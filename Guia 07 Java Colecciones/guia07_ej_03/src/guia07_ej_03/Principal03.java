@@ -26,7 +26,7 @@ import guia07_ej_03.servicios.ServiciosAlumno;
  *
  * @author Adrian E. Camus
  */
-public class Guia07_ej_03 {
+public class Principal03 {
 
     /**
      * @param args the command line arguments
