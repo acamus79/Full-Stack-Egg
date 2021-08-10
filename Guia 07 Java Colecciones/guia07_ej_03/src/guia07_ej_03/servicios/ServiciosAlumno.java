@@ -21,10 +21,10 @@ public class ServiciosAlumno {
     //aca creo mi Coleccion de Objetos Perros
     private ArrayList<Alumno> alumnosList;
 
- /**
-  * constructor sin parametros (o vacio) pero 
-  * que instacia el scanner y la lista
-  */
+    /**
+     * constructor sin parametros (o vacio) pero que instacia el scanner y la
+     * lista
+     */
     public ServiciosAlumno() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.alumnosList = new ArrayList();
@@ -41,14 +41,14 @@ public class ServiciosAlumno {
         notas.add(n2);
         int n3 = leer.nextInt();
         notas.add(n3);
-               
-        Alumno a = new Alumno (nombre,notas);
+
+        Alumno a = new Alumno(nombre, notas);
         alumnosList.add(a);
-        
+
         return a;
     }
-    
-    public void crearAlumnos(){
+
+    public void crearAlumnos() {
         char op;
         do {
             creaAlumno();
@@ -57,28 +57,32 @@ public class ServiciosAlumno {
             op = leer.next().toUpperCase().charAt(0);
         } while (op != 'N');
     }
- 
-    public void notaFinal(){
+
+    public void notaFinal() {
         System.out.println("Ingrese el nombre del alumno a calcular");
         String buscado = leer.next().toUpperCase();
-        
-       Iterator<Alumno> it = alumnosList.iterator();
+
+        Iterator<Alumno> it = alumnosList.iterator();//Iterator con la lista de alumnos
+
         while (it.hasNext()) {
-            Integer notaFinal=0;
+
+            Integer acumulaNota = 0;//variable para acumular las notas
+//Objeto auxiliar de la clase Alumno conde voy a ir asignando las iteraciones de it            
             Alumno aux = it.next();
+//comparo si el nombre del objeto auxiliar es igual al nombre "buscado"            
             if (aux.getNombreAlumno().equals(buscado)) {
+//cuando encuentra el nombre crea una coleccion HashSet auxiliar para asignar las
+//notas del alumno encontrado y asi poder recorrer y sumar las notas
                 HashSet<Integer> notasAux = aux.getNotas();
-                    for (Integer notaFin : notasAux) {
-                        notaFinal+=notaFin;
-                    
+
+                for (Integer notaFin : notasAux) {
+                    acumulaNota += notaFin;
+
                 }
-                    System.out.println("La nota final promedio es: "+notaFinal/3);
-                }
-                
-                }
+                System.out.println("La nota final promedio es: " + acumulaNota / 3);
             }
 
-        
- 
+        }
+    }
+
 }
- 
