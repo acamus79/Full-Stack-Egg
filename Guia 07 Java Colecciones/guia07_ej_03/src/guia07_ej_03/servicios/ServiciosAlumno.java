@@ -56,5 +56,11 @@ public class ServiciosAlumno {
         } while (op != 'N');
     }
  
+    public void notaFinal(){
+        System.out.println("Ingrese el nombre del alumno a calcular");
+        String buscado = leer.next().toUpperCase();
+        
+        
+    }
 }
  
