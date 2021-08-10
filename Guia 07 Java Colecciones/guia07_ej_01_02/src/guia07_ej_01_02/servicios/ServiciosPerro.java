@@ -7,6 +7,7 @@ package guia07_ej_01_02.servicios;
 
 import guia07_ej_01_02.entidades.Perro;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -59,7 +60,25 @@ public class ServiciosPerro {
         mostrarPerros();
     }
     
-    
+    public void buscarRaza(){
+//le pido al usuario la raza a buscar        
+        System.out.println("Ingresa la Raza a buscar");
+        String buscaRaza = leer.next().toUpperCase();
+        
+//Iterator fr tipo Perro llamado it con lo que tiene el arraylist perrosList
+        Iterator<Perro> it = perrosList.iterator();
+
+//Mientras haya otro objeto en la lista hacer        
+        while(it.hasNext()){
+            Perro aux = it.next();
+            String laRaza = aux.getRaza();
+            if(laRaza.equals(buscaRaza)){
+                it.remove();
+            }
+        }
+        //vuelvo a mostrar como para usar el uso del forech en una linea 
+        perrosList.forEach((e) -> System.out.println(e));
+    }
         
     }
     
