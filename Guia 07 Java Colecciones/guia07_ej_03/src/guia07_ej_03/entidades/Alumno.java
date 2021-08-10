@@ -10,7 +10,7 @@ de tipo Integer con sus 3 notas.
  */
 package guia07_ej_03.entidades;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -18,22 +18,22 @@ import java.util.ArrayList;
  */
 public class Alumno {
     private String nombreAlumno;
-    private ArrayList<Integer> notas;
+    private HashSet<Integer> notas;
 
     public Alumno() {
-        this.notas = new ArrayList();
+        this.notas = new HashSet();
     }
 
-    public Alumno(String nombreAlumno, ArrayList<Integer> notas) {
+    public Alumno(String nombreAlumno, HashSet<Integer> notas) {
         this.nombreAlumno = nombreAlumno;
         this.notas = notas;
     }
 
-    public ArrayList<Integer> getNotas() {
+    public HashSet<Integer> getNotas() {
         return notas;
     }
 
-    public void setNotas(ArrayList<Integer> notas) {
+    public void setNotas(HashSet<Integer> notas) {
         this.notas = notas;
     }
 
