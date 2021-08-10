@@ -26,7 +26,7 @@ import guia07_ej_01_02.servicios.ServiciosPerro;
  *
  * @author Adrian E. Camus
  */
-public class Guia06_ej_01 {
+public class Principal01_02 {
 
     /**
      * @param args the command line arguments
