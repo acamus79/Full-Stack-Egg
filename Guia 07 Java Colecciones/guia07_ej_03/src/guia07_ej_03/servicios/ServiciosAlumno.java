@@ -71,12 +71,13 @@ public class ServiciosAlumno {
                         notaFin+=notaFin;
                     
                 }
+                    System.out.println("");
                 }
                 
                 }
             }
 
-        }
-    }
+        
+ 
 }
  
