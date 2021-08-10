@@ -30,7 +30,7 @@ public class ServiciosPerro {
      */
     public Perro creaPerro(){
         System.out.println("Ingrese la Raza del Perro");
-        String laraza = leer.next();
+        String laraza = leer.next().toUpperCase();
         Perro p = new Perro(laraza);
         perrosList.add(p);
         return p;

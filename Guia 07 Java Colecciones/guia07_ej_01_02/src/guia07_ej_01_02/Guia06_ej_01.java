@@ -20,6 +20,8 @@ ordenada.
 
 package guia07_ej_01_02;
 
+import guia07_ej_01_02.servicios.ServiciosPerro;
+
 /**
  *
  * @author Adrian E. Camus
@@ -31,6 +33,11 @@ public class Guia06_ej_01 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        
+        ServiciosPerro sp = new ServiciosPerro();
+        sp.criaderoDeChiquitos();
+        
+        
     }
 
 }
