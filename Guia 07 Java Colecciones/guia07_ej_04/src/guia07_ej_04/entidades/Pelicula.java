@@ -7,7 +7,7 @@ clase Pelicula con el titulo, director y duración de
 la película (en horas)
 
  */
-package guia7_ej_04.entidades;
+package guia07_ej_04.entidades;
 
 /**
  *

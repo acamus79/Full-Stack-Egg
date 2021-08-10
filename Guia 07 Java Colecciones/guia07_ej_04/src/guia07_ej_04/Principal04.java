@@ -26,7 +26,7 @@ Nota: recordar el uso del Comparator para ordenar colecciones con objetos.
 
  */
 
-package guia7_ej_04;
+package guia07_ej_04;
 
 /**
  *
