@@ -31,15 +31,15 @@ public class ServiciosPerro {
      *
      * @return un objeto de la clase perro
      */
-    public Perro creaPerro() {
+    private Perro creaPerro() {
         System.out.println("Ingrese la Raza del Perro");
-        String laraza = leer.next().toUpperCase();
-        Perro p = new Perro(laraza);
+        String laRaza = leer.next().toUpperCase();
+        Perro p = new Perro(laRaza);
         perrosList.add(p);
         return p;
     }
 
-    public void mostrarPerros() {
+    private void mostrarPerros() {
         System.out.println("Las razas cargadas son");
         for (Perro aux : perrosList) {
             System.out.println(aux.toString());
@@ -55,18 +55,19 @@ public class ServiciosPerro {
         do {
             creaPerro();
             System.out.println("Desea agregar otro Perro"
-                    + "'S' para Continuar o 'N' para Salir");
+                    + " 'S' para Continuar o 'N' para Salir");
             op = leer.next().toUpperCase().charAt(0);
         } while (op != 'N');
 
         mostrarPerros();
     }
 
-    public void buscarRaza() {
+    public void perrera() {
 //le pido al usuario la raza a buscar        
         System.out.println("Ingresa la Raza a buscar");
         String buscaRaza = leer.next().toUpperCase();
-
+//creo una bandera logica para saber si encontre o no la raza
+        boolean bandera = true;
 //Iterator fr tipo Perro llamado it con lo que tiene el arraylist perrosList
         Iterator<Perro> it = perrosList.iterator();
 
@@ -75,10 +76,21 @@ public class ServiciosPerro {
             Perro aux = it.next();
             if (aux.getRaza().equals(buscaRaza)) {
                 it.remove();
+                bandera = true;
+                break;
+            }else{
+                bandera = false;
             }
-
         }
-        //vuelvo a mostrar como para usar el uso del forech en una linea 
+        
+        if(bandera){
+            System.out.println("Encontre la raza " + buscaRaza);
+        }else{
+            System.out.println("No está la raza buscada");
+        }
+        
+        //vuelvo a mostrar como para usar el uso del forech en una linea
+        //podria llamar al metodo mostrarPerros
         perrosList.forEach((e) -> System.out.println(e));
     }
 
