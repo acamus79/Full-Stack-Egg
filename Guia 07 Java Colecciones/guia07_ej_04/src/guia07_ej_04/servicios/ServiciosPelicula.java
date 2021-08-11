@@ -42,8 +42,30 @@ public class ServiciosPelicula {
         this.misPelis = new ArrayList();
     }
 
-    private Pelicula creaPeli() {
-        System.out.println("");
-        return null;
+//String titulo, String director, double duracionHs
+    private void creaPeli() {
+        System.out.println("Cual es el titulo de la Pelicula?");
+        String titulo = leer.next();
+        System.out.println("Quien fue el Director?");
+        String director = leer.next();
+        System.out.println("Cuanto dura la Peli?");
+        double duracion = leer.nextDouble();
+        
+        Pelicula p = new Pelicula(titulo,director,duracion);
+        misPelis.add(p);
     }
+    
+    public void misPelis(){
+        char op;
+        
+        do{
+            creaPeli();
+            System.out.println("Desea agregar otra pelicula? S/N");
+            op = leer.next().toUpperCase().charAt(0);
+        }while(op!='N');
+        
+    }
+    
+    
+    
 }
