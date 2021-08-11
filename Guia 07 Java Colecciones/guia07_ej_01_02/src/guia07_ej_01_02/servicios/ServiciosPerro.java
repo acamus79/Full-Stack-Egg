@@ -27,7 +27,7 @@ public class ServiciosPerro {
     }
 
     /**
-     * Crea y añade a mi arraylist un objetop Perro
+     * Crea y añade a mi arraylist un objeto Perro
      *
      * @return un objeto de la clase perro
      */
@@ -88,9 +88,9 @@ public class ServiciosPerro {
         }else{
             System.out.println("No está la raza buscada");
         }
-        
-        //vuelvo a mostrar como para usar el uso del forech en una linea
-        //podria llamar al metodo mostrarPerros
+               
+        //podria llamar al metodo mostrarPerros pero quiero ver como es con
+        //forech de una linea
         perrosList.forEach((e) -> System.out.println(e));
     }
 
