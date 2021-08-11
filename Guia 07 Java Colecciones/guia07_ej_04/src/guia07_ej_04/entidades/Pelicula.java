@@ -17,18 +17,18 @@ public class Pelicula {
 
     private String titulo;
     private String director;
-    private int duracionHs;
+    private double duracionHs;
 
     public Pelicula() {
     }
 
-    public Pelicula(String titulo, String director, int duracionHs) {
+    public Pelicula(String titulo, String director, double duracionHs) {
         this.titulo = titulo;
         this.director = director;
         this.duracionHs = duracionHs;
     }
 
-    public int getDuracionHs() {
+    public double getDuracionHs() {
         return duracionHs;
     }
 
