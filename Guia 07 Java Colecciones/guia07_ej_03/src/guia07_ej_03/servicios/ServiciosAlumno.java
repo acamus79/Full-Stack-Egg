@@ -30,6 +30,7 @@ public class ServiciosAlumno {
         this.alumnosList = new ArrayList();
     }
 //Metodo privado porque lo voy a llamar solo desde esta clase
+
     private Alumno creaAlumno() {
         System.out.println("Ingrese el nombre del Alumno");
         String nombre = leer.next().toUpperCase();
@@ -62,11 +63,8 @@ public class ServiciosAlumno {
     public void notaFinal() {
         System.out.println("Ingrese el nombre del alumno a calcular");
         String buscado = leer.next().toUpperCase();
-
         Iterator<Alumno> it = alumnosList.iterator();//Iterator con la lista de alumnos
-
         while (it.hasNext()) {
-
             Integer acumulaNota = 0;//variable para acumular las notas
 //Objeto auxiliar de la clase Alumno conde voy a ir asignando las iteraciones de it            
             Alumno aux = it.next();
@@ -75,12 +73,10 @@ public class ServiciosAlumno {
 //cuando encuentra el nombre crea una coleccion HashSet auxiliar para asignar las
 //notas del alumno encontrado y asi poder recorrer y sumar las notas
                 HashSet<Integer> notasAux = aux.getNotas();
-
                 for (Integer notaFin : notasAux) {
                     acumulaNota += notaFin;
-
                 }
-                System.out.println("La nota final promedio es: " + acumulaNota / 3);
+                System.out.println("La nota final promedio de: " +aux.getNombreAlumno()+" es "+ acumulaNota / 3);
             }
 
         }
