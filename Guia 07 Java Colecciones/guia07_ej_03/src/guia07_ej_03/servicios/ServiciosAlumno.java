@@ -32,6 +32,7 @@ public class ServiciosAlumno {
 //Metodo privado porque lo voy a llamar solo desde esta clase
 
     private Alumno creaAlumno() {
+
         System.out.println("Ingrese el nombre del Alumno");
         String nombre = leer.next().toUpperCase();
         HashSet<Integer> notas = new HashSet(3);
@@ -64,21 +65,19 @@ public class ServiciosAlumno {
         System.out.println("Ingrese el nombre del alumno a calcular");
         String buscado = leer.next().toUpperCase();
         Iterator<Alumno> it = alumnosList.iterator();//Iterator con la lista de alumnos
+        Integer acumulaNota = 0;//variable para acumular las notas
         while (it.hasNext()) {
-            Integer acumulaNota = 0;//variable para acumular las notas
-//Objeto auxiliar de la clase Alumno conde voy a ir asignando las iteraciones de it            
-            Alumno aux = it.next();
-//comparo si el nombre del objeto auxiliar es igual al nombre "buscado"            
-            if (aux.getNombreAlumno().equals(buscado)) {
-//cuando encuentra el nombre crea una coleccion HashSet auxiliar para asignar las
-//notas del alumno encontrado y asi poder recorrer y sumar las notas
-                HashSet<Integer> notasAux = aux.getNotas();
+            Alumno aux = it.next();//Objeto auxiliar de la clase Alumno conde voy a ir asignando las iteraciones de it            
+            if (aux.getNombreAlumno().equals(buscado)) {//comparo si el nombre del objeto auxiliar es igual al nombre "buscado"
+                HashSet<Integer> notasAux = aux.getNotas();//cuando encuentra el nombre crea una coleccion HashSet auxiliar para asignar las
                 for (Integer notaFin : notasAux) {
-                    acumulaNota += notaFin;
+                    acumulaNota += notaFin;//notas del alumno encontrado y asi poder recorrer y sumar las notas
                 }
-                System.out.println("La nota final promedio de: " +aux.getNombreAlumno()+" es "+ acumulaNota / 3);
+                System.out.println("La nota final promedio de: " + aux.getNombreAlumno() + " es " + (float) acumulaNota / 3);
             }
-
+        }
+        if (acumulaNota == 0) {
+            System.out.println("No se encontro el Alumno");
         }
     }
 
