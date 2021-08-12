@@ -88,11 +88,14 @@ public class ServiciosPelicula {
 
     public void ordenarPeliPorDuracionMayor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de mayor a menor **");
-        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p2.getDuracionHs().compareTo(p1.getDuracionHs());
-        Collections.sort(misPelis, compararDuracion);
+        
+        Comparator<Pelicula> comparaDuracionM = (Pelicula p1, Pelicula p2) -> p2.getDuracionHs().compareTo(p1.getDuracionHs());
+        
+        Collections.sort(misPelis, comparaDuracionM);//Ordena la Coleccion misPelis con el Comparador comparaDuracionM
+        
         misPelis.forEach(peli -> {
             System.out.println(peli);
-        });
+        });//muestra lo ordenado
         System.out.println("");
     }
 
