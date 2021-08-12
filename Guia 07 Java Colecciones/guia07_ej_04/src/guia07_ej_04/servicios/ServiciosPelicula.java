@@ -73,6 +73,7 @@ public class ServiciosPelicula {
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });
+        System.out.println("");
     }
 
 //Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
@@ -81,6 +82,7 @@ public class ServiciosPelicula {
         misPelis.stream().filter(peli -> (peli.getDuracionHs() > 60)).forEachOrdered(peli -> {
             System.out.println(peli);
         });
+        System.out.println("");
     }
 //Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en pantalla.        
 
@@ -91,6 +93,7 @@ public class ServiciosPelicula {
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });
+        System.out.println("");
     }
 
 //Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en pantalla.
@@ -103,6 +106,7 @@ public class ServiciosPelicula {
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
+        System.out.println("");
     }
 
 //Ordenar las películas por titulo, alfabéticamente y mostrarlo en pantalla.    
@@ -115,6 +119,7 @@ public class ServiciosPelicula {
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
+        System.out.println("");
     }
     
 //Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.    
@@ -127,6 +132,7 @@ public class ServiciosPelicula {
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
+        System.out.println("");
     }
     
     
