@@ -86,7 +86,7 @@ public class ServiciosPelicula {
 
     public void ordenarPeliPorDuracionMayor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de mayor a menor **");
-        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p1.getDuracionHs().compareTo(p2.getDuracionHs());
+        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p2.getDuracionHs().compareTo(p1.getDuracionHs());
         Collections.sort(misPelis, compararDuracion);
         misPelis.forEach(peli -> {
             System.out.println(peli);
@@ -96,7 +96,7 @@ public class ServiciosPelicula {
 //Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en pantalla.
     public void ordenarPeliPorDuracionMenor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de menor a mayor **");
-        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p2.getDuracionHs().compareTo(p1.getDuracionHs());
+        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p1.getDuracionHs().compareTo(p2.getDuracionHs());
         
         Collections.sort(misPelis, compararDuracion);//ordena con el Comparator compararDuracion
         
