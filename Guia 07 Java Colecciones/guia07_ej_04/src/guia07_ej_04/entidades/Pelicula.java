@@ -9,6 +9,8 @@ la película (en horas)
  */
 package guia07_ej_04.entidades;
 
+import java.util.Comparator;
+
 /**
  *
  * @author Adrian E. Camus
@@ -17,12 +19,12 @@ public class Pelicula {
 
     private String titulo;
     private String director;
-    private double duracionHs;
+    private Integer duracionHs;
 
     public Pelicula() {
     }
 
-    public Pelicula(String titulo, String director, double duracionHs) {
+    public Pelicula(String titulo, String director, Integer duracionHs) {
         this.titulo = titulo;
         this.director = director;
         this.duracionHs = duracionHs;
@@ -32,7 +34,7 @@ public class Pelicula {
         return duracionHs;
     }
 
-    public void setDuracionHs(int duracionHs) {
+    public void setDuracionHs(Integer duracionHs) {
         this.duracionHs = duracionHs;
     }
 
@@ -52,4 +54,17 @@ public class Pelicula {
         this.director = director;
     }
 
+    @Override
+    public String toString() {
+        return "Pelicula{" + "titulo=" + titulo + ", director=" + director + ", duracionHs=" + duracionHs + '}';
+    }
+
+    
+     public static Comparator<Pelicula> compararEdad = new Comparator<Pelicula>() {
+ @Override
+ public int compare(Pelicula p1, Pelicula p2) {
+ return p2.getDuracionHs().compareTo(p1.getDuracionHs());
+ }
+ };
+    
 }

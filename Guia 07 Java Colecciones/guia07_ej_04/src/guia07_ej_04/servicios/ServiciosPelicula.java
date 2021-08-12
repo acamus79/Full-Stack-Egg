@@ -49,7 +49,7 @@ public class ServiciosPelicula {
         System.out.println("Quien fue el Director?");
         String director = leer.next();
         System.out.println("Cuanto dura la Peli?");
-        double duracion = leer.nextDouble();
+        Integer duracion = leer.nextInt();
         
         Pelicula p = new Pelicula(titulo,director,duracion);
         misPelis.add(p);
