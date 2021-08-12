@@ -28,6 +28,8 @@ Nota: recordar el uso del Comparator para ordenar colecciones con objetos.
 
 package guia07_ej_04;
 
+import guia07_ej_04.servicios.ServiciosPelicula;
+
 /**
  *
  * @author Adrian E. Camus
@@ -39,6 +41,15 @@ public class Principal04 {
      */
     public static void main(String[] args) {
         // El Código va AQUI!!!
+        ServiciosPelicula sp = new ServiciosPelicula();
+        sp.misPelis();
+        sp.mostrarPeliculas();
+        sp.mostrarPeliculasde1Hs();
+        sp.ordenarPeliPorDuracionMayor();
+        sp.ordenarPeliPorDuracionMenor();
+        sp.ordenarPeliPorTitulo();
+        sp.ordenarPeliPorDirector();
+        
     }
 
 }
