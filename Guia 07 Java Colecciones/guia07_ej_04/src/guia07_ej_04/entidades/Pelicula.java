@@ -11,6 +11,7 @@ package guia07_ej_04.entidades;
 
 import java.util.Comparator;
 
+
 /**
  *
  * @author Adrian E. Camus
@@ -30,7 +31,7 @@ public class Pelicula {
         this.duracionHs = duracionHs;
     }
 
-    public double getDuracionHs() {
+    public Integer getDuracionHs() {
         return duracionHs;
     }
 
@@ -56,15 +57,10 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" + "titulo=" + titulo + ", director=" + director + ", duracionHs=" + duracionHs + '}';
+        return "Pelicula de titulo " + titulo + "\nDirector: " + director + "\n Duracion: " + duracionHs;
     }
 
     
-     public static Comparator<Pelicula> compararEdad = new Comparator<Pelicula>() {
- @Override
- public int compare(Pelicula p1, Pelicula p2) {
- return p2.getDuracionHs().compareTo(p1.getDuracionHs());
- }
- };
+
     
 }
