@@ -23,9 +23,9 @@ Nota: recordar el uso del Comparator para ordenar colecciones con objetos.
 package guia07_ej_04.servicios;
 
 import guia07_ej_04.entidades.Pelicula;
+import guia07_ej_04.utilidades.Comparadores;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -88,10 +88,7 @@ public class ServiciosPelicula {
 
     public void ordenarPeliPorDuracionMayor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de mayor a menor **");
-        
-        Comparator<Pelicula> comparaDuracionM = (Pelicula p1, Pelicula p2) -> p2.getDuracionHs().compareTo(p1.getDuracionHs());
-        
-        Collections.sort(misPelis, comparaDuracionM);//Ordena la Coleccion misPelis con el Comparador comparaDuracionM
+        Collections.sort(misPelis, Comparadores.porDuracionMayor);//Ordena la Coleccion misPelis con el Comparador porDuracionMayor
         
         misPelis.forEach(peli -> {
             System.out.println(peli);
@@ -102,9 +99,7 @@ public class ServiciosPelicula {
 //Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en pantalla.
     public void ordenarPeliPorDuracionMenor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de menor a mayor **");
-        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p1.getDuracionHs().compareTo(p2.getDuracionHs());
-        
-        Collections.sort(misPelis, compararDuracion);//ordena con el Comparator compararDuracion
+        Collections.sort(misPelis, Comparadores.porDuracionMenor);//ordena con el Comparator porDuracionMenor
         
         misPelis.forEach(peli -> {
             System.out.println(peli);
@@ -115,9 +110,7 @@ public class ServiciosPelicula {
 //Ordenar las películas por titulo, alfabéticamente y mostrarlo en pantalla.    
     public void ordenarPeliPorTitulo() {
         System.out.println("** Mostrar las peliculas ordenadas por el Titulo alfabeticamente **");
-        Comparator<Pelicula> comparaTitulo = (Pelicula p1, Pelicula p2) -> p1.getTitulo().compareTo(p2.getTitulo());
-        
-        Collections.sort(misPelis, comparaTitulo);//ordena con el Comparator comparaTitulo
+        Collections.sort(misPelis, Comparadores.porTitulo);//ordena con el Comparator porTitulo
         
         misPelis.forEach(peli -> {
             System.out.println(peli);
@@ -128,9 +121,7 @@ public class ServiciosPelicula {
 //Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.    
     public void ordenarPeliPorDirector() {
         System.out.println("** Mostrar las Peliculas ordenadas por el Director alfabeticamente");
-        Comparator<Pelicula> comparaDirector = (Pelicula p1, Pelicula p2) -> p1.getDirector().compareTo(p2.getDirector());
-        
-        Collections.sort(misPelis, comparaDirector);//ordena con el Comparator comparaDirector
+        Collections.sort(misPelis, Comparadores.porDirector);//ordena con el Comparator porDirector
         
         misPelis.forEach(peli -> {
             System.out.println(peli);
