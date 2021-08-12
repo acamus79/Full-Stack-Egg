@@ -9,9 +9,6 @@ la película (en horas)
  */
 package guia07_ej_04.entidades;
 
-import java.util.Comparator;
-
-
 /**
  *
  * @author Adrian E. Camus
@@ -59,8 +56,6 @@ public class Pelicula {
     public String toString() {
         return "Pelicula de titulo " + titulo + "\nDirector: " + director + "\n Duracion: " + duracionHs;
     }
-
-    
-
-    
 }
+    
+
