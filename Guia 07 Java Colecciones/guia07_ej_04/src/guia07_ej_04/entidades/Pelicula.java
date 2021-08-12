@@ -51,8 +51,6 @@ public class Pelicula {
     public void setDirector(String director) {
         this.director = director;
     }
-
-          
     
     @Override
     public String toString() {

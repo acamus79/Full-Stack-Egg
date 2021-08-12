@@ -22,6 +22,7 @@ en pantalla.
 en pantalla.
 • Ordenar las películas por titulo, alfabéticamente y mostrarlo en pantalla.
 • Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.
+
 Nota: recordar el uso del Comparator para ordenar colecciones con objetos.
 
  */

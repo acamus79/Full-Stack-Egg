@@ -45,22 +45,21 @@ public class ServiciosPelicula {
     }
 
 //String titulo, String director, Integer duracionHs
-    private static void creaPeli() {
-        Pelicula p = new Pelicula();
+    private Pelicula creaPeli() {
         System.out.println("Cual es el titulo de la Pelicula?");
-        p.setTitulo(leer.next());
+        String titis = leer.next();
         System.out.println("Quien fue el Director?");
-        p.setDirector(leer.next());
+        String mandamas = leer.next();
         System.out.println("Cuanto dura la Peli en minutos?");
-        p.setDuracionHs(leer.nextInt());
+        Integer hs = leer.nextInt();
         //Agrego la pelicula creada a la coleccion de peliculas
-        misPelis.add(p);
+        return new Pelicula(titis, mandamas, hs);
     }
 
     public void misPelis() {
         char op;
         do {
-            creaPeli();
+            misPelis.add(creaPeli());
             System.out.println("Desea agregar otra pelicula? S/N");
             op = leer.next().toUpperCase().charAt(0);
         } while (op != 'N');
@@ -70,10 +69,9 @@ public class ServiciosPelicula {
 
     public void mostrarPeliculas() {
         System.out.println("** Mostrar en pantalla todas las películas **");
-        misPelis.forEach(peli -> {
-            System.out.println(peli);
+        misPelis.forEach(aux -> {
+            System.out.println(aux);
         });
-        System.out.println("");
     }
 
 //Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
@@ -85,7 +83,6 @@ public class ServiciosPelicula {
         System.out.println("");
     }
 //Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en pantalla.        
-
     public void ordenarPeliPorDuracionMayor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de mayor a menor **");
         Collections.sort(misPelis, Comparadores.porDuracionMayor);//Ordena la Coleccion misPelis con el Comparador porDuracionMayor
