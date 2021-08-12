@@ -57,5 +57,3 @@ public class Pelicula {
         return "Pelicula de titulo: " + titulo + "\nDirector: " + director + "\nDuracion: " + duracionHs;
     }
 }
-    
-

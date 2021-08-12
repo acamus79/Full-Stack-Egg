@@ -89,7 +89,7 @@ public class ServiciosPelicula {
     public void ordenarPeliPorDuracionMayor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de mayor a menor **");
         Collections.sort(misPelis, Comparadores.porDuracionMayor);//Ordena la Coleccion misPelis con el Comparador porDuracionMayor
-        
+
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
@@ -100,7 +100,7 @@ public class ServiciosPelicula {
     public void ordenarPeliPorDuracionMenor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de menor a mayor **");
         Collections.sort(misPelis, Comparadores.porDuracionMenor);//ordena con el Comparator porDuracionMenor
-        
+
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
@@ -111,23 +111,22 @@ public class ServiciosPelicula {
     public void ordenarPeliPorTitulo() {
         System.out.println("** Mostrar las peliculas ordenadas por el Titulo alfabeticamente **");
         Collections.sort(misPelis, Comparadores.porTitulo);//ordena con el Comparator porTitulo
-        
+
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
         System.out.println("");
     }
-    
+
 //Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.    
     public void ordenarPeliPorDirector() {
         System.out.println("** Mostrar las Peliculas ordenadas por el Director alfabeticamente");
         Collections.sort(misPelis, Comparadores.porDirector);//ordena con el Comparator porDirector
-        
+
         misPelis.forEach(peli -> {
             System.out.println(peli);
         });//muestra lo ordenado
         System.out.println("");
     }
-    
-    
+
 }
