@@ -34,9 +34,9 @@ import java.util.Scanner;
  */
 public class ServiciosPelicula {
 
-    private Scanner leer;
+    private static Scanner leer;
     //aca creo mi Coleccion de Objetos Pelicula
-    private ArrayList<Pelicula> misPelis;
+    private static ArrayList<Pelicula> misPelis;
 
     //constructor vacio pero con instanciacion del scanner y la lista
     public ServiciosPelicula() {
@@ -45,7 +45,7 @@ public class ServiciosPelicula {
     }
 
 //String titulo, String director, Integer duracionHs
-    private void creaPeli() {
+    private static void creaPeli() {
         Pelicula p = new Pelicula();
         System.out.println("Cual es el titulo de la Pelicula?");
         p.setTitulo(leer.next());
@@ -67,25 +67,61 @@ public class ServiciosPelicula {
 
     }
 //Mostrar en pantalla todas las películas.    
-    public void mostrarPeliculas(){
-        misPelis.forEach(peli -> {System.out.println(peli);});
-    }
-    
-//Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
-    public void mostrarPeliculasde1Hs(){
-        for (Pelicula peli : misPelis) {
-            if (peli.getDuracionHs()>60) {
-                System.out.println(peli);
-            }
-        }
-    }
-    
-    
-    public void ordenarPeliculasPorDuracion() {
-        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p1.getDuracionHs().compareTo(p2.getDuracionHs());
-        Collections.sort(misPelis, compararDuracion);
-        misPelis.forEach(peli -> {System.out.println(peli);});
+
+    public void mostrarPeliculas() {
+        misPelis.forEach(peli -> {
+            System.out.println(peli);
+        });
     }
 
+//Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
+    public void mostrarPeliculasde1Hs() {
+        misPelis.stream().filter(peli -> (peli.getDuracionHs() > 60)).forEachOrdered(peli -> {
+            System.out.println(peli);
+        });
+    }
+//Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en pantalla.        
+
+    public void ordenarPeliPorDuracionMayor() {
+        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p1.getDuracionHs().compareTo(p2.getDuracionHs());
+        Collections.sort(misPelis, compararDuracion);
+        misPelis.forEach(peli -> {
+            System.out.println(peli);
+        });
+    }
+
+//Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en pantalla.
+    public void ordenarPeliPorDuracionMenor() {
+        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p2.getDuracionHs().compareTo(p1.getDuracionHs());
+        
+        Collections.sort(misPelis, compararDuracion);//ordena con el Comparator compararDuracion
+        
+        misPelis.forEach(peli -> {
+            System.out.println(peli);
+        });//muestra lo ordenado
+    }
+
+//Ordenar las películas por titulo, alfabéticamente y mostrarlo en pantalla.    
+    public void ordenarPeliPorTitulo() {
+        Comparator<Pelicula> comparaTitulo = (Pelicula p1, Pelicula p2) -> p1.getTitulo().compareTo(p2.getTitulo());
+        
+        Collections.sort(misPelis, comparaTitulo);//ordena con el Comparator comparaTitulo
+        
+        misPelis.forEach(peli -> {
+            System.out.println(peli);
+        });//muestra lo ordenado
+    }
+    
+//Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.    
+    public void ordenarPeliPorDirector() {
+        Comparator<Pelicula> comparaDirector = (Pelicula p1, Pelicula p2) -> p1.getDirector().compareTo(p2.getDirector());
+        
+        Collections.sort(misPelis, comparaDirector);//ordena con el Comparator comparaDirector
+        
+        misPelis.forEach(peli -> {
+            System.out.println(peli);
+        });//muestra lo ordenado
+    }
+    
     
 }
