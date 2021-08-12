@@ -52,8 +52,10 @@ public class Pelicula {
         this.director = director;
     }
 
+          
+    
     @Override
     public String toString() {
-        return "Pelicula de titulo: " + titulo + "\nDirector: " + director + "\nDuracion: " + duracionHs;
+        return "Pelicula de titulo: " + titulo + "\nDirector: " + director + "\nDuracion: " + duracionHs+" minutos";
     }
 }
