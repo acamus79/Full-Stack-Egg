@@ -24,6 +24,8 @@ package guia07_ej_04.servicios;
 
 import guia07_ej_04.entidades.Pelicula;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -42,30 +44,48 @@ public class ServiciosPelicula {
         this.misPelis = new ArrayList();
     }
 
-//String titulo, String director, double duracionHs
+//String titulo, String director, Integer duracionHs
     private void creaPeli() {
+        Pelicula p = new Pelicula();
         System.out.println("Cual es el titulo de la Pelicula?");
-        String titulo = leer.next();
+        p.setTitulo(leer.next());
         System.out.println("Quien fue el Director?");
-        String director = leer.next();
-        System.out.println("Cuanto dura la Peli?");
-        Integer duracion = leer.nextInt();
-        
-        Pelicula p = new Pelicula(titulo,director,duracion);
+        p.setDirector(leer.next());
+        System.out.println("Cuanto dura la Peli en minutos?");
+        p.setDuracionHs(leer.nextInt());
+        //Agrego la pelicula creada a la coleccion de peliculas
         misPelis.add(p);
     }
-    
-    public void misPelis(){
+
+    public void misPelis() {
         char op;
-        
-        do{
+        do {
             creaPeli();
             System.out.println("Desea agregar otra pelicula? S/N");
             op = leer.next().toUpperCase().charAt(0);
-        }while(op!='N');
-        
+        } while (op != 'N');
+
+    }
+//Mostrar en pantalla todas las películas.    
+    public void mostrarPeliculas(){
+        misPelis.forEach(peli -> {System.out.println(peli);});
+    }
+    
+//Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
+    public void mostrarPeliculasde1Hs(){
+        for (Pelicula peli : misPelis) {
+            if (peli.getDuracionHs()>60) {
+                System.out.println(peli);
+            }
+        }
     }
     
     
+    public void ordenarPeliculasPorDuracion() {
+        Comparator<Pelicula> compararDuracion = (Pelicula p1, Pelicula p2) -> p1.getDuracionHs().compareTo(p2.getDuracionHs());
+        Collections.sort(misPelis, compararDuracion);
+        misPelis.forEach(peli -> {System.out.println(peli);});
+    }
+
     
 }
