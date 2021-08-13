@@ -3,17 +3,17 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package guia07_ej_05.entidades;
 
 import java.util.Objects;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
-public class Pais {
-private String nombre;
+public class Pais implements Comparable<Pais>{
+
+    private String nombre;
 
     public Pais() {
     }
@@ -52,13 +52,14 @@ private String nombre;
         return Objects.equals(this.nombre, other.nombre);
     }
 
-    
     @Override
     public String toString() {
-        return "\nPais: " + nombre + "\n";
+        return "\nPais: " + nombre;
     }
 
+    @Override
+    public int compareTo(Pais o) {
+        return this.nombre.compareTo(o.getNombre());
+    }
 
-    
-    
 }
