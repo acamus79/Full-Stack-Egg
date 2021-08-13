@@ -49,7 +49,7 @@ public class ServiciosPais {
         boolean bandera = true;
         Iterator<Pais> it = alMundo.iterator(); //Iterador de Pais(es) del cunjunto alMundo
         System.out.println("Ingrese el pais a buscar y destruir");
-        String buscado = leer.next();
+        String buscado = leer.next().toUpperCase();
 
         /* con it.next() obtengo el Objeto de la clase Pais de las iteraciones  
         entonces con un condicional puedo preguntar si el el nombre del objeto
