@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Adrian E. Camus
  */
-public class Pais implements Comparable<Pais>{
+public class Pais implements Comparable<Pais>{ //implemento Comparable para usar TreeSet
 
     private String nombre;
 
@@ -30,6 +30,8 @@ public class Pais implements Comparable<Pais>{
         this.nombre = nombre;
     }
 
+//Sobreescrituras de metodos
+    
     @Override
     public int hashCode() {
         int hash = 7;
