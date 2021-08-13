@@ -17,7 +17,7 @@ conjunto se eliminará el país que ingresó el usuario y se mostrará el conjun
 Si el país no se encuentra en el conjunto se le informará al usuario. 
 
  */
-package guia07_ej_04;
+package guia07_ej_05;
 
 /**
  *
