@@ -19,6 +19,8 @@ Si el país no se encuentra en el conjunto se le informará al usuario.
  */
 package guia07_ej_05;
 
+import guia07_ej_05.servicios.ServiciosPais;
+
 /**
  *
  * @author Adrian E. Camus
@@ -30,6 +32,12 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ServiciosPais sp = new ServiciosPais();
+        sp.creaMundo();
+        sp.muestraMundo();
+        
+        
     }
     
 }
