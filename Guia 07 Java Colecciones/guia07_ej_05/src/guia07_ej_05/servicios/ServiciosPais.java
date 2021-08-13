@@ -6,10 +6,7 @@
 package guia07_ej_05.servicios;
 
 import guia07_ej_05.entidades.Pais;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
-
+import java.util.*;
 
 /**
  *
@@ -23,6 +20,7 @@ public class ServiciosPais {
 
     public ServiciosPais() {
         ServiciosPais.leer = new Scanner(System.in).useDelimiter("\n");
+        //para que se ordene solo implemento el conjunto como TreeSet
         ServiciosPais.alMundo = new TreeSet();
     }
 
@@ -39,13 +37,43 @@ public class ServiciosPais {
             System.out.println("Desea agregar otro Pais?");
             op = leer.next().toUpperCase().charAt(0);
         } while (op != 'N');
+
+        muestraMundo();
     }
 
-    public void muestraMundo(){
+    private void muestraMundo() {
         alMundo.forEach(System.out::println);
     }
-    
-    
-    
-    
+
+    public void searchAndDestroy() {
+        boolean bandera = true;
+        Iterator<Pais> it = alMundo.iterator(); //Iterador de Pais(es) del cunjunto alMundo
+        System.out.println("Ingrese el pais a buscar y destruir");
+        String buscado = leer.next();
+
+        /* con it.next() obtengo el Objeto de la clase Pais de las iteraciones  
+        entonces con un condicional puedo preguntar si el el nombre del objeto
+        que me da el Iterator es igual al nombre buscado del pais    
+        si el condicional es verdadero con it.remove(); elimino el objeto
+         */
+        while (it.hasNext()) {
+
+            if (it.next().getNombre().equals(buscado)) {
+                it.remove();
+                bandera = true;
+                break;
+            } else {
+                bandera = false;
+            }
+        }
+
+        if (bandera) {
+            System.out.println("Encontre el Pais " + buscado + " y lo elimine del Mundo");
+        } else {
+            System.out.println("No existe en este mundo el pais " + buscado);
+        }
+        
+        muestraMundo();
+    }
+
 }
