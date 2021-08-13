@@ -6,8 +6,10 @@
 package guia07_ej_05.servicios;
 
 import guia07_ej_05.entidades.Pais;
-import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
 
 /**
  *
@@ -17,18 +19,17 @@ public class ServiciosPais {
 
     private static Scanner leer;
     //aca creo mi Coleccion de Objetos Pais
-    private static HashSet<Pais> alMundo;
+    private static Set<Pais> alMundo;
 
     public ServiciosPais() {
         ServiciosPais.leer = new Scanner(System.in).useDelimiter("\n");
-        ServiciosPais.alMundo = new HashSet();
+        ServiciosPais.alMundo = new TreeSet();
     }
 
     private Pais creaPais() {
-        Pais p = new Pais();
         System.out.println("Ingresa el Nombre del Pais");
-        p.setNombre(leer.next());
-        return p;
+        String nomb = leer.next().toUpperCase();
+        return new Pais(nomb);
     }
 
     public void creaMundo() {
@@ -40,6 +41,9 @@ public class ServiciosPais {
         } while (op != 'N');
     }
 
+    public void muestraMundo(){
+        alMundo.forEach(System.out::println);
+    }
     
     
     
