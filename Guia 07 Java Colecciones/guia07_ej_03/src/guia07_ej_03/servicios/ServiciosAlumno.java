@@ -67,7 +67,7 @@ public class ServiciosAlumno {
         Iterator<Alumno> it = alumnosList.iterator();//Iterator con la lista de alumnos
         Integer acumulaNota = 0;//variable para acumular las notas
         while (it.hasNext()) {
-            Alumno aux = it.next();//Objeto auxiliar de la clase Alumno conde voy a ir asignando las iteraciones de it            
+            Alumno aux = it.next();//Objeto auxiliar de la clase Alumno donde voy a ir asignando las iteraciones de it            
             if (aux.getNombreAlumno().equals(buscado)) {//comparo si el nombre del objeto auxiliar es igual al nombre "buscado"
                 HashSet<Integer> notasAux = aux.getNotas();//cuando encuentra el nombre crea una coleccion HashSet auxiliar para asignar las
                 for (Integer notaFin : notasAux) {
