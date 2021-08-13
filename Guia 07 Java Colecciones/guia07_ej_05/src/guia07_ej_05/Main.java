@@ -35,7 +35,7 @@ public class Main {
         
         ServiciosPais sp = new ServiciosPais();
         sp.creaMundo();
-        
+        sp.searchAndDestroy();
         
         
     }
