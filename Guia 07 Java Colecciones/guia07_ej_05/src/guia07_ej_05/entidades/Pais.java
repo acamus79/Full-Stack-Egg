@@ -6,6 +6,8 @@
 
 package guia07_ej_05.entidades;
 
+import java.util.Objects;
+
 /**
  * 
  * @author Adrian E. Camus
@@ -28,6 +30,29 @@ private String nombre;
         this.nombre = nombre;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pais other = (Pais) obj;
+        return Objects.equals(this.nombre, other.nombre);
+    }
+
+    
     @Override
     public String toString() {
         return "\nPais: " + nombre + "\n";
