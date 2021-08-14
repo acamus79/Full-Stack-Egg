@@ -5,6 +5,8 @@
  */
 package guia07_ej_06;
 
+import guia07_ej_06.servicios.Menu;
+
 /**
  *
  * @author Adrian E. Camus
@@ -16,6 +18,8 @@ public class Main06 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu m = new Menu();
+        m.menu();
     }
     
 }
