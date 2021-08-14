@@ -5,10 +5,25 @@
  */
 package guia07_extra_ej_02.servicios;
 
+import guia07_extra_ej_02.entidades.CantanteFamoso;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
  */
 public class Servicios {
+
+    Scanner leer;
+    ArrayList<CantanteFamoso> lista;
+
+    public Servicios() {
+        this.leer = new Scanner(System.in).useDelimiter("\n");
+        this.lista = new ArrayList<>();
+    }
+
+    
+    
     
 }
