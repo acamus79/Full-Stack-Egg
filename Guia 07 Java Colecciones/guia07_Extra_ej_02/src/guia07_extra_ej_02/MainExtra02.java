@@ -14,7 +14,7 @@ cantante que el usuario elija o de salir del programa. Al final se deberá
 mostrar la lista con todos los cambios. 
 
  */
-package guia08_extra_ej_02;
+package guia07_extra_ej_02;
 
 /**
  *
