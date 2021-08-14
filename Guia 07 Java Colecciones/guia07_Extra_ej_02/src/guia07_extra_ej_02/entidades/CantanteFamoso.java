@@ -39,7 +39,7 @@ public class CantanteFamoso {
 
     @Override
     public String toString() {
-        return "Cantante:       " + nombre + "\n Disco de Mayor Venta:      " + discoConMasVentas;
+        return "\nCantante:   " + nombre.toUpperCase() + "\nDisco de Mayor Venta: " + discoConMasVentas.toUpperCase();
     }
     
     

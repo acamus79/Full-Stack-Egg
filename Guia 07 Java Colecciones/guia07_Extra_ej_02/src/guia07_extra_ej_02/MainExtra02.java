@@ -16,6 +16,8 @@ mostrar la lista con todos los cambios.
  */
 package guia07_extra_ej_02;
 
+import guia07_extra_ej_02.servicios.Servicios;
+
 /**
  *
  * @author Adrian E. Camus
@@ -27,6 +29,8 @@ public class MainExtra02 {
      */
     public static void main(String[] args) {
        
+        Servicios s = new Servicios();
+        s.menu();
     }
     
 }
