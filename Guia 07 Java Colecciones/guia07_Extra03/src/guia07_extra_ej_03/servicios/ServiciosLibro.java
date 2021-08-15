@@ -18,23 +18,26 @@ import java.util.*;
  */
 public class ServiciosLibro {
 
+    static boolean bandera;
     Scanner leer;
     HashSet<Libro> biblioteca;
     Iterator<Libro> it;
-    
+
     public ServiciosLibro() {
         this.biblioteca = new HashSet<>();
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.it = biblioteca.iterator();
+        ServiciosLibro.bandera = false;
     }
+
 //String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados    
 
     private Libro creaLibro() {
         Libro p = new Libro();
         System.out.println("Ingrese el Titulo del Libro");
-        p.setTitulo(leer.next());
+        p.setTitulo(leer.next().toUpperCase());
         System.out.println("Ingrese el Autor");
-        p.setAutor(leer.next());
+        p.setAutor(leer.next().toUpperCase());
         System.out.println("Cuantos Ejemplares tiene la Biblioteca?");
         p.setNroEjemplares(leer.nextInt());
         p.setEjemplaresPrestados(0);// a los prestados le pongo cero por logica
@@ -45,7 +48,7 @@ public class ServiciosLibro {
         char op;
         do {
             biblioteca.add(creaLibro());
-            System.out.println("Desea agregar otro cantante? S/N");
+            System.out.println("Desea agregar otro Libro? S/N");
             op = leer.next().toUpperCase().charAt(0);
         } while (op != 'N');
     }
@@ -57,7 +60,7 @@ public class ServiciosLibro {
     }
 
     private void borra() {
-        boolean bandera = false;
+
         System.out.println("Ingrese el libro borrar");
         String buscado = leer.next().toUpperCase();
         while (it.hasNext()) {
@@ -76,8 +79,65 @@ public class ServiciosLibro {
             }
         }
     }
-    
-    
+
+    private void prestamo() {
+        System.out.println("Ingrese el libro a prestar");
+        String buscado = leer.next().toUpperCase();
+
+        while (it.hasNext()) {
+            if (it.next().getTitulo().equals(buscado)) {
+                bandera = it.next().prestamo();
+            } else {
+                bandera = false;
+            }
+        }
+
+        if (bandera) {
+            System.out.println("No se Presto el Libro " + buscado);
+        } else {
+            System.out.println("Se Presto el Libro " + buscado);
+        }
+    }
+
+    private void devuelve() {
+        System.out.println("Ingrese el libro a devolver");
+        String buscado = leer.next().toUpperCase();
+
+        while (it.hasNext()) {
+            if (it.next().getTitulo().equals(buscado)) {
+                bandera = it.next().devolucion();
+            } else {
+                bandera = false;
+            }
+        }
+
+        if (bandera) {
+            System.out.println("No se Devolvio el Libro " + buscado);
+        } else {
+            System.out.println("Se Devolvio el Libro " + buscado);
+        }
+    }
+
+    private void venta() {
+        System.out.println("Ingrese el libro a devolver");
+        String buscado = leer.next().toUpperCase();
+
+        while (it.hasNext()) {
+            if (it.next().getTitulo().equals(buscado)) {
+                int ejemplares = it.next().getNroEjemplares();
+                it.next().setNroEjemplares(ejemplares - 1);
+                bandera = true;
+            } else {
+                bandera = false;
+            }
+        }
+
+        if (bandera) {
+            System.out.println("Se vendio el Libro " + buscado);
+        } else {
+            System.out.println("No existe el Libro " + buscado + " para vender");
+        }
+    }
 
     public void menu() {
         int op = 0;
@@ -87,7 +147,7 @@ public class ServiciosLibro {
             System.out.println("** 1. MOSTRAR LIBROS **");
             System.out.println("** 2. PRESTAMO       **");
             System.out.println("** 3. DEVOLUCION     **");
-            System.out.println("** 4. VENTA          **");
+            System.out.println("** 4. VENTA          **");//este va de yapa
             System.out.println("** 5. AGREGAR LIBRO  **");
             System.out.println("** 6. BORRAR LIBRO   **");
             System.out.println("** 7. PARA SALIR     **");
@@ -100,13 +160,13 @@ public class ServiciosLibro {
                     muestra();
                     break;
                 case 2:
-                    
+                    prestamo();
                     break;
                 case 3:
-                    
+                    devuelve();
                     break;
                 case 4:
-                    
+                    venta();
                     break;
                 case 5:
                     agregaLibro();
@@ -124,9 +184,5 @@ public class ServiciosLibro {
 
         } while (op != 7);
     }
-    
 
-
-
-    
 }
