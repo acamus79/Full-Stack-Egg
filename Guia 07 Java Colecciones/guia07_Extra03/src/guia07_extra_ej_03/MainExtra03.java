@@ -42,6 +42,8 @@ Devuelve true si se ha podido realizar la operación y false en caso contrario.
  */
 package guia07_extra_ej_03;
 
+import guia07_extra_ej_03.servicios.ServiciosLibro;
+
 /**
  *
  * @author Adrian E. Camus
@@ -53,6 +55,8 @@ public class MainExtra03 {
      */
     public static void main(String[] args) {
         
+        ServiciosLibro sl = new ServiciosLibro();
+        sl.menu();
         
     }
     

@@ -9,6 +9,8 @@ ejemplares y número de ejemplares prestados.
  */
 package guia07_extra_ej_03.entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author Adrian E. Camus
@@ -82,6 +84,36 @@ public class Libro {
         }
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 47 * hash + Objects.hashCode(this.titulo);
+        hash = 47 * hash + Objects.hashCode(this.autor);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.autor, other.autor)) {
+            return false;
+        }
+        return true;
+    }
+
+        
     @Override
     public String toString() {
         return "\nLibro " + titulo + "\nAutor: " + autor + "\n Cantidad de Ejemplares: " + nroEjemplares + "Ejemplares Prestados: " + ejemplaresPrestados;
