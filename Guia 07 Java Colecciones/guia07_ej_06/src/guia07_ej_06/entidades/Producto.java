@@ -14,19 +14,18 @@ import java.util.Objects;
  */
 public class Producto {
     private Integer codigo;
-
+    private String nombre;
+    private Double precio;
+    
     public Producto(Integer codigo, String nombre, Double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
     }
-    private String nombre;
-    private Double precio;
-
+    
     public Producto() {
     }
 
-   
     public String getNombre() {
         return nombre;
     }

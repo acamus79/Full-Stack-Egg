@@ -27,22 +27,21 @@ public class ServiciosProducto {
 
     public void cargarProducto() {
         char op;
-       
 
         do {
-            
+
             Integer cod = (int) (Math.random() * 355 - 20 + 20);//el codigo para NO pedirlo lo obtengo con un random
-       
+
             System.out.println("Ingrese el nombre del producto");
             String nombre = leer.next().toUpperCase();
             System.out.println("Ingrese el precio del producto (para los centavos use ,)");//pongo asi porque sino me olvido y uso punto
             Double precio = leer.nextDouble();
             //De este modo agrego elementos a un mapa. El primer termino se corresponde a la KEY
-            mapaProductos.put(cod, new Producto(cod,nombre,precio));
-    
+            mapaProductos.put(cod, new Producto(cod, nombre, precio));
+
             System.out.println("Desea agregar otro producto? S/N");
             op = leer.next().toUpperCase().charAt(0);
-            
+
         } while (op == 'S');
     }
 
