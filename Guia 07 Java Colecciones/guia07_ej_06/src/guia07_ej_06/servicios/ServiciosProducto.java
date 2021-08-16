@@ -81,17 +81,4 @@ public class ServiciosProducto {
         }
     }
 
-    public void borra() {
-
-        System.out.println("Ingresa el codigo del producto a borrar");
-        Integer buscado = leer.nextInt();
-
-        if (mapaProductos.containsKey(buscado)) {
-            mapaProductos.remove(buscado);
-        } else {
-            System.out.println("No se encontro el producto");
-        }
-
-    }
-
 }
