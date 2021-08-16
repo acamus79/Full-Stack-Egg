@@ -70,7 +70,7 @@ public class CodigoPostal {
 
     @Override
     public String toString() {
-        return "Departamento: " + ciudad + "  Codigo Postal: " + cp + "\n";
+        return "Departamento:   " + ciudad + "  Codigo Postal:  " + cp + "\n";
     }
     
     

@@ -89,6 +89,7 @@ public class ServiciosCP {
         do {
             System.out.println("\n************************");
             System.out.println("**  CODIGOS POSTALES  **");
+            System.out.println("************************");
             System.out.println("** 1. MOSTRAR CODIGOS **");
             System.out.println("** 2. MODIFICAR       **");
             System.out.println("** 3. BORRAR CIUDAD   **");
