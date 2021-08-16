@@ -21,12 +21,10 @@ public class ServiciosLibro {
     static boolean bandera;
     Scanner leer;
     HashSet<Libro> biblioteca;
-    Iterator<Libro> it;
-
+   
     public ServiciosLibro() {
         this.biblioteca = new HashSet<>();
         this.leer = new Scanner(System.in).useDelimiter("\n");
-        this.it = biblioteca.iterator();
         ServiciosLibro.bandera = false;
     }
 
@@ -63,6 +61,7 @@ public class ServiciosLibro {
 
         System.out.println("Ingrese el libro borrar");
         String buscado = leer.next().toUpperCase();
+        Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
 
             if (it.next().getTitulo().equals(buscado)) {
@@ -83,7 +82,7 @@ public class ServiciosLibro {
     private void prestamo() {
         System.out.println("Ingrese el libro a prestar");
         String buscado = leer.next().toUpperCase();
-
+        Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
             if (it.next().getTitulo().equals(buscado)) {
                 bandera = it.next().prestamo();
@@ -102,7 +101,7 @@ public class ServiciosLibro {
     private void devuelve() {
         System.out.println("Ingrese el libro a devolver");
         String buscado = leer.next().toUpperCase();
-
+        Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
             if (it.next().getTitulo().equals(buscado)) {
                 bandera = it.next().devolucion();
@@ -121,7 +120,7 @@ public class ServiciosLibro {
     private void venta() {
         System.out.println("Ingrese el libro a devolver");
         String buscado = leer.next().toUpperCase();
-
+        Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
             if (it.next().getTitulo().equals(buscado)) {
                 int ejemplares = it.next().getNroEjemplares();
