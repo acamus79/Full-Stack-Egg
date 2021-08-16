@@ -56,7 +56,7 @@ public class MainExtra03 {
     public static void main(String[] args) {
         
         ServiciosLibro sl = new ServiciosLibro();
-        sl.llenaBiblioteca();
+        //sl.llenaBiblioteca();
         sl.menu();
         
     }

@@ -26,6 +26,17 @@ public class ServiciosLibro {
         this.biblioteca = new HashSet<>();
         this.leer = new Scanner(System.in).useDelimiter("\n");
         ServiciosLibro.bandera = false;
+        //le meto 10 libros al conjunto como para jugar
+        biblioteca.add(new Libro("RAYUELA", "JULIO CORTAZAR",4,11));
+        biblioteca.add(new Libro("EL PRINCIPITO", "ANTOINE DE SAINT-EXUPERY", 10, 10));
+        biblioteca.add(new Libro("DUNA", "FRANK HERBERT", 6, 4));
+        biblioteca.add(new Libro("LOS HERMANOS KARAMAZOV", "FIODOR DOSTOYEVSKI", 3, 2));
+        biblioteca.add(new Libro("LA CARRETERA", "CORMAC MACCARTHY", 5, 0));
+        biblioteca.add(new Libro("UNA BREVE HISTORIA DE CASI TODO", "BILL BRYSON", 0, 5));
+        biblioteca.add(new Libro("EL CONDE DE MONTECRISTO", "ALEJANDRO DUMAS", 2, 3));
+        biblioteca.add(new Libro("FAUSTO", "ESTANISLAO DEL CAMPO", 3, 2));
+        biblioteca.add(new Libro("COMETAS EN EL CIELO", "KHALED HOSSEINI", 5, 5));
+        biblioteca.add(new Libro("DIVINA COMEDIA", "DANTE ALIGHIERI", 5, 0));
     }
 
 //String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados    
@@ -125,6 +136,7 @@ public class ServiciosLibro {
         }
     }
 
+//de yapa como no era largo el ejercicio le meti la venta
     private void venta() {
         System.out.println("Ingrese el libro a devolver");
         String buscado = leer.next().toUpperCase();
@@ -193,19 +205,4 @@ public class ServiciosLibro {
 
         } while (op != 7);
     }
-
-    public void llenaBiblioteca() {
-        //lleno con este metodo el conjunto de 10 libros en mi biblioteca
-        biblioteca.add(new Libro("RAYUELA", "JULIO CORTAZAR",4,11));
-        biblioteca.add(new Libro("EL PRINCIPITO", "ANTOINE DE SAINT-EXUPERY", 10, 10));
-        biblioteca.add(new Libro("DUNA", "FRANK HERBERT", 6, 4));
-        biblioteca.add(new Libro("LOS HERMANOS KARAMAZOV", "FIODOR DOSTOYEVSKI", 3, 2));
-        biblioteca.add(new Libro("LA CARRETERA", "CORMAC MACCARTHY", 5, 0));
-        biblioteca.add(new Libro("UNA BREVE HISTORIA DE CASI TODO", "BILL BRYSON", 0, 5));
-        biblioteca.add(new Libro("EL CONDE DE MONTECRISTO", "ALEJANDRO DUMAS", 2, 3));
-        biblioteca.add(new Libro("FAUSTO", "ESTANISLAO DEL CAMPO", 3, 2));
-        biblioteca.add(new Libro("COMETAS EN EL CIELO", "KHALED HOSSEINI", 5, 5));
-        biblioteca.add(new Libro("DIVINA COMEDIA", "DANTE ALIGHIERI", 5, 0));
-    }
-
 }
