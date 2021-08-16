@@ -40,7 +40,7 @@ public class ServiciosCP {
             System.out.println("Ingrese el nombre de la Ciudad");
             String ciudad = leer.next().toUpperCase();
             System.out.println("Ingrese el Departamento");
-            String depto = leer.next();
+            String depto = leer.next().toUpperCase();
             System.out.println("Ingrese el codigo postal");
             Integer cp = leer.nextInt();
             //De este modo agrego elementos a un mapa. El primer termino se corresponde a la KEY
@@ -109,8 +109,7 @@ public class ServiciosCP {
                     op = 0;
                 }
             }
-
-        } while (op != 7);
+        } while (op != 5);
     }
        
     
