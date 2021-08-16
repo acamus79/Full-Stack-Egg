@@ -116,7 +116,7 @@ public class Libro {
         
     @Override
     public String toString() {
-        return "\nLibro " + titulo + "\nAutor: " + autor + "\n Cantidad de Ejemplares: " + nroEjemplares + "Ejemplares Prestados: " + ejemplaresPrestados;
+        return "\nLibro " + titulo + "\nAutor: " + autor + "\nCantidad de Ejemplares: " + nroEjemplares + "Ejemplares Prestados: " + ejemplaresPrestados;
     }
 
 }
