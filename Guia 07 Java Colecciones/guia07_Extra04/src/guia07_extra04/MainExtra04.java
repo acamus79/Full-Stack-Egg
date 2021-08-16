@@ -19,6 +19,8 @@ usuario.
  */
 package guia07_extra04;
 
+import guia07_extra04.servicios.ServiciosCP;
+
 /**
  *
  * @author Adrian E. Camus
@@ -30,6 +32,9 @@ public class MainExtra04 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ServiciosCP scp = new ServiciosCP();
+        scp.menu();
     }
     
 }
