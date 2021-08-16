@@ -5,10 +5,85 @@
  */
 package guia07_extra04.servicios;
 
+import guia07_extra04.entidades.CodigoPostal;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
  */
 public class ServiciosCP {
     
+        private Scanner leer;
+        HashMap<String, CodigoPostal> mapaPostal;
+
+    public ServiciosCP() {
+        this.leer = new Scanner(System.in).useDelimiter("\n");
+        this.mapaPostal = new HashMap<>();
+        mapaPostal.put("MENDOZA", new CodigoPostal("CAPITAL",5500));
+        mapaPostal.put("CIUDAD DE", new CodigoPostal("GODOY CRUZ",5501));
+        mapaPostal.put("CIUDAD DE", new CodigoPostal("LAS HERAS",5539));
+        mapaPostal.put("SAN JOSE", new CodigoPostal("GUAYMALLEN",5519));
+        mapaPostal.put("LA COLONIA", new CodigoPostal("JUNIN",5566));
+        mapaPostal.put("ALPATACAL", new CodigoPostal("LA PAZ",5591));
+        mapaPostal.put("CIUDAD DE", new CodigoPostal("SAN RAFAEL",5600));
+        mapaPostal.put("VILLA SAN ISIDRO", new CodigoPostal("RIVADAVIA",5577));
+        mapaPostal.put("LIBERTADOR GRAL SAN MARTIN", new CodigoPostal("SAN MARTIN",5570));
+        mapaPostal.put("12 DE OCTUBRE", new CodigoPostal("SANTA ROSA",5597));
+    }
+        
+    
+    
+    
+    public void mostrar() {
+        // entry.getKey trae la llave y entry.getValue trae los valores del mapa, Es decir todos sus atributos
+        for (Map.Entry<String, CodigoPostal> entry : mapaPostal.entrySet()) {
+            System.out.println("Ciudad  " + entry.getKey() + "  -  " + entry.getValue());
+        }
+    }
+
+    public void buscarEliminar() {
+        System.out.println("Ingrese la Ciudad a Borrar");
+        String buscado = leer.next().toUpperCase();
+
+        if (mapaPostal.containsKey(buscado)) {
+            mapaPostal.remove(buscado);
+        } else {
+            System.out.println("No se encontro el producto");
+        }
+    }
+
+    public void modifica() {
+
+        System.out.println("Ingresa la ciudad a modificar");
+        String buscado = leer.next().toUpperCase();
+
+        if (mapaPostal.containsKey(buscado)) {
+
+            CodigoPostal aux = mapaPostal.get(buscado);
+
+            System.out.println("Ingrese el nuevo Codigo Postal");
+            aux.setCp(leer.nextInt());
+
+            mapaPostal.put(buscado, aux);
+        } else {
+            System.out.println("No se encontro la ciudad");
+        }
+    }
+
+    public void borra() {
+
+        System.out.println("Ingresa la ciudad a Borrar");
+        String buscado = leer.next().toUpperCase();
+
+        if (mapaPostal.containsKey(buscado)) {
+            mapaPostal.remove(buscado);
+        } else {
+            System.out.println("No se encontro la ciudad");
+        }
+
+    }
+        
 }
