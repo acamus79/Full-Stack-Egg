@@ -19,25 +19,25 @@ public class Libro {
 
     private String titulo;
     private String autor;
-    private static Integer nroEjemplares;
-    private static Integer ejemplaresPrestados;
+    private int nroEjemplares;
+    private int ejemplaresPrestados;
 
     public Libro() {
     }
 
-    public Libro(String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados) {
+    public Libro(String titulo, String autor, int nroEjemplares, int ejemplaresPrestados) {
         this.titulo = titulo;
         this.autor = autor;
-        Libro.nroEjemplares = nroEjemplares;
-        Libro.ejemplaresPrestados = ejemplaresPrestados;
+        this.nroEjemplares = nroEjemplares;
+        this.ejemplaresPrestados = ejemplaresPrestados;
     }
 
     public Integer getEjemplaresPrestados() {
         return ejemplaresPrestados;
     }
 
-    public void setEjemplaresPrestados(Integer ejemplaresPrestados) {
-        Libro.ejemplaresPrestados = ejemplaresPrestados;
+    public void setEjemplaresPrestados(int ejemplaresPrestados) {
+        this.ejemplaresPrestados = ejemplaresPrestados;
     }
 
     public String getTitulo() {
@@ -60,11 +60,11 @@ public class Libro {
         return nroEjemplares;
     }
 
-    public void setNroEjemplares(Integer nroEjemplares) {
-        Libro.nroEjemplares = nroEjemplares;
+    public void setNroEjemplares(int nroEjemplares) {
+        this.nroEjemplares = nroEjemplares;
     }
 
-    public static boolean prestamo() {
+    public boolean prestamo() {
         if (nroEjemplares > 0) {
             nroEjemplares--;
             ejemplaresPrestados++;
@@ -74,10 +74,10 @@ public class Libro {
         }
     }
 
-    public static boolean devolucion() {
+    public boolean devolucion() {
         if (ejemplaresPrestados > 0) {
-           ejemplaresPrestados--;
-           nroEjemplares++;
+            ejemplaresPrestados--;
+            nroEjemplares++;
             return true;
         } else {
             return false;
@@ -113,10 +113,9 @@ public class Libro {
         return true;
     }
 
-        
     @Override
     public String toString() {
-        return "\nLibro " + titulo + "\nAutor: " + autor + "\nEjemplares Disponibles: " + nroEjemplares + " Ejemplares Prestados: " + ejemplaresPrestados;
+        return "Libro: " + titulo + "\nAutor: " + autor + "\nTotal de Ejemplares: " + (nroEjemplares + ejemplaresPrestados) + "\nDisponibles: " + nroEjemplares + " Prestados: " + ejemplaresPrestados + "\n";
     }
 
 }

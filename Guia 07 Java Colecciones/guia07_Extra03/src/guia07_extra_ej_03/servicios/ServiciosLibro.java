@@ -26,11 +26,6 @@ public class ServiciosLibro {
         this.biblioteca = new HashSet<>();
         this.leer = new Scanner(System.in).useDelimiter("\n");
         ServiciosLibro.bandera = false;
-        //
-        
-        
-        
-        
     }
 
 //String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados    
@@ -65,21 +60,22 @@ public class ServiciosLibro {
 
         System.out.println("Ingrese el libro borrar");
         String buscado = leer.next().toUpperCase();
+        
         Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
 
-            if (it.next().getTitulo().equals(buscado)) {
+            if (it.next().getTitulo().equalsIgnoreCase(buscado)) {
                 it.remove();
                 bandera = true;
                 break;
             } else {
                 bandera = false;
             }
-            if (bandera) {
-                System.out.println("No se encontro el cantante " + buscado);
-            } else {
-                System.out.println("Se borro de la lista a " + buscado);
-            }
+        }
+        if (bandera) {
+            System.out.println("Se borro de la lista el libro " + buscado);
+        } else {
+            System.out.println("No se encontro el Libro " + buscado);
         }
     }
 
@@ -87,12 +83,14 @@ public class ServiciosLibro {
         System.out.println("Ingrese el libro a prestar");
         String buscado = leer.next().toUpperCase();
         Iterator<Libro> it = biblioteca.iterator();
-        
+
         while (it.hasNext()) {
-            if (it.next().getTitulo().equals(buscado)) {
-                bandera = Libro.prestamo();//llamo al metodo estatico de la clase Libro
+            Libro aux = it.next();
+            if (aux.getTitulo().equalsIgnoreCase(buscado)) {
+                bandera = aux.prestamo();
+                break;
             } else {
-                bandera = false;
+               bandera = false;
             }
         }
 
@@ -106,10 +104,15 @@ public class ServiciosLibro {
     private void devuelve() {
         System.out.println("Ingrese el libro a devolver");
         String buscado = leer.next().toUpperCase();
+
         Iterator<Libro> it = biblioteca.iterator();
+
         while (it.hasNext()) {
-            if (it.next().getTitulo().equals(buscado)) {
-                bandera = Libro.devolucion();
+            Libro aux = it.next();
+            if (aux.getTitulo().equalsIgnoreCase(buscado)) {
+                bandera = aux.devolucion();
+                biblioteca.add(aux);
+                break;
             } else {
                 bandera = false;
             }
@@ -127,10 +130,12 @@ public class ServiciosLibro {
         String buscado = leer.next().toUpperCase();
         Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
-            if (it.next().getTitulo().equals(buscado)) {
-                int ejemplares = it.next().getNroEjemplares();
-                it.next().setNroEjemplares(ejemplares - 1);
+            Libro aux = it.next();
+            if (aux.getTitulo().equalsIgnoreCase(buscado)) {
                 bandera = true;
+                aux.setNroEjemplares(aux.getNroEjemplares() - 1);
+                biblioteca.add(aux);
+                break;
             } else {
                 bandera = false;
             }
@@ -187,6 +192,20 @@ public class ServiciosLibro {
             }
 
         } while (op != 7);
+    }
+
+    public void llenaBiblioteca() {
+        //lleno con este metodo el conjunto de 10 libros en mi biblioteca
+        biblioteca.add(new Libro("RAYUELA", "JULIO CORTAZAR",4,11));
+        biblioteca.add(new Libro("EL PRINCIPITO", "ANTOINE DE SAINT-EXUPERY", 10, 10));
+        biblioteca.add(new Libro("DUNA", "FRANK HERBERT", 6, 4));
+        biblioteca.add(new Libro("LOS HERMANOS KARAMAZOV", "FIODOR DOSTOYEVSKI", 3, 2));
+        biblioteca.add(new Libro("LA CARRETERA", "CORMAC MACCARTHY", 5, 0));
+        biblioteca.add(new Libro("UNA BREVE HISTORIA DE CASI TODO", "BILL BRYSON", 0, 5));
+        biblioteca.add(new Libro("EL CONDE DE MONTECRISTO", "ALEJANDRO DUMAS", 2, 3));
+        biblioteca.add(new Libro("FAUSTO", "ESTANISLAO DEL CAMPO", 3, 2));
+        biblioteca.add(new Libro("COMETAS EN EL CIELO", "KHALED HOSSEINI", 5, 5));
+        biblioteca.add(new Libro("DIVINA COMEDIA", "DANTE ALIGHIERI", 5, 0));
     }
 
 }
