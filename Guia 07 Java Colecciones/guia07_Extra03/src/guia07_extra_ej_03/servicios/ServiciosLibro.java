@@ -21,7 +21,7 @@ public class ServiciosLibro {
     static boolean bandera;
     Scanner leer;
     HashSet<Libro> biblioteca;
-   
+
     public ServiciosLibro() {
         this.biblioteca = new HashSet<>();
         this.leer = new Scanner(System.in).useDelimiter("\n");
@@ -29,7 +29,6 @@ public class ServiciosLibro {
     }
 
 //String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados    
-
     private Libro creaLibro() {
         Libro p = new Libro();
         System.out.println("Ingrese el Titulo del Libro");
@@ -85,16 +84,16 @@ public class ServiciosLibro {
         Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
             if (it.next().getTitulo().equals(buscado)) {
-                bandera = it.next().prestamo();
+                bandera = Libro.prestamo();
             } else {
                 bandera = false;
             }
         }
 
         if (bandera) {
-            System.out.println("No se Presto el Libro " + buscado);
-        } else {
             System.out.println("Se Presto el Libro " + buscado);
+        } else {
+            System.out.println("No se Presto el Libro " + buscado);
         }
     }
 
@@ -104,16 +103,16 @@ public class ServiciosLibro {
         Iterator<Libro> it = biblioteca.iterator();
         while (it.hasNext()) {
             if (it.next().getTitulo().equals(buscado)) {
-                bandera = it.next().devolucion();
+                bandera = Libro.devolucion();
             } else {
                 bandera = false;
             }
         }
 
         if (bandera) {
-            System.out.println("No se Devolvio el Libro " + buscado);
-        } else {
             System.out.println("Se Devolvio el Libro " + buscado);
+        } else {
+            System.out.println("No se Devolvio el Libro " + buscado);
         }
     }
 

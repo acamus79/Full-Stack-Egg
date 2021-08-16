@@ -19,8 +19,8 @@ public class Libro {
 
     private String titulo;
     private String autor;
-    private Integer nroEjemplares;
-    private Integer ejemplaresPrestados;
+    private static Integer nroEjemplares;
+    private static Integer ejemplaresPrestados;
 
     public Libro() {
     }
@@ -28,8 +28,8 @@ public class Libro {
     public Libro(String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados) {
         this.titulo = titulo;
         this.autor = autor;
-        this.nroEjemplares = nroEjemplares;
-        this.ejemplaresPrestados = ejemplaresPrestados;
+        Libro.nroEjemplares = nroEjemplares;
+        Libro.ejemplaresPrestados = ejemplaresPrestados;
     }
 
     public Integer getEjemplaresPrestados() {
@@ -37,7 +37,7 @@ public class Libro {
     }
 
     public void setEjemplaresPrestados(Integer ejemplaresPrestados) {
-        this.ejemplaresPrestados = ejemplaresPrestados;
+        Libro.ejemplaresPrestados = ejemplaresPrestados;
     }
 
     public String getTitulo() {
@@ -61,23 +61,23 @@ public class Libro {
     }
 
     public void setNroEjemplares(Integer nroEjemplares) {
-        this.nroEjemplares = nroEjemplares;
+        Libro.nroEjemplares = nroEjemplares;
     }
 
-    public boolean prestamo() {
-        if (this.nroEjemplares > 0) {
-            this.nroEjemplares--;
-            this.ejemplaresPrestados++;
+    public static boolean prestamo() {
+        if (nroEjemplares > 0) {
+            nroEjemplares--;
+            ejemplaresPrestados++;
             return true;
         } else {
             return false;
         }
     }
 
-    public boolean devolucion() {
-        if (this.ejemplaresPrestados > 0) {
-            this.ejemplaresPrestados--;
-            this.nroEjemplares++;
+    public static boolean devolucion() {
+        if (ejemplaresPrestados > 0) {
+           ejemplaresPrestados--;
+           nroEjemplares++;
             return true;
         } else {
             return false;
