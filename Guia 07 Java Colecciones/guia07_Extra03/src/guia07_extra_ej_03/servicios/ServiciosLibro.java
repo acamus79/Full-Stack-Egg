@@ -26,6 +26,11 @@ public class ServiciosLibro {
         this.biblioteca = new HashSet<>();
         this.leer = new Scanner(System.in).useDelimiter("\n");
         ServiciosLibro.bandera = false;
+        //
+        
+        
+        
+        
     }
 
 //String titulo, String autor, Integer nroEjemplares, Integer ejemplaresPrestados    
