@@ -12,23 +12,23 @@ import java.util.Objects;
  * @author Adrian E. Camus
  */
 public class CodigoPostal {
-    private String departamento;
+    private String ciudad;
     private Integer cp;
 
     public CodigoPostal() {
     }
 
     public CodigoPostal(String ciudad, Integer cp) {
-        this.departamento = ciudad;
+        this.ciudad = ciudad;
         this.cp = cp;
     }
 
-    public String getDepartamento() {
-        return departamento;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public Integer getCp() {
@@ -42,7 +42,7 @@ public class CodigoPostal {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.departamento);
+        hash = 67 * hash + Objects.hashCode(this.ciudad);
         hash = 67 * hash + Objects.hashCode(this.cp);
         return hash;
     }
@@ -59,7 +59,7 @@ public class CodigoPostal {
             return false;
         }
         final CodigoPostal other = (CodigoPostal) obj;
-        if (!Objects.equals(this.departamento, other.departamento)) {
+        if (!Objects.equals(this.ciudad, other.ciudad)) {
             return false;
         }
         if (!Objects.equals(this.cp, other.cp)) {
@@ -70,7 +70,7 @@ public class CodigoPostal {
 
     @Override
     public String toString() {
-        return "Departamento: " + departamento + "  Codigo Postal: " + cp + "\n";
+        return "Departamento: " + ciudad + "  Codigo Postal: " + cp + "\n";
     }
     
     
