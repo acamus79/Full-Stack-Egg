@@ -82,9 +82,10 @@ public class ServiciosLibro {
         System.out.println("Ingrese el libro a prestar");
         String buscado = leer.next().toUpperCase();
         Iterator<Libro> it = biblioteca.iterator();
+        
         while (it.hasNext()) {
             if (it.next().getTitulo().equals(buscado)) {
-                bandera = Libro.prestamo();
+                bandera = Libro.prestamo();//llamo al metodo estatico de la clase Libro
             } else {
                 bandera = false;
             }
