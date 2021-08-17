@@ -84,7 +84,7 @@ public class ServiciosCP {
         }
     }
 
-    public void menu(){
+    public void menu() {
         int op = 0;
         do {
             System.out.println("\n************************");
@@ -100,18 +100,38 @@ public class ServiciosCP {
             op = leer.nextInt();
 
             switch (op) {
-                case 1 -> mostrar();
-                case 2 -> modifica();
-                case 3 -> borrar();
-                case 4 -> cargaCP();
-                case 5 -> System.out.println("\nCHAU!!  \n");
-                default -> {
+                case 1:
+                    mostrar();
+                    break;
+                case 2:
+                    modifica();
+                    break;
+                case 3:
+                    borrar();
+                    break;
+                case 4:
+                    cargaCP();
+                    break;
+                case 5:
+                    System.out.println("\nCHAU!!  \n");
+                    break;
+                default:
                     System.out.println("Ingresó una opcion no valida");
                     op = 0;
-                }
             }
-        } while (op != 5);
+        }while(op!=5);
     }
-       
-    
 }
+
+// RULE Switch otra forma de utilizar el swicht
+//            switch (op) {
+//                case 1 -> mostrar();
+//                case 2 -> modifica();
+//                case 3 -> borrar();
+//                case 4 -> cargaCP();
+//                case 5 -> System.out.println("\nCHAU!!  \n");
+//                default -> {
+//                    System.out.println("Ingresó una opcion no valida");
+//                    op = 0;
+//                }
+//            }

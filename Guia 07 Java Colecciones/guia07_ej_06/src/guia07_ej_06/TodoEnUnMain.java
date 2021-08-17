@@ -12,6 +12,9 @@ precio, eliminar un producto y mostrar los productos que tenemos con su precio
 el precio. Realizar un menú para lograr todas las acciones previamente
 mencionadas.
 
+Me salio todo en un archivo porque no entendia como trabajar con los mapas un 
+poco la raedaccion otro poco por lo redundante del ejercicio
+
 
  */
 package guia07_ej_06;
