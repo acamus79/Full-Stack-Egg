@@ -55,7 +55,10 @@ public class ServiciosPelicula {
         //Agrego la pelicula creada a la coleccion de peliculas
         return new Pelicula(titis, mandamas, hs);
     }
-
+/**
+ * Metodo que agrega Peliculas al ArrayList de Peliculas, mediante la 
+ * invocacion del metodo privado creaPeli.
+ */
     public void misPelis() {
         char op;
         do {
@@ -65,16 +68,20 @@ public class ServiciosPelicula {
         } while (op != 'N');
 
     }
-//Mostrar en pantalla todas las películas.    
-
+    
+/**
+ * Mostrar en pantalla todas las películas a traves de un for each, utilizando 
+ * en cada ciclo el metodo toString sobreestrico de la clase Pelicula
+ */
     public void mostrarPeliculas() {
         System.out.println("** Mostrar en pantalla todas las películas **");
         misPelis.forEach(aux -> {
             System.out.println(aux);
         });
     }
-
-//Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
+/**
+ * Mostrar en pantalla todas las películas con una duración mayor a 1 hora.
+ */
     public void mostrarPeliculasde1Hs() {
         System.out.println("** Mostrar en pantalla todas las películas con una duración mayor a 1 hora **");
         misPelis.stream().filter(peli -> (peli.getDuracionHs() > 60)).forEachOrdered(peli -> {
@@ -82,8 +89,11 @@ public class ServiciosPelicula {
         });
         System.out.println("");
     }
-//Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en pantalla.        
-    public void ordenarPeliPorDuracionMayor() {
+/**
+ * Ordenar las películas de acuerdo a su duración (de mayor a menor) y 
+ * mostrarlo en pantalla.
+ */
+     public void ordenarPeliPorDuracionMayor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de mayor a menor **");
         Collections.sort(misPelis, Comparadores.porDuracionMayor);//Ordena la Coleccion misPelis con el Comparador porDuracionMayor
 
@@ -93,7 +103,10 @@ public class ServiciosPelicula {
         System.out.println("");
     }
 
-//Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en pantalla.
+/**
+ * Ordenar las películas de acuerdo a su duración (de menor a mayor) y 
+ * mostrarlo en pantalla. Utilizando los comparadores de la clase Utilidad
+ */
     public void ordenarPeliPorDuracionMenor() {
         System.out.println("** Mostrar películas de acuerdo a su duración de menor a mayor **");
         Collections.sort(misPelis, Comparadores.porDuracionMenor);//ordena con el Comparator porDuracionMenor
@@ -104,7 +117,10 @@ public class ServiciosPelicula {
         System.out.println("");
     }
 
-//Ordenar las películas por titulo, alfabéticamente y mostrarlo en pantalla.    
+/**
+ * Ordenar las películas por titulo, alfabéticamente y mostrarlo en pantalla.
+ * utilizando los comparadores de la clase utilidad
+ */
     public void ordenarPeliPorTitulo() {
         System.out.println("** Mostrar las peliculas ordenadas por el Titulo alfabeticamente **");
         Collections.sort(misPelis, Comparadores.porTitulo);//ordena con el Comparator porTitulo
@@ -115,7 +131,10 @@ public class ServiciosPelicula {
         System.out.println("");
     }
 
-//Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.    
+/**
+ * Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.
+ * utilizando los comparadores de la clase utilidad
+ */
     public void ordenarPeliPorDirector() {
         System.out.println("** Mostrar las Peliculas ordenadas por el Director alfabeticamente");
         Collections.sort(misPelis, Comparadores.porDirector);//ordena con el Comparator porDirector
