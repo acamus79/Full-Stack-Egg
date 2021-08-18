@@ -71,5 +71,4 @@ public class Persona {
         return "Cliente: " + nombre + " " + apellido + "\nDNI: " + documento + " edad: " + edad + "\nMascota:" + mascota.toString();
     }
 
-    
 }
