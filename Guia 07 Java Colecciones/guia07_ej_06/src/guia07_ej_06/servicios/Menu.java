@@ -17,7 +17,7 @@ public class Menu {
     static int op = 0;//creo la variable para elegir las opciones del menu
     ServiciosProducto sp; //Creo mi objeto de Servicios para llamar a los metodos
 
-    public Menu() {
+    public Menu() {//instancio el scanner y el objeto de la clase servicio
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.sp = new ServiciosProducto();
     }
