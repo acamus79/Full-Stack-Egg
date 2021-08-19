@@ -60,7 +60,6 @@ public class Perro {
     public void setTam(Tamanio tam) {
         this.tam = tam;
     }
-
        
     @Override
     public String toString() {
