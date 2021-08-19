@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio01_Mesa71">
+  <ClassDiagramComponents>
+    <Class name="Perro" package="entidades" visibility="public" xPosition="283.0" yPosition="113.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="raza" type="Raza" visibility="private"/>
+        <Field name="tamanio" type="Tamanio" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Raza" name="raza"/>
+          <Argument type="Tamanio" name="tamanio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="getRaza" returnType="Raza" visibility="public"/>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="Raza" name="raza"/>
+        </Method>
+        <Method name="getTamanio" returnType="Tamanio" visibility="public"/>
+        <Method name="setTamanio" returnType="void" visibility="public">
+          <Argument type="Tamanio" name="tamanio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Person" package="entidades" visibility="public" xPosition="590.0" yPosition="-3.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ejercicio01" package="principal" visibility="public" xPosition="330.0" yPosition="-13.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Raza" package="enumeradores" visibility="public" xPosition="297.0" yPosition="564.0">
+      <Literals>
+        <Literal name="CANICHE"/>
+        <Literal name="BEAGLE"/>
+        <Literal name="PITBULL"/>
+        <Literal name="DOVERMAN"/>
+        <Literal name="DALMATA"/>
+      </Literals>
+    </Enum>
+    <Enum name="Tamanio" package="enumeradores" visibility="public" xPosition="490.0" yPosition="564.0">
+      <Literals>
+        <Literal name="GIGANTE"/>
+        <Literal name="GRANDE"/>
+        <Literal name="MEDIANO"/>
+        <Literal name="CHICO"/>
+        <Literal name="HISTERICO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tamanio" source="entidades.Perro" target="enumeradores.Tamanio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="raza" source="entidades.Perro" target="enumeradores.Raza" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Perro" target="enumeradores.Raza" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Perro" target="enumeradores.Tamanio" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

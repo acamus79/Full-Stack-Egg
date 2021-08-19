@@ -22,6 +22,56 @@ public class Perro {
     private Integer edad;
     private Raza raza;
     private Tamanio tamanio;
+
+    public Perro() {
+    }
+
+    public Perro(String nombre, Integer edad, Raza raza, Tamanio tamanio) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.raza = raza;
+        this.tamanio = tamanio;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public Raza getRaza() {
+        return raza;
+    }
+
+    public void setRaza(Raza raza) {
+        this.raza = raza;
+    }
+
+    public Tamanio getTamanio() {
+        return tamanio;
+    }
+
+    public void setTamanio(Tamanio tamanio) {
+        this.tamanio = tamanio;
+    }
+
+    @Override
+    public String toString() {
+        return "Perro{" + "nombre=" + nombre + ", edad=" + edad + ", raza=" + raza + ", tamanio=" + tamanio + '}';
+    }
+    
+    
+    
     
     
 }
