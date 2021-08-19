@@ -13,7 +13,7 @@ import enumeradores.*;
 
 /**
  *
- * @author Drok
+ * @author Mesa 71
  */
 public class Perro {
     
