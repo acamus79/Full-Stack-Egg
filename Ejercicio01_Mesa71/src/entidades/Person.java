@@ -7,6 +7,7 @@ Clase Persona: con atributos: nombre, apellido, edad, documento y Perro.
  */
 package entidades;
 
+
 /**
  *
  * @author mesa 71
@@ -16,17 +17,17 @@ public class Person {
     private String nombre, apellido;
     private Integer edad;
     private long dni;
-    private Perro guao;
+    private Perro mascota;
 
     public Person() {
     }
 
-    public Person(String nombre, String apellido, Integer edad, long dni, Perro guao) {
+    public Person(String nombre, String apellido, Integer edad, long dni, Perro mascota) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.dni = dni;
-        this.guao = guao;
+        this.mascota = mascota;
     }
 
     public String getNombre() {
@@ -61,19 +62,17 @@ public class Person {
         this.dni = dni;
     }
 
-    public Perro getGuao() {
-        return guao;
+    public Perro getMascota() {
+        return mascota;
     }
 
-    public void setGuao(Perro guao) {
-        this.guao = guao;
+    public void setMascota(Perro mascota) {
+        this.mascota = mascota;
     }
-
+            
     @Override
     public String toString() {
-        return "\nPersona: " + nombre + " " + apellido + "\nEdad: " + edad + " DNI Nro.: " + dni + "\nPerro: " + guao.toString();
-    }
-            
-            
+        return "\nPersona: " + nombre + " " + apellido + "\nEdad: " + edad + " DNI Nro.: " + dni + "\nPerro: " + mascota.toString();
+    }        
     
 }
