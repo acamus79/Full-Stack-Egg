@@ -2,7 +2,7 @@
 
 <ClassDiagram name="ej_02">
   <ClassDiagramComponents>
-    <Class name="Ej_02" package="ej_02" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="Ej_02" package="ej_02" visibility="public" xPosition="208.0" yPosition="28.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -11,7 +11,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Jugador" package="ej_02.entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Jugador" package="ej_02.entidades" visibility="public" xPosition="158.0" yPosition="147.0">
       <Fields>
         <Field name="id" type="int" visibility="private"/>
         <Field name="nombre" type="String" visibility="private"/>
@@ -45,7 +45,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Revolver" package="ej_02.entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="Revolver" package="ej_02.entidades" visibility="public" xPosition="591.0" yPosition="440.0">
       <Fields>
         <Field name="posTambor" type="int" visibility="private"/>
         <Field name="posMunicion" type="int" visibility="private"/>
@@ -72,7 +72,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="RuletaRusa" package="ej_02.servicio" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="RuletaRusa" package="ej_02.servicio" visibility="public" xPosition="579.0" yPosition="181.0">
       <Fields>
         <Field name="jugadores" type="Set&lt;Jugador&gt;" visibility="package"/>
         <Field name="colt" type="Revolver" visibility="package"/>
@@ -91,8 +91,8 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="colt" source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="jugadores" source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Set&lt;Jugador&gt;"/>
+    <UseRelation source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="colt" source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
