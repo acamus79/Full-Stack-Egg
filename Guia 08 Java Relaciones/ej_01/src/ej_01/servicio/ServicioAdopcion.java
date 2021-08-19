@@ -21,45 +21,41 @@ public class ServicioAdopcion {
     Persona p1;
     Persona p2;
 
-
     public ServicioAdopcion() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.p1 = new Persona("Pepe", "Pompin", 40, (long) 242444545);
         this.p2 = new Persona("Pelado", "DeEGG", 35, (long) 455454545);
-
     }
-        
+
 //String nombre, String apellido, int edad, long dni, Perro pet
     public void llenaPerro(Perro p) {
-               
+        // Muestro la raza y le pido al usuario que elija una
+        System.out.println("Escriba la raza para adoptar de las disponibles");
         for (Raza object : Raza.values()) {
             System.out.println(object.name());
         }
-        System.out.println("Escriba la raza para adoptar de las disponibles");
+        System.out.println("");//solo para un salto de linea
         String razaVar = leer.next();
+        //recorre otra vez el enum raza y compara con lo ingresado por el usuario
         for (Raza aux : Raza.values()) {
-
             if (aux.toString().equalsIgnoreCase(razaVar)) {
                 p.setRaza(aux);
             }
         }
-
+        //Muestro el enum Tamanio y le pido al usuario que elija
+        System.out.println("Escriba el tamaño del perro");
         for (Tamanio object : Tamanio.values()) {
             System.out.println(object.name());
         }
-        System.out.println("Escriba el tamaño del perro");
+        System.out.println("");
         String tamaVar = leer.next();
-        
-        for (Tamanio aux : Tamanio.values()) {
 
+        for (Tamanio aux : Tamanio.values()) {
             if (aux.toString().equalsIgnoreCase(tamaVar)) {
                 p.setTam(aux);
             }
         }
-        System.out.println(p);
+        System.out.println(p); // aca muestro el perro
     }
-    
-    
-    
-    
+
 }
