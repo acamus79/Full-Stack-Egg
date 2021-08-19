@@ -1,7 +1,0 @@
-@startuml
-annotation java.lang.Override
-class ejercicio01.entidades.Perro
-class ejercicio01.entidades.Persona
-ejercicio01.entidades.Perro ..> java.lang.Override
-ejercicio01.entidades.Persona ..> java.lang.Override
-@enduml
