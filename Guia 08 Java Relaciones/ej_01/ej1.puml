@@ -1,0 +1,23 @@
+@startuml
+annotation java.lang.Override
+class ej_01.Ej_01
+class ej_01.entidades.Perro
+class ej_01.entidades.Persona
+class ej_01.servicio.ServicioAdopcion
+class java.util.Objects
+class java.util.Scanner
+enum ej_01.enumeraciones.Raza
+enum ej_01.enumeraciones.Tamanio
+ej_01.Ej_01 ..> ej_01.entidades.Perro
+ej_01.Ej_01 ..> ej_01.servicio.ServicioAdopcion
+ej_01.entidades.Perro ..> java.lang.Override
+ej_01.entidades.Perro ..> java.util.Objects
+ej_01.entidades.Perro ..> ej_01.enumeraciones.Raza
+ej_01.entidades.Perro ..> ej_01.enumeraciones.Tamanio
+ej_01.entidades.Persona ..> java.lang.Override
+ej_01.servicio.ServicioAdopcion ..> ej_01.entidades.Perro
+ej_01.servicio.ServicioAdopcion ..> ej_01.entidades.Persona
+ej_01.servicio.ServicioAdopcion ..> java.util.Scanner
+ej_01.servicio.ServicioAdopcion ..> ej_01.enumeraciones.Raza
+ej_01.servicio.ServicioAdopcion ..> ej_01.enumeraciones.Tamanio
+@enduml
