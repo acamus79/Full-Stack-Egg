@@ -53,22 +53,33 @@ public class Revolver {
         this.posMunicion = posMunicion;
     }
 
-    public void llenaRevolver(){
-        this.posMunicion = (int) (Math.random()*6+1);//numeros aleatorios de 0 al 6, excluido el 6, al sumar 1 el randon seria de 1 a 6
-        this.posTambor = (int) (Math.random()*6+1);
+    /**
+     * Metodo que le pone 1 municion al revolver y hace girar el tambor
+     */
+    public void llenaRevolver() {
+        this.posMunicion = (int) (Math.random() * 6 + 1);//numeros aleatorios de 0 al 6, excluido el 6, al sumar 1 el randon seria de 1 a 6
+        this.posTambor = (int) (Math.random() * 6 + 1);
+    }
+
+    /**
+     * Metodo que acciona la cola del disparador
+     */
+    public void siguienteTiro() {
+        this.posTambor++;
     }
     
-    public boolean muerto(){
-        return this.posMunicion==this.posTambor;
+    /**
+     * Metodo que verifica si la posicion del tambor es igual a la de la
+     * municion si concide retorna verdadero y el jugador muere
+     * @return true or false
+     */
+    public boolean muerto() {
+        return this.posMunicion == this.posTambor;
     }
-    
-    public void siguienteTiro(){
-     this.posTambor++;
-    }
-    
+
     @Override
     public String toString() {
-        return "Revolver .357 de 6 alveolos" + "Posicion Tambor: " + posTambor + "Posicion de la Municion: " + posMunicion + '}';
+        return "Revolver .357 de 6 alveolos" + "\nPosicion Tambor: " + posTambor + "\nPosicion de la Municion: " + posMunicion + '}';
     }
-    
+
 }
