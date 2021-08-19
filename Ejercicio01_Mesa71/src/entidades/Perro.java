@@ -16,8 +16,7 @@ import enumeradores.*;
  * @author Mesa 71
  */
 public class Perro {
-    
-    
+
     private String nombre;
     private Integer edad;
     private Raza raza;
@@ -31,8 +30,6 @@ public class Perro {
         this.edad = edad;
     }
 
-    
-    
     public Perro(String nombre, Integer edad, Raza raza, Tamanio tamanio) {
         this.nombre = nombre;
         this.edad = edad;
@@ -74,11 +71,7 @@ public class Perro {
 
     @Override
     public String toString() {
-        return "Perro{" + "nombre=" + nombre + ", edad=" + edad + ", raza=" + raza + ", tamanio=" + tamanio + '}';
+        return nombre + " Edad:" + edad + " Raza: " + raza + " Tamaño: " + tamanio;
     }
-    
-    
-    
-    
-    
+
 }

@@ -37,25 +37,20 @@ public class Main {
     public static void main(String[] args) {
         // el codigo va aquiii!!
         ServicioAdopcion sa = new ServicioAdopcion();
-        
-        
+
         //String nombre, Integer edad, Raza raza, Tamanio tamanio
-        Perro m1 = new Perro("Lolo",4);
+        Perro m1 = new Perro("Lolo", 4);
         sa.adoptaPerro(m1);
-        Perro m2 = new Perro("Dinamita",1);
+        Perro m2 = new Perro("Dinamita", 1);
         sa.adoptaPerro(m2);
-        
+
         //String nombre, String apellido, Integer edad, long dni, Perro mascota
-        Person p1 = new Person("Dolape","DeEGG",36, 27422257,m1);
-        Person p2 = new Person("Juan", "Perez", 40,27424587,m2);
-       
+        Person p1 = new Person("Dolape", "DeEGG", 36, 27422257, m1);
+        Person p2 = new Person("Juan", "Perez", 40, 27424587, m2);
+
         System.out.println(p1);
         System.out.println(p2);
-        
-        
-        
-        
-        
+
     }
-    
+
 }

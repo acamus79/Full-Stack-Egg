@@ -15,14 +15,14 @@ import java.util.Scanner;
  * @author Drok
  */
 public class ServicioAdopcion {
-    
+
     Scanner leer;
 
     public ServicioAdopcion() {
-    this.leer = new Scanner(System.in).useDelimiter("\n");
+        this.leer = new Scanner(System.in).useDelimiter("\n");
     }
-    
-    public void adoptaPerro(Perro choco){
+
+    public void adoptaPerro(Perro choco) {
         System.out.println("*******RAZAS******");
         //recorre desde los valores del enum Raza y por cada vuelta del for
         // le asigna un valor del enum a la variable aux.
@@ -33,28 +33,25 @@ public class ServicioAdopcion {
         for (Tamanio aux : Tamanio.values()) {
             System.out.println(aux);
         }
-       
+
         System.out.println("\nElija la raza y el tamaño");
         String eleRaza = leer.next();
         String eleTam = leer.next();
-        
+
         for (Raza aux : Raza.values()) {
 //si lo que escribio el usuario es igual a el objeto auxiliar del enum convertido a String
-            if(eleRaza.equalsIgnoreCase(aux.toString())){
+            if (eleRaza.equalsIgnoreCase(aux.toString())) {
                 choco.setRaza(aux);
             }
         }
-        
+
         for (Tamanio aux : Tamanio.values()) {
-            if(eleTam.equalsIgnoreCase(aux.toString())){
+            if (eleTam.equalsIgnoreCase(aux.toString())) {
                 choco.setTamanio(aux);
             }
-            
+
         }
-        
+
     }
-    
-    
-    
-    
+
 }
