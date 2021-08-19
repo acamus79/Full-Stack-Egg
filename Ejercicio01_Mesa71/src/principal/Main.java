@@ -35,7 +35,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // el codigo va aquiii!!
+        
+
+
+        System.out.println("AGUANTE LA 71");
         ServicioAdopcion sa = new ServicioAdopcion();
 
         //String nombre, Integer edad, Raza raza, Tamanio tamanio
