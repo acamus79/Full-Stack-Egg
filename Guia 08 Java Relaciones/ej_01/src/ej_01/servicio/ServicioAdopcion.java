@@ -18,12 +18,10 @@ import java.util.Scanner;
 public class ServicioAdopcion {
 
     Scanner leer;
-    Persona p1;
-    Persona p2;
-
+  
     public ServicioAdopcion() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
-        
+      
     }
 
 //String nombre, String apellido, int edad, long dni, Perro pet
