@@ -17,7 +17,6 @@ Persona.
 
  */
 package ej_01;
-
 import ej_01.entidades.*;
 import ej_01.servicio.ServicioAdopcion;
 

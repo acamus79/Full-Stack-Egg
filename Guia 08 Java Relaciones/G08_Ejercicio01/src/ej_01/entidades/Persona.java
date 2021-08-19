@@ -2,9 +2,7 @@
  * Sin licencia.
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
-
-Persona con atributos: nombre, apellido, edad, documento y Perro.
-
+ * Persona con atributos: nombre, apellido, edad, documento y Perro.
  */
 package ej_01.entidades;
 
@@ -73,8 +71,6 @@ public class Persona {
     public String toString() {
         return "\nPersona: " + nombre + " " + apellido + "\nEdad: " + edad + " DNI: " + dni + pet.toString();
     }
-
-          
     
     
 }

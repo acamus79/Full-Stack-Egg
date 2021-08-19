@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ej_02">
+  <ClassDiagramComponents>
+    <Class name="Ej_02" package="ej_02" visibility="public" xPosition="208.0" yPosition="28.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Jugador" package="ej_02.entidades" visibility="public" xPosition="158.0" yPosition="147.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="muerto" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="boolean" name="mojado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isMuerto" returnType="boolean" visibility="public"/>
+        <Method name="setMuerto" returnType="void" visibility="public">
+          <Argument type="boolean" name="muerto"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Revolver" package="ej_02.entidades" visibility="public" xPosition="591.0" yPosition="440.0">
+      <Fields>
+        <Field name="posTambor" type="int" visibility="private"/>
+        <Field name="posMunicion" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="posTambor"/>
+          <Argument type="int" name="posMunicion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPosTambor" returnType="int" visibility="public"/>
+        <Method name="setPosTambor" returnType="void" visibility="public">
+          <Argument type="int" name="posTambor"/>
+        </Method>
+        <Method name="getPosMunicion" returnType="int" visibility="public"/>
+        <Method name="setPosMunicion" returnType="void" visibility="public">
+          <Argument type="int" name="posMunicion"/>
+        </Method>
+        <Method name="llenaRevolver" returnType="void" visibility="public"/>
+        <Method name="siguienteTiro" returnType="void" visibility="public"/>
+        <Method name="muerto" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RuletaRusa" package="ej_02.servicio" visibility="public" xPosition="579.0" yPosition="181.0">
+      <Fields>
+        <Field name="jugadores" type="Set&lt;Jugador&gt;" visibility="package"/>
+        <Field name="colt" type="Revolver" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="armaMesa" returnType="void" visibility="public">
+          <Argument type="int" name="cantJugadores"/>
+          <Argument type="Revolver" name="r"/>
+        </Method>
+        <Method name="ronda" returnType="void" visibility="public"/>
+        <Method name="muestraJugadores" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="jugadores" source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Set&lt;Jugador&gt;"/>
+    <UseRelation source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="colt" source="ej_02.servicio.RuletaRusa" target="ej_02.entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
