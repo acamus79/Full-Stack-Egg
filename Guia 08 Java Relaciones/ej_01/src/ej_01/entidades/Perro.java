@@ -10,7 +10,6 @@ package ej_01.entidades;
 
 import ej_01.enumeraciones.Raza;
 import ej_01.enumeraciones.Tamanio;
-import java.util.Objects;
 
 /**
  *
@@ -62,50 +61,10 @@ public class Perro {
         this.tam = tam;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.nombre);
-        hash = 83 * hash + this.edad;
-        hash = 83 * hash + Objects.hashCode(this.raza);
-        hash = 83 * hash + Objects.hashCode(this.tam);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Perro other = (Perro) obj;
-        if (this.edad != other.edad) {
-            return false;
-        }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (this.raza != other.raza) {
-            return false;
-        }
-        if (this.tam != other.tam) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
+       
     @Override
     public String toString() {
         return "\nPerro: " + nombre + " edad:" + edad + "\nRaza: " + raza + " Tamaño: " + tam ;
     }
-    
-    
     
 }
