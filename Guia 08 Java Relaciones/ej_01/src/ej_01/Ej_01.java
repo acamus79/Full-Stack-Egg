@@ -18,7 +18,7 @@ Persona.
  */
 package ej_01;
 
-import ej_01.entidades.Perro;
+import ej_01.entidades.*;
 import ej_01.servicio.ServicioAdopcion;
 
 /**
@@ -37,11 +37,14 @@ public class Ej_01 {
         
         Perro choco1 = new Perro("Firulais", 7);
         Perro choco2 = new Perro("Ares", 2);
-        
+        Persona p1 = new Persona("Pepe", "Pompin", 40, (long) 242444545,choco1);
+        Persona p2 = new Persona("Pelado", "DeEGG", 35, (long) 455454545,choco2);
         
         sa.llenaPerro(choco1);
         sa.llenaPerro(choco2);
    
+        System.out.println(p1);
+        System.out.println(p2);
         
     }
     

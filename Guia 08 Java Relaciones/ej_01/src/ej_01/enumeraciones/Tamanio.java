@@ -10,5 +10,5 @@ package ej_01.enumeraciones;
  * @author Adrian E. Camus
  */
 public enum Tamanio {
-    GRANDE, MEDIANO, DIMINUTO, HISTERICO;
+    GRANDE, MEDIANO, HISTERICO;
 }

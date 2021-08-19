@@ -4,9 +4,10 @@
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
 
 1. Realizar un programa para que una Persona pueda adoptar un Perro. Vamos a 
-contar de dos clases. Perro, que tendrá como atributos: nombre, raza, edad y 
-tamaño; y la clase Persona con atributos: nombre, apellido, edad, documento y 
-Perro.
+contar de dos clases. 
+
+Perro, que tendrá como atributos: nombre, raza, edad y tamaño; 
+y la clase Persona con atributos: nombre, apellido, edad, documento y Perro.
 
 Ahora deberemos en el main crear dos Personas y dos Perros. Después, vamos a 
 tener que pensar la lógica necesaria para asignarle a cada Persona un Perro y 

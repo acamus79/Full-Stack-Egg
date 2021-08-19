@@ -21,14 +21,13 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, int edad, long dni) {
+    public Persona(String nombre, String apellido, int edad, long dni, Perro pet) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.dni = dni;
+        this.pet = pet;
     }
-
-
 
     public String getNombre() {
         return nombre;
@@ -72,7 +71,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "\nPersona: " + nombre + " " + apellido + "\nEdad: " + edad + " DNI: " + dni + "\nPerro: " + pet.toString();
+        return "\nPersona: " + nombre + " " + apellido + "\nEdad: " + edad + " DNI: " + dni + pet.toString();
     }
 
           

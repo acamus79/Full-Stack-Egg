@@ -66,6 +66,9 @@ public class Persona {
         this.mascota = mascota;
     }
 
+    
+    
+    
     @Override
     public String toString() {
         return "Cliente: " + nombre + " " + apellido + "\nDNI: " + documento + " edad: " + edad + "\nMascota:" + mascota.toString();

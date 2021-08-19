@@ -23,8 +23,7 @@ public class ServicioAdopcion {
 
     public ServicioAdopcion() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
-        this.p1 = new Persona("Pepe", "Pompin", 40, (long) 242444545);
-        this.p2 = new Persona("Pelado", "DeEGG", 35, (long) 455454545);
+        
     }
 
 //String nombre, String apellido, int edad, long dni, Perro pet
@@ -55,7 +54,6 @@ public class ServicioAdopcion {
                 p.setTam(aux);
             }
         }
-        System.out.println(p); // aca muestro el perro
     }
 
 }

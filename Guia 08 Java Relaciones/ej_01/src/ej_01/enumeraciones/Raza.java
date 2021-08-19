@@ -10,7 +10,6 @@ package ej_01.enumeraciones;
  * @author Adrian E. Camus
  */
 public enum Raza {
-    CANICHE_GAY,GUAU_GUAU, DALMATA, COLLIE,PURO_PERRO,NORTEAMERICOYA;
-    
-    
+    CANICHE, CALLEJERO, DALMATA, COLLIE, PURO_PERRO, SALCHICHA;
+
 }
