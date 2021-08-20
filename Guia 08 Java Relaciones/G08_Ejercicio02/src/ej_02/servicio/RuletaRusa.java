@@ -55,7 +55,7 @@ public class RuletaRusa {
 
         for (int i = 0; i < cantJugadores; i++) {
             Jugador j = new Jugador();
-            j.setId(i+1);
+            j.setId(i + 1);
             j.setMuerto(false);
             jugadores.add(j);
         }
@@ -64,21 +64,23 @@ public class RuletaRusa {
 
     public void ronda() {
         colt.llenaRevolver();
+        Jugador j = new Jugador();
+        
         for (Jugador jugador : jugadores) {
-            colt.siguienteTiro();
-            if (colt.muerto()) {
-                jugador.setMuerto(true);
-                break;
+            while (jugador.isMuerto()==true) {
+                colt.siguienteTiro();
+                if (colt.muerto()==true) {
+                    jugador.setMuerto(true);
+                    break;
+                }
             }
         }
-
-       
     }
 
-    public void muestraJugadores(){
+    public void muestraJugadores() {
         jugadores.forEach(jugador -> {
             System.out.println(jugador);
         });
     }
-    
+
 }
