@@ -31,19 +31,23 @@ saca una carta y luego se llama al método, este no mostrara esa primera carta.
 
 
  */
-package ej_03;
+package principal;
 
 /**
  *
  * @author Adrian E. Camus
  */
-public class Ej_03 {
+public class Principal {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+        
+        
+        
     }
     
 }
