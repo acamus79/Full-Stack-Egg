@@ -39,23 +39,25 @@ public class RuletaRusa {
      * en la Lista de Jugadores del juego.
      * @param cantJugadores int entre 1 y 6
      */
-    public void llenarJuego(int cantJugadores) {
+    public void llenarJuego() {
+        int cantJugadores;
+        System.out.println("Cuantos jugadores ?");
+        cantJugadores = leer.nextInt();
         
+        if(cantJugadores>7 || cantJugadores<=0){
+            cantJugadores =6;
+            System.out.println("Solo pueden jugar 6");
+        }
+                        
         for (int i = 0; i < cantJugadores; i++) {
-            
-            if (cantJugadores > 0 && cantJugadores < 7) {
-                
                 Jugador j = new Jugador();
                 System.out.println("Ingrese el nombre del Jugador");
                 j.setNombre(leer.next());
                 j.setId(i+1);
                 listaJugador.add(j);
-            } else {
-                cantJugadores =6;
-            }
+            } 
         }
 
-    }
     
     /**
      * cada ronda consiste en un jugador que se apunta con el revolver y aprieta

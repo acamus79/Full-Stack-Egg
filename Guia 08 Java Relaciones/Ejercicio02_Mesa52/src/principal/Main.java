@@ -1,5 +1,8 @@
 /*
- 
+ * Sin licencia.
+ * Uso para capacitación
+ * 2021 Año de la Prevención y Lucha contra el COVID-19.
+
 2. Realizar el juego de la ruleta rusa de agua en Java. Como muchos saben, el juego se
 trata de un número de jugadores, que, con un revolver de agua, el cual posee una sola
 carga de agua, se dispara y se moja. Las clases a hacer del juego son las siguientes:
@@ -21,15 +24,15 @@ devuelve true, sino false.
 
 
  */
-package ejercicio02_mesa52;
+package principal;
 
 import servicio.RuletaRusa;
 
 /**
  *
- * @author Drok
+ * @author Mesa 52
  */
-public class Ejercicio02_Mesa52 {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -38,11 +41,8 @@ public class Ejercicio02_Mesa52 {
         
         RuletaRusa rs = new RuletaRusa();
         
-        rs.llenarJuego(2);
+        rs.llenarJuego();
         rs.ronda();
-        
-        
-        
         
     }
     
