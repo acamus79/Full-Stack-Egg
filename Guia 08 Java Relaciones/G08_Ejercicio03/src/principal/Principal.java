@@ -33,6 +33,9 @@ saca una carta y luego se llama al método, este no mostrara esa primera carta.
  */
 package principal;
 
+import entidades.Baraja;
+import servicios.ServiciosBaraja;
+
 /**
  *
  * @author Adrian E. Camus
@@ -44,8 +47,10 @@ public class Principal {
      */
     public static void main(String[] args) {
         
+        ServiciosBaraja sb = new ServiciosBaraja();
         
-        
+        Baraja b = sb.creaBaraja();
+        sb.muestraBaraja(b.getBaraja());
         
         
     }

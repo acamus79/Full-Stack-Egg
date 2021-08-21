@@ -6,7 +6,7 @@
 
 package entidades;
 
-import enumeradores.Palo;
+import enumeradores.*;
 
 /**
  * 
@@ -14,22 +14,22 @@ import enumeradores.Palo;
  */
 public class Carta {
 
-    private int numero;
+    private Numero numero;
     private Palo palo;
 
     public Carta() {
     }
 
-    public Carta(int numero, Palo palo) {
+    public Carta(Numero numero, Palo palo) {
         this.numero = numero;
         this.palo = palo;
     }
 
-    public int getNumero() {
+       public Numero getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Numero numero) {
         this.numero = numero;
     }
 
@@ -43,7 +43,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "Carta{" + "numero=" + numero + ", palo=" + palo + '}';
+        return  numero + " de " + palo;
     }
     
     
