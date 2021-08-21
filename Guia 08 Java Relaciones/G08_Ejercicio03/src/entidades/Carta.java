@@ -7,6 +7,7 @@
 package entidades;
 
 import enumeradores.*;
+import java.util.Objects;
 
 /**
  * 
@@ -41,6 +42,39 @@ public class Carta {
         this.palo = palo;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.numero);
+        hash = 73 * hash + Objects.hashCode(this.palo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Carta other = (Carta) obj;
+        if (this.numero != other.numero) {
+            return false;
+        }
+        if (this.palo != other.palo) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+    
+    
     @Override
     public String toString() {
         return  numero + " de " + palo;

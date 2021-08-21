@@ -9,8 +9,10 @@ import entidades.*;
 import enumeradores.Numero;
 import enumeradores.Palo;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  *
@@ -22,15 +24,27 @@ public class ServiciosBaraja {
 
     public Baraja creaBaraja() {
         Baraja b = new Baraja();
+        Set<Carta> mazo = new HashSet();
+               
         for (int i = 0; i < 40; i++) {
             Carta c = new Carta();
-            b.getBaraja().add(c);
+            mazo.add(c);
         }
-        Iterator it = b.getBaraja().iterator();
+        
+        Iterator<Carta> it = mazo.iterator();
         
         while(it.hasNext()){
             
         }
+        
+        for (Carta carta : mazo) {
+            System.out.println(carta);
+        }
+         
+            
+        
+            
+       
 
 
 return b;
