@@ -28,8 +28,13 @@ public class Revolver {
 
     private int posTambor;
     private int posMunicion;
-
+    
+    /**
+     * Constructor que le pone 1 municion al revolver y hace girar el tambor
+     */
     public Revolver() {
+        this.posMunicion = (int) (Math.random() * 6 + 1);//numeros aleatorios de 0 al 6, excluido el 6, al sumar 1 el randon seria de 1 a 6
+        this.posTambor = (int) (Math.random() * 6 + 1);
     }
 
     public Revolver(int posTambor, int posMunicion) {
@@ -53,24 +58,21 @@ public class Revolver {
         this.posMunicion = posMunicion;
     }
 
-    /**
-     * Metodo que le pone 1 municion al revolver y hace girar el tambor
-     */
-    public void llenaRevolver() {
-        this.posMunicion = (int) (Math.random() * 6 + 1);//numeros aleatorios de 0 al 6, excluido el 6, al sumar 1 el randon seria de 1 a 6
-        this.posTambor = (int) (Math.random() * 6 + 1);
-    }
-
-    /**
+     /**
      * Metodo que acciona la cola del disparador
      */
     public void siguienteTiro() {
-        this.posTambor++;
+        if (posTambor == 6) {
+            this.posTambor = 1;
+        } else {
+            this.posTambor++;
+        }
     }
-    
+
     /**
      * Metodo que verifica si la posicion del tambor es igual a la de la
      * municion si concide retorna verdadero y el jugador muere
+     *
      * @return true or false
      */
     public boolean muerto() {

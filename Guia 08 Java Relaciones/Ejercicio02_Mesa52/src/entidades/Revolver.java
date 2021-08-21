@@ -18,15 +18,17 @@ package entidades;
  * @author Drok
  */
 public class Revolver {
+
     private int posActual;
     private int posBala;
-/**
- * llenarRevolver(): le pone los valores de posición actual y de posición del agua.
- * Los valores son aleatorios.
- */
+
+    /**
+     * llenarRevolver(): le pone los valores de posición actual y de posición
+     * del agua. Los valores son aleatorios.
+     */
     public Revolver() {
-    this.posActual = (int) (Math.random() * 6 + 1);//entre 1 y 6 en realidad es entre 0 y 7 sin incluir el 7
-    this.posBala = (int) (Math.random() * 6 + 1);
+        this.posActual = (int) (Math.random() * 6 + 1);//entre 1 y 6 en realidad es entre 0 y 7 sin incluir el 7
+        this.posBala = (int) (Math.random() * 6 + 1);
     }
 
     public int getPosActual() {
@@ -36,27 +38,25 @@ public class Revolver {
     public int getPosBala() {
         return posBala;
     }
-    
+
     /**
      * devuelve true si la posición del agua coincide con la posición actual
+     *
      * @return true o false
      */
-    public boolean matar(){
-        if(posBala==posActual){
-            return true;
-        }else{
-                return false;
-        }
-            
+    public boolean matar() {
+        return posBala == posActual;
+
     }
-   /**
-    * cambia a la siguiente posición del tambor
-    */ 
-    public void siguienteDisparo(){
-       
-        if(posActual==6){
-            this.posActual=1;
-        }else{
+
+    /**
+     * cambia a la siguiente posición del tambor
+     */
+    public void siguienteDisparo() {
+
+        if (posActual == 6) {
+            this.posActual = 1;
+        } else {
             this.posActual++;
         }
     }
@@ -65,6 +65,5 @@ public class Revolver {
     public String toString() {
         return "\nRevolver Colt Las Heras:" + "\nPosicion Actual del Tambor: " + posActual + " Posicion del Proyectil: " + posBala;
     }
-    
-    
+
 }

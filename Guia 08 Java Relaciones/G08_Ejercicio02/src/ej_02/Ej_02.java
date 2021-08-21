@@ -26,6 +26,7 @@ package ej_02;
 
 import ej_02.entidades.Revolver;
 import ej_02.servicio.RuletaRusa;
+import java.util.Scanner;
 
 /**
  *
@@ -38,12 +39,15 @@ public class Ej_02 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        int cant;
+        Scanner leer = new Scanner(System.in);
         RuletaRusa rr = new RuletaRusa();
-        Revolver r = new Revolver();
-        rr.armaMesa(8, r);
+        System.out.println("Ingrese la Cantidad de Jugadores");
+        cant = leer.nextInt();
+
+        rr.armaMesa(cant);
         rr.ronda();
-        rr.muestraJugadores();
+        //rr.muestraJugadores();
     }
-    
+
 }

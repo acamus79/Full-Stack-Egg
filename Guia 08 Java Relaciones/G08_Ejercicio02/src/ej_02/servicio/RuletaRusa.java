@@ -34,7 +34,7 @@ public class RuletaRusa {
      * Constructor vacio pero que instancia al Conjunto de Jugadores
      */
     public RuletaRusa() {
-
+        this.colt = new Revolver();
         this.jugadores = new HashSet();
     }
 
@@ -43,13 +43,10 @@ public class RuletaRusa {
      * pueden ser mas de 6 e instancia el revolver.
      *
      * @param cantJugadores <=6
-     * @param r Objeto de la Clase Revolver
      */
-    public void armaMesa(int cantJugadores, Revolver r) {
+    public void armaMesa(int cantJugadores) {
 
-        this.colt = r;
-
-        if (cantJugadores > 6) {
+        if (cantJugadores > 6 || cantJugadores <= 0) {
             cantJugadores = 6;
         }
 
@@ -63,18 +60,24 @@ public class RuletaRusa {
     }
 
     public void ronda() {
-        colt.llenaRevolver();
+        int cont = 1;
         Jugador j = new Jugador();
-        
-        for (Jugador jugador : jugadores) {
-            while (jugador.isMuerto()==true) {
+        boolean bandera = false;
+        do {
+            for (Jugador aux : jugadores) {
+                System.out.println("RONDA "+cont);
+                cont++;
+                j = aux;
                 colt.siguienteTiro();
-                if (colt.muerto()==true) {
-                    jugador.setMuerto(true);
+                if (colt.muerto()) {
+                    j.setMuerto(true);
+                    bandera = true;
+                    System.out.println(j.toString());
                     break;
                 }
             }
-        }
+        } while (!bandera);
+
     }
 
     public void muestraJugadores() {
