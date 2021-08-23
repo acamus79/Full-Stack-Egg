@@ -64,6 +64,10 @@ public class ServiciosBaraja {
     
     
     
+    
+    
+    
+    
     public static Comparator<Carta> porPalo = new Comparator<Carta>() {
         @Override
         public int compare(Carta c1, Carta c2) {
