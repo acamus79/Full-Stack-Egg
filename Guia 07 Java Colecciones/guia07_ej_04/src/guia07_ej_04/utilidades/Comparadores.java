@@ -15,7 +15,7 @@ import java.util.Comparator;
 public class Comparadores {
 
 //Comparator con su declaracion estandar
-    //Compara las películas por titulo, alfabéticamente.
+//Compara las películas por titulo, alfabéticamente.
     public static Comparator<Pelicula> porTitulo = new Comparator<Pelicula>() {
         @Override
         public int compare(Pelicula o1, Pelicula o2) {
