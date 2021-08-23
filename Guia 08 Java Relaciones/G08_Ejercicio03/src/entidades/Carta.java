@@ -15,22 +15,22 @@ import java.util.Objects;
  */
 public class Carta {
 
-    private Numero numero;
+    private int numero;
     private Palo palo;
 
     public Carta() {
     }
 
-    public Carta(Numero numero, Palo palo) {
+    public Carta(int numero, Palo palo) {
         this.numero = numero;
         this.palo = palo;
     }
 
-       public Numero getNumero() {
+       public int getNumero() {
         return numero;
     }
 
-    public void setNumero(Numero numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 

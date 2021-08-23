@@ -49,9 +49,10 @@ public class Principal {
         
         ServiciosBaraja sb = new ServiciosBaraja();
         
-        Baraja b = sb.creaBaraja();
-        sb.muestraBaraja(b.getBaraja());
+        sb.muestraBaraja();
         
+//        sb.creaMazo();
+//        sb.muestraB();
         
     }
     
