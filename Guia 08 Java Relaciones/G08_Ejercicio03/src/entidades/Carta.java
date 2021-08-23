@@ -71,10 +71,7 @@ public class Carta {
         return true;
     }
 
-    
-    
-    
-    
+        
     @Override
     public String toString() {
         return  numero + " de " + palo;

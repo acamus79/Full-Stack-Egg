@@ -6,13 +6,8 @@
 package servicios;
 
 import entidades.*;
-import enumeradores.Numero;
-import enumeradores.Palo;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Set;
+import enumeradores.*;
+import java.util.*;
 
 /**
  *
@@ -24,17 +19,25 @@ public class ServiciosBaraja {
 
     public Baraja creaBaraja() {
         Baraja b = new Baraja();
-        Set<Carta> mazo = new HashSet();
-               
+//        Set<Carta> mazo = new HashSet();
+        List<Carta> mazo = new ArrayList();
+        
         for (int i = 0; i < 40; i++) {
             Carta c = new Carta();
+            c.setPalo(Palo.getRandom());
+            c.setNumero(Numero.getRandom());
             mazo.add(c);
         }
         
         Iterator<Carta> it = mazo.iterator();
         
         while(it.hasNext()){
+            it.next().setNumero(Numero.getRandom());
             
+        }
+        
+        while(it.hasNext()){
+            it.next().setPalo(Palo.getRandom());
         }
         
         for (Carta carta : mazo) {
