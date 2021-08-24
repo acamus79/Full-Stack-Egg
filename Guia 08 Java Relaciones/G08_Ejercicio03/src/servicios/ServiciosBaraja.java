@@ -26,7 +26,6 @@ saca una carta y luego se llama al método, este no mostrara esa primera carta.
 package servicios;
 
 import entidades.*;
-import enumeradores.*;
 import java.util.*;
 
 /**
@@ -34,49 +33,85 @@ import java.util.*;
  * @author Adrian E. Camus
  */
 public class ServiciosBaraja {
-
-    private Scanner leer;
+    
     private Baraja baraja;
     private ArrayList<Carta> mazo;
+    private ArrayList<Carta> monton;
     
-
     public ServiciosBaraja() {
-        this.baraja= new Baraja();
+        this.baraja = new Baraja();
         this.mazo = new ArrayList(baraja.getBaraja());
-        this.leer = new Scanner(System.in).useDelimiter("\n");
     }
-
+    
     public void muestraBaraja() {
-
-        for (Object aux : mazo)
+        
+        for (Carta aux : mazo)
         {
             System.out.println(aux);
         }
     }
-
-    public void barajar(){
+    
+    public void barajar() {
+        System.out.println("BARAJA MEZCLADA");
         Collections.shuffle(mazo);
     }
     
-    public Carta siguienteCarta(){
-        return mazo.get(0);
+    public Carta siguienteCarta() {
+        Carta aux = mazo.get(0);
+        mazo.remove(0);
+        monton.add(aux);
+        return aux;
     }
     
+    public void darCartas(int cantidad) {
+        ArrayList<Carta> mano = new ArrayList();
+        
+        for (int i = 0; i < cantidad; i++)
+        {
+            mano.add(mazo.get(i));
+            monton.add(mazo.get(i));
+            mazo.remove(i);
+        }
+        
+        System.out.println("La mano dada es");
+        for (Carta carta : mano)
+        {
+            System.out.println(carta);
+        }
+        
+    }
     
-    
-    
-    
-    
+    public void muestraMonton() {
+        for (Carta aux : monton)
+        {
+            System.out.println(aux);
+        }
+    }
     
     public static Comparator<Carta> porPalo = new Comparator<Carta>() {
         @Override
         public int compare(Carta c1, Carta c2) {
-        return c2.getPalo().compareTo(c1.getPalo());
+            return c1.getPalo().compareTo(c2.getPalo());
         }
     };
     
+    public static Comparator<Carta> porNumero = new Comparator<Carta>() {
+        @Override
+        public int compare(Carta c1, Carta c2) {
+            return c1.getNumero().compareTo(c2.getNumero());
+        }
+    };
     
-    
-    
+        
+    public void ordenaBaraja() {
+        System.out.println("BARAJA ORDENADA");
+        Collections.sort(mazo, porNumero);
+        Collections.sort(mazo, porPalo);
+        
+        for (Carta carta : mazo)
+        {
+            System.out.println(carta);
+        }
+    }
     
 }
