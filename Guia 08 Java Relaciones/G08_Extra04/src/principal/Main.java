@@ -19,7 +19,7 @@ DNI. Este método debe retornar la lista de dnis.
 cantidad de objetos Alumno, elegidos por el usuario, y le asigne los nombres y los
 dnis de las dos listas a cada objeto Alumno. No puede haber dos alumnos con el
 mismo dni, pero si con el mismo nombre.
-12
+
 • Se debe imprimir por pantalla el listado de alumnos.
 • Una vez hecho esto debemos generar una clase Voto, esta clase tendrá como
 atributos, un objeto Alumno que será el alumno que vota y una lista de los
