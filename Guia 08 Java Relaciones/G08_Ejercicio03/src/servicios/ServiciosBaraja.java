@@ -36,7 +36,7 @@ public class ServiciosBaraja {
     
     private Baraja baraja;
     private ArrayList<Carta> mazo;
-    private ArrayList<Carta> monton;
+    
     
     public ServiciosBaraja() {
         this.baraja = new Baraja();
@@ -52,14 +52,13 @@ public class ServiciosBaraja {
     }
     
     public void barajar() {
-        System.out.println("BARAJA MEZCLADA");
+        System.out.println("**** BARAJA MEZCLADA ****");
         Collections.shuffle(mazo);
     }
     
     public Carta siguienteCarta() {
         Carta aux = mazo.get(0);
         mazo.remove(0);
-        monton.add(aux);
         return aux;
     }
     
@@ -69,24 +68,18 @@ public class ServiciosBaraja {
         for (int i = 0; i < cantidad; i++)
         {
             mano.add(mazo.get(i));
-            monton.add(mazo.get(i));
+
             mazo.remove(i);
         }
         
-        System.out.println("La mano dada es");
+        System.out.println("**** LA MANO DADA ES: ****");
         for (Carta carta : mano)
         {
             System.out.println(carta);
         }
-        
+        System.out.println("Quedan "+mazo.size()+ " cartas");
     }
     
-    public void muestraMonton() {
-        for (Carta aux : monton)
-        {
-            System.out.println(aux);
-        }
-    }
     
     public static Comparator<Carta> porPalo = new Comparator<Carta>() {
         @Override
@@ -104,7 +97,7 @@ public class ServiciosBaraja {
     
         
     public void ordenaBaraja() {
-        System.out.println("BARAJA ORDENADA");
+        System.out.println("**** BARAJA ORDENADA ****");
         Collections.sort(mazo, porNumero);
         Collections.sort(mazo, porPalo);
         

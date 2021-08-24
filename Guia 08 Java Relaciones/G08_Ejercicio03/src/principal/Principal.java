@@ -55,8 +55,8 @@ public class Principal {
         
         sb.barajar();
         sb.muestraBaraja();
-        sb.muestraMonton();
-        
+        //sb.muestraMonton();
+        sb.darCartas(8);
         
         
 //        sb.darCartas(5);
