@@ -51,6 +51,18 @@ public class Principal {
         
         sb.muestraBaraja();
         
+        sb.ordenaBaraja();
+        
+        sb.barajar();
+        sb.muestraBaraja();
+        sb.muestraMonton();
+        
+        
+        
+//        sb.darCartas(5);
+//        
+//        sb.muestraMonton();
+        
 //        sb.creaMazo();
 //        sb.muestraB();
         
