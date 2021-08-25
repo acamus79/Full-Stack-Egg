@@ -59,7 +59,7 @@ public class Simulador {
         if(dni.length()<7){
             dni = dni+"00";
         }else if(dni.length()<8){
-            dni = dni+"0";
+            dni = dni+Integer.toString((int) Math.random());
         }
         
         return dni;
