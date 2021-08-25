@@ -18,12 +18,12 @@ import java.util.Objects;
 public class Alumno {
     private String nombre;
     private String dni;
-    private Integer cantVotos;
+    private int cantVotos=0;
 
     public Alumno() {
     }
 
-    public Alumno(String nombre, String dni, Integer cantVotos) {
+    public Alumno(String nombre, String dni, int cantVotos) {
         this.nombre = nombre;
         this.dni = dni;
         this.cantVotos = cantVotos;
@@ -49,14 +49,20 @@ public class Alumno {
         return cantVotos;
     }
 
-    public void setCantVotos(Integer cantVotos) {
+    public void setCantVotos(int cantVotos) {
         this.cantVotos = cantVotos;
+    }
+
+    public void incrementaVoto(){
+        this.cantVotos++;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.dni);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        hash = 53 * hash + Objects.hashCode(this.dni);
+        hash = 53 * hash + this.cantVotos;
         return hash;
     }
 
@@ -72,6 +78,15 @@ public class Alumno {
             return false;
         }
         final Alumno other = (Alumno) obj;
+        if (this.cantVotos != other.cantVotos) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.dni, other.dni)) {
+            return false;
+        }
         return true;
     }
 
@@ -79,7 +94,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno: " + nombre + "\nDNI: " + dni + ", Cantidad de Votos: " + cantVotos;
+        return "Alumno: " + nombre + "\nDNI: " + dni + ", Votos recibidos: " + cantVotos;
     }
     
     

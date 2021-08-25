@@ -69,64 +69,87 @@ public class Simulador {
     }
 
     private String generaDNI() {
-        int dn= (int) (Math.random() * 2075 + 1);
-        int ni= (int) (Math.random() * 4000 + 1);
-        String dni= Integer.toString(dn) + Integer.toString(ni);
-        
-        if(dni.length()<7){
-            dni = dni+"00";
-        }else if(dni.length()<8){
-            dni = dni+Integer.toString((int) Math.random());
+        int dn = (int) (Math.random() * 2075 + 1);
+        int ni = (int) (Math.random() * 4000 + 1);
+        String dni = Integer.toString(dn) + Integer.toString(ni);
+
+        if (dni.length() < 7) {
+            dni = dni + "00";
+        } else if (dni.length() < 8) {
+            dni = dni + Integer.toString((int) Math.random());
         }
-        
+
         return dni;
 
     }
 
     public HashSet<Alumno> listaAlumno(ArrayList<String> nombres, int cantAlumnos) {
-        
+
         HashSet<Alumno> setAlumno = new HashSet();
-        
+
         for (int i = 0; i < cantAlumnos; i++) {
             Alumno a = new Alumno();
             a.setDni(generaDNI());
             setAlumno.add(a);
         }
-        
+
         Iterator<Alumno> it = setAlumno.iterator();
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             Collections.shuffle(nombres);
             it.next().setNombre(nombres.get((int) (Math.random() * nombres.size())));
         }
         return setAlumno;
     }
-    
-    public void imprimeLista(HashSet<Alumno> lista){
+
+    public void imprimeLista(HashSet<Alumno> lista) {
         for (Alumno alumno : lista) {
             System.out.println(alumno);
         }
-        
+
     }
-    
-    public void votacion(HashSet<Alumno> lista){
-        ArrayList<Alumno> votados = new ArrayList();
+
+    public void votacion(HashSet<Alumno> lista) {
+        Voto v = new Voto();//creo un objeto Voto
+        
+        //creo un arraylist auxiliar con todo lo que tiene el hashset que viene por parametro
         ArrayList<Alumno> auxAlumnos = new ArrayList(lista);
-        
-        Iterator<Alumno> it = lista.iterator();
-        
-        while(it.hasNext()){
-            System.out.println("ALUMNO "+it.next().getNombre());
-            auxAlumnos.remove(it.next());//asi me aseguro que el alumno no se vote a si mismo
-            Voto v = new Voto();//creo un objeto Voto
-            v.setAlumnoQueVota(it.next());//le seteo el aulmno que vota
+
+        Iterator<Alumno> it = auxAlumnos.iterator();
+
+        while (it.hasNext()) {
+            Alumno a = it.next();
+            int voto1 = (int) Math.random()*auxAlumnos.size()+1;
+            int voto2 = (int) Math.random()*auxAlumnos.size();
+            int voto3 = (int) Math.random()*auxAlumnos.size()+2;
+            //creo un arraylist de alumnos para usarlo como set de Voto
+            ArrayList<Alumno> votados = new ArrayList();
+            if(!a.equals(auxAlumnos.get(voto3))){
+                votados.add(auxAlumnos.get(voto3));
+                auxAlumnos.get(voto3).incrementaVoto();
+            }else if(!a.equals(auxAlumnos.get(voto2))){
+                votados.add(auxAlumnos.get(voto2));
+                auxAlumnos.get(voto2).incrementaVoto();
+            }else if(!a.equals(auxAlumnos.get(voto1))){
+                votados.add(auxAlumnos.get(voto1));
+                auxAlumnos.get(voto1).incrementaVoto();
+            }
             
             
+            System.out.println("ALUMNO que vota " + a.getNombre());//mensajito para saber quien esta votando
+            v.setAlumnoQueVota(a);//le seteo el alumno que vota al Voto creado
+            
+               
+
+            v.setAlumnosVotados(votados);//le seteo el arraylist de votados al Voto
+
+        }
+        
+        for (Alumno aux : auxAlumnos) {
+            System.out.println(aux);
         }
         
         
     }
-    
-    
-    
+
 }

@@ -67,8 +67,11 @@ public class Main {
         Simulador simu = new Simulador();
         
         HashSet<Alumno> alumnos = simu.listaAlumno(simu.generaNombres(), 10);
-        
         simu.imprimeLista(alumnos);
+        
+        simu.votacion(alumnos);
+        
+        
         
         
         
