@@ -2,7 +2,7 @@
 
 <ClassDiagram name="G08_Ejercicio03">
   <ClassDiagramComponents>
-    <Class name="Baraja" package="entidades" visibility="public" xPosition="51.0" yPosition="182.0">
+    <Class name="Baraja" package="entidades" visibility="public" xPosition="99.0" yPosition="398.0">
       <Fields>
         <Field name="numero" type="int" visibility="private"/>
         <Field name="baraja" type="Set&lt;Carta&gt;" visibility="private"/>
@@ -26,7 +26,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Carta" package="entidades" visibility="public" xPosition="408.0" yPosition="101.0">
+    <Class name="Carta" package="entidades" visibility="public" xPosition="485.0" yPosition="398.0">
       <Fields>
         <Field name="numero" type="Integer" visibility="private"/>
         <Field name="palo" type="Palo" visibility="private"/>
@@ -54,7 +54,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Principal" package="principal" visibility="public" xPosition="24.0" yPosition="54.0">
+    <Class name="Principal" package="principal" visibility="public" xPosition="832.0" yPosition="44.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -63,7 +63,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="ServiciosBaraja" package="servicios" visibility="public" xPosition="394.0" yPosition="557.0">
+    <Class name="ServiciosBaraja" package="servicios" visibility="public" xPosition="342.0" yPosition="22.0">
       <Fields>
         <Field name="baraja" type="Baraja" visibility="private"/>
         <Field name="mazo" type="ArrayList&lt;Carta&gt;" visibility="private"/>
@@ -83,7 +83,7 @@
         <Method name="ordenaBaraja" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Enum name="Palo" package="enumeradores" visibility="public" xPosition="780.0" yPosition="174.0">
+    <Enum name="Palo" package="enumeradores" visibility="public" xPosition="849.0" yPosition="470.0">
       <Literals>
         <Literal name="ESPADA"/>
         <Literal name="BASTOS"/>
