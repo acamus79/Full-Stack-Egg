@@ -124,39 +124,57 @@ public class Simulador {
 
         Iterator<Alumno> it = auxAlumnos.iterator();//iterador para recorrer
 
-        while (it.hasNext())        {
+        while (it.hasNext())
+        {
             ArrayList<Alumno> votados = new ArrayList();//creo un arraylist de alumnos para usarlo como set de Voto
             Alumno a = it.next();//alumno auxiliar
-            
+
+            int indiceVotante = auxAlumnos.indexOf(a);
             //creo 3 indices aleatorios para las votaciones
-            int voto1 = aleatorio.nextInt(lista.size());
-            int voto2 = aleatorio.nextInt(lista.size());
-            int voto3 = aleatorio.nextInt(lista.size());
-            
+            int voto1 = indiceVotante + aleatorio.nextInt(lista.size()-1);
+            int voto2 = 0;
+            int voto3 = 0;
+
+//            do{
+            //verifico que los votos no sean iguales
+            if (voto1 > lista.size())
+            {
+                voto2 = voto1 - 1;
+                voto3 = voto1 - indiceVotante;
+            } else if (voto3 < 0)
+            {
+               voto3 = voto3 + 2;
+            }
+
             //verifico que el alumno que vota no se vote a si mismo
-            if (a.equals(auxAlumnos.get(voto1))){
-                    voto1 = aleatorio.nextInt(lista.size());
-                } else if (a.equals(auxAlumnos.get(voto2))){
-                    voto2 = aleatorio.nextInt(lista.size());
-                    } else if (a.equals(auxAlumnos.get(voto3))){
-                    voto3 = aleatorio.nextInt(lista.size());
-                } 
-                
+            if (indiceVotante == voto1)
+            {
+                voto1 = aleatorio.nextInt(lista.size());
+
+            } else if (indiceVotante == voto3)
+            {
+                voto2 = aleatorio.nextInt(lista.size());
+            } else if (indiceVotante == voto3)
+            {
+                voto3 = aleatorio.nextInt(lista.size());
+            }
+
+//            } while (voto1!=voto2 && voto2!=voto3 && indiceVotante!=voto1 && indiceVotante!=voto2 && indiceVotante!=voto3);
             votados.add(auxAlumnos.get(voto3));
             auxAlumnos.get(voto3).incrementaVoto();
             votados.add(auxAlumnos.get(voto2));
             auxAlumnos.get(voto2).incrementaVoto();
             votados.add(auxAlumnos.get(voto1));
             auxAlumnos.get(voto1).incrementaVoto();
-            
+
             v.setAlumnoQueVota(a);//le seteo el alumno que vota al Voto creado
             v.setAlumnosVotados(votados);//le seteo el arraylist de votados al Voto
             System.out.println(v.toString());//mensajito para saber quien esta votando con el toString de Voto
-            
-        //recorro la lista de votados para mostrar a quien voto cada alumno
+
+            //recorro la lista de votados para mostrar a quien voto cada alumno
             for (Alumno aux : votados)
             {
-                System.out.println("Vota a: "+ aux.vistaSimple());
+                System.out.println("Vota a: " + aux.vistaSimple());
             }
             System.out.println("");
         }
