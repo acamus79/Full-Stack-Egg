@@ -16,9 +16,10 @@ import java.util.Objects;
  * @author Adrian E. Camus
  */
 public class Alumno {
+
     private String nombre;
     private String dni;
-    private int cantVotos=0;
+    private int cantVotos = 0;
 
     public Alumno() {
     }
@@ -53,7 +54,7 @@ public class Alumno {
         this.cantVotos = cantVotos;
     }
 
-    public void incrementaVoto(){
+    public void incrementaVoto() {
         this.cantVotos++;
     }
 
@@ -93,12 +94,10 @@ public class Alumno {
     public String vistaSimple() {
         return nombre + ", DNI: " + dni;
     }
-    
 
     @Override
     public String toString() {
-        return nombre + ", DNI: " + dni + ", Votos: " + cantVotos;
+        return "Alumno: " + nombre + ", DNI: " + dni + ",   Votos: " + cantVotos;
     }
-    
-    
+
 }

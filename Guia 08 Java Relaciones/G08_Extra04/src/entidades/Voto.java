@@ -51,7 +51,7 @@ public class Voto {
 
     @Override
     public String toString() {
-        return "Voto del Alumno: " + alumnoQueVota.getNombre() + " " + alumnoQueVota.getDni();
+        return "Voto del Alumno: " + alumnoQueVota.getNombre() + " DNI: " + alumnoQueVota.getDni();
 //                + "\nVota a: " + alumnosVotados.get(0).getNombre() + " " + alumnosVotados.get(1).getNombre() + " " + alumnosVotados.get(2).getNombre();
 
     }
