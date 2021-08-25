@@ -50,6 +50,8 @@ continuación, mostrar los 5 facilitadores y los 5 facilitadores suplentes
 package principal;
 
 import control.Simulador;
+import entidades.Alumno;
+import java.util.HashSet;
 
 /**
  *
@@ -64,7 +66,10 @@ public class Main {
         // TODO code application logic here
         Simulador simu = new Simulador();
         
-        simu.imprimeLista(simu.listaAlumno(simu.generaNombres(), 10));
+        HashSet<Alumno> alumnos = simu.listaAlumno(simu.generaNombres(), 10);
+        
+        simu.imprimeLista(alumnos);
+        
         
         
     }
