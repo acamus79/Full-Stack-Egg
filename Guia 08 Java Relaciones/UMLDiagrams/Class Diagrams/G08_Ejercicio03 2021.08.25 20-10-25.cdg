@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="G08_Ejercicio03">
+  <ClassDiagramComponents>
+    <Class name="Baraja" package="entidades" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="numero" type="int" visibility="private"/>
+        <Field name="baraja" type="Set&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="numero"/>
+          <Argument type="Set&lt;Carta&gt;" name="baraja"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="int" name="numero"/>
+        </Method>
+        <Method name="getBaraja" returnType="Set&lt;Carta&gt;" visibility="public"/>
+        <Method name="setBaraja" returnType="void" visibility="public">
+          <Argument type="Set&lt;Carta&gt;" name="baraja"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="numero" type="Integer" visibility="private"/>
+        <Field name="palo" type="Palo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="numero"/>
+          <Argument type="Palo" name="palo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumero" returnType="Integer" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="Integer" name="numero"/>
+        </Method>
+        <Method name="getPalo" returnType="Palo" visibility="public"/>
+        <Method name="setPalo" returnType="void" visibility="public">
+          <Argument type="Palo" name="palo"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Numero" package="enumeradores" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Literals>
+        <Literal name="UNO"/>
+        <Literal name="DOS"/>
+        <Literal name="TRES"/>
+        <Literal name="CUATRO"/>
+        <Literal name="CINCO"/>
+        <Literal name="SEIS"/>
+        <Literal name="SIETE"/>
+        <Literal name="SOTA"/>
+        <Literal name="CABALLO"/>
+        <Literal name="REY"/>
+      </Literals>
+    </Enum>
+    <Enum name="Palo" package="enumeradores" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Literals>
+        <Literal name="ESPADA"/>
+        <Literal name="BASTOS"/>
+        <Literal name="ORO"/>
+        <Literal name="COPAS"/>
+      </Literals>
+    </Enum>
+    <Class name="Principal" package="principal" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ServiciosBaraja" package="servicios" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="baraja" type="Baraja" visibility="private"/>
+        <Field name="mazo" type="ArrayList&lt;Carta&gt;" visibility="private"/>
+        <Field name="porPalo" type="Comparator&lt;Carta&gt;" visibility="public" isStatic="true"/>
+        <Field name="porNumero" type="Comparator&lt;Carta&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="muestraBaraja" returnType="void" visibility="public"/>
+        <Method name="barajar" returnType="void" visibility="public"/>
+        <Method name="siguienteCarta" returnType="Carta" visibility="public"/>
+        <Method name="darCartas" returnType="void" visibility="public">
+          <Argument type="int" name="cantidad"/>
+        </Method>
+        <Method name="ordenaBaraja" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="servicios.ServiciosBaraja" target="entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="palo" source="entidades.Carta" target="enumeradores.Palo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Carta" target="enumeradores.Palo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="baraja" source="servicios.ServiciosBaraja" target="entidades.Baraja" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mazo" source="servicios.ServiciosBaraja" target="entidades.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Carta&gt;"/>
+    <UseRelation source="entidades.Baraja" target="entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="porNumero" source="servicios.ServiciosBaraja" target="entidades.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="porPalo" source="servicios.ServiciosBaraja" target="entidades.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="baraja" source="entidades.Baraja" target="entidades.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Set&lt;Carta&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
