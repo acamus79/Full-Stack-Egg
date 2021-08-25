@@ -28,6 +28,11 @@ public class Voto {
         this.alumnosVotados = alumnosVotados;
     }
 
+    public void votando(){
+        
+    }
+    
+    
     public Alumno getAlumnoQueVota() {
         return alumnoQueVota;
     }

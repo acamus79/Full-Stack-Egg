@@ -41,7 +41,7 @@ continuación, mostrar los 5 facilitadores y los 5 facilitadores suplentes
  */
 package control;
 
-import entidades.Alumno;
+import entidades.*;
 import java.util.*;
 
 /**
@@ -109,7 +109,23 @@ public class Simulador {
         
     }
     
-    
+    public void votacion(HashSet<Alumno> lista){
+        ArrayList<Alumno> votados = new ArrayList();
+        ArrayList<Alumno> auxAlumnos = new ArrayList(lista);
+        
+        Iterator<Alumno> it = lista.iterator();
+        
+        while(it.hasNext()){
+            System.out.println("ALUMNO "+it.next().getNombre());
+            auxAlumnos.remove(it.next());//asi me aseguro que el alumno no se vote a si mismo
+            Voto v = new Voto();//creo un objeto Voto
+            v.setAlumnoQueVota(it.next());//le seteo el aulmno que vota
+            
+            
+        }
+        
+        
+    }
     
     
     
