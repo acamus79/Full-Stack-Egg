@@ -55,10 +55,8 @@ public class Alumno {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.nombre);
-        hash = 37 * hash + Objects.hashCode(this.dni);
-        hash = 37 * hash + Objects.hashCode(this.cantVotos);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.dni);
         return hash;
     }
 
@@ -74,21 +72,14 @@ public class Alumno {
             return false;
         }
         final Alumno other = (Alumno) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.dni, other.dni)) {
-            return false;
-        }
-        if (!Objects.equals(this.cantVotos, other.cantVotos)) {
-            return false;
-        }
         return true;
     }
 
+    
+
     @Override
     public String toString() {
-        return "Alumno{" + "nombre=" + nombre + ", dni=" + dni + ", cantVotos=" + cantVotos + '}';
+        return "Alumno: " + nombre + " DNI: " + dni + ", Cantidad de Votos: " + cantVotos;
     }
     
     

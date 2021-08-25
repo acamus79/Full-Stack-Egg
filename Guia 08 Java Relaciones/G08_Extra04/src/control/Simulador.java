@@ -13,6 +13,7 @@ nombres y los apellidos.
 • Ahora hacer un generador de combinaciones de DNI posibles, deben estar
 dentro de un rango real de números de documentos. Y agregar a los alumnos su
 DNI. Este método debe retornar la lista de dnis.
+
 • Ahora tendremos un método que, usando las dos listas generadas, cree una
 cantidad de objetos Alumno, elegidos por el usuario, y le asigne los nombres y los
 dnis de las dos listas a cada objeto Alumno. No puede haber dos alumnos con el
@@ -23,8 +24,8 @@ mismo dni, pero si con el mismo nombre.
  */
 package control;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import entidades.Alumno;
+import java.util.*;
 
 /**
  *
@@ -50,22 +51,49 @@ public class Simulador {
         return nombres;
     }
 
-    public ArrayList<String> generaDNI(int cantidad) {
-        ArrayList<String> dnis = new ArrayList();
-        int dn,ni;
-        String dni;
+    public String generaDNI() {
+        int dn= (int) (Math.random() * 2075 + 1);
+        int ni= (int) (Math.random() * 4000 + 1);
+        String dni= Integer.toString(dn) + Integer.toString(ni);
         
-        for (int i = 0; i < cantidad; i++) {
-            dn = (int) (Math.random()*1807+1);
-            ni = (int) (Math.random()*1001+1);
-            dni = Integer.toString(dn)+Integer.toString(ni);
-            dnis.add(dni);
+        if(dni.length()<7){
+            dni = dni+"00";
+        }else if(dni.length()<8){
+            dni = dni+"0";
         }
         
-        Collections.shuffle(dnis);
-        
-        return dnis;
+        return dni;
 
     }
 
+    public HashSet<Alumno> listaAlumno(ArrayList<String> nombres, int cantAlumnos) {
+        
+        HashSet<Alumno> setAlumno = new HashSet();
+        
+        for (int i = 0; i < cantAlumnos; i++) {
+            Alumno a = new Alumno();
+            a.setDni(generaDNI());
+            setAlumno.add(a);
+        }
+        
+        Iterator<Alumno> it = setAlumno.iterator();
+        
+        while(it.hasNext()){
+            Collections.shuffle(nombres);
+            it.next().setNombre(nombres.get((int) (Math.random() * nombres.size())));
+        }
+        return setAlumno;
+    }
+    
+    public void imprimeLista(HashSet<Alumno> lista){
+        for (Alumno alumno : lista) {
+            System.out.println(alumno);
+        }
+        
+    }
+    
+    
+    
+    
+    
 }

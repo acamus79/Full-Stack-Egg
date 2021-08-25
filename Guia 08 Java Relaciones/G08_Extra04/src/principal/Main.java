@@ -43,6 +43,8 @@ continuación, mostrar los 5 facilitadores y los 5 facilitadores suplentes
  */
 package principal;
 
+import control.Simulador;
+
 /**
  *
  * @author Adrian E. Camus
@@ -54,6 +56,11 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Simulador simu = new Simulador();
+        
+        simu.imprimeLista(simu.listaAlumno(simu.generaNombres(), 15));
+        
+        
     }
     
 }
