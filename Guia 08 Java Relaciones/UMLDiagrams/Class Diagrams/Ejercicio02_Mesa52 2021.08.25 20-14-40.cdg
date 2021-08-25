@@ -2,16 +2,7 @@
 
 <ClassDiagram name="Ejercicio02_Mesa52">
   <ClassDiagramComponents>
-    <Class name="Ejercicio02_Mesa52" package="ejercicio02_mesa52" visibility="public" xPosition="20.0" yPosition="20.0">
-      <Fields/>
-      <Constructors/>
-      <Methods>
-        <Method name="main" returnType="void" visibility="public" isStatic="true">
-          <Argument type="String[]" name="args"/>
-        </Method>
-      </Methods>
-    </Class>
-    <Class name="Jugador" package="entidades" visibility="public" xPosition="667.0" yPosition="20.0">
+    <Class name="Jugador" package="entidades" visibility="public" xPosition="114.0" yPosition="310.0">
       <Fields>
         <Field name="id" type="int" visibility="private"/>
         <Field name="muerto" type="boolean" visibility="private"/>
@@ -45,7 +36,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Revolver" package="entidades" visibility="public" xPosition="316.0" yPosition="340.0">
+    <Class name="Revolver" package="entidades" visibility="public" xPosition="519.0" yPosition="34.0">
       <Fields>
         <Field name="posActual" type="int" visibility="private"/>
         <Field name="posBala" type="int" visibility="private"/>
@@ -61,7 +52,16 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="RuletaRusa" package="servicio" visibility="public" xPosition="282.0" yPosition="20.0">
+    <Class name="Main" package="principal" visibility="public" xPosition="794.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RuletaRusa" package="servicio" visibility="public" xPosition="114.0" yPosition="34.0">
       <Fields>
         <Field name="colt" type="Revolver" visibility="package"/>
         <Field name="listaJugador" type="ArrayList&lt;Jugador&gt;" visibility="package"/>
@@ -71,15 +71,13 @@
         <Constructor visibility="public"/>
       </Constructors>
       <Methods>
-        <Method name="llenarJuego" returnType="void" visibility="public">
-          <Argument type="int" name="cantJugadores"/>
-        </Method>
+        <Method name="llenarJuego" returnType="void" visibility="public"/>
         <Method name="ronda" returnType="void" visibility="public"/>
       </Methods>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="listaJugador" source="servicio.RuletaRusa" target="entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
     <HasRelation name="colt" source="servicio.RuletaRusa" target="entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaJugador" source="servicio.RuletaRusa" target="entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
   </ClassDiagramRelations>
 </ClassDiagram>
