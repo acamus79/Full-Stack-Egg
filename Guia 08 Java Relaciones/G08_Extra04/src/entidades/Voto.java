@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * @author Adrian E. Camus
  */
 public class Voto {
+
     private Alumno alumnoQueVota;
     private ArrayList<Alumno> alumnosVotados;
 
@@ -28,11 +29,10 @@ public class Voto {
         this.alumnosVotados = alumnosVotados;
     }
 
-    public void votando(){
-        
+    public void votando() {
+
     }
-    
-    
+
     public Alumno getAlumnoQueVota() {
         return alumnoQueVota;
     }
@@ -51,10 +51,9 @@ public class Voto {
 
     @Override
     public String toString() {
-        return "Voto{" + "alumnoQueVota=" + alumnoQueVota + ", alumnosVotados=" + alumnosVotados + '}';
+        return "Voto del Alumno: " + alumnoQueVota.getNombre() + " " + alumnoQueVota.getDni();
+//                + "\nVota a: " + alumnosVotados.get(0).getNombre() + " " + alumnosVotados.get(1).getNombre() + " " + alumnosVotados.get(2).getNombre();
+
     }
-    
-    
-    
-    
 }
+

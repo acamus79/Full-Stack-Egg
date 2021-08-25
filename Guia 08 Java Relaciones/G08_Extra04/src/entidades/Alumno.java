@@ -90,11 +90,14 @@ public class Alumno {
         return true;
     }
 
+    public String vistaSimple() {
+        return nombre + ", DNI: " + dni;
+    }
     
 
     @Override
     public String toString() {
-        return "Alumno: " + nombre + "\nDNI: " + dni + ", Votos recibidos: " + cantVotos;
+        return nombre + ", DNI: " + dni + ", Votos: " + cantVotos;
     }
     
     

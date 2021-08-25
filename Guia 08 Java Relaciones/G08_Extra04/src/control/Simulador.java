@@ -43,6 +43,8 @@ package control;
 
 import entidades.*;
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -73,9 +75,11 @@ public class Simulador {
         int ni = (int) (Math.random() * 4000 + 1);
         String dni = Integer.toString(dn) + Integer.toString(ni);
 
-        if (dni.length() < 7) {
+        if (dni.length() < 7)
+        {
             dni = dni + "00";
-        } else if (dni.length() < 8) {
+        } else if (dni.length() < 8)
+        {
             dni = dni + Integer.toString((int) Math.random());
         }
 
@@ -87,7 +91,8 @@ public class Simulador {
 
         HashSet<Alumno> setAlumno = new HashSet();
 
-        for (int i = 0; i < cantAlumnos; i++) {
+        for (int i = 0; i < cantAlumnos; i++)
+        {
             Alumno a = new Alumno();
             a.setDni(generaDNI());
             setAlumno.add(a);
@@ -95,7 +100,8 @@ public class Simulador {
 
         Iterator<Alumno> it = setAlumno.iterator();
 
-        while (it.hasNext()) {
+        while (it.hasNext())
+        {
             Collections.shuffle(nombres);
             it.next().setNombre(nombres.get((int) (Math.random() * nombres.size())));
         }
@@ -103,53 +109,60 @@ public class Simulador {
     }
 
     public void imprimeLista(HashSet<Alumno> lista) {
-        for (Alumno alumno : lista) {
+        for (Alumno alumno : lista)
+        {
             System.out.println(alumno);
         }
 
     }
 
-    public void votacion(HashSet<Alumno> lista) {
+    public HashSet<Alumno> votacion(HashSet<Alumno> lista) {
+
         Voto v = new Voto();//creo un objeto Voto
-        
-        //creo un arraylist auxiliar con todo lo que tiene el hashset que viene por parametro
-        ArrayList<Alumno> auxAlumnos = new ArrayList(lista);
+        Random aleatorio = new Random();//utilidad para hacer Random de una lista
+        ArrayList<Alumno> auxAlumnos = new ArrayList(lista);//creo un arraylist auxiliar con todo lo que tiene el hashset que viene por parametro
 
-        Iterator<Alumno> it = auxAlumnos.iterator();
+        Iterator<Alumno> it = auxAlumnos.iterator();//iterador para recorrer
 
-        while (it.hasNext()) {
-            Alumno a = it.next();
-            int voto1 = (int) Math.random()*auxAlumnos.size()+1;
-            int voto2 = (int) Math.random()*auxAlumnos.size();
-            int voto3 = (int) Math.random()*auxAlumnos.size()+2;
-            //creo un arraylist de alumnos para usarlo como set de Voto
-            ArrayList<Alumno> votados = new ArrayList();
-            if(!a.equals(auxAlumnos.get(voto3))){
-                votados.add(auxAlumnos.get(voto3));
-                auxAlumnos.get(voto3).incrementaVoto();
-            }else if(!a.equals(auxAlumnos.get(voto2))){
-                votados.add(auxAlumnos.get(voto2));
-                auxAlumnos.get(voto2).incrementaVoto();
-            }else if(!a.equals(auxAlumnos.get(voto1))){
-                votados.add(auxAlumnos.get(voto1));
-                auxAlumnos.get(voto1).incrementaVoto();
-            }
+        while (it.hasNext())        {
+            ArrayList<Alumno> votados = new ArrayList();//creo un arraylist de alumnos para usarlo como set de Voto
+            Alumno a = it.next();//alumno auxiliar
             
+            //creo 3 indices aleatorios para las votaciones
+            int voto1 = aleatorio.nextInt(lista.size());
+            int voto2 = aleatorio.nextInt(lista.size());
+            int voto3 = aleatorio.nextInt(lista.size());
             
-            System.out.println("ALUMNO que vota " + a.getNombre());//mensajito para saber quien esta votando
+            //verifico que el alumno que vota no se vote a si mismo
+            if (a.equals(auxAlumnos.get(voto1))){
+                    voto1 = aleatorio.nextInt(lista.size());
+                } else if (a.equals(auxAlumnos.get(voto2))){
+                    voto2 = aleatorio.nextInt(lista.size());
+                    } else if (a.equals(auxAlumnos.get(voto3))){
+                    voto3 = aleatorio.nextInt(lista.size());
+                } 
+                
+            votados.add(auxAlumnos.get(voto3));
+            auxAlumnos.get(voto3).incrementaVoto();
+            votados.add(auxAlumnos.get(voto2));
+            auxAlumnos.get(voto2).incrementaVoto();
+            votados.add(auxAlumnos.get(voto1));
+            auxAlumnos.get(voto1).incrementaVoto();
+            
             v.setAlumnoQueVota(a);//le seteo el alumno que vota al Voto creado
-            
-               
-
             v.setAlumnosVotados(votados);//le seteo el arraylist de votados al Voto
-
+            System.out.println(v.toString());//mensajito para saber quien esta votando con el toString de Voto
+            
+        //recorro la lista de votados para mostrar a quien voto cada alumno
+            for (Alumno aux : votados)
+            {
+                System.out.println("Vota a: "+ aux.vistaSimple());
+            }
+            System.out.println("");
         }
-        
-        for (Alumno aux : auxAlumnos) {
-            System.out.println(aux);
-        }
-        
-        
+        //transformo mi lista auxAlumnos de nuevo en un HashSet para retornarlo
+        lista = new HashSet<Alumno>(auxAlumnos);
+        return lista;
     }
 
 }

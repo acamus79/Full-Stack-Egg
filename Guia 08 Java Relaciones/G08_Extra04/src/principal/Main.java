@@ -66,11 +66,14 @@ public class Main {
         // TODO code application logic here
         Simulador simu = new Simulador();
         
+        System.out.println("***** LISTA DE 10 ALUMNOS *****");
         HashSet<Alumno> alumnos = simu.listaAlumno(simu.generaNombres(), 10);
         simu.imprimeLista(alumnos);
         
-        simu.votacion(alumnos);
-        
+        System.out.println("\n***** VOTACION *****\n");
+        alumnos = simu.votacion(alumnos);
+        System.out.println("\n***** RESULTADOS *****\n");
+        simu.imprimeLista(alumnos);
         
         
         
