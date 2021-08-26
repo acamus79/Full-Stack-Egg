@@ -19,10 +19,7 @@ la información del Perro y de la Persona.
  */
 package principal;
 
-import entidades.Perro;
-import entidades.Person;
-import enumeradores.Raza;
-import enumeradores.Tamanio;
+import entidades.*;
 import servicio.ServicioAdopcion;
 
 /**
