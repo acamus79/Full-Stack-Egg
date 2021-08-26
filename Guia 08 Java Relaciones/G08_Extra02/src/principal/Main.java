@@ -35,6 +35,9 @@ numero de cada asiento o solo las X y espacios vacíos.
  */
 package principal;
 
+import entidades.Sala;
+import java.util.ArrayList;
+
 /**
  *
  * @author Adrian E. Camus
@@ -46,6 +49,18 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Sala s = new Sala();
+        
+        ArrayList<ArrayList<String>> sala = new ArrayList();
+        
+        sala=s.getSalaCine();
+        
+        for (ArrayList<String> aux : sala)
+            {
+                System.out.println(aux);
+        }
+        
     }
     
 }
