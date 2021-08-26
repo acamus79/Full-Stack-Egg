@@ -15,6 +15,8 @@ personas con sus respectivos perros.
  */
 package principal;
 
+import servicio.ServicioAdopcion;
+
 /**
  *
  * @author Adrian E. Camus
@@ -25,7 +27,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ServicioAdopcion sa = new ServicioAdopcion();
+        sa.adoptaPerro();
+
     }
     
 }
