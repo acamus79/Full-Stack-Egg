@@ -152,6 +152,11 @@ public class Simulador {
                if(voto3>=tam){
                     voto3-=2;
                 }
+            }else if (voto3 == voto1){
+                voto1 += 1;
+               if(voto1>=tam){
+                    voto1-=2;
+                }
             }
             
             votados.add(auxAlumnos.get(voto3));
