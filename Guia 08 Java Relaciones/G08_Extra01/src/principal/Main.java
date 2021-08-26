@@ -44,8 +44,7 @@ public class Main {
         listaPersona.add(new Persona("Lucila", "Tanga", 37, 32998754));
         listaPersona.add(new Persona("Dolores", "Delano", 42, 27958154));
         listaPersona.add(new Persona("Igor", "Dito", 21, 42938154));
-
-        
+      
 
         Collections.shuffle(listaPersona);
         
