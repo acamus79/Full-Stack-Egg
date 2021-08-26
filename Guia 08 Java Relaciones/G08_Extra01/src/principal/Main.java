@@ -15,6 +15,10 @@ personas con sus respectivos perros.
  */
 package principal;
 
+import entidades.Perro;
+import entidades.Persona;
+import java.util.ArrayList;
+import java.util.Collections;
 import servicio.ServicioAdopcion;
 
 /**
@@ -27,9 +31,28 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        ArrayList<Perro> listaPerro = new ArrayList();
+        ArrayList<Persona> listaPersona = new ArrayList();
+
+        listaPersona.add(new Persona("Elba", "Gallo", 37, 32422257));
+        listaPersona.add(new Persona("Elena", "Nito", 27, 34527351));
+        listaPersona.add(new Persona("Elber", "Galarga", 39, 29421880));
+        listaPersona.add(new Persona("Debora", "Meltrozo", 25, 37421257));
+        listaPersona.add(new Persona("Sevelinda", "Parada", 49, 24412157));
+        listaPersona.add(new Persona("Jorge", "Nitales", 31, 35527897));
+        listaPersona.add(new Persona("Mary", "Conazo", 29, 38429256));
+        listaPersona.add(new Persona("Lucila", "Tanga", 37, 32998754));
+        listaPersona.add(new Persona("Dolores", "Delano", 42, 27958154));
+        listaPersona.add(new Persona("Igor", "Dito", 21, 42938154));
+
+        
+
+        Collections.shuffle(listaPersona);
+        
+
         ServicioAdopcion sa = new ServicioAdopcion();
-        sa.adoptaPerro();
+        sa.personaAdopta(listaPersona);
 
     }
-    
+
 }

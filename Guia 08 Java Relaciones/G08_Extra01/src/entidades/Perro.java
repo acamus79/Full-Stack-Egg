@@ -18,16 +18,15 @@ import enumeradores.*;
 public class Perro {
 
     private String nombre;
-    private Integer edad;
+    private Integer edad=0;
     private Raza raza;
     private Tamanio tamanio;
 
     public Perro() {
     }
 
-    public Perro(String nombre, Integer edad) {
+    public Perro(String nombre) {
         this.nombre = nombre;
-        this.edad = edad;
     }
 
     public Perro(String nombre, Integer edad, Raza raza, Tamanio tamanio) {
