@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="G08_Extra03">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="" visibility="public" xPosition="172.0" yPosition="30.0">
+      <Fields>
+        <Field name="nombreApellido" type="String" visibility="private"/>
+        <Field name="domicilio" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="poliza" type="Poliza" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Poliza" package="" visibility="public" xPosition="494.0" yPosition="309.0">
+      <Fields>
+        <Field name="numero" type="Long" visibility="private"/>
+        <Field name="fechaInicio" type="Date" visibility="private"/>
+        <Field name="fechaFin" type="Date" visibility="private"/>
+        <Field name="vAsegurado" type="Vehiculo" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="montoAsegurado" type="Double" visibility="private"/>
+        <Field name="granizo" type="boolean" visibility="private"/>
+        <Field name="montoGranizo" type="Double" visibility="private"/>
+        <Field name="tipoCobertura" type="Cobertura" visibility="private"/>
+        <Field name="formaPago" type="FormaPago" visibility="private"/>
+        <Field name="cuotas" type="List&lt;Cuota&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Vehiculo" package="" visibility="public" xPosition="610.0" yPosition="30.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="nroMotor" type="String" visibility="private"/>
+        <Field name="nroChasis" type="String" visibility="private"/>
+        <Field name="duenio" type="Cliente" visibility="private"/>
+        <Field name="tipo" type="TipoVehiculo" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="TipoVehiculo" package="" visibility="public" xPosition="903.0" yPosition="54.0">
+      <Literals>
+        <Literal name="SEDAN"/>
+        <Literal name="PICKUP"/>
+        <Literal name="BERLINA"/>
+        <Literal name="UTILITARIO"/>
+      </Literals>
+    </Enum>
+    <Enum name="Cobertura" package="" visibility="public" xPosition="819.0" yPosition="347.0">
+      <Literals>
+        <Literal name="TOTAL"/>
+        <Literal name="TERCEROS"/>
+        <Literal name="FLOTA"/>
+        <Literal name="FRANQUICIA_1"/>
+        <Literal name="FRANQUIIA_2"/>
+      </Literals>
+    </Enum>
+    <Class name="Cuota" package="" visibility="public" xPosition="210.0" yPosition="557.0">
+      <Fields>
+        <Field name="nroCuta" type="Integer" visibility="private"/>
+        <Field name="monto" type="Double" visibility="private"/>
+        <Field name="cancelada" type="boolean" visibility="private"/>
+        <Field name="vencimiento" type="Date" visibility="private"/>
+        <Field name="formaPago" type="FormaPago" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="pagarCuota" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="FormaPago" package="" visibility="public" xPosition="191.0" yPosition="321.0">
+      <Literals>
+        <Literal name="MERCADOPAGO"/>
+        <Literal name="TRANSFERENCIA"/>
+        <Literal name="DEBITO"/>
+        <Literal name="TARJETA_CREDITO"/>
+        <Literal name="EFECTIVO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="v" source="Poliza" target="Vehiculo" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="lc" source="Poliza" target="Cuota" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="fp" source="Poliza" target="FormaPago" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="c" source="Poliza" target="Cobertura" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="v" source="Vehiculo" target="Cliente" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="fp" source="Cuota" target="FormaPago" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="c" source="Poliza" target="Cliente" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="a" source="Vehiculo" target="TipoVehiculo" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
