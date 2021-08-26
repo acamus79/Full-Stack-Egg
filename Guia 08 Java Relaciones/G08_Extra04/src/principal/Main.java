@@ -73,7 +73,8 @@ public class Main {
         System.out.println("\n***** VOTACION *****\n");
         alumnos = simu.votacion(alumnos);
         System.out.println("\n***** RESULTADOS *****\n");
-        simu.imprimeLista(alumnos);
+        //simu.imprimeLista(alumnos);
+        simu.recuento(alumnos);
         
         
         

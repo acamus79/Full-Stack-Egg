@@ -58,12 +58,15 @@ public class Alumno {
         this.cantVotos++;
     }
 
+    public String vistaSimple() {
+        return nombre + ", DNI: " + dni;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.nombre);
-        hash = 53 * hash + Objects.hashCode(this.dni);
-        hash = 53 * hash + this.cantVotos;
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.dni);
+        hash = 67 * hash + this.cantVotos;
         return hash;
     }
 
@@ -82,19 +85,13 @@ public class Alumno {
         if (this.cantVotos != other.cantVotos) {
             return false;
         }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
         if (!Objects.equals(this.dni, other.dni)) {
             return false;
         }
         return true;
     }
 
-    public String vistaSimple() {
-        return nombre + ", DNI: " + dni;
-    }
-
+    
     @Override
     public String toString() {
         return "Alumno: " + nombre + ", DNI: " + dni + ",   Votos: " + cantVotos;

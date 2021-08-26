@@ -176,60 +176,42 @@ public class Simulador {
             
             
         }
-        
-        
-        
-//        while (it.hasNext())
-//        {
-//            Alumno a = it.next();//alumno auxiliar
-//            ArrayList<Alumno> votados = new ArrayList();//creo un arraylist de alumnos para usarlo como set de Voto
-//            int indiceVotante = auxAlumnos.indexOf(a);
-//            auxAlumnos.remove(a);
-//            
-//            
-//            //creo 3 indices aleatorios para las votaciones
-//            int voto1 = aleatorio.nextInt(auxAlumnos.size());
-//            int voto2 = aleatorio.nextInt(auxAlumnos.size());
-//            int voto3 = aleatorio.nextInt(auxAlumnos.size());
-//
-//            //verifico que los votos no sean iguales
-//            if (voto1 == voto2)
-//            {
-//                voto2 = aleatorio.nextInt(lista.size());
-//                
-//            } else if (voto1 == voto3)
-//            {
-//               voto3 = aleatorio.nextInt(lista.size());
-//            }else if (voto2 == voto3)
-//            {
-//               voto3 = aleatorio.nextInt(lista.size());
-//            }
-//                        
-//            votados.add(auxAlumnos.get(voto3));
-//            votados.add(auxAlumnos.get(voto2));
-//            votados.add(auxAlumnos.get(voto1));
-//            
-//            auxAlumnos.get(voto1).incrementaVoto();
-//            auxAlumnos.get(voto2).incrementaVoto();
-//            auxAlumnos.get(voto3).incrementaVoto();
-//            
-//            v.setAlumnoQueVota(a);//le seteo el alumno que vota al Voto creado
-//            v.setAlumnosVotados(votados);//le seteo el arraylist de votados al Voto
-//            auxAlumnos.add(a);
-//            System.out.println(v.toString());//mensajito para saber quien esta votando con el toString de Voto
-//
-//            //recorro la lista de votados para mostrar a quien voto cada alumno
-//            for (Alumno aux : votados)
-//            {
-//                System.out.println("Vota a: " + aux.vistaSimple());
-//            }
-//            System.out.println("");
-//            
-//            
-//        }
+   
         //transformo mi lista auxAlumnos de nuevo en un HashSet para retornarlo
         lista = new HashSet<Alumno>(auxAlumnos);
         return lista;
     }
 
+    
+    
+    
+   
+    
+    
+    
+    public void recuento(HashSet<Alumno> lista){
+        List<Alumno> listaAux = new ArrayList(lista);
+        Collections.sort(listaAux, porVotos);
+        System.out.println("**** FACILITADORES TITULARES ****");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(listaAux.get(i).toString());
+        }
+            
+        System.out.println("**** FACILITADORES SUPLENTES ****");
+        for (int i = 6; i < 10; i++) {
+            System.out.println(listaAux.get(i).toString());
+        }
+        
+    }
+    
+     public static Comparator<Alumno> porVotos = new Comparator<Alumno>() {
+        @Override
+        public int compare(Alumno a1, Alumno a2) {
+            return a2.getCantVotos().compareTo(a1.getCantVotos());
+        }
+    };
+    
+    
+    
+    
 }
