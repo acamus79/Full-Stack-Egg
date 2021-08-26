@@ -19,68 +19,55 @@ import java.util.*;
  */
 public class ServicioAdopcion {
 
-   Scanner leer;
-   ArrayList<Perro> adoptados;
-   ArrayList<String> nombres;
+    Scanner leer;
+    ArrayList<Perro> adoptados;
+    ArrayList<String> nombres;
 
     public ServicioAdopcion() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.adoptados = new ArrayList();
         this.nombres = new ArrayList();
-        
-        nombres.add("Khalifa");
-        nombres.add("Pulgas");
-        nombres.add("Cual");
-        nombres.add("Mortadela");
-        nombres.add("Chufli");
-        nombres.add("Moncho");
-        nombres.add("Negro");
-        nombres.add("Narigon");
-        nombres.add("Chicho");
-        nombres.add("Xuxa");
+
+        nombres.add("KHALIFA");
+        nombres.add("PULGAS");
+        nombres.add("CUAL");
+        nombres.add("MORTADELA");
+        nombres.add("CHUFLI");
+        nombres.add("MONCHO");
+        nombres.add("NEGRO");
+        nombres.add("NARIGON");
+        nombres.add("CHICHO");
+        nombres.add("XUXA");
 
     }
 
     public void adoptaPerro(Persona per) {
         System.out.println("** LISTA DE NOMBRES DISPONIBLES **");
-        
         nombres.forEach(nomb -> {
-            System.out.print(nomb.toUpperCase()+", ");
-       });
-        
-       
-        
-        System.out.println("\nElije uno...");
-        
-        String sele = leer.next();
-                
-            Perro p = new Perro();
-            if (nombres.contains(sele)) {
-                p = razaTamanio(p);
-                p.setNombre(sele);
-                per.setMascota(p);
-                nombres.remove(sele);
-                adoptados.add(p);
-                System.out.println(per.getNombre() + " " + per.getApellido() + " adopta a: " + p.toString());
-            }else{
-                System.out.println("Ese nombre no le queda, la proxima elije uno de la lista");
-            }
-        }
+            System.out.print(nomb + ", ");
+        });
 
- 
+        System.out.println("\nElije uno...");
+        String sele = leer.next().toUpperCase();
+
+        Perro p = new Perro();
+        if (nombres.contains(sele)) {
+            p = razaTamanio(p);
+            p.setNombre(sele);
+            per.setMascota(p);
+            nombres.remove(sele);
+            adoptados.add(p);
+            System.out.println(per.getNombre() + " " + per.getApellido() + " adopta a: " + p.toString());
+        } else {
+            System.out.println("Ese nombre no le queda, la proxima elije uno de la lista");
+        }
+    }
 
     public void personaAdopta(ArrayList<Persona> listaPersona) {
 
-//        Iterator<Persona> it = listaPersona.iterator();
-//        
-//        while (it.hasNext()) {            
-//            Persona p = it.next();
-//            System.out.println("Hola "+p.getNombre()+" "+p.getApellido()+" vamos a adoptar un perro");
-//            adoptaPerro(p);
-//        }
         for (Persona aux : listaPersona) {
-            System.out.println("Hola!! " + aux.getNombre() + " " + aux.getApellido() + " vamos a adoptar un perro");
-            adoptaPerro( aux);
+            System.out.println("\nHola!! " + aux.getNombre().toUpperCase() + " " + aux.getApellido().toUpperCase() + " vamos a adoptar un perro");
+            adoptaPerro(aux);
         }
 
     }
