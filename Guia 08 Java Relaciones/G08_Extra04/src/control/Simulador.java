@@ -189,11 +189,6 @@ public class Simulador {
 
     
     
-    
-   
-    
-    
-    
     public void recuento(HashSet<Alumno> lista){
         List<Alumno> listaAux = new ArrayList(lista);
         Collections.sort(listaAux, porVotos);
