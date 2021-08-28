@@ -16,7 +16,8 @@ import java.util.ArrayList;
  * @author Adrian E. Camus
  */
 public class Sala {
-
+    
+    Butaca[][] butacas;
     private ArrayList<ArrayList<String>> salaCine;
 
     public Sala() {
