@@ -10,7 +10,6 @@ Animal.
  */
 package entidades;
 
-import utilidades.Alimento;
 
 /**
  *
@@ -61,10 +60,15 @@ public class Animal {
         this.edad = edad;
     }
 
+    public void seAlimenta(){
+        System.out.println("Se alimenta de "+come);
+    }
+    
+    
     @Override
     public String toString() {
         return "Animal de nombre: " + nombre + " y Raza: " + raza 
-                +"tiene " + edad +" años de edad"+" y se alimenta de "+ come;
+                +"\nTiene " + edad +" años de edad"+" y se alimenta de "+ come;
     }
     
     

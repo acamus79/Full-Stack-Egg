@@ -14,6 +14,8 @@ mostrar luego un mensaje por pantalla informando de que se alimenta
  */
 package principal;
 
+import entidades.*;
+
 /**
  *
  * @author Adrian E. Camus
@@ -24,7 +26,21 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //String nombre, String come, Integer edad, String raza
+        Animal perro = new Perro("Stich", "Carne", 5, "Doberman");
+        perro.seAlimenta();
+
+        Animal perro1 = new Perro("Teddy", "Croquetas", 10, "Chihuahua");
+        perro1.seAlimenta();
+
+        Animal gato = new Gato("Pelusa", "Galletas", 15, "Siames");
+        gato.seAlimenta();
+        
+        Caballo caballo = new Caballo("Spark","Pasto",25,"Fino");
+        caballo.seAlimenta();
+        //accedo al toString de Animal
+        System.out.println(caballo); 
+
     }
-    
+
 }

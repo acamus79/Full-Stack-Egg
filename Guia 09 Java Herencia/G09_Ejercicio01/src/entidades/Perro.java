@@ -9,6 +9,10 @@ package entidades;
  *
  * @author Adrian E. Camus
  */
-public class Perro {
+public class Perro extends Animal{
     
+    public Perro(String nombre, String come, Integer edad, String raza) {
+        super(nombre, come, edad, raza);
+    }
+   
 }
