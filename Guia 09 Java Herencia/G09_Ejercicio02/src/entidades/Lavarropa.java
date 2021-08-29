@@ -28,8 +28,8 @@ afectar al precio.
  */
 package entidades;
 
-import utilidades.Color;
-import utilidades.Consumo;
+import java.util.Scanner;
+
 
 /**
  *
@@ -55,6 +55,12 @@ public class Lavarropa extends Electrodomestico{
     }
    
     public void crearLavarropa() {
-        
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        super.creaElectrodomestico();
+        System.out.println("Ingrese los Kilos de carga");
+        this.carga = leer.nextInt();
+                
     }   
+    
+    
 }
