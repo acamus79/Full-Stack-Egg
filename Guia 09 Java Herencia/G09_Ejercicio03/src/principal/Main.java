@@ -32,31 +32,45 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         ArrayList<Electrodomestico> lista = new ArrayList();
         Consumo c = null;
-        double acumula = 0;
-        
-        Televisor t1 = new Televisor(52,true,27000d,"Negro",c.A,12d);
+        double acumula = 0, pTele = 0, pLava = 0;
+        int cuentaTele = 0, cuentaLava = 0;
+
+        Televisor t1 = new Televisor(52, true, 27000d, "Negro", c.A, 12d);
         lista.add(t1);
-        Televisor t2 = new Televisor(32,true,17000d,"Negro",c.C,8d);
+        Televisor t2 = new Televisor(32, true, 17000d, "Negro", c.C, 8d);
         lista.add(t2);
-        Lavarropa l1 = new Lavarropa(15,48000d,"Blanco",c.F,50d);
+        Lavarropa l1 = new Lavarropa(15, 48000d, "Blanco", c.F, 50d);
         lista.add(l1);
-        Lavarropa l2 = new Lavarropa(40,78000d,"Blanco",c.D,70d);
+        Lavarropa l2 = new Lavarropa(40, 78000d, "Blanco", c.D, 70d);
         lista.add(l2);
-        
-        for (Electrodomestico aux : lista)
-        {
+
+        for (Electrodomestico aux : lista) {
             aux.precioFinal(aux.getConEnerg(), aux.getPeso());
             System.out.println(aux);
             acumula += aux.getPrecio();
         }
-        
-        System.out.println("\n\nEl costo total de los electrodomesticos es: $ " +acumula);
-        
-        
+
+        for (Electrodomestico aux : lista) {
+            if (aux instanceof Lavarropa) {
+                cuentaLava++;
+                pLava += aux.getPrecio();
+            }
+        }
+
+        for (Electrodomestico aux : lista) {
+            if (aux instanceof Televisor) {
+                cuentaTele++;
+                pTele += aux.getPrecio();
+            }
+        }
+
+        System.out.println("Hay "+cuentaLava+" Lavarropas, con un valor total de $ "+pLava);
+        System.out.println("Hay "+cuentaTele+" Televisores, con un valor total de $ "+pTele);
+        System.out.println("\nEl costo total de los electrodomesticos es: $ " + acumula);
         
     }
-    
+
 }
