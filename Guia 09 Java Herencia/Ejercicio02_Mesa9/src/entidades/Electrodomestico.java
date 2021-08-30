@@ -55,10 +55,10 @@ import java.util.Scanner;
  */
 public class Electrodomestico {
 
-    private double precio;
-    private Color color;
-    private double peso;
-    private Consumo conEnerg;
+    protected double precio;
+    protected Color color;
+    protected double peso;
+    protected Consumo conEnerg;
 
     public Electrodomestico() {
     }
@@ -184,7 +184,7 @@ public class Electrodomestico {
 
     /**
      * Método precioFinal(): según el consumo energético y su tamaño, aumentará
-     * el valor del precio. 
+     * el valor del precio.
      */
     public void precioFinal() {
         if (this.peso > 80) {
@@ -218,4 +218,10 @@ public class Electrodomestico {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Color: " + color + " Peso: " + peso + "kg." +"\nConsumo de Energia: " + conEnerg + "\nPrecio $ " + precio+"00";
+    }
+
 }

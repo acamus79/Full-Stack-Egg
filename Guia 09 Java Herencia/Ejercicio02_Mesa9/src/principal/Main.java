@@ -11,6 +11,8 @@ para mostrar el precio final de los dos electrodomésticos
  */
 package principal;
 
+import entidades.*;
+
 /**
  *
  * @author Adrian E. Camus
@@ -22,6 +24,16 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Lavarropa l = new Lavarropa();
+        Televisor t = new Televisor();
+
+        l.crearLavarropa();
+        l.precioFinal();
+        System.out.println(l);
+        t.crearTelevisor();
+        t.precioFinal();
+        System.out.println(t);
+
     }
-    
+
 }

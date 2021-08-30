@@ -79,18 +79,21 @@ public class Televisor extends Electrodomestico {
         System.out.println("De cuantas pulgadas es?");
         this.resolucion = leer.nextInt();
         System.out.println("Tienen Sintonizador TDT? S/N");
-
+        op = leer.next().toUpperCase().charAt(0);
+        
+        //switch(op)
+        
         do {
-            op = leer.next().toUpperCase().charAt(0);
             if (op == 'S') {
                 this.tdt = true;
             } else if (op == 'N') {
                 this.tdt = false;
             } else {
                 System.out.println("S ó N no es tan dificil");
+                op = leer.next().toUpperCase().charAt(0);
             }
 
-        } while (op == 'S' || op == 'N');
+        } while (op != 'S' && op != 'N');
 
     }
 

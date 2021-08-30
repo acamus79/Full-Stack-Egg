@@ -63,7 +63,9 @@ public class Lavarropa extends Electrodomestico{
      */
     public void crearLavarropa(){
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println("**LAVAROPA**");
         super.crearElectrodomestico();
+        System.out.println("Cuantos kilos de ropa carga?");
         this.carga = leer.nextInt();
     }
     
@@ -79,8 +81,18 @@ public class Lavarropa extends Electrodomestico{
     public void precioFinal(){
         super.precioFinal();
         if(this.carga>30){
+            System.out.println("Precio aumentado por carga");
             super.setPrecio(super.getPrecio()+500);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Lavarropa capacidad de carga: " + carga + "\n"+
+                super.toString();
+    }
+    
+    
+    
     
 }
