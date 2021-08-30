@@ -28,8 +28,9 @@ afectar al precio.
  */
 package entidades;
 
-import utilidades.Color;
-import utilidades.Consumo;
+import Enumeradores.Color;
+import Enumeradores.Consumo;
+import java.util.Scanner;
 
 /**
  *
@@ -55,6 +56,28 @@ public class Lavarropa extends Electrodomestico{
     }
    
     public void crearLavarropa() {
-        
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println("Cuantos Kilos de ropa carga?");
+        this.carga = leer.nextInt();
+        super.creaElectrodomestico();
+        precioFinal();
     }   
+    
+    private double precioFinal(){
+        double vPrecio = super.getPrecio();
+        if(this.carga>30){
+            super.setPrecio(vPrecio+500);
+        }
+        return vPrecio;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Lavarropa de " + carga + " kilos de carga\n"
+                + super.toString();
+    }
+    
+    
+    
 }

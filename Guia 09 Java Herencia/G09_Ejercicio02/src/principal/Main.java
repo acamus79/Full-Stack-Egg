@@ -81,6 +81,8 @@ para mostrar el precio final de los dos electrodomésticos
  */
 package principal;
 
+import entidades.Lavarropa;
+
 /**
  *
  * @author Adrian E. Camus
@@ -92,6 +94,13 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Lavarropa l = new Lavarropa();
+        l.crearLavarropa();
+        
+        
+        System.out.println(l);
+        
+        
     }
     
 }

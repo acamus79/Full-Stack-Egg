@@ -5,7 +5,7 @@
    Los colores disponibles para los
    electrodomésticos son blanco, negro, rojo, azul y gris
  */
-package utilidades;
+package Enumeradores;
 
 /**
  *

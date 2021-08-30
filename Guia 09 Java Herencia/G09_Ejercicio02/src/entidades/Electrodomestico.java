@@ -15,13 +15,38 @@ precio, color, consumo energético (letras entre A y F) y peso.
 
 • Métodos getters y setters de todos los atributos.
 
-
+• Método comprobarConsumoEnergetico(char letra): comprueba que la letra
+es correcta, sino es correcta usara la letra F por defecto. Este método se debe
+invocar al crear el objeto y no será visible.
+• Método comprobarColor(String color): comprueba que el color es correcto, y
+si no lo es, usa el color blanco por defecto. Los colores disponibles para los
+electrodomésticos son blanco, negro, rojo, azul y gris. No importa si el nombre
+está en mayúsculas o en minúsculas. Este método se invocará al crear el
+objeto y no será visible.
+• Metodo crearElectrodomestico(): le pide la información al usuario y llena el
+electrodoméstico, también llama los métodos para comprobar el color y el
+consumo. Al precio se le da un valor base de $1000.
+• Método precioFinal(): según el consumo energético y su tamaño, aumentará
+el valor del precio. Esta es la lista de precios:
+LETRA   PRECIO 
+A       $1000
+B       $800
+C       $600
+D       $500
+E       $300
+F       $100
+PESO PRECIO 
+Entre 1 y 19 kg $100
+Entre 20 y 49 kg $500
+Entre 50 y 79 kg $800
+Mayor que 80 kg $1000
 
  */
 package entidades;
 
+import Enumeradores.Consumo;
+import Enumeradores.Color;
 import java.util.Scanner;
-import utilidades.*;
 
 /**
  *
@@ -36,7 +61,6 @@ public class Electrodomestico {
 
     //Constructores
     public Electrodomestico() {
-        creaElectrodomestico();
     }
 
     public Electrodomestico(double precio, String color, char conEnerg, double peso) {
@@ -82,7 +106,8 @@ public class Electrodomestico {
     private double precioFinal(char consumo, double peso) {
         double precioC, precioP = 0;
 
-        switch (consumo) {
+        switch (consumo)
+        {
             case 'A':
                 precioC = 2000;
                 break;
@@ -105,13 +130,17 @@ public class Electrodomestico {
                 precioC = 1000;
         }
 
-        if (peso > 0 && peso < 20) {
+        if (peso > 0 && peso < 20)
+        {
             precioP = 100;
-        } else if (peso > 19 && peso < 50) {
+        } else if (peso > 19 && peso < 50)
+        {
             precioP = 500;
-        } else if (peso > 49 && peso < 80) {
+        } else if (peso > 49 && peso < 80)
+        {
             precioP = 800;
-        } else if (peso >= 80) {
+        } else if (peso >= 80)
+        {
             precioP = 1000;
         }
 
@@ -120,7 +149,8 @@ public class Electrodomestico {
 
     private Consumo compruebaConsumo(char consumo) {
         Consumo rConsumo;
-        switch (consumo) {
+        switch (consumo)
+        {
             case 'A':
                 rConsumo = Consumo.A;
                 break;
@@ -147,7 +177,8 @@ public class Electrodomestico {
 
     private Color compruebaColor(String color) {
         Color rColor;
-        switch (color) {
+        switch (color)
+        {
             case "BLANCO":
                 rColor = Color.BLANCO;
                 break;
@@ -183,4 +214,10 @@ public class Electrodomestico {
         this.conEnerg = compruebaConsumo(consumo);
         this.peso = vPeso;
     }
+
+    @Override
+    public String toString() {
+        return "Precio: $" + precio + "000" + "\nColor: " + color + "\nConsumo Energetico: " + conEnerg + "\nPeso de embalaje: " + peso + " Kg.";
+    }
+
 }
