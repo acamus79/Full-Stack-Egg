@@ -30,7 +30,6 @@ package entidades;
 
 import java.util.Scanner;
 
-
 /**
  *
  * @author Adrian E. Camus
@@ -39,6 +38,7 @@ public class Lavarropa extends Electrodomestico{
     private int carga;
 
     public Lavarropa() {
+        super();
     }
 
     public Lavarropa(int carga, double precio, String color, char conEnerg, double peso) {
@@ -46,6 +46,11 @@ public class Lavarropa extends Electrodomestico{
         this.carga = carga;
     }
 
+    public Lavarropa(int carga) {
+        super.creaElectrodomestico();
+        this.carga = carga;
+    }
+    
     public int getCarga() {
         return carga;
     }
@@ -56,11 +61,26 @@ public class Lavarropa extends Electrodomestico{
    
     public void crearLavarropa() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        super.creaElectrodomestico();
-        System.out.println("Ingrese los Kilos de carga");
+        System.out.println("LAVARROPA: Cuantos Kilos de ropa carga?");
         this.carga = leer.nextInt();
-                
+        super.creaElectrodomestico();
+        precioFinal();
     }   
+    
+    private void precioFinal(){
+        double vPrecio = super.getPrecio();
+        if(this.carga>30){
+            super.setPrecio(vPrecio+500);
+        }
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Lavarropa de " + carga + " kilos de carga\n"
+                + super.toString();
+    }
+    
     
     
 }
