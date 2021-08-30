@@ -20,22 +20,94 @@ funcionalidad. Si el televisor tiene una resolución mayor de 40 pulgadas, se
 incrementará el precio un 30% y si tiene un sintonizador TDT incorporado,
 aumentará $500. Recuerda que las condiciones que hemos visto en la clase
 Electrodomestico también deben afectar al precio.
-Finalmente, en el main debemos realizar lo siguiente:
-Vamos a crear una Lavadora y un Televisor y llamar a los métodos necesarios
-para mostrar el precio final de los dos electrodomésticos
+
 
  */
 package entidades;
+
+import java.util.Scanner;
 
 /**
  *
  * @author Adrian E. Camus
  */
 public class Televisor extends Electrodomestico {
-    
+
     private int resolucionPulg;
     private boolean sintTDT;
-    
-    
-    
+
+    public Televisor() {
+    }
+
+    public Televisor(int resolucionPulg, boolean sintTDT, double precio, String color, char conEnerg, double peso) {
+        super(precio, color, conEnerg, peso);
+        this.resolucionPulg = resolucionPulg;
+        this.sintTDT = sintTDT;
+    }
+
+    public int getResolucionPulg() {
+        return resolucionPulg;
+    }
+
+    public void setResolucionPulg(int resolucionPulg) {
+        this.resolucionPulg = resolucionPulg;
+    }
+
+    public boolean isSintTDT() {
+        return sintTDT;
+    }
+
+    public void setSintTDT(boolean sintTDT) {
+        this.sintTDT = sintTDT;
+    }
+
+    public void crearTelevisor() {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println("TELEVISOR: Cuantas Pulgadas?");
+        this.resolucionPulg = leer.nextInt();
+        System.out.println("Tiene Sintonizador TDT incorporado? S/N");
+        char sele = leer.next().toUpperCase().charAt(0);
+
+        switch (sele)
+        {
+            case 'S':
+                this.sintTDT = true;
+                break;
+            case 'N':
+                this.sintTDT = false;
+            default:
+                System.out.println("Opcion no valida, por defecto se crea sin sintonizador");
+                this.sintTDT = false;
+        }
+        super.creaElectrodomestico();
+        precioFinal();
+    }
+
+    private void precioFinal() {
+        double vPrecio = super.getPrecio();
+
+        if (this.resolucionPulg > 40)
+        {
+            super.setPrecio(vPrecio + vPrecio * 0.30);
+        }
+
+        if (this.sintTDT)
+        {
+            super.setPrecio(super.getPrecio() + 500);
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        String sintoniza = "NO posee";
+        if (this.sintTDT)
+        {
+            sintoniza = "SI posee";
+        }
+
+        return "Televisor de " + resolucionPulg + " pulgadas, TDT: " + sintoniza + "\n"
+                + super.toString();
+    }
+
 }
