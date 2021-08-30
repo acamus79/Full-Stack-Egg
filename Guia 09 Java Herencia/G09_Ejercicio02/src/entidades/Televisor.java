@@ -37,7 +37,9 @@ public class Televisor extends Electrodomestico {
     private boolean sintTDT;
 
     public Televisor() {
+    super();
     }
+    
 
     public Televisor(int resolucionPulg, boolean sintTDT, double precio, String color, char conEnerg, double peso) {
         super(precio, color, conEnerg, peso);
@@ -45,6 +47,13 @@ public class Televisor extends Electrodomestico {
         this.sintTDT = sintTDT;
     }
 
+    public Televisor(int resolucionPulg, boolean sintTDT) {
+        super.creaElectrodomestico();
+        this.resolucionPulg = resolucionPulg;
+        this.sintTDT = sintTDT;
+    }
+
+    
     public int getResolucionPulg() {
         return resolucionPulg;
     }
