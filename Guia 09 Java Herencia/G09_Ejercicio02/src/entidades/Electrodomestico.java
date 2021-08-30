@@ -44,8 +44,8 @@ Mayor que 80 kg $1000
  */
 package entidades;
 
-import Enumeradores.Consumo;
-import Enumeradores.Color;
+import enumeradores.Consumo;
+import enumeradores.Color;
 import java.util.Scanner;
 
 /**

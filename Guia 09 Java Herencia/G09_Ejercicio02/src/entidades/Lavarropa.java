@@ -28,8 +28,8 @@ afectar al precio.
  */
 package entidades;
 
-import Enumeradores.Color;
-import Enumeradores.Consumo;
+import enumeradores.Color;
+import enumeradores.Consumo;
 import java.util.Scanner;
 
 /**
