@@ -82,6 +82,7 @@ para mostrar el precio final de los dos electrodomésticos
 package principal;
 
 import entidades.Lavarropa;
+import entidades.Televisor;
 
 /**
  *
@@ -96,10 +97,10 @@ public class Main {
         // TODO code application logic here
         Lavarropa l = new Lavarropa();
         l.crearLavarropa();
-        
-        
+        Televisor t = new Televisor();
+        t.crearTelevisor();
         System.out.println(l);
-        
+        System.out.println(t);
         
     }
     
