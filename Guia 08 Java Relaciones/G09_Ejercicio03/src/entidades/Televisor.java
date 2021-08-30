@@ -25,6 +25,7 @@ Electrodomestico también deben afectar al precio.
  */
 package entidades;
 
+import enumeradores.Consumo;
 import java.util.Scanner;
 
 /**
@@ -39,7 +40,7 @@ public class Televisor extends Electrodomestico {
     public Televisor() {
     }
 
-    public Televisor(int resolucionPulg, boolean sintTDT, double precio, String color, char conEnerg, double peso) {
+    public Televisor(int resolucionPulg, boolean sintTDT, double precio, String color, Consumo conEnerg, double peso) {
         super(precio, color, conEnerg, peso);
         this.resolucionPulg = resolucionPulg;
         this.sintTDT = sintTDT;
@@ -83,7 +84,7 @@ public class Televisor extends Electrodomestico {
         precioFinal();
     }
 
-    private void precioFinal() {
+    public void precioFinal() {
         double vPrecio = super.getPrecio();
 
         if (this.resolucionPulg > 40)

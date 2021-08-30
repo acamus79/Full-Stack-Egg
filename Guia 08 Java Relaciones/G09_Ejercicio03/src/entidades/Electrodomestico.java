@@ -63,10 +63,10 @@ public class Electrodomestico {
     public Electrodomestico() {
     }
 
-    public Electrodomestico(double precio, String color, char conEnerg, double peso) {
-        this.precio = precio + precioFinal(conEnerg, peso);
+    public Electrodomestico(double precio, String color, Consumo conEnerg, double peso) {
+        this.precio = precio;
         this.color = compruebaColor(color);
-        this.conEnerg = compruebaConsumo(conEnerg);
+        this.conEnerg = conEnerg;
         this.peso = peso;
     }
 
@@ -103,31 +103,29 @@ public class Electrodomestico {
         this.peso = peso;
     }
 
-    private double precioFinal(char consumo, double peso) {
-        double precioC, precioP = 0;
+    public void precioFinal(Consumo consumo, double peso) {
+        double precioC = 0, precioP = 0, precioA = this.precio;
 
         switch (consumo)
         {
-            case 'A':
+            case A:
                 precioC = 2000;
                 break;
-            case 'B':
+            case B:
                 precioC = 1800;
                 break;
-            case 'C':
+            case C:
                 precioC = 1600;
                 break;
-            case 'D':
+            case D:
                 precioC = 1500;
                 break;
-            case 'E':
+            case E:
                 precioC = 1300;
                 break;
-            case 'F':
+            case F:
                 precioC = 1100;
                 break;
-            default:
-                precioC = 1000;
         }
 
         if (peso > 0 && peso < 20)
@@ -144,7 +142,7 @@ public class Electrodomestico {
             precioP = 1000;
         }
 
-        return precioC + precioP;
+        this.precio = precioA + precioC + precioP;
     }
 
     private Consumo compruebaConsumo(char consumo) {
@@ -207,12 +205,11 @@ public class Electrodomestico {
         System.out.println("Ingrese el Consumo (A,B,C,D o F)");
         char consumo = leer.next().toUpperCase().charAt(0);
         System.out.println("Cuanto Pesa?");
-        double vPeso = leer.nextDouble();
+        this.peso = leer.nextDouble();
         //double precio, Color color, Consumo conEnerg, double peso
-        this.precio = precioFinal(consumo, vPeso);
         this.color = compruebaColor(vColor);
         this.conEnerg = compruebaConsumo(consumo);
-        this.peso = vPeso;
+        precioFinal(this.conEnerg, this.peso);
     }
 
     @Override

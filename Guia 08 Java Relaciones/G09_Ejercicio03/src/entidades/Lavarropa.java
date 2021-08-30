@@ -28,7 +28,6 @@ afectar al precio.
  */
 package entidades;
 
-import enumeradores.Color;
 import enumeradores.Consumo;
 import java.util.Scanner;
 
@@ -42,7 +41,7 @@ public class Lavarropa extends Electrodomestico{
     public Lavarropa() {
     }
 
-    public Lavarropa(int carga, double precio, String color, char conEnerg, double peso) {
+    public Lavarropa(int carga, double precio, String color, Consumo conEnerg, double peso) {
         super(precio, color, conEnerg, peso);
         this.carga = carga;
     }
@@ -63,7 +62,7 @@ public class Lavarropa extends Electrodomestico{
         precioFinal();
     }   
     
-    private void precioFinal(){
+    public void precioFinal(){
         double vPrecio = super.getPrecio();
         if(this.carga>30){
             super.setPrecio(vPrecio+500);
