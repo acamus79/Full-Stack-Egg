@@ -85,11 +85,11 @@ public class Televisor extends Electrodomestico {
     }
 
     public void precioFinal() {
-        double vPrecio = super.getPrecio();
+        double vPrecio = super.getPrecio()*0.30;
 
         if (this.resolucionPulg > 40)
         {
-            super.setPrecio(vPrecio + vPrecio * 0.30);
+            super.setPrecio(super.getPrecio() + vPrecio);
         }
 
         if (this.sintTDT)
