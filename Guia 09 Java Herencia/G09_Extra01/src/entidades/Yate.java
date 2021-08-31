@@ -11,5 +11,9 @@ package entidades;
  * @author Adrian E. Camus
  */
 public class Yate extends Barco{
-
+    
+    private int cv;
+    private int cantCamarotes;
+    
+    
 }

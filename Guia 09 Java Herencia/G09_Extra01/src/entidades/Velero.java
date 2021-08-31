@@ -10,6 +10,9 @@ package entidades;
  * 
  * @author Adrian E. Camus
  */
-public class Velero extends Barco{
+public class Velero extends Barco {
 
+    private int mastiles;
+    
+    
 }

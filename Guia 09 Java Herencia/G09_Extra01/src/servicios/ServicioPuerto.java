@@ -4,14 +4,12 @@
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
 
-package entidades;
+package servicios;
 
 /**
  * 
  * @author Adrian E. Camus
  */
-public class Motor extends Barco{
-
-    private int cv;
+public class ServicioPuerto {
 
 }
