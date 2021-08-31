@@ -10,5 +10,7 @@ package interfaces;
  * @author Adrian E. Camus
  */
 public interface CalculosFormas {
-    
+    final double pi = Math.PI;
+    public void calculaArea();
+    public void calculaPerimetro();
 }
