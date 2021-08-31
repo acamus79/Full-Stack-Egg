@@ -41,7 +41,7 @@ public class Lavarropa extends Electrodomestico{
     public Lavarropa() {
     }
 
-    public Lavarropa(int carga, double precio, String color, Consumo conEnerg, double peso) {
+    public Lavarropa(int carga, double precio, String color, char conEnerg, double peso) {
         super(precio, color, conEnerg, peso);
         this.carga = carga;
     }

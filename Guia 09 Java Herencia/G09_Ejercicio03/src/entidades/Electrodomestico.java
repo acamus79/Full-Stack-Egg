@@ -44,26 +44,24 @@ Mayor que 80 kg $1000
  */
 package entidades;
 
-import enumeradores.Consumo;
-import enumeradores.Color;
 import java.util.Scanner;
 
 /**
  *
  * @author Adrian E. Camus
  */
-public class Electrodomestico {
+public abstract class Electrodomestico {
 
     private double precio;
-    private Color color;
-    private Consumo conEnerg;
+    private String color;
+    private char conEnerg;
     private double peso;
 
     //Constructores
     public Electrodomestico() {
     }
 
-    public Electrodomestico(double precio, String color, Consumo conEnerg, double peso) {
+    public Electrodomestico(double precio, String color, char conEnerg, double peso) {
         this.precio = precio;
         this.color = compruebaColor(color);
         this.conEnerg = conEnerg;
@@ -79,19 +77,19 @@ public class Electrodomestico {
         this.precio = precio;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public Consumo getConEnerg() {
+    public char getConEnerg() {
         return conEnerg;
     }
 
-    public void setConEnerg(Consumo conEnerg) {
+    public void setConEnerg(char conEnerg) {
         this.conEnerg = conEnerg;
     }
 
@@ -103,99 +101,83 @@ public class Electrodomestico {
         this.peso = peso;
     }
 
-    public void precioFinal(Consumo consumo, double peso) {
+    public void precioFinal(char consumo, double peso) {
         double precioC = 0, precioP = 0, precioA = this.precio;
 
-        switch (consumo)
-        {
-            case A:
+        switch (consumo) {
+            case 'A':
                 precioC = 2000;
                 break;
-            case B:
+            case 'B':
                 precioC = 1800;
                 break;
-            case C:
+            case 'C':
                 precioC = 1600;
                 break;
-            case D:
+            case 'D':
                 precioC = 1500;
                 break;
-            case E:
+            case 'E':
                 precioC = 1300;
                 break;
-            case F:
+            case 'F':
                 precioC = 1100;
                 break;
+
         }
 
-        if (peso > 0 && peso < 20)
-        {
+        if (peso > 0 && peso < 20) {
             precioP = 100;
-        } else if (peso > 19 && peso < 50)
-        {
+        } else if (peso > 19 && peso < 50) {
             precioP = 500;
-        } else if (peso > 49 && peso < 80)
-        {
+        } else if (peso > 49 && peso < 80) {
             precioP = 800;
-        } else if (peso >= 80)
-        {
+        } else if (peso >= 80) {
             precioP = 1000;
         }
 
         this.precio = precioA + precioC + precioP;
     }
 
-    private Consumo compruebaConsumo(char consumo) {
-        Consumo rConsumo;
-        switch (consumo)
-        {
+    private char compruebaConsumo(char consumo) {
+
+        switch (consumo) {
             case 'A':
-                rConsumo = Consumo.A;
                 break;
             case 'B':
-                rConsumo = Consumo.B;
                 break;
             case 'C':
-                rConsumo = Consumo.C;
                 break;
             case 'D':
-                rConsumo = Consumo.D;
                 break;
             case 'E':
-                rConsumo = Consumo.E;
                 break;
             case 'F':
-                rConsumo = Consumo.F;
                 break;
             default:
-                rConsumo = Consumo.F;
+                System.out.println("Ingreso un tipo de consuno no valido");
+                consumo = 'F';
         }
-        return rConsumo;
+        return consumo;
     }
 
-    private Color compruebaColor(String color) {
-        Color rColor;
-        switch (color)
-        {
+    private String compruebaColor(String color) {
+
+        switch (color) {
             case "BLANCO":
-                rColor = Color.BLANCO;
                 break;
             case "NEGRO":
-                rColor = Color.NEGRO;
                 break;
             case "GRIS":
-                rColor = Color.GRIS;
                 break;
             case "AZUL":
-                rColor = Color.AZUL;
                 break;
             case "ROJO":
-                rColor = Color.ROJO;
                 break;
             default:
-                rColor = Color.BLANCO;
+                color = "BLANCO";
         }
-        return rColor;
+        return color;
     }
 
     public void creaElectrodomestico() {
