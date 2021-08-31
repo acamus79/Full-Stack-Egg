@@ -21,10 +21,53 @@ import java.util.ArrayList;
  */
 public class Puerto {
 
-    ArrayList<Barco> amarre;
-    LocalDate fechaAlquiler;
-    LocalDate fechaDevolucion;
+    private ArrayList<Barco> amarre;
+    private LocalDate fechaAlquiler;
+    private LocalDate fechaDevolucion;
+
+    public Puerto() {
+    }
+
+    public Puerto(LocalDate fechaAlquiler, LocalDate fechaDevolucion) {
+        this.fechaAlquiler = fechaAlquiler;
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
+    public Puerto(ArrayList<Barco> amarre, LocalDate fechaAlquiler, LocalDate fechaDevolucion) {
+        this.amarre = amarre;
+        this.fechaAlquiler = fechaAlquiler;
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
     
+//    public int getPosAmarre() {
+//        return posAmarre;
+//    }
+
+    
+    public LocalDate getFechaAlquiler() {
+        return fechaAlquiler;
+    }
+
+    public void setFechaAlquiler(LocalDate fechaAlquiler) {
+        this.fechaAlquiler = fechaAlquiler;
+    }
+
+    public LocalDate getFechaDevolucion() {
+        return fechaDevolucion;
+    }
+
+    public void setFechaDevolucion(LocalDate fechaDevolucion) {
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
+    public ArrayList<Barco> getAmarre() {
+        return amarre;
+    }
+
+    public void setAmarre(ArrayList<Barco> amarre) {
+        this.amarre = amarre;
+    }
     
     
 }

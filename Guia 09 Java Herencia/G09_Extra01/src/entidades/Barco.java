@@ -9,6 +9,9 @@ fabricación.
  */
 package entidades;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 /**
  *
  * @author Adrian E. Camus
@@ -18,21 +21,19 @@ public class Barco {
     protected String matricula;
     protected Integer eslora;
     protected Integer anioFabricacion;
-    protected Persona dueño;
+    protected Persona propietario;
     
     //constructores
     public Barco() {
     }
 
-    public Barco(String matricula, Integer eslora, Integer anioFabricacion, Persona dueño) {
+    public Barco(String matricula, Integer eslora, Integer anioFabricacion, Persona duenio) {
         this.matricula = matricula;
         this.eslora = eslora;
         this.anioFabricacion = anioFabricacion;
-        this.dueño = dueño;
+        this.propietario = duenio;
     }
-
-    
-    
+        
     //metodos
     public Integer getAnioFabricacion() {
         return anioFabricacion;
@@ -58,15 +59,16 @@ public class Barco {
         this.eslora = eslora;
     }
 
-    public Persona getDueño() {
-        return dueño;
+    public Persona getPropietario() {
+        return propietario;
     }
 
-    public void setDueño(Persona dueño) {
-        this.dueño = dueño;
+    public void setPropietario(Persona duenio) {
+        this.propietario = duenio;
     }
 
-    public void calculoAlquiler(){
-        
+    public double valorModulo(){
+        return this.eslora*10;
     }
+
 }
