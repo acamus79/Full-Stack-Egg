@@ -115,7 +115,6 @@ public class Televisor extends Electrodomestico {
         {
             sintoniza = "SI posee";
         }
-
         return "Televisor de " + resolucionPulg + " pulgadas, TDT: " + sintoniza + "\n"
                 + super.toString();
     }
