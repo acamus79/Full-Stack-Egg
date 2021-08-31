@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Extra01_Mesa37">
+  <ClassDiagramComponents>
+    <Class name="Barco" package="entidad" visibility="public" xPosition="507.0" yPosition="20.0">
+      <Fields>
+        <Field name="matricula" type="String" visibility="private"/>
+        <Field name="eslora" type="int" visibility="private"/>
+        <Field name="anioFab" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFab"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAnioFab" returnType="int" visibility="public"/>
+        <Method name="setAnioFab" returnType="void" visibility="public">
+          <Argument type="int" name="anioFab"/>
+        </Method>
+        <Method name="getMatricula" returnType="String" visibility="public"/>
+        <Method name="setMatricula" returnType="void" visibility="public">
+          <Argument type="String" name="matricula"/>
+        </Method>
+        <Method name="getEslora" returnType="int" visibility="public"/>
+        <Method name="setEslora" returnType="void" visibility="public">
+          <Argument type="int" name="eslora"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Motor" package="entidad" visibility="public" xPosition="474.0" yPosition="462.0">
+      <Fields>
+        <Field name="potencia" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="potencia"/>
+          <Argument type="String" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFab"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPotencia" returnType="int" visibility="public"/>
+        <Method name="setPotencia" returnType="void" visibility="public">
+          <Argument type="int" name="potencia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Velero" package="entidad" visibility="public" xPosition="61.0" yPosition="462.0">
+      <Fields>
+        <Field name="cantMastiles" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="cantMastiles"/>
+          <Argument type="String" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFab"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCantMastiles" returnType="int" visibility="public"/>
+        <Method name="setCantMastiles" returnType="void" visibility="public">
+          <Argument type="int" name="cantMastiles"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Yate" package="entidad" visibility="public" xPosition="872.0" yPosition="462.0">
+      <Fields>
+        <Field name="potencia" type="int" visibility="private"/>
+        <Field name="nroCamarotes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="potencia"/>
+          <Argument type="int" name="nroCamarotes"/>
+          <Argument type="String" name="matricula"/>
+          <Argument type="int" name="eslora"/>
+          <Argument type="int" name="anioFab"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPotencia" returnType="int" visibility="public"/>
+        <Method name="setPotencia" returnType="void" visibility="public">
+          <Argument type="int" name="potencia"/>
+        </Method>
+        <Method name="getNroCamarotes" returnType="int" visibility="public"/>
+        <Method name="setNroCamarotes" returnType="void" visibility="public">
+          <Argument type="int" name="nroCamarotes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="principal" visibility="public" xPosition="28.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entidad.Velero" target="entidad.Barco"/>
+    <IsRelation name="is" source="entidad.Motor" target="entidad.Barco"/>
+    <IsRelation name="is" source="entidad.Yate" target="entidad.Barco"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

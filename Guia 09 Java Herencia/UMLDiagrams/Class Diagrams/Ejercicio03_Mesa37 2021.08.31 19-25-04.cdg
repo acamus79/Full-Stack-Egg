@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Ejercicio03_Mesa37">
   <ClassDiagramComponents>
-    <Class name="Electrodomestico" package="entidades" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="Electrodomestico" package="entidades" visibility="public" xPosition="620.0" yPosition="83.0">
       <Fields>
         <Field name="precio" type="double" visibility="protected"/>
         <Field name="color" type="Color" visibility="protected"/>
@@ -52,7 +52,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Lavarropa" package="entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Lavarropa" package="entidades" visibility="public" xPosition="51.0" yPosition="197.0">
       <Fields>
         <Field name="carga" type="int" visibility="private"/>
       </Fields>
@@ -76,7 +76,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Televisor" package="entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="Televisor" package="entidades" visibility="public" xPosition="557.0" yPosition="627.0">
       <Fields>
         <Field name="resolucion" type="int" visibility="private"/>
         <Field name="tdt" type="boolean" visibility="private"/>
@@ -106,7 +106,16 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Enum name="Color" package="enumeradores" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="Main" package="principal" visibility="public" xPosition="63.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Color" package="enumeradores" visibility="public" xPosition="1262.0" yPosition="73.0">
       <Literals>
         <Literal name="BLANCO"/>
         <Literal name="NEGRO"/>
@@ -115,7 +124,7 @@
         <Literal name="GRIS"/>
       </Literals>
     </Enum>
-    <Enum name="Consumo" package="enumeradores" visibility="public" xPosition="1220.0" yPosition="20.0">
+    <Enum name="Consumo" package="enumeradores" visibility="public" xPosition="1218.0" yPosition="296.0">
       <Literals>
         <Literal name="A"/>
         <Literal name="B"/>
@@ -125,22 +134,13 @@
         <Literal name="F"/>
       </Literals>
     </Enum>
-    <Class name="Main" package="principal" visibility="public" xPosition="1520.0" yPosition="20.0">
-      <Fields/>
-      <Constructors/>
-      <Methods>
-        <Method name="main" returnType="void" visibility="public" isStatic="true">
-          <Argument type="String[]" name="args"/>
-        </Method>
-      </Methods>
-    </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <UseRelation source="entidades.Electrodomestico" target="enumeradores.Consumo" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="entidades.Lavarropa" target="entidades.Electrodomestico"/>
-    <HasRelation name="conEnerg" source="entidades.Electrodomestico" target="enumeradores.Consumo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="entidades.Televisor" target="entidades.Electrodomestico"/>
+    <IsRelation name="is" source="entidades.Lavarropa" target="entidades.Electrodomestico"/>
     <HasRelation name="color" source="entidades.Electrodomestico" target="enumeradores.Color" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Electrodomestico" target="enumeradores.Consumo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="conEnerg" source="entidades.Electrodomestico" target="enumeradores.Consumo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="entidades.Electrodomestico" target="enumeradores.Color" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

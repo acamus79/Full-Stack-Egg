@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Ejercicio04_Mesa37">
   <ClassDiagramComponents>
-    <Class name="Circulo" package="entidades" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="Circulo" package="entidades" visibility="public" xPosition="70.0" yPosition="71.0">
       <Fields>
         <Field name="radio" type="int" visibility="private"/>
       </Fields>
@@ -21,7 +21,7 @@
         <Method name="calculaPerimetro" returnType="double" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Rectangulo" package="entidades" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Rectangulo" package="entidades" visibility="public" xPosition="375.0" yPosition="183.0">
       <Fields>
         <Field name="base" type="int" visibility="private"/>
       </Fields>
@@ -45,12 +45,6 @@
         <Method name="calculaPerimetro" returnType="double" visibility="public"/>
       </Methods>
     </Class>
-    <Interface name="CalculosFormas" package="interfaces" visibility="public" xPosition="620.0" yPosition="20.0">
-      <Methods>
-        <Method name="calculaArea" returnType="double" visibility="public"/>
-        <Method name="calculaPerimetro" returnType="double" visibility="public"/>
-      </Methods>
-    </Interface>
     <Class name="Main" package="principal" visibility="public" xPosition="920.0" yPosition="20.0">
       <Fields/>
       <Constructors/>
@@ -60,6 +54,12 @@
         </Method>
       </Methods>
     </Class>
+    <Interface name="CalculosFormas" package="interfaces" visibility="public" xPosition="375.0" yPosition="-1.0">
+      <Methods>
+        <Method name="calculaArea" returnType="double" visibility="public"/>
+        <Method name="calculaPerimetro" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="entidades.Rectangulo" target="interfaces.CalculosFormas"/>
