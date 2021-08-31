@@ -98,11 +98,13 @@ public class Televisor extends Electrodomestico {
 
         if (this.resolucionPulg > 40)
         {
+            System.out.println("Precio segun pulgadas");
             super.setPrecio(vPrecio + vPrecio * 0.30);
         }
 
         if (this.sintTDT)
         {
+            System.out.println("Precio segun sintonizador");
             super.setPrecio(super.getPrecio() + 500);
         }
 

@@ -81,8 +81,8 @@ para mostrar el precio final de los dos electrodomésticos
  */
 package principal;
 
-import entidades.Lavarropa;
-import entidades.Televisor;
+import entidades.*;
+
 
 /**
  *

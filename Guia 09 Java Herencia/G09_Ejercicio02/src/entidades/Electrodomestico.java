@@ -50,7 +50,7 @@ import java.util.Scanner;
  *
  * @author Adrian E. Camus
  */
-public class Electrodomestico {
+public abstract class Electrodomestico {
 
     private double precio;
     private String color;

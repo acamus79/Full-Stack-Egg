@@ -72,6 +72,7 @@ public class Lavarropa extends Electrodomestico{
         super.precioFinal();
         double vPrecio = super.getPrecio();
         if(this.carga>30){
+            System.out.println("Precio segun carga");
             super.setPrecio(vPrecio+500);
         }
     }
