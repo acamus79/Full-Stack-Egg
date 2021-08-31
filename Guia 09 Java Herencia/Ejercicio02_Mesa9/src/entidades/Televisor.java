@@ -118,5 +118,19 @@ public class Televisor extends Electrodomestico {
             super.setPrecio(super.getPrecio()+500);
         }
     }
+
+    @Override
+    public String toString() {
+        String sintoniza = "NO posee";
+        if (this.tdt){
+                    sintoniza = "SI posee";
+        }
+
+        return "Televisor de " + resolucion + " pulgadas, TDT: " + sintoniza + "\n"
+                + super.toString();
+    }
+    
+    
+    
     
 }
