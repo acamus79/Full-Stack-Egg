@@ -88,7 +88,7 @@ public class Lavarropa extends Electrodomestico{
 
     @Override
     public String toString() {
-        return "Lavarropa capacidad de carga: " + carga + "\n";
+        return "Lavarropa $ "+super.getPrecio() ;
                 //super.toString();
     }
     

@@ -39,7 +39,7 @@ public class Main {
 
         for (Electrodomestico aux : comercio) {
             aux.precioFinal();
-            System.out.println(aux+"$" + aux.getPrecio());
+            System.out.println(aux);
             acuTotal += aux.getPrecio();
             if (aux instanceof Lavarropa) {
                 acuLava+=aux.getPrecio();
