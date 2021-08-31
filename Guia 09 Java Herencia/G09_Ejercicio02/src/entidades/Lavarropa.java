@@ -41,8 +41,8 @@ public class Lavarropa extends Electrodomestico{
         super();
     }
 
-    public Lavarropa(int carga, double precio, String color, char conEnerg, double peso) {
-        super(precio, color, conEnerg, peso);
+    public Lavarropa(int carga, String color, char conEnerg, double peso) {
+        super(color, conEnerg, peso);
         this.carga = carga;
     }
 
@@ -67,7 +67,9 @@ public class Lavarropa extends Electrodomestico{
         precioFinal();
     }   
     
-    private void precioFinal(){
+    @Override
+    public void precioFinal(){
+        super.precioFinal();
         double vPrecio = super.getPrecio();
         if(this.carga>30){
             super.setPrecio(vPrecio+500);

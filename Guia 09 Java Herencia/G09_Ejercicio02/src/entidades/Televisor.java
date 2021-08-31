@@ -41,8 +41,8 @@ public class Televisor extends Electrodomestico {
     }
     
 
-    public Televisor(int resolucionPulg, boolean sintTDT, double precio, String color, char conEnerg, double peso) {
-        super(precio, color, conEnerg, peso);
+    public Televisor(int resolucionPulg, boolean sintTDT, String color, char conEnerg, double peso) {
+        super(color, conEnerg, peso);
         this.resolucionPulg = resolucionPulg;
         this.sintTDT = sintTDT;
     }
@@ -92,7 +92,8 @@ public class Televisor extends Electrodomestico {
         precioFinal();
     }
 
-    private void precioFinal() {
+    @Override
+    public void precioFinal() {
         double vPrecio = super.getPrecio();
 
         if (this.resolucionPulg > 40)

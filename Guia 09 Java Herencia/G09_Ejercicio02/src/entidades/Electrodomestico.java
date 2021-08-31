@@ -44,8 +44,6 @@ Mayor que 80 kg $1000
  */
 package entidades;
 
-import enumeradores.Consumo;
-import enumeradores.Color;
 import java.util.Scanner;
 
 /**
@@ -55,16 +53,16 @@ import java.util.Scanner;
 public class Electrodomestico {
 
     private double precio;
-    private Color color;
-    private Consumo conEnerg;
+    private String color;
+    private char conEnerg;
     private double peso;
 
     //Constructores
     public Electrodomestico() {
     }
 
-    public Electrodomestico(double precio, String color, char conEnerg, double peso) {
-        this.precio = precio + precioFinal(conEnerg, peso);
+    public Electrodomestico(String color, char conEnerg, double peso) {
+        this.precio = 1000;
         this.color = compruebaColor(color);
         this.conEnerg = compruebaConsumo(conEnerg);
         this.peso = peso;
@@ -79,19 +77,19 @@ public class Electrodomestico {
         this.precio = precio;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public Consumo getConEnerg() {
+    public char getConEnerg() {
         return conEnerg;
     }
 
-    public void setConEnerg(Consumo conEnerg) {
+    public void setConEnerg(char conEnerg) {
         this.conEnerg = conEnerg;
     }
 
@@ -103,116 +101,98 @@ public class Electrodomestico {
         this.peso = peso;
     }
 
-    private double precioFinal(char consumo, double peso) {
-        double precioC, precioP = 0;
-
-        switch (consumo)
-        {
+    public void precioFinal() {
+               
+        switch (this.conEnerg) {
             case 'A':
-                precioC = 2000;
+                this.precio += 1000;
                 break;
             case 'B':
-                precioC = 1800;
+                this.precio += 800;
                 break;
             case 'C':
-                precioC = 1600;
+                this.precio += 600;
                 break;
             case 'D':
-                precioC = 1500;
+                this.precio += 500;
                 break;
             case 'E':
-                precioC = 1300;
+               this.precio += 300;
                 break;
             case 'F':
-                precioC = 1100;
+                this.precio += 100;
                 break;
             default:
-                precioC = 1000;
+                this.precio = 1000;
         }
 
-        if (peso > 0 && peso < 20)
-        {
-            precioP = 100;
-        } else if (peso > 19 && peso < 50)
-        {
-            precioP = 500;
-        } else if (peso > 49 && peso < 80)
-        {
-            precioP = 800;
-        } else if (peso >= 80)
-        {
-            precioP = 1000;
+        if (this.peso > 80) {
+            this.precio += 1000;
+        } else if (this.peso >= 50) {
+            this.precio += 800;
+        } else if (this.peso >= 20) {
+            this.precio += 500;
+        } else {
+            this.precio += 100;
         }
-
-        return precioC + precioP;
+                
     }
 
-    private Consumo compruebaConsumo(char consumo) {
-        Consumo rConsumo;
-        switch (consumo)
-        {
+    private char compruebaConsumo(char consumo) {
+        switch (consumo) {
             case 'A':
-                rConsumo = Consumo.A;
                 break;
             case 'B':
-                rConsumo = Consumo.B;
                 break;
             case 'C':
-                rConsumo = Consumo.C;
                 break;
             case 'D':
-                rConsumo = Consumo.D;
                 break;
             case 'E':
-                rConsumo = Consumo.E;
                 break;
             case 'F':
-                rConsumo = Consumo.F;
                 break;
             default:
-                rConsumo = Consumo.F;
+                consumo = 'A';
         }
-        return rConsumo;
+        return consumo;
     }
 
-    private Color compruebaColor(String color) {
-        Color rColor;
-        switch (color)
-        {
+    private String compruebaColor(String color) {
+        switch (color) {
             case "BLANCO":
-                rColor = Color.BLANCO;
+                color = "Blanco";
                 break;
             case "NEGRO":
-                rColor = Color.NEGRO;
+                color = "Negro";
                 break;
             case "GRIS":
-                rColor = Color.GRIS;
+                color = "Gris";
                 break;
             case "AZUL":
-                rColor = Color.AZUL;
+                color = "Azul";
                 break;
             case "ROJO":
-                rColor = Color.ROJO;
+                color = "Rojo";
                 break;
             default:
-                rColor = Color.BLANCO;
+                color = "Blanco";
         }
-        return rColor;
+        return color;
     }
 
     public void creaElectrodomestico() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingrese el Color");
         String vColor = leer.next().toUpperCase();
+        this.color = compruebaColor(vColor);
         System.out.println("Ingrese el Consumo (A,B,C,D o F)");
         char consumo = leer.next().toUpperCase().charAt(0);
-        System.out.println("Cuanto Pesa?");
-        double vPeso = leer.nextDouble();
-        //double precio, Color color, Consumo conEnerg, double peso
-        this.precio = precioFinal(consumo, vPeso);
-        this.color = compruebaColor(vColor);
         this.conEnerg = compruebaConsumo(consumo);
-        this.peso = vPeso;
+        System.out.println("Cuanto Pesa?");
+        this.peso = leer.nextDouble();
+        precioFinal();
+   
     }
 
     @Override
