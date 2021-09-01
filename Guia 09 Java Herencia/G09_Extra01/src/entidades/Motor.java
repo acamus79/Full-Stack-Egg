@@ -17,8 +17,8 @@ public class Motor extends Barco{
     public Motor() {
     }
 
-    public Motor(int cv, String matricula, Integer eslora, Integer anioFabricacion, Persona duenio) {
-        super(matricula, eslora, anioFabricacion, duenio);
+    public Motor(int cv, String matricula, Integer eslora, Integer anioFabricacion) {
+        super(matricula, eslora, anioFabricacion);
         this.cv = cv;
     }
 

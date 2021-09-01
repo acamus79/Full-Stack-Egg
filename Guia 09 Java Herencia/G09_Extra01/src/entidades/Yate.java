@@ -17,8 +17,8 @@ public class Yate extends Barco {
     public Yate() {
     }
 
-    public Yate(int cv, int cantCamarotes, String matricula, Integer eslora, Integer anioFabricacion, Persona duenio) {
-        super(matricula, eslora, anioFabricacion, duenio);
+    public Yate(int cv, int cantCamarotes, String matricula, Integer eslora, Integer anioFabricacion) {
+        super(matricula, eslora, anioFabricacion);
         this.cv = cv;
         this.cantCamarotes = cantCamarotes;
     }

@@ -6,25 +6,25 @@
 package servicios;
 
 import entidades.*;
+import java.time.*;
+import java.time.format.*;
 import java.util.*;
 
 /**
  *
  * @author Adrian E. Camus
  */
-public class ServicioPuerto {
+public class ServicioAlquiler {
 
     Scanner leer;
 
-    public ServicioPuerto() {
+    public ServicioAlquiler() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
     }
 
-    public Puerto creaPuerto() {
+    public Alquiler creaPuerto() {
         int op = 0;
-        ArrayList<Barco> lista = new ArrayList();
-        do
-        {
+        do {
             System.out.println("******* ALQUILER DE PUERTO *****");
             System.out.println("* 1. Alquiler de Barco s/Motor *");
             System.out.println("* 2. Alquiler de Velero        *");
@@ -36,21 +36,23 @@ public class ServicioPuerto {
             op = leer.nextInt();
         } while (op == 5);
 
-        switch (op)
-        {
+        switch (op) {
             case 1:
                 Barco b = creaBarco();
-                System.out.println("EL costo del dia de amarre es: " + b.valorModulo());
-                lista.add(b);
+                System.out.println("El costo del dia de amarre es: " + b.valorModulo());
+                alquila(b);
                 break;
             case 2:
                 Velero v = creaVelero();
-                System.out.println("EL costo del dia de amarre es: " + v.valorModulo());
-                lista.add(v);
+                System.out.println("El costo del dia de amarre es: " + v.valorModulo());
+                alquila(v);
                 break;
             case 3:
                 break;
             case 4:
+                Motor m = creaMotor();
+                System.out.println("El costo del dia de amarre es: " + m.valorModulo());
+                alquila(m);
                 break;
             default:
 
@@ -58,8 +60,6 @@ public class ServicioPuerto {
 
         return null;
     }
-//String matricula, Integer eslora, Integer anioFabricacion, Persona duenio)
-
     private Barco creaBarco() {
         Barco b = new Barco();
         System.out.println("Cual es la Matricula del Barco?");
@@ -68,22 +68,11 @@ public class ServicioPuerto {
         b.setEslora(leer.nextInt());
         System.out.println("Ingrese el año de Fabricacion AAAA");
         b.setAnioFabricacion(leer.nextInt());
-        System.out.println("Nombre del Propietario");
-        String duenio = leer.next().toUpperCase();
-        System.out.println("DNI del Propietario");
-        long dni = leer.nextLong();
-        b.setPropietario(new Persona(duenio, dni));
-
         return b;
     }
 
     private Motor creaMotor() {
         Motor b = new Motor();
-        System.out.println("Nombre del Propietario");
-        String duenio = leer.next().toUpperCase();
-        System.out.println("DNI del Propietario");
-        long dni = leer.nextLong();
-        b.setPropietario(new Persona(duenio, dni));
         System.out.println("Cual es la Matricula del Barco?");
         b.setMatricula(leer.next().toUpperCase());
         System.out.println("Cuantos metros de eslora tiene?");
@@ -95,14 +84,9 @@ public class ServicioPuerto {
 
         return b;
     }
-    
+
     private Velero creaVelero() {
         Velero b = new Velero();
-        System.out.println("Nombre del Propietario");
-        String duenio = leer.next().toUpperCase();
-        System.out.println("DNI del Propietario");
-        long dni = leer.nextLong();
-        b.setPropietario(new Persona(duenio, dni));
         System.out.println("Cual es la Matricula del Barco?");
         b.setMatricula(leer.next().toUpperCase());
         System.out.println("Cuantos metros de eslora tiene?");
@@ -114,6 +98,47 @@ public class ServicioPuerto {
 
         return b;
     }
-    
-    
+
+    private void alquila(Barco b) {
+        Character op;
+        String cadenaFecha;
+        Alquiler a = new Alquiler();
+        System.out.println("Amarrar barco al puerto? S/N");
+        op = leer.next().toUpperCase().charAt(0);
+        switch (op) {
+            case 'S':
+                System.out.println("Excelente!, cual es nombre del Capitan");
+                a.getCapitan().setNombre(leer.next().toUpperCase());
+                System.out.println("Numero de documento");
+                a.getCapitan().setDni(leer.nextLong());
+                a.getCapitan().setNave(b);
+                a.setFechaAlquiler(LocalDate.now());
+                System.out.println("Ingrese la fecha de devolucion (dd/MM/aaaa)");
+                cadenaFecha = leer.next();
+                while (validaCadenaFecha(cadenaFecha) == null) {
+                    cadenaFecha = leer.next();
+                }
+                a.setFechaDevolucion(validaCadenaFecha(cadenaFecha));
+                System.out.println("El costo total del Alquiler es:" +a.calculaAlquiler());
+                break;
+            case 'N':
+                System.out.println("Gracias, vuelva otro dia");
+                break;
+            default:
+                System.out.println("Ingreso una opcion no valida, vuelva otro dia");
+        }
+
+    }
+
+    public static LocalDate validaCadenaFecha(String date) {
+        final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fecha;
+        try {
+            fecha = LocalDate.parse(date, dateTimeFormatter);
+        } catch (DateTimeParseException e) {
+            return null;
+        }
+        return fecha;
+    }
+
 }

@@ -10,17 +10,19 @@ package entidades;
  * 
  * @author Adrian E. Camus
  */
-public class Persona {
+public abstract class Persona {
     
     private String nombre;
     private long dni;
+    private Barco nave;
 
     public Persona() {
     }
 
-    public Persona(String nombre, long dni) {
+    public Persona(String nombre, long dni, Barco nave) {
         this.nombre = nombre;
         this.dni = dni;
+        this.nave = nave;
     }
 
     public long getDni() {
@@ -38,12 +40,19 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+     public Barco getNave() {
+        return nave;
+    }
 
+    public void setNave(Barco nave) {
+        this.nave = nave;
+    }
+    
     @Override
     public String toString() {
         return "Persona{" + "nombre=" + nombre + ", dni=" + dni + '}';
     }
-    
-    
+
     
 }

@@ -16,8 +16,8 @@ public class Velero extends Barco {
     public Velero() {
     }
 
-    public Velero(int mastiles, String matricula, Integer eslora, Integer anioFabricacion, Persona duenio) {
-        super(matricula, eslora, anioFabricacion, duenio);
+    public Velero(int mastiles, String matricula, Integer eslora, Integer anioFabricacion) {
+        super(matricula, eslora, anioFabricacion);
         this.mastiles = mastiles;
     }
 

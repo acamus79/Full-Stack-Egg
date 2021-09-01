@@ -9,42 +9,33 @@ de alquiler, fecha de devolución, la posición del amarre y el barco que
 lo ocupará.
 
  */
-
 package entidades;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.Period;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
-public class Puerto {
+public class Alquiler {
 
-    private ArrayList<Barco> amarre;
     private LocalDate fechaAlquiler;
     private LocalDate fechaDevolucion;
+    private Persona capitan;
+    private int posicionAmarre;
 
-    public Puerto() {
+    public Alquiler() {
+        this.posicionAmarre = (int) Math.random() * 51 + 1;
     }
 
-    public Puerto(LocalDate fechaAlquiler, LocalDate fechaDevolucion) {
+    public Alquiler(LocalDate fechaAlquiler, LocalDate fechaDevolucion, Persona capitan) {
         this.fechaAlquiler = fechaAlquiler;
         this.fechaDevolucion = fechaDevolucion;
+        this.capitan = capitan;
+        this.posicionAmarre = (int) Math.random() * 51 + 1;
     }
 
-    public Puerto(ArrayList<Barco> amarre, LocalDate fechaAlquiler, LocalDate fechaDevolucion) {
-        this.amarre = amarre;
-        this.fechaAlquiler = fechaAlquiler;
-        this.fechaDevolucion = fechaDevolucion;
-    }
-
-    
-//    public int getPosAmarre() {
-//        return posAmarre;
-//    }
-
-    
     public LocalDate getFechaAlquiler() {
         return fechaAlquiler;
     }
@@ -61,13 +52,28 @@ public class Puerto {
         this.fechaDevolucion = fechaDevolucion;
     }
 
-    public ArrayList<Barco> getAmarre() {
-        return amarre;
+    public Persona getCapitan() {
+        return capitan;
     }
 
-    public void setAmarre(ArrayList<Barco> amarre) {
-        this.amarre = amarre;
+    public void setCapitan(Persona capitan) {
+        this.capitan = capitan;
     }
-    
-    
+
+    public int getPosicionAmarre() {
+        return posicionAmarre;
+    }
+
+    public void setPosicionAmarre(int posicionAmarre) {
+        this.posicionAmarre = posicionAmarre;
+    }
+
+    public double calculaAlquiler() {
+
+        Period dias = Period.between(this.fechaAlquiler, this.fechaDevolucion);
+
+        return this.capitan.getNave().valorModulo() * dias.getDays();
+
+    }
+
 }
