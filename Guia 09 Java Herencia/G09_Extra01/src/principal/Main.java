@@ -33,6 +33,8 @@ quiera alquilar y mostrarle el precio final de su alquiler.
  */
 package principal;
 
+import servicios.ServicioAlquiler;
+
 /**
  *
  * @author Adrian E. Camus
@@ -43,7 +45,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        ServicioAlquiler sa = new ServicioAlquiler();
+        sa.creaPuerto();
     }
     
 }

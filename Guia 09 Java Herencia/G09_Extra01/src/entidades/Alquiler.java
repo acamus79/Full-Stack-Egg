@@ -27,6 +27,7 @@ public class Alquiler {
 
     public Alquiler() {
         this.posicionAmarre = (int) Math.random() * 51 + 1;
+        this.capitan = new Persona();
     }
 
     public Alquiler(LocalDate fechaAlquiler, LocalDate fechaDevolucion, Persona capitan) {

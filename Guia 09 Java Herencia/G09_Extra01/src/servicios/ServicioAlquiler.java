@@ -48,6 +48,9 @@ public class ServicioAlquiler {
                 alquila(v);
                 break;
             case 3:
+                Yate y = creaYate();
+                System.out.println("El costo del dia de amarre es: " + y.valorModulo());
+                alquila(y);
                 break;
             case 4:
                 Motor m = creaMotor();
@@ -98,6 +101,21 @@ public class ServicioAlquiler {
 
         return b;
     }
+    
+    private Yate creaYate(){
+        Yate b = new Yate();
+        System.out.println("Cual es la Matricula del Barco?");
+        b.setMatricula(leer.next().toUpperCase());
+        System.out.println("Cuantos metros de eslora tiene?");
+        b.setEslora(leer.nextInt());
+        System.out.println("Ingrese el año de Fabricacion AAAA");
+        b.setAnioFabricacion(leer.nextInt());
+        System.out.println("Cuantos Camarotes tiene?");
+        b.setCantCamarotes(leer.nextInt());
+        System.out.println("Cual es la potencia del motor en CV");
+        b.setCv(leer.nextInt());
+        return b;
+    }
 
     private void alquila(Barco b) {
         Character op;
@@ -107,11 +125,11 @@ public class ServicioAlquiler {
         op = leer.next().toUpperCase().charAt(0);
         switch (op) {
             case 'S':
+                a.getCapitan().setNave(b);
                 System.out.println("Excelente!, cual es nombre del Capitan");
                 a.getCapitan().setNombre(leer.next().toUpperCase());
                 System.out.println("Numero de documento");
                 a.getCapitan().setDni(leer.nextLong());
-                a.getCapitan().setNave(b);
                 a.setFechaAlquiler(LocalDate.now());
                 System.out.println("Ingrese la fecha de devolucion (dd/MM/aaaa)");
                 cadenaFecha = leer.next();
@@ -119,7 +137,7 @@ public class ServicioAlquiler {
                     cadenaFecha = leer.next();
                 }
                 a.setFechaDevolucion(validaCadenaFecha(cadenaFecha));
-                System.out.println("El costo total del Alquiler es:" +a.calculaAlquiler());
+                System.out.println("El costo total del Alquiler es: $ " +a.calculaAlquiler());
                 break;
             case 'N':
                 System.out.println("Gracias, vuelva otro dia");

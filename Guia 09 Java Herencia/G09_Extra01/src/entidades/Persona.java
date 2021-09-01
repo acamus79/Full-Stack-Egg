@@ -10,7 +10,7 @@ package entidades;
  * 
  * @author Adrian E. Camus
  */
-public abstract class Persona {
+public class Persona {
     
     private String nombre;
     private long dni;
