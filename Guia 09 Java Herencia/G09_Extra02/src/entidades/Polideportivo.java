@@ -14,14 +14,16 @@ package entidades;
  *
  * @author Adrian E. Camus
  */
-public class Polideportivo extends Edificio{
+public class Polideportivo extends Edificio {
+
     private String nombre;
     private boolean instalacion;
 
     public Polideportivo() {
     }
 
-    public Polideportivo(String nombre, boolean instalacion) {
+    public Polideportivo(String nombre, boolean instalacion, double ancho, double alto, double largo) {
+        super(ancho, alto, largo);
         this.nombre = nombre;
         this.instalacion = instalacion;
     }
@@ -39,42 +41,28 @@ public class Polideportivo extends Edificio{
     }
 
     public void setInstalacion(boolean instalacion) {
+
         this.instalacion = instalacion;
     }
 
-    public double getAncho() {
-        return getAncho();
-    }
-
-    public void setAncho(double ancho) {
-        this.setAncho(ancho);
-    }
-
-    public double getAlto() {
-        return getAlto();
-    }
-
-    public void setAlto(double alto) {
-        this.setAlto(alto);
-    }
-
-    public double getLargo() {
-        return getLargo();
-    }
-
-    public void setLargo(double largo) {
-        this.setLargo(largo);
-    }
-    
     @Override
     public double calcularSuperficie() {
-        return this.getAncho()*this.getLargo();
+        return super.getAncho() * super.getLargo();
     }
 
     @Override
     public double calcularVolumen() {
-        return this.getAncho()*this.getLargo()*this.getAlto();
+        return super.getAncho() * super.getLargo() * super.getAlto();
     }
-    
-    
+
+    @Override
+    public String toString() {
+        String instala = "TECHADO";
+        if (instalacion)
+        {
+            instala = "AIRE LIBRE";
+        }
+        return "Polideportivo " + nombre + ", Instalaciones de tipo " + instala;
+    }
+
 }

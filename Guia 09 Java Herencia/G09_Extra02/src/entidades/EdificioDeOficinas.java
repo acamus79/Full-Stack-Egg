@@ -27,12 +27,14 @@ public class EdificioDeOficinas extends Edificio{
     public EdificioDeOficinas() {
     }
 
-    public EdificioDeOficinas(int nroDeOficinas, int cantPersPorOficina, int nroDePisos) {
+    public EdificioDeOficinas(int nroDeOficinas, int cantPersPorOficina, int nroDePisos, double ancho, double alto, double largo) {
+        super(ancho, alto, largo);
         this.nroDeOficinas = nroDeOficinas;
         this.cantPersPorOficina = cantPersPorOficina;
         this.nroDePisos = nroDePisos;
     }
 
+    
     public int getNroDeOficinas() {
         return nroDeOficinas;
     }
@@ -59,18 +61,22 @@ public class EdificioDeOficinas extends Edificio{
 
     @Override
     public double calcularSuperficie() {
-     return this.getAncho()*this.getLargo();
+     return super.getAncho()*super.getLargo();
     }
 
     @Override
     public double calcularVolumen() {
-       return this.getAncho()*this.getLargo()*this.getAlto();  
+       return super.getAncho()*super.getLargo()*super.getAlto();  
     }
     
-    
-    public Integer cantPersonas(){
-        
-        return null;
+    public void cantPersonas(){
+       System.out.println("Cantidad de Personas por Piso "+this.cantPersPorOficina*this.nroDeOficinas);
+       System.out.println("Cantidad Total de Personas en el Edificio " + this.cantPersPorOficina*this.nroDeOficinas*this.nroDePisos);
+    }
+
+    @Override
+    public String toString() {
+        return "Edificio de Oficinas con " + nroDePisos +  " pisos, " + nroDeOficinas + ", por cada piso";
     }
     
 }

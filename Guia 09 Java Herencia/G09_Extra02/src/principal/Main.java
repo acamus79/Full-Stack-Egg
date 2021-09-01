@@ -32,10 +32,37 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int cuentaPoli=0, cuentaOfi=0;
         ArrayList<Edificio> lista = new ArrayList();
-        
-        EdificioDeOficinas o1 = new EdificioDeOficinas();
+
+        Polideportivo p1 = new Polideportivo("Torito", true, 80d, 20d, 170d);
+        lista.add(p1);
+        Polideportivo p2 = new Polideportivo("Poli Nro 1", false, 76d, 18d, 140d);
+        lista.add(p2);
+
+        EdificioDeOficinas o1 = new EdificioDeOficinas(2, 12, 12, 24d, 35d, 28d);
         lista.add(o1);
+        EdificioDeOficinas o2 = new EdificioDeOficinas(1, 8, 20, 18d, 50d, 20d);
+        lista.add(o2);
+
+        for (Edificio aux : lista)
+        {
+            if (aux instanceof Polideportivo)
+            {
+                System.out.println(aux);
+                System.out.println("Superficie " + aux.calcularSuperficie()+" mts2");
+                System.out.println("Volumen " + aux.calcularVolumen()+" mts3");
+                cuentaPoli++;
+            } else if (aux instanceof EdificioDeOficinas)
+            {
+                System.out.println(aux);
+                System.out.println("Superficie " + aux.calcularSuperficie()+" mts2");
+                System.out.println("Volumen " + aux.calcularVolumen()+" mts3");
+                cuentaOfi++;
+                ((EdificioDeOficinas) aux).cantPersonas();
+            }
+        }
+        System.out.println("Cantidad de Polideportivos "+cuentaPoli);
+        System.out.println("Cantidad de Edificios de Oficina "+cuentaOfi);
     }
-    
 }
