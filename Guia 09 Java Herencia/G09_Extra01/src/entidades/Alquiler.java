@@ -12,7 +12,7 @@ lo ocupará.
 package entidades;
 
 import java.time.LocalDate;
-import java.time.Period;
+import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  *
@@ -69,12 +69,11 @@ public class Alquiler {
         this.posicionAmarre = posicionAmarre;
     }
 
-    public double calculaAlquiler() {
-
-        Period dias = Period.between(this.fechaAlquiler, this.fechaDevolucion);
-
-        return this.capitan.getNave().valorModulo() * dias.getDays();
-
+    public void calculaAlquiler() {
+        //Usando ChronoUnit, calculo el numero de dias
+        int dias = (int) DAYS.between(this.fechaAlquiler, this.fechaDevolucion);
+        System.out.println("Por " + dias + " dias de Amarre");
+        System.out.println("El costo total de Alquiler es: $ " + this.capitan.getNave().valorModulo() * dias + "\n\n");
     }
 
 }

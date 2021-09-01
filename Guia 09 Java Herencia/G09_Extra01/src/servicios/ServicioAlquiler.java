@@ -22,7 +22,7 @@ public class ServicioAlquiler {
         this.leer = new Scanner(System.in).useDelimiter("\n");
     }
 
-    public Alquiler creaPuerto() {
+    public void creaPuerto() {
         int op = 0;
         do {
             System.out.println("******* ALQUILER DE PUERTO *****");
@@ -34,35 +34,41 @@ public class ServicioAlquiler {
             System.out.println("********************************");
             System.out.println("\nSelecciona una opcion");
             op = leer.nextInt();
-        } while (op == 5);
-
-        switch (op) {
+            
+            switch (op) {
             case 1:
                 Barco b = creaBarco();
-                System.out.println("El costo del dia de amarre es: " + b.valorModulo());
+                System.out.println("El costo del dia de amarre es: $" + b.valorModulo());
                 alquila(b);
                 break;
             case 2:
                 Velero v = creaVelero();
-                System.out.println("El costo del dia de amarre es: " + v.valorModulo());
+                System.out.println("El costo del dia de amarre es: $" + v.valorModulo());
                 alquila(v);
                 break;
             case 3:
                 Yate y = creaYate();
-                System.out.println("El costo del dia de amarre es: " + y.valorModulo());
+                System.out.println("El costo del dia de amarre es: $" + y.valorModulo());
                 alquila(y);
                 break;
             case 4:
                 Motor m = creaMotor();
-                System.out.println("El costo del dia de amarre es: " + m.valorModulo());
+                System.out.println("El costo del dia de amarre es: $" + m.valorModulo());
                 alquila(m);
                 break;
+            case 5:
+                System.out.println("CHAU!!!");
             default:
-
+                System.out.println("Ingreso una opcion no valida");
         }
+            
+            
+        } while (op != 5);
 
-        return null;
-    }
+        
+
+   }
+
     private Barco creaBarco() {
         Barco b = new Barco();
         System.out.println("Cual es la Matricula del Barco?");
@@ -101,8 +107,8 @@ public class ServicioAlquiler {
 
         return b;
     }
-    
-    private Yate creaYate(){
+
+    private Yate creaYate() {
         Yate b = new Yate();
         System.out.println("Cual es la Matricula del Barco?");
         b.setMatricula(leer.next().toUpperCase());
@@ -130,14 +136,20 @@ public class ServicioAlquiler {
                 a.getCapitan().setNombre(leer.next().toUpperCase());
                 System.out.println("Numero de documento");
                 a.getCapitan().setDni(leer.nextLong());
-                a.setFechaAlquiler(LocalDate.now());
-                System.out.println("Ingrese la fecha de devolucion (dd/MM/aaaa)");
+//                System.out.println("Fecha de Ingreso (dd/MM/aaaa)");
+//                cadenaFecha = leer.next();
+//                while (validaCadenaFecha(cadenaFecha) == null) {
+//                    cadenaFecha = leer.next();
+//                }
+//                a.setFechaAlquiler(validaCadenaFecha(cadenaFecha));
+                a.setFechaAlquiler(LocalDate.now());//hoy tiene mas logica
+                System.out.println("Ingrese la fecha de Salida (dd/MM/aaaa)");
                 cadenaFecha = leer.next();
                 while (validaCadenaFecha(cadenaFecha) == null) {
                     cadenaFecha = leer.next();
                 }
                 a.setFechaDevolucion(validaCadenaFecha(cadenaFecha));
-                System.out.println("El costo total del Alquiler es: $ " +a.calculaAlquiler());
+                a.calculaAlquiler();
                 break;
             case 'N':
                 System.out.println("Gracias, vuelva otro dia");
