@@ -12,6 +12,8 @@ PrecioHabitación = $50 + ($1 x capacidad del hotel)
  */
 package entidades;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -30,9 +32,23 @@ public abstract class Hotel extends Alojamiento {
         this.nroCamas = nroCamas;
         this.cantPisos = cantPisos;
     }
-
+    
     public void precioHabitacion(){
         this.precioHabitacion = (double) this.nroCamas+50;
     }
-
+    
+    public void creaHotel(){
+        super.creaAlojamiento();
+        System.out.print(" HOTEL");
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println("Ingrese la cantidad de Camas");
+        this.nroCamas = leer.nextInt();
+        System.out.println("Cuantas Habitaciones tiene?");
+        this.cantHabitaciones = leer.nextInt();
+        System.out.println("Cuantos Pisos?");
+        this.cantPisos = leer.nextInt();
+        precioHabitacion();
+    }
+        
+    
 }
