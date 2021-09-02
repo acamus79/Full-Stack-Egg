@@ -18,9 +18,9 @@ package entidades;
  */
 public abstract class Edificio {
     
-    private double ancho;
-    private double alto;
-    private double largo;
+    protected double ancho;
+    protected double alto;
+    protected double largo;
 
     public Edificio() {
     }
@@ -35,27 +35,5 @@ public abstract class Edificio {
     public abstract double calcularSuperficie();
     public abstract double calcularVolumen();
 
-    public double getAncho() {
-        return ancho;
-    }
-
-    public void setAncho(double ancho) {
-        this.ancho = ancho;
-    }
-
-    public double getAlto() {
-        return alto;
-    }
-
-    public void setAlto(double alto) {
-        this.alto = alto;
-    }
-
-    public double getLargo() {
-        return largo;
-    }
-
-    public void setLargo(double largo) {
-        this.largo = largo;
-    }
+   
 }

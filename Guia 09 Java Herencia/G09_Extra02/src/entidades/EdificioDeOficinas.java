@@ -19,7 +19,8 @@ package entidades;
  *
  * @author Adrian E. Camus
  */
-public class EdificioDeOficinas extends Edificio{
+public class EdificioDeOficinas extends Edificio {
+
     private int nroDeOficinas;
     private int cantPersPorOficina;
     private int nroDePisos;
@@ -34,7 +35,6 @@ public class EdificioDeOficinas extends Edificio{
         this.nroDePisos = nroDePisos;
     }
 
-    
     public int getNroDeOficinas() {
         return nroDeOficinas;
     }
@@ -61,22 +61,22 @@ public class EdificioDeOficinas extends Edificio{
 
     @Override
     public double calcularSuperficie() {
-     return super.getAncho()*super.getLargo();
+        return super.ancho * super.largo;
     }
 
     @Override
     public double calcularVolumen() {
-       return super.getAncho()*super.getLargo()*super.getAlto();  
+        return super.ancho * super.largo * super.alto;
     }
-    
-    public void cantPersonas(){
-       System.out.println("Cantidad de Personas por Piso "+this.cantPersPorOficina*this.nroDeOficinas);
-       System.out.println("Cantidad Total de Personas en el Edificio " + this.cantPersPorOficina*this.nroDeOficinas*this.nroDePisos);
+
+    public void cantPersonas() {
+        System.out.println("Cantidad de Personas por Piso " + this.cantPersPorOficina * this.nroDeOficinas);
+        System.out.println("Cantidad Total de Personas en el Edificio " + this.cantPersPorOficina * this.nroDeOficinas * this.nroDePisos);
     }
 
     @Override
     public String toString() {
-        return "Edificio de Oficinas con " + nroDePisos +  " pisos, " + nroDeOficinas + " of/piso";
+        return "Edificio de Oficinas con " + nroDePisos + " pisos, " + nroDeOficinas + " of/piso";
     }
-    
+
 }

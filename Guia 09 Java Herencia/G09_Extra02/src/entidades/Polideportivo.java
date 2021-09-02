@@ -47,12 +47,12 @@ public class Polideportivo extends Edificio {
 
     @Override
     public double calcularSuperficie() {
-        return super.getAncho() * super.getLargo();
+        return super.ancho * super.largo;
     }
 
     @Override
     public double calcularVolumen() {
-        return super.getAncho() * super.getLargo() * super.getAlto();
+        return super.ancho * super.largo * super.alto;
     }
 
     @Override
