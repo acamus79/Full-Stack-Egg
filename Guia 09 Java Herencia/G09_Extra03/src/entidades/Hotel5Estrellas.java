@@ -69,7 +69,7 @@ public class Hotel5Estrellas extends Hotel4Estrellas {
         System.out.println("Cuantos Salones de Eventos tiene?");
         this.cantSalonDeConferencias = leer.nextInt();
         System.out.println("Cantidad de SUITs");
-        this.cantDeSuits = 
+        this.cantDeSuits = leer.nextInt();
         
         
     }
