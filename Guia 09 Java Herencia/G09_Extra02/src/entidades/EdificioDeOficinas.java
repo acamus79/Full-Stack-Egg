@@ -76,7 +76,7 @@ public class EdificioDeOficinas extends Edificio{
 
     @Override
     public String toString() {
-        return "Edificio de Oficinas con " + nroDePisos +  " pisos, " + nroDeOficinas + ", por cada piso";
+        return "Edificio de Oficinas con " + nroDePisos +  " pisos, " + nroDeOficinas + " of/piso";
     }
     
 }
