@@ -12,6 +12,7 @@ import interfaces.CalculosFormas;
  * @author Adrian E. Camus
  */
 public class Circulo implements CalculosFormas {
+
     private double radio;
 
     public Circulo() {
@@ -20,7 +21,7 @@ public class Circulo implements CalculosFormas {
     public Circulo(double radio) {
         this.radio = radio;
     }
-    
+
     public double getRadio() {
         return radio;
     }
@@ -28,15 +29,15 @@ public class Circulo implements CalculosFormas {
     public void setRadio(double radio) {
         this.radio = radio;
     }
-    
+
     @Override
     public void calculaArea() {
-        System.out.println("El Area del Circulo es "+CalculosFormas.pi*(this.radio*this.radio));
+        System.out.printf("\nEl Area del Circulo es %.2f", CalculosFormas.pi * (this.radio * this.radio));
     }
 
     @Override
     public void calculaPerimetro() {
-        System.out.println("El Perimetro del Circulo es "+CalculosFormas.pi*(2*this.radio));
+        System.out.printf("\nEl Perimetro del Circulo es %.2f", CalculosFormas.pi * (2 * this.radio));
     }
-    
+
 }

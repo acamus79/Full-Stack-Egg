@@ -77,13 +77,11 @@ public class Lavarropa extends Electrodomestico{
         }
     }
     
-
     @Override
     public String toString() {
         return "Lavarropa de " + carga + " kilos de carga\n"
                 + super.toString();
     }
-    
-    
+
     
 }

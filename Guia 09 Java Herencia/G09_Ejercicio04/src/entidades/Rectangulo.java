@@ -40,7 +40,7 @@ public class Rectangulo implements CalculosFormas{
 
     @Override
     public void calculaArea() {
-        System.out.println("El Area del Rectangulo es "+ this.base*this.altura);
+        System.out.println("\nEl Area del Rectangulo es "+ this.base*this.altura);
     }
 
     @Override
