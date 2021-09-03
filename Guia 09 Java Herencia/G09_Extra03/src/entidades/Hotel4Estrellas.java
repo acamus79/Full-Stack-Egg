@@ -11,6 +11,7 @@ Habitaciones.
 package entidades;
 
 import enumeradores.Gimnasio;
+import java.util.Scanner;
 
 /**
  *
@@ -54,6 +55,36 @@ public class Hotel4Estrellas extends Hotel{
 
     public void setGym(Gimnasio gym) {
         this.gym = gym;
+    }
+    
+    public void creaHotel4E(){
+        super.creaHotel();
+        System.out.print("4 ESTRELLAS");
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println("Cual es el nombre del Restorant?");
+        this.nombRestaurant = leer.next().toUpperCase();
+        System.out.println("Cantidad de comensales");
+        this.capRestaurante = leer.nextInt();
+        System.out.println("De que Categoria es el Gimnasio? A ó B");
+        char gy = leer.next().toUpperCase().charAt(0);
+        this.gym = compruebaGym(gy);
+        
+    }
+    
+    private Gimnasio compruebaGym(char letra){
+        Gimnasio g;
+        switch(letra){
+            case 'A':
+                g= Gimnasio.A;
+                break;
+            case 'B':
+                g= Gimnasio.B;
+                break;
+            default:
+                System.out.println("Ingreso una opcion no validad se asignara tipo B");
+                g= Gimnasio.B;
+        }
+        return g;
     }
     
     @Override

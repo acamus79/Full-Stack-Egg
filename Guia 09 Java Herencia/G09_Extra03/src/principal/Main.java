@@ -51,8 +51,9 @@ alojamientos extrahoteleros: los Camping y las Residencias. Para los Camping se
 indica la capacidad máxima de carpas, la cantidad de baños disponibles y si
 posee o no un restaurante dentro de las instalaciones. Para las residencias se
 indica la cantidad de habitaciones, si se hacen o no descuentos a los gremios y
-si posee o no campo deportivo. Realizar un programa en el que se representen
-todas las relaciones descriptas. 
+si posee o no campo deportivo. 
+
+Realizar un programa en el que se representen todas las relaciones descriptas. 
 Realizar un sistema de consulta que le permite al usuario consultar por diferentes
 criterios:
 • todos los alojamientos.
