@@ -9,6 +9,16 @@ package entidades;
  *
  * @author Adrian E. Camus
  */
-public class Persona {
+public abstract class Persona {
+    protected String nombre,dni;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String dni) {
+        this.nombre = nombre;
+        this.dni = dni;
+    }
+    
     
 }
