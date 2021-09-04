@@ -161,10 +161,10 @@ public class ServicioAlquiler {
     }
 
     public static LocalDate validaCadenaFecha(String date) {
-        final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha;
         try {
-            fecha = LocalDate.parse(date, dateTimeFormatter);
+            fecha = LocalDate.parse(date, dtf);
         } catch (DateTimeParseException e) {
             return null;
         }
