@@ -7,18 +7,17 @@ Cantidad Salones de Conferencia, Cantidad de Suites, Cantidad de Limosinas, Prec
 de las Habitaciones.
 
  */
-
 package entidades;
 
 import enumeradores.Gimnasio;
 import java.util.Scanner;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 public class Hotel5Estrellas extends Hotel4Estrellas {
-    
+
     private Integer cantSalonDeConferencias, cantDeSuits, cantDeLimosinas;
 
     public Hotel5Estrellas() {
@@ -55,24 +54,23 @@ public class Hotel5Estrellas extends Hotel4Estrellas {
         this.cantDeLimosinas = cantDeLimosinas;
     }
 
-    @Override
-    public void precioHabitacion() {
-        super.precioHabitacion(); 
-        super.precioHabitacion+=this.cantDeLimosinas*15;
-        
-    }
-    
-    public void creaHotel5E(){
-        super.creaHotel();
-        System.out.print(" 5 ESTRELLAS");
+    public void creaHotel5E() {
+        super.creaHotel4E();
+        System.out.print("5 ESTRELLAS");
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Cuantos Salones de Eventos tiene?");
         this.cantSalonDeConferencias = leer.nextInt();
         System.out.println("Cantidad de SUITs");
         this.cantDeSuits = leer.nextInt();
-        
-        
     }
-    
 
+    @Override
+    public void precioHabitacion() {
+        super.precioHabitacion();
+        super.precioHabitacion += this.cantDeLimosinas * 15;
+
+    }
+
+    
+    
 }
