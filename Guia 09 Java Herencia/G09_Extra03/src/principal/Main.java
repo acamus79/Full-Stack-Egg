@@ -92,9 +92,9 @@ public class Main {
         
         Hotel4Estrellas h1 = new Hotel4Estrellas("El Chori Loco",40,Gimnasio.A,50,70,3,"Hotelo","Oscuridad 69","Tangamandapio","Sevelinda Parada");
         Hotel4Estrellas h2 = new Hotel4Estrellas("Que se Come",80,Gimnasio.A,40,45,2,"El Sinestrellas","Juan V. Poco 111","Chapanay","Micho Tito");
-        Hotel5Estrellas h3 = new Hotel5Estrellas(1,5,2,"El Salpicon",80,Gimnasio.A,100,150,6,"Hotelo","Oscuridad 69","Tangamandapio","Sevelinda Parada");
-        Hotel5Estrellas h4 = new Hotel5Estrellas();
-        Camping h5 = new Camping();
+        Hotel5Estrellas h3 = new Hotel5Estrellas(1,5,2,"El Salpicon",80,Gimnasio.A,100,150,6,"MejorSolo","Juan D. Perron 450","Ugarteche","Elber Galarga");
+        Hotel5Estrellas h4 = new Hotel5Estrellas(2,15,5,"Puchero's",50,Gimnasio.A,80,90,20,"El Descanso","Parque Chachingo","Maipu","Dolores D'Lano");
+        Camping h5 = new Camping(120,3,true,false,2000,"El Resbalon","Lamatriz 574","Colonia Bombal","Mary Conazo");
         Camping h6 = new Camping();
         Residencia h7 = new Residencia();
         Residencia h8 = new Residencia();
