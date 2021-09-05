@@ -65,6 +65,7 @@ criterios:
 package principal;
 
 import entidades.*;
+import enumeradores.Gimnasio;
 
 /**
  *
@@ -78,16 +79,25 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        Hotel4Estrellas h1 = new Hotel4Estrellas();
-        h1.creaHotel4E();
-        Hotel5Estrellas h2 = new Hotel5Estrellas();
-        h2.creaHotel5E();
+//        Hotel4Estrellas h1 = new Hotel4Estrellas();
+//        h1.creaHotel4E();
+//        Hotel5Estrellas h2 = new Hotel5Estrellas();
+//        h2.creaHotel5E();
+//        
+//        Camping h3 = new Camping();
+//        h3.creaCamping();
+//        Residencia h4 = new Residencia();
+//        h4.creaResidencia();
         
-        Camping h3 = new Camping();
         
-        Residencia h4 = new Residencia();
-        
-        
+        Hotel4Estrellas h1 = new Hotel4Estrellas("El Chori Loco",40,Gimnasio.A,50,70,3,"Hotelo","Oscuridad 69","Tangamandapio","Sevelinda Parada");
+        Hotel4Estrellas h2 = new Hotel4Estrellas("Que se Come",80,Gimnasio.A,40,45,2,"El Sinestrellas","Juan V. Poco 111","Chapanay","Micho Tito");
+        Hotel5Estrellas h3 = new Hotel5Estrellas(1,5,2,"El Salpicon",80,Gimnasio.A,100,150,6,"Hotelo","Oscuridad 69","Tangamandapio","Sevelinda Parada");
+        Hotel5Estrellas h4 = new Hotel5Estrellas();
+        Camping h5 = new Camping();
+        Camping h6 = new Camping();
+        Residencia h7 = new Residencia();
+        Residencia h8 = new Residencia();
 
         /**
          * Realizar un sistema de consulta que le permite al usuario consultar
@@ -95,6 +105,10 @@ public class Main {
          * hoteles de más caro a más barato. • todos los campings con
          * restaurante • todos las residencias que tienen descuento.
          */
+        
+        
+        
+        
     }
 
 }
