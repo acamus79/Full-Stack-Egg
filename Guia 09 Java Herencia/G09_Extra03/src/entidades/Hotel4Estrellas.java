@@ -26,7 +26,7 @@ public class Hotel4Estrellas extends Hotel{
     public Hotel4Estrellas() {
     }
 
-    public Hotel4Estrellas(String nombRestaurant, Integer capRestaurante, Gimnasio gym, Integer cantHabitaciones, Integer nroCamas, Integer cantPisos, String nombre, String direccion, String localidad, Persona gerente) {
+    public Hotel4Estrellas(String nombRestaurant, Integer capRestaurante, Gimnasio gym, Integer cantHabitaciones, Integer nroCamas, Integer cantPisos, String nombre, String direccion, String localidad, String gerente) {
         super(cantHabitaciones, nroCamas, cantPisos, nombre, direccion, localidad, gerente);
         this.nombRestaurant = nombRestaurant;
         this.capRestaurante = capRestaurante;
@@ -59,7 +59,7 @@ public class Hotel4Estrellas extends Hotel{
     
     public void creaHotel4E(){
         super.creaHotel();
-        System.out.print("4 ESTRELLAS");
+        System.out.println("Restorant y Gimnasio: ");
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Cual es el nombre del Restorant?");
         this.nombRestaurant = leer.next().toUpperCase();

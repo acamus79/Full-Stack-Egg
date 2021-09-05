@@ -64,6 +64,8 @@ criterios:
  */
 package principal;
 
+import entidades.*;
+
 /**
  *
  * @author Adrian E. Camus
@@ -75,6 +77,24 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        Hotel4Estrellas h1 = new Hotel4Estrellas();
+        h1.creaHotel4E();
+        Hotel5Estrellas h2 = new Hotel5Estrellas();
+        h2.creaHotel5E();
+        
+        Camping h3 = new Camping();
+        
+        Residencia h4 = new Residencia();
+        
+        
+
+        /**
+         * Realizar un sistema de consulta que le permite al usuario consultar
+         * por diferentes criterios: • todos los alojamientos. • todos los
+         * hoteles de más caro a más barato. • todos los campings con
+         * restaurante • todos las residencias que tienen descuento.
+         */
     }
-    
+
 }

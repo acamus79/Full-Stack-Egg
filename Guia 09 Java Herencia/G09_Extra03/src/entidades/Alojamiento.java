@@ -17,23 +17,24 @@ import java.util.Scanner;
  * @author Adrian E. Camus
  */
 public abstract class Alojamiento {
+
     protected String nombre;
     protected String direccion;
     protected String localidad;
-    protected Persona gerente;
+    protected String gerente;
 
     public Alojamiento() {
     }
 
-    public Alojamiento(String nombre, String direccion, String localidad, Persona gerente) {
+    public Alojamiento(String nombre, String direccion, String localidad, String gerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.localidad = localidad;
         this.gerente = gerente;
     }
-    
-    public void creaAlojamiento(){
-        
+
+    public void creaAlojamiento() {
+
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingrese el Nombre del Alojamiento");
         this.nombre = leer.next().toUpperCase();
@@ -42,10 +43,7 @@ public abstract class Alojamiento {
         System.out.println("Ingrese la Localidad");
         this.localidad = leer.next().toUpperCase();
         System.out.println("Como se llama el Gerente");
-        this.gerente.nombre = leer.next().toUpperCase();
-        System.out.println("DNI del Gerente");
-        this.gerente.dni = leer.next().toUpperCase();
-        
+        this.gerente = leer.next().toUpperCase();
     }
-    
+
 }

@@ -36,7 +36,7 @@ public abstract class ExtraHotelero extends Alojamiento {
     public ExtraHotelero() {
     }
 
-    public ExtraHotelero(boolean privado, Integer mts2, String nombre, String direccion, String localidad, Persona gerente) {
+    public ExtraHotelero(boolean privado, Integer mts2, String nombre, String direccion, String localidad, String gerente) {
         super(nombre, direccion, localidad, gerente);
         this.privado = privado;
         this.mts2 = mts2;
@@ -44,9 +44,9 @@ public abstract class ExtraHotelero extends Alojamiento {
 
     public void creaExtraHotel() {
         super.creaAlojamiento();
-        System.out.print(" ESTABLECIMIENTO EXTRAHOTELERO");
+        System.out.println("ESTABLECIMIENTO EXTRAHOTELERO");
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        System.out.println("Es un establecimiento Publico o Privado? S/N");
+        System.out.println("Es un establecimiento Privado? S/N");
         char op = leer.next().toUpperCase().charAt(0);
         if (op == 'S') {
             this.privado = true;
