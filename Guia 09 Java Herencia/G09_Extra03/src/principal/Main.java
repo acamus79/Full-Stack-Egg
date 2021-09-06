@@ -66,6 +66,7 @@ package principal;
 
 import entidades.*;
 import enumeradores.Gimnasio;
+import java.util.ArrayList;
 
 /**
  *
@@ -88,17 +89,30 @@ public class Main {
 //        h3.creaCamping();
 //        Residencia h4 = new Residencia();
 //        h4.creaResidencia();
-        
-        
-        Hotel4Estrellas h1 = new Hotel4Estrellas("El Chori Loco",40,Gimnasio.A,50,70,3,"Hotelo","Oscuridad 69","Tangamandapio","Sevelinda Parada");
-        Hotel4Estrellas h2 = new Hotel4Estrellas("Que se Come",80,Gimnasio.A,40,45,2,"El Sinestrellas","Juan V. Poco 111","Chapanay","Micho Tito");
-        Hotel5Estrellas h3 = new Hotel5Estrellas(1,5,2,"El Salpicon",80,Gimnasio.A,100,150,6,"MejorSolo","Juan D. Perron 450","Ugarteche","Elber Galarga");
-        Hotel5Estrellas h4 = new Hotel5Estrellas(2,15,5,"Puchero's",50,Gimnasio.A,80,90,20,"El Descanso","Parque Chachingo","Maipu","Dolores D'Lano");
-        Camping h5 = new Camping(120,3,true,false,2000,"El Resbalon","Lamatriz 574","Colonia Bombal","Mary Conazo");
-        Camping h6 = new Camping();
-        Residencia h7 = new Residencia();
-        Residencia h8 = new Residencia();
+        ArrayList<Alojamiento> lista = new ArrayList();
 
+        Hotel4Estrellas h1 = new Hotel4Estrellas("El Chori Loco", 40, Gimnasio.A, 50, 70, 3, "Hotelo", "Oscuridad 69", "Tangamandapio", "Sevelinda Parada");
+        h1.precioHabitacion();
+        lista.add(h1);
+        Hotel4Estrellas h2 = new Hotel4Estrellas("Que se Come", 80, Gimnasio.A, 40, 45, 2, "El Sinestrellas", "Juan V. Poco 111", "Chapanay", "Micho Tito");
+        h2.precioHabitacion();
+        lista.add(h2);
+        Hotel5Estrellas h3 = new Hotel5Estrellas(1, 5, 2, "El Salpicon", 80, Gimnasio.A, 100, 150, 6, "MejorSolo", "Juan D. Perron 450", "Ugarteche", "Elber Galarga");
+        h3.precioHabitacion();
+        lista.add(h3);
+        Hotel5Estrellas h4 = new Hotel5Estrellas(2, 15, 5, "Puchero's", 50, Gimnasio.A, 80, 90, 20, "El Descanso", "Parque Chachingo", "Maipu", "Dolores D'Lano");
+        h4.precioHabitacion();
+        lista.add(h4);
+        Camping h5 = new Camping(120, 3, true, false, 2000, "El Resbalon", "Lamatriz 574", "Colonia Bombal", "Mary Conazo");
+        lista.add(h5);
+        Camping h6 = new Camping(150, 4, true, false, 2500, "Carrizal de Abajo", "El pejerrey 54", "Carrizal", "Elba Gallo");
+        lista.add(h6);
+        Residencia h7 = new Residencia(10, true, true, true, 200, "La Posada de Cacho", "Av. Corrientes 45", "Bs As", "Juan DeLospalotes");
+        lista.add(h7);
+        Residencia h8 = new Residencia(15, true, true, false, 250, "Engañao", "Ituzaingo 78", "Mendoza", "Jose Cuernos");
+        lista.add(h8);
+        
+        
         /**
          * Realizar un sistema de consulta que le permite al usuario consultar
          * por diferentes criterios: • todos los alojamientos. • todos los
@@ -106,7 +120,10 @@ public class Main {
          * restaurante • todos las residencias que tienen descuento.
          */
         
-        
+        for (Alojamiento aux : lista) {
+            System.out.println(aux);
+            
+        }
         
         
     }

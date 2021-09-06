@@ -46,4 +46,12 @@ public abstract class Alojamiento {
         this.gerente = leer.next().toUpperCase();
     }
 
+    @Override
+    public String toString() {
+        System.out.println(" * * * * * * * * * ");
+        return "Alojamiento " + nombre + "\nDireccion: " + direccion + ", localidad: " + localidad + ", Gerente: " + gerente;
+    }
+
+    
+    
 }

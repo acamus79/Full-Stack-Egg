@@ -108,6 +108,12 @@ public class Hotel4Estrellas extends Hotel{
        super.precioHabitacion += vAgregado;
         
     }
+
+    @Override
+    public String toString() {
+        System.out.println(super.toString());
+        return "Restaurant: " + nombRestaurant + " Capacidad " + capRestaurante + " Comensales, Gimnasio de tipo " + gym;
+    }
     
     
 }

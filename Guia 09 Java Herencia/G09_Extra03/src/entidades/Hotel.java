@@ -47,8 +47,15 @@ public abstract class Hotel extends Alojamiento {
         this.cantHabitaciones = leer.nextInt();
         System.out.println("Cuantos Pisos?");
         this.cantPisos = leer.nextInt();
-        //precioHabitacion();
+
     }
-        
+
+    @Override
+    public String toString() {
+        System.out.println(super.toString());
+        return "Tipo Hotel con " +  cantHabitaciones + " habitaciones y " + nroCamas + " camas, " + cantPisos + " pisos" + "\nPrecio de la Habitacion: $ "+precioHabitacion;
+    }
+
+    
     
 }

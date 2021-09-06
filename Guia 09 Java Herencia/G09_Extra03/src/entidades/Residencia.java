@@ -86,7 +86,12 @@ public class Residencia extends ExtraHotelero {
 
     @Override
     public String toString() {
-        return "Residencias{" + "cantHab=" + cantHab + ", descGremio=" + descGremio + ", campDepor=" + campDepor + '}';
+        String desc = "SIN";
+        if(descGremio){
+            desc = "CON";
+        }
+        System.out.println(super.toString());
+          return "Residencia " + "cantHab=" + cantHab + ", descGremio=" + descGremio + ", campDepor=" + campDepor + '}';
     }
 
 }

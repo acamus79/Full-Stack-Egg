@@ -62,4 +62,17 @@ public abstract class ExtraHotelero extends Alojamiento {
 
     }
 
+    @Override
+    public String toString() {
+        String priv = "Publico";
+        if(privado){
+            priv = "Privado";
+        }
+        System.out.println(super.toString());
+        return "Establecimiento Extra Hotel de tipo " + priv + " con " + mts2 + " metros 2";
+    }
+
+    
+    
+    
 }
