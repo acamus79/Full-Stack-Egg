@@ -11,7 +11,6 @@ restaurante • todos las residencias que tienen descuento.
  */
 package servicios;
 
-import comparadores.ComparaHotel;
 import entidades.*;
 import java.util.ArrayList;
 import java.util.Collections;
