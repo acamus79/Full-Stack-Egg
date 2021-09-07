@@ -58,6 +58,7 @@ public class ServiciosAlojamiento {
                     break;
                 case 5:
                     System.out.println("CHAU!!!");
+                    break;
                 default:
                     System.out.println("Ingreso una opcion no valida");
             }

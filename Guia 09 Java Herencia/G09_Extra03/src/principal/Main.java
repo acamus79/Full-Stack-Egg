@@ -107,7 +107,7 @@ public class Main {
         lista.add(h5);
         Camping h6 = new Camping(150, 4, false, false, 2500, "Carrizal de Abajo", "El pejerrey 54", "Carrizal", "Elba Gallo");
         lista.add(h6);
-        Residencia h7 = new Residencia(10, true, true, true, 200, "La Posada de Cacho", "Av. Corrientes 45", "Bs As", "Juan DeLospalotes");
+        Residencia h7 = new Residencia(10, false, true, true, 200, "La Posada de Cacho", "Av. Corrientes 45", "Bs As", "Juan DeLospalotes");
         lista.add(h7);
         Residencia h8 = new Residencia(15, true, true, false, 250, "Engañao", "Ituzaingo 78", "Mendoza", "Jose Cuernos");
         lista.add(h8);
