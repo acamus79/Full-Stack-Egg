@@ -54,7 +54,7 @@ public class ServiciosAlojamiento {
                     campingResto(alojamientos);
                     break;
                 case 4:
-                    
+
                     break;
                 case 5:
                     System.out.println("CHAU!!!");
