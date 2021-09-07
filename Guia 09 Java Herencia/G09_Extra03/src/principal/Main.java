@@ -120,6 +120,7 @@ public class Main {
          * restaurante • todos las residencias que tienen descuento.
          */
         
+        //todos los alojamientos
         for (Alojamiento aux : lista) {
             System.out.println(aux);
             

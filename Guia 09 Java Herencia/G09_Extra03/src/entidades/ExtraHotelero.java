@@ -69,7 +69,7 @@ public abstract class ExtraHotelero extends Alojamiento {
             priv = "Privado";
         }
         System.out.println(super.toString());
-        return "Establecimiento Extra Hotel de tipo " + priv + " con " + mts2 + " metros 2";
+        return "Establecimiento Extra Hotel de tipo " + priv + " con " + mts2 + " mts2";
     }
 
     
