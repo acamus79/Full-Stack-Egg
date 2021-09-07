@@ -12,18 +12,20 @@ PrecioHabitación = $50 + ($1 x capacidad del hotel)
  */
 package entidades;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
  *
  * @author Adrian E. Camus
  */
-public abstract class Hotel extends Alojamiento {
+public class Hotel extends Alojamiento {
 
     protected Integer cantHabitaciones, nroCamas, cantPisos;
     protected Double precioHabitacion;
 
     public Hotel() {
+        precioHabitacion();
     }
 
     public Hotel(Integer cantHabitaciones, Integer nroCamas, Integer cantPisos, String nombre, String direccion, String localidad, String gerente) {
@@ -32,12 +34,16 @@ public abstract class Hotel extends Alojamiento {
         this.nroCamas = nroCamas;
         this.cantPisos = cantPisos;
     }
-    
-    public void precioHabitacion(){
-        this.precioHabitacion = (double) this.nroCamas+50;
+
+    public Double getPrecioHabitacion() {
+        return precioHabitacion;
     }
-    
-    public void creaHotel(){
+
+    public void precioHabitacion() {
+        this.precioHabitacion = (double) this.nroCamas + 50;
+    }
+
+    public void creaHotel() {
         super.creaAlojamiento();
         System.out.print("HOTEL ");
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
@@ -53,9 +59,7 @@ public abstract class Hotel extends Alojamiento {
     @Override
     public String toString() {
         System.out.println(super.toString());
-        return "Tipo Hotel con " +  cantHabitaciones + " habitaciones y " + nroCamas + " camas, " + cantPisos + " pisos" + "\nPrecio de la Habitacion: $ "+precioHabitacion;
+        return "Tipo Hotel con " + cantHabitaciones + " habitaciones y " + nroCamas + " camas, " + cantPisos + " pisos" + "\nPrecio de la Habitacion: $ " + precioHabitacion;
     }
 
-    
-    
 }

@@ -109,6 +109,7 @@ public class Hotel4Estrellas extends Hotel{
         
     }
 
+        
     @Override
     public String toString() {
         System.out.println(super.toString());
