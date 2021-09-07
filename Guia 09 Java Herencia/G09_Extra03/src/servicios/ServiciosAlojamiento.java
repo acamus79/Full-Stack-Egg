@@ -54,7 +54,7 @@ public class ServiciosAlojamiento {
                     campingResto(alojamientos);
                     break;
                 case 4:
-                    
+                    residenciaDesc(alojamientos);
                     break;
                 case 5:
                     System.out.println("CHAU!!!");
@@ -91,6 +91,13 @@ public class ServiciosAlojamiento {
 
     }
 
+    public static Comparator<Hotel> porPrecio = new Comparator<Hotel>() {
+        @Override
+        public int compare(Hotel h1, Hotel h2) {
+            return h2.getPrecioHabitacion().compareTo(h1.getPrecioHabitacion());
+        }
+    };
+    
     private void campingResto(ArrayList<Alojamiento> lista) {
 
         for (Alojamiento aux : lista) {
@@ -101,13 +108,14 @@ public class ServiciosAlojamiento {
             }
         }
     }
-
-    public static Comparator<Hotel> porPrecio = new Comparator<Hotel>() {
-        @Override
-        public int compare(Hotel h1, Hotel h2) {
-            return h2.getPrecioHabitacion().compareTo(h1.getPrecioHabitacion());
+    
+    private void residenciaDesc (ArrayList<Alojamiento> lista) {
+        for (Alojamiento aux : lista) {
+            if (aux instanceof Residencia) {
+                if (((Residencia) aux).isDescGremio()) {
+                    System.out.println(aux);
+                }
+            }
         }
-    };
-    
-    
+    }
 }
