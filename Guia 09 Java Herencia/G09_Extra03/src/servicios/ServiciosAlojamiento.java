@@ -15,6 +15,7 @@ import comparadores.ComparaHotel;
 import entidades.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -83,7 +84,7 @@ public class ServiciosAlojamiento {
         );
 
         ArrayList<Hotel> hoteles = new ArrayList(auxiliar);
-        Collections.sort(hoteles, ComparaHotel.porPrecio);
+        Collections.sort(hoteles, porPrecio);
 
         hoteles.forEach(aux -> {
             System.out.println(aux);
@@ -102,7 +103,12 @@ public class ServiciosAlojamiento {
         }
     }
 
-    
+    public static Comparator<Hotel> porPrecio = new Comparator<Hotel>() {
+        @Override
+        public int compare(Hotel h1, Hotel h2) {
+            return h2.getPrecioHabitacion().compareTo(h1.getPrecioHabitacion());
+        }
+    };
     
     
 }
