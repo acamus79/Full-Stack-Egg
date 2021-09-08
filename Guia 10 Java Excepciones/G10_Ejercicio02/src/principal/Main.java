@@ -10,6 +10,7 @@ código para generar y capturar una excepción ArrayIndexOutOfBoundsException
  */
 package principal;
 
+
 /**
  *
  * @author Adrian E. Camus
@@ -20,17 +21,19 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        int[] myVector = new int[5];
-
-        try {
-            for (int i = 0; i < 6; i++) {
-                myVector[i] = (int) (Math.random() * 8 + 1);
-                System.out.println("["+myVector[i]+"] ");
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Indice de arreglo fuera de rango");
+      
+        int[] miVector = new int[10];
+        
+        try{
+        for (int i = 0; i < 11; i++) {
+            miVector[i] = (int) Math.random()*50+1;
+            System.out.println("["+i+"] ");
         }
-
-    }
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println(e.toString());
+        }
+        
+        System.out.println("Aca termina");
+        
+       }
 }

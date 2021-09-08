@@ -54,6 +54,7 @@ public class Main {
         
         System.out.println(p3);
         sp.calcularIMC(p3);
+        
         sp.esMayorDeEdad(null);
         
         //System.out.println(p4);

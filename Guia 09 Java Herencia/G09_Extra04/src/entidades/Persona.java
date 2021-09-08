@@ -21,6 +21,13 @@ public abstract class Persona {
    protected String apellido;
    protected long dni;
    protected EstadoCivil estado;
-            
+
+    public Persona(String Nombre, String apellido, long dni, EstadoCivil estado) {
+        this.Nombre = Nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.estado = estado;
+    }
+   
    public abstract void cambioEstado();
 }

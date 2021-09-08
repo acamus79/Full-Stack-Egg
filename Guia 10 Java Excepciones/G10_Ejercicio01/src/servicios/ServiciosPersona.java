@@ -94,19 +94,20 @@ un 1. Se recomienda hacer uso de constantes para devolver estos valores.
      * @param p Persona
      * @return boolean
      */
+    
+    Persona p;
+    
     public boolean esMayorDeEdad(Persona p) {
         boolean mayor = false;
-
-        try {
+        try{
             if (p.getEdad() > 18) {
                 mayor = true;
                 contMayor++;
             } else {
                 contMenor++;
             }
-            
-        } catch (Exception e) {
-            System.out.println("La persona recibida no se puede analizar");
+        }catch(RuntimeException e){
+             System.out.println(e.toString());
         }
         return mayor;
     }

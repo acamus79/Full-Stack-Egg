@@ -21,17 +21,33 @@ public class Empleado extends Persona {
     private Integer anioIncorpora;
     private Integer despacho;
 
-    public Empleado() {
+    public Empleado(String Nombre, String apellido, long dni, EstadoCivil estado) {
+        super(Nombre, apellido, dni, estado);
     }
 
-    public Empleado(Integer anioIncorpora, Integer despacho, String nombre, String apellido, long dni,EstadoCivil estado) {
+    public Empleado(Integer anioIncorpora, Integer despacho, String Nombre, String apellido, long dni, EstadoCivil estado) {
+        super(Nombre, apellido, dni, estado);
         this.anioIncorpora = anioIncorpora;
         this.despacho = despacho;
-        
     }
-    
-    
 
+    public Integer getAnioIncorpora() {
+        return anioIncorpora;
+    }
+
+    public void setAnioIncorpora(Integer anioIncorpora) {
+        this.anioIncorpora = anioIncorpora;
+    }
+
+    public Integer getDespacho() {
+        return despacho;
+    }
+
+    public void setDespacho(Integer despacho) {
+        this.despacho = despacho;
+    }
+
+        
     @Override
     public void cambioEstado() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
