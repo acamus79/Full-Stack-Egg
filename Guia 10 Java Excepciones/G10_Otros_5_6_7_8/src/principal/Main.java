@@ -11,11 +11,9 @@ package principal;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-
+    }
+}
 //EJERCICIO 5
 //Dado el método metodoA de la clase A, indique:
 //a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción 
@@ -44,7 +42,7 @@ public class Main {
 //            sentencia_a5
 //            }
 //        }
-
+//
 //EJERCICIO 6 
 //Dado el método metodoB de la clase B, indique:
 //a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción 
@@ -69,117 +67,36 @@ public class Main {
 //                      sentencia_b4
 //                  }
 //      }
-
-//EJERCICIO 7
-//Indique que se mostrará por pantalla cuando se ejecute cada una de estas clases:
-//  class Uno{
-//      private static int metodo() {
-//          int valor=0;
-//              try {
-//                  valor = valor+1;
-//                  valor = valor + Integer.parseInt (”42”);
-//                  valor = valor +1;
-//                  System.out.println(”Valor final del try:” + valor) ;
-//              } catch (NumberFormatException e) {
-//                  Valor = valor + Integer.parseInt(”42”);
-//                  System.out.println(“Valor final del catch:” + valor);
-//              } finally {
-//                  valor = valor + 1;
-//                  System.out.println(”Valor final del finally: ” + valor) ;
-//              }
-//          valor = valor +1;
-//          System.out.println(”Valor antes del return: ” + valor) ;
-//      return valor;
-//      }
 //
-//          public static void main (String[] args) {
+//EJERCICIO 8
+//8. Dado el método metodoC de la clase C, indique:
+//a) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción MioException?
+//RT:   1ro sentencia_c1
+//      2do sentencia_c4
+//      3ro sentencia_c6  
+//b) ¿Qué sentencias y en qué orden se ejecutan si no se produce la excepción MioException?
+//RT:   1ro sentencia_c1
+//      2do sentencia_c2
+//      3ro sentencia_c3
+//      4to sentencia_c6
+//c) ¿Qué sentencias y en qué orden se ejecutan si se produce la excepción TuException?
+//RT:   1ro sentencia_c1
+//      2do sentencia_c5
+//      3ro sentencia_c6  
+
+//  class C {
+//      void metodoC() throws TuException{
+//          sentencia_c1
 //              try {
-//                  System.out.println (metodo()) ;
-//              }catch(Exception e) {
-//                  System.err.println(”Excepcion en metodo() ”) ;
-//                  e.printStackTrace();
+//                  sentencia_c2
+//                  sentencia_c3
+//              } catch (MioException e){
+//                  sentencia_c4
+//              } catch (TuException e){
+//                  sentencia_c5
+//              throw (e)
 //              }
-//          }
-//  }
-//RT: SE MOSTRARA 
-//Valor final del try: 44
-//Valor final del finally: 45
-//Valor antes del return: 46
-//46
-
-//  class Dos{
-//      private static metodo() {
-//          int valor=0;
-//          try{
-//              valor = valor + 1;
-//              valor = valor + Integer.parseInt (”W”);
-//              valor = valor + 1;
-//              System.out.println(”Valor final del try: ” + valor) ;
-//          } catch ( NumberFormatException e ) {
-//              valor = valor + Integer.parseInt (”42”);
-//              System.out.println(”Valor final del catch: ” + valor) ;
-//          } finally {
-//              valor = valor + 1;
-//              System.out.println(”Valor final del finally: ” + valor) ;
-//          }
-//          valor = valor + 1;
-//          System.out.println(”Valor antes del return: ” + valor) ;
-//      return valor;
+//              finally
+//                  sentencia_c6
+//              }
 //      }
-//  public static void main (String[] args) {
-//      try{
-//      System.out.println (metodo());
-//      } catch(Exception e) {
-//          System.err.println (”Excepcion en metodo()”) ;
-//          e.printStackTrace();
-//      }
-//  }
-// }
-//RT: SE MOSTRARA 
-//Valor final del catch: 43
-//Valor final del finally: 44
-//Valor antes del return: 45
-//45
-
-
-
-//class Tres{
-//private static metodo( ) {
-//int valor=0;
-//try{
-//valor = valor + 1;
-//valor = valor + Integer.parseInt (”W”);
-//valor = valor + 1;
-//System.out.println(”Valor final del try: ” + valor);
-//} catch(NumberFormatException e) {
-//valor = valor + Integer.parseInt (”W”);
-//System.out.println(”Valor final del catch: ” + valor);
-//} finally{
-//valor = valor + 1;
-//System.out.println(”Valor final del finally:” + valor);
-//}
-//valor = valor + 1;
-//System.out.println(”Valor antes del return: ” + valor) ;
-//return valor;
-//}
-// 
-//public static void main (String[] args) {
-//try{
-//System.out.println( metodo ( ) ) ;
-//} catch(Exception e) {
-//System.err.println(”Excepcion en metodo ( ) ” ) ;
-//e.printStackTrace();
-//}
-//}
-//}
-
-
-
-
-
-
-
-
-
-    }
-}
