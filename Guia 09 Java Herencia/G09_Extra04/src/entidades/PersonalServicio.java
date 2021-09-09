@@ -30,6 +30,9 @@ public class PersonalServicio extends Empleado {
         this.seccion = seccion;
     }
     
-    
+    @Override
+    public void cambioEstado(){
+        super.cambioEstado();
+    }
     
 }
