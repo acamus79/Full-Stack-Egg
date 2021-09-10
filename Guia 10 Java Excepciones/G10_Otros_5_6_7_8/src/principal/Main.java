@@ -5,6 +5,8 @@
  */
 package principal;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Adrian E. Camus
@@ -12,6 +14,9 @@ package principal;
 public class Main {
 
     public static void main(String[] args) {
+
+
+
     }
 }
 //EJERCICIO 5
