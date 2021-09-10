@@ -5,10 +5,8 @@ package ExcepcionesEjemplosClase;
 //
 public class ExcepcionPropia extends Exception {
 
-
     public ExcepcionPropia() {
     }
-
  
     public ExcepcionPropia(String msg) {
         super(msg);

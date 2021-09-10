@@ -24,7 +24,8 @@ public class Ejemplo03NoVerificadas {
         System.out.println("ingrese su nombre");
         String nombreI = leer.next();
         if (nombreI.length() < 2) {//Inventando que si ingresa menos 2 es un 
-            throw new ExcepcionPropia(" No ingreso un nombre valido - Vas a tener q reingresar el dato");
+            String mensaje = " No ingreso un nombre valido - Vas a tener q reingresar el dato";
+            throw new ExcepcionPropia(mensaje);
         }
         
         System.out.println("Ingrese su edad");
