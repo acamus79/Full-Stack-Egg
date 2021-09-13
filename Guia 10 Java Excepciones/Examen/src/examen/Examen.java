@@ -52,7 +52,8 @@ public class Examen {
     //asrevni
     public static String inversa(String palabra){
                
-        String invertida = new StringBuilder(palabra).reverse().toString();
+        String invertida = palabra.toLowerCase();
+            invertida = new StringBuilder(palabra).reverse().toString();
         return invertida;
     }
     
