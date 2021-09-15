@@ -1,3 +1,6 @@
+-- Desactiva el modo seguro --
+SET SQL_SAFE_UPDATES =0;
+
 /*Elimino la base si existe*/
 DROP DATABASE IF EXISTS superheroes;
 
