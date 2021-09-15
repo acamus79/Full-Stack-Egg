@@ -182,10 +182,12 @@ SELECT SUM(sal_emp) AS 'Total Salarios', COUNT(sal_emp) as 'Cant. de Salarios', 
 select id_depto as 'Codigo de Departamento', count(id_emp) as 'Cantidad de Empleados' from empleados group by id_depto having count(id_depto)>3;
 
 -- 25. Mostrar el código y nombre de cada jefe, junto al número de empleados que dirige. Solo los que tengan más de dos empleados (2 incluido).
+/* ??????
 select cod_jefe as 'Codigo de Jefe', nombre, count(id_emp) as 'Cantidad de Empleados' 
 from empleados group by id_depto having count(id_depto)>=2;
 
 SELECT nombre, cargo_emp AS "Nombre" FROM personal.empleados WHERE cargo_emp LIKE "Jefe%";
+*/
 
 -- 26. Hallar los departamentos que no tienen empleados 
 select nombre_depto as 'Departamento sin Empleado'
@@ -195,3 +197,4 @@ on d.id_depto = e.id_depto where e.id_emp is null;
 
 -- Consulta con Subconsulta
 -- 27. Mostrar la lista de los empleados cuyo salario es mayor o igual que el promedio de la empresa. Ordenarlo por departamento.
+
