@@ -158,4 +158,12 @@ select MAX(sal_emp) AS 'Salario mas Alto', MIN(sal_emp) AS 'Salario mas Bajo', M
 -- 23. Hallar el salario promedio por departamento. --
 SELECT  SUM(sal_emp) AS 'Total Salario', COUNT(sal_emp) as 'Cant. de Salarios',  round(SUM(sal_emp) / COUNT(sal_emp),2) as 'Promedio' FROM personal.empleados;
 
+-- Consultas con Having
+-- 24. Hallar los departamentos que tienen más de tres empleados. Mostrar el número de empleados de esos departamentos.
 
+-- 25. Mostrar el código y nombre de cada jefe, junto al número de empleados que dirige. Solo los que tengan más de dos empleados (2 incluido).
+
+-- 26. Hallar los departamentos que no tienen empleados 
+
+-- Consulta con Subconsulta
+-- 27. Mostrar la lista de los empleados cuyo salario es mayor o igual que el promedio de la empresa. Ordenarlo por departamento.
