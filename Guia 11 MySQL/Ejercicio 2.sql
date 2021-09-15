@@ -152,6 +152,10 @@ select nombre from personal.empleados ORDER BY nombre desc ;
 select MAX(nombre) from personal.empleados;
 select * from personal.empleados where nombre=(select MAX(nombre) from personal.empleados);
 
--- 22 --
+-- 22. Hallar el salario más alto, el más bajo y la diferencia entre ellos. --
+select MAX(sal_emp) AS 'Salario mas Alto', MIN(sal_emp) AS 'Salario mas Bajo', MAX(sal_emp)- MIN(sal_emp) AS 'Diferencia'  from personal.empleados;
+
+-- 23. Hallar el salario promedio por departamento. --
+SELECT  SUM(sal_emp) AS 'Total Salario', COUNT(sal_emp) as 'Cant. de Salarios',  round(SUM(sal_emp) / COUNT(sal_emp),2) as 'Promedio' FROM personal.empleados;
 
 
