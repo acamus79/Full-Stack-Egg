@@ -2,6 +2,7 @@ USE tienda;
 
 /* Enunciado
 
+
 13. Devuelve una lista con las 5 primeras filas de la tabla fabricante.
 14. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 15. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT)
@@ -48,6 +49,8 @@ Subconsultas con IN y NOT IN
 Subconsultas (En la cláusula HAVING) 
 1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo 
 número de productos que el fabricante Lenovo */
+
+
 -- EJERCICIOS --
 -- 1. Lista el nombre de todos los productos que hay en la tabla producto. --
 SELECT nombre FROM producto;
@@ -68,13 +71,18 @@ SELECT codigo_fabricante from producto;
 SELECT distinct codigo_fabricante from producto;
 
 -- 11. Lista los nombres de los fabricantes ordenados de forma ascendente. -- 
-select nombre from fabricante order by nombre asc;
-select nombre from fabricante;
+select nombre from fabricante; -- como para ver la diferencia
+select nombre from fabricante order by nombre asc; -- como se escribe
+select nombre from fabricante order by nombre; -- por defecto es de forma ASCENDENTE
+
 
 -- 12. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo lugar por el precio de forma descendente.
 SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' FROM producto order by nombre asc;
 SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' FROM producto order by precio desc; 
 
+-- seria asi y solo se podria verificar si hubieran dos productos de igual nombre 
+SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' 
+FROM producto order by nombre , precio desc;
 
 
 
