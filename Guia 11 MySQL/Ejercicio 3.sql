@@ -1,10 +1,6 @@
 USE tienda;
 
 /* Enunciado
-
-
-13. Devuelve una lista con las 5 primeras filas de la tabla fabricante.
-14. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 15. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 16. Lista el nombre de los productos que tienen un precio menor o igual a $120.
 17. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN.
@@ -83,6 +79,21 @@ SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' FROM produ
 -- seria asi y solo se podria verificar si hubieran dos productos de igual nombre 
 SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' 
 FROM producto order by nombre , precio desc;
+
+-- 13. Devuelve una lista con las 5 primeras filas de la tabla fabricante. --
+select * 
+from fabricante
+limit 5;
+
+-- 14. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT) --
+select nombre , precio
+from producto
+order by precio
+limit 1;
+
+-- asi no!!!! mirar el nombre del producto
+select nombre, min(precio) 
+from producto;
 
 
 
