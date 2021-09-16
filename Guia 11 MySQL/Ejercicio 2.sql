@@ -130,8 +130,12 @@ group by id_depto having count(id_depto)>3;
 
 
 
-
 /* ??????
+
+SELECT cod_jefe as 'Codigo' ,  nombre AS "Nombre", cargo_emp 'Cargo'  
+from empleados WHERE cargo_emp LIKE 'Jefe%'
+group by cod_jefe having count(id_emp)>=2 ;
+
 select cod_jefe as 'Codigo de Jefe', nombre, count(id_emp) as 'Cantidad de Empleados' 
 from empleados group by id_depto having count(id_depto)>=2;
 
