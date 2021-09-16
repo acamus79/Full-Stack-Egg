@@ -148,7 +148,6 @@ left join empleados e
 where cargo_emp like '%jefe%';
 
 
-
 /* ??????
 
 SELECT cod_jefe as 'Codigo' ,  nombre AS "Nombre", cargo_emp 'Cargo'  
