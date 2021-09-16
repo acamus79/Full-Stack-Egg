@@ -67,11 +67,11 @@ FROM personal.empleados WHERE id_depto = 3000 ORDER BY nombre;
 
 -- 12. Muestra los empleados cuyo nombre empiece con la letra J. --
 -- pagina 18 de la guia --
-SELECT nombre AS "Nombre" FROM personal.empleados WHERE nombre LIKE "J%"; -- Empieza con J --
-SELECT nombre AS "Nombre" FROM personal.empleados WHERE nombre LIKE "%a"; -- terminan con A --
-SELECT nombre AS "Nombre" FROM personal.empleados WHERE nombre LIKE "%j%"; -- Contiene J ó Empieza con J --
-SELECT nombre AS "Nombre" FROM personal.empleados WHERE nombre LIKE "_%j%"; -- Contiene J --
-SELECT nombre AS "Nombre" FROM personal.empleados WHERE nombre LIKE "_o%"; -- Su segunda letra es O --
+SELECT nombre AS "Nombre" FROM empleados WHERE nombre LIKE "J%"; -- Empieza con J --
+SELECT nombre AS "Nombre" FROM empleados WHERE nombre LIKE "%a"; -- terminan con A --
+SELECT nombre AS "Nombre" FROM empleados WHERE nombre LIKE "%j%"; -- Contiene J ó Empieza con J --
+SELECT nombre AS "Nombre" FROM empleados WHERE nombre LIKE "_%j%"; -- Contiene J --
+SELECT nombre AS "Nombre" FROM empleados WHERE nombre LIKE "_o%"; -- Su segunda letra es O --
 
 -- 13. Listar el salario, la comisión, el salario total (salario + comisión) y nombre, de aquellos empleados que tienen comisión superior a 1000.--
 SELECT sal_emp AS "Salario", comision_emp AS "Comision", (sal_emp + comision_emp) AS "Salario + Comision", nombre AS "Nombre" FROM personal.empleados WHERE comision_emp > 1000;
@@ -80,26 +80,33 @@ SELECT sal_emp AS "Salario", comision_emp AS "Comision", (sal_emp + comision_emp
 SELECT sal_emp AS "Salario", comision_emp AS "Comision", (sal_emp + comision_emp) AS "Salario + Comision", nombre AS "Nombre" FROM personal.empleados WHERE comision_emp = 0;
 
 -- 15. Obtener la lista de los empleados que ganan una comisión superior a su sueldo. --
-SELECT nombre AS "Nombre", sal_emp AS "Salario", comision_emp AS "Comision" FROM personal.empleados WHERE comision_emp > sal_emp ORDER BY nombre;
+SELECT nombre AS "Nombre", sal_emp AS "Salario", comision_emp AS "Comision" 
+FROM personal.empleados WHERE comision_emp > sal_emp ORDER BY nombre;
 
 -- 16. Listar los empleados cuya comisión es menor o igual que el 30% de su sueldo. --
-SELECT nombre AS "Nombre", comision_emp AS "Comision", sal_emp AS "Salario" FROM personal.empleados WHERE comision_emp <= sal_emp * 0.30 ORDER BY nombre;
+SELECT nombre AS "Nombre", comision_emp AS "Comision", sal_emp AS "Salario" 
+FROM personal.empleados WHERE comision_emp <= sal_emp * 0.30 ORDER BY nombre;
 
 -- 17. Hallar los empleados cuyo nombre no contiene la cadena “MA” --
-SELECT nombre AS "Nombre" FROM personal.empleados WHERE nombre NOT LIKE "MA%";
+SELECT nombre AS "Nombre" 
+FROM personal.empleados WHERE nombre NOT LIKE "MA%";
 
 -- 18. Obtener los nombres de los departamentos que sean “Ventas” , “Investigación” y ‘Mantenimiento". --
-SELECT DISTINCT nombre_depto AS "Nombre Departamento" FROM personal.departamentos WHERE nombre_depto IN ("Ventas", "Investigación", "Mantenimiento");
+SELECT DISTINCT nombre_depto AS "Nombre Departamento" 
+FROM personal.departamentos WHERE nombre_depto IN ("Ventas", "Investigación", "Mantenimiento");
 
 -- 19. Ahora obtener los nombres de los departamentos que NO sean “Ventas” ni “Investigación” ni ‘Mantenimiento. --
-SELECT nombre_depto AS "Nombre Departamento" FROM personal.departamentos WHERE nombre_depto NOT IN ("Ventas", "Mantenimiento", "Investigación");
+SELECT nombre_depto AS "Nombre Departamento" 
+FROM personal.departamentos WHERE nombre_depto NOT IN ("Ventas", "Mantenimiento", "Investigación");
 
 -- 20. Mostrar el salario más alto de la empresa --
-SELECT MAX(sal_emp) AS "Salario MAXIMO", nombre AS "Nombre" FROM personal.empleados;
+SELECT MAX(sal_emp) AS "Salario MAXIMO", nombre AS "Nombre" 
+FROM personal.empleados;
 
 -- 21. Mostrar el nombre del último empleado de la lista por orden alfabético. --
 select nombre from personal.empleados ORDER BY nombre desc ;
 select MAX(nombre) from personal.empleados;
+-- con subconsulta
 select * from personal.empleados where nombre=(select MAX(nombre) from personal.empleados);
 
 -- 22. Hallar el salario más alto, el más bajo y la diferencia entre ellos. --
@@ -115,13 +122,23 @@ SELECT SUM(sal_emp) AS 'Total Salarios', COUNT(sal_emp) as 'Cant. de Salarios', 
 
 -- Consultas con Having PAGINA 22 --
 -- 24. Hallar los departamentos que tienen más de tres empleados. Mostrar el número de empleados de esos departamentos. --
-select id_depto as 'Codigo de Departamento', count(id_emp) as 'Cantidad de Empleados' from empleados group by id_depto having count(id_depto)>3;
+select id_depto as 'Codigo de Departamento', count(id_emp) as 'Cantidad de Empleados' 
+from empleados
+group by id_depto having count(id_depto)>3;
 
 -- 25. Mostrar el código y nombre de cada jefe, junto al número de empleados que dirige. Solo los que tengan más de dos empleados (2 incluido).
+
+
+
 
 /* ??????
 select cod_jefe as 'Codigo de Jefe', nombre, count(id_emp) as 'Cantidad de Empleados' 
 from empleados group by id_depto having count(id_depto)>=2;
+
+select nombre, count(id_emp) as 'Cant. Empleados'
+from empleados
+where cargo_emp like 'Jefe%'
+group by id_depto having count(id_emp) >= 2;
 
 SELECT nombre, cargo_emp AS "Nombre" FROM personal.empleados WHERE cargo_emp LIKE "Jefe%";
 */
@@ -137,7 +154,8 @@ on d.id_depto = e.id_depto where e.id_emp is null;
 
 -- Consulta con Subconsulta
 -- 27. Mostrar la lista de los empleados cuyo salario es mayor o igual que el promedio de la empresa. Ordenarlo por departamento.
-
-
+select nombre 'Nombre Empleado', sal_emp 'Salario mayor o igual al promedio' 
+from empleados 
+where sal_emp >= (select avg(sal_emp) from empleados);
 
 
