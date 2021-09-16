@@ -127,6 +127,25 @@ from empleados
 group by id_depto having count(id_depto)>3;
 
 -- 25. Mostrar el código y nombre de cada jefe, junto al número de empleados que dirige. Solo los que tengan más de dos empleados (2 incluido).
+Select 	dp.nombre_depto,
+		dp.dirigidos,
+        e.id_emp,
+        e.cod_jefe,
+        e.nombre,
+        e.cargo_emp
+from
+(SELECT 	nombre_depto,
+			e.id_depto,
+		count(nombre_depto)-1 as dirigidos
+FROM departamentos d
+	left join empleados e
+		on e.id_depto = d.id_depto
+group by nombre_depto
+having count((nombre_depto)-1)>=2) dp
+
+left join empleados e
+	on dp.id_depto = e.id_depto
+where cargo_emp like '%jefe%';
 
 
 
