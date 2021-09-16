@@ -2,17 +2,6 @@ USE tienda;
 
 /* Enunciado
 
-1. Lista el nombre de todos los productos que hay en la tabla producto.
-2. Lista los nombres y los precios de todos los productos de la tabla producto.
-3. Lista todas las columnas de la tabla producto.
-4. Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio.
-5. Lista el código de los fabricantes que tienen productos en la tabla producto.
-
-10. Lista el código de los fabricantes que tienen productos en la tabla producto, sin 
-mostrar los repetidos.
-11. Lista los nombres de los fabricantes ordenados de forma ascendente.
-12. Lista los nombres de los productos ordenados en primer lugar por el nombre de 
-forma ascendente y en segundo lugar por el precio de forma descendente.
 13. Devuelve una lista con las 5 primeras filas de la tabla fabricante.
 14. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 15. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT)
@@ -59,3 +48,33 @@ Subconsultas con IN y NOT IN
 Subconsultas (En la cláusula HAVING) 
 1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo 
 número de productos que el fabricante Lenovo */
+-- EJERCICIOS --
+-- 1. Lista el nombre de todos los productos que hay en la tabla producto. --
+SELECT nombre FROM producto;
+
+-- 2. Lista los nombres y los precios de todos los productos de la tabla producto. --
+SELECT nombre as 'Nombre Producto', precio as 'Precio Lista $' FROM producto;
+
+-- 3. Lista todas las columnas de la tabla producto. --
+SELECT * FROM producto; 
+
+-- 4. Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio. --
+SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' FROM producto;
+
+-- 5. Lista el código de los fabricantes que tienen productos en la tabla producto. --
+SELECT codigo_fabricante from producto;
+
+-- 10. Lista el código de los fabricantes que tienen productos en la tabla producto, sin mostrar los repetidos. --
+SELECT distinct codigo_fabricante from producto;
+
+-- 11. Lista los nombres de los fabricantes ordenados de forma ascendente. -- 
+select nombre from fabricante order by nombre asc;
+select nombre from fabricante;
+
+-- 12. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo lugar por el precio de forma descendente.
+SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' FROM producto order by nombre asc;
+SELECT nombre as 'Nombre Producto', round(precio) as 'Precio Lista $' FROM producto order by precio desc; 
+
+
+
+
