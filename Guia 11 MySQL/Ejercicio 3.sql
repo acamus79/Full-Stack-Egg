@@ -1,7 +1,6 @@
 USE tienda;
 
 /* Enunciado
-15. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 16. Lista el nombre de los productos que tienen un precio menor o igual a $120.
 17. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN.
 18. Lista todos los productos donde el código de fabricante sea 1, 3 o 5. Utilizando el operador IN.
@@ -94,6 +93,14 @@ limit 1;
 -- asi no!!!! mirar el nombre del producto
 select nombre, min(precio) 
 from producto;
+
+-- 15. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT) --
+select nombre , precio
+from producto
+order by precio desc
+limit 1;
+
+-- 
 
 
 
