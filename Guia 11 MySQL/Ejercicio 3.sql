@@ -1,8 +1,6 @@
 USE tienda;
 
 /* Enunciado
-16. Lista el nombre de los productos que tienen un precio menor o igual a $120.
-17. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN.
 18. Lista todos los productos donde el código de fabricante sea 1, 3 o 5. Utilizando el operador IN.
 23. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre.
 
@@ -100,7 +98,12 @@ from producto
 order by precio desc
 limit 1;
 
--- 
+-- 16. Lista el nombre de los productos que tienen un precio menor o igual a $120. --
+select nombre, precio 
+from producto
+where precio >= 120
+order by precio;
 
+-- 17. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN. --
 
 
