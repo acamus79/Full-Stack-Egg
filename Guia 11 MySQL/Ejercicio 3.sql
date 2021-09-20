@@ -142,6 +142,14 @@ join fabricante f
 on p.codigo_fabricante = f.codigo
 where p.precio >= 180 
 order by p.precio and p.nombre asc;
+-- Asi si debe ser
+select p.nombre 'Producto Nombre', f.nombre 'Fabricante', p.precio 'Precio'
+from producto p
+join fabricante f
+on p.codigo_fabricante = f.codigo
+where p.precio >= 180 
+order by f.nombre, p.precio desc;
+
 
 /* Consultas Multitabla 
 Resuelva todas las consultas utilizando las cláusulas LEFT JOIN y RIGHT JOIN.*/
@@ -163,15 +171,59 @@ where p.nombre is null;
 /*Subconsultas (En la cláusula WHERE) Con operadores básicos de comparación*/
 -- 1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN). --
 -- ????? me parece que no es asi
-select p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+
+select nombre, precio , codigo_fabricante
+from producto
+where codigo_fabricante = (select fabricante.codigo from fabricante where fabricante.nombre like 'Leno%');
+
+select *
 from fabricante f, producto p
-where f.nombre like 'Leno%';
+WHERE p.codigo_fabricante=f.codigo and f.nombre = (select f.nombre from fabricante f where f.nombre like 'Leno%');
+
+select *
+from fabricante f, producto p
+WHERE p.codigo_fabricante=f.codigo and f.nombre = 'Lenovo';
 
 -- 2. Devuelve todos los datos de los productos que tienen el mismo precio que el producto más caro del fabricante Lenovo. (Sin utilizar INNER JOIN).
+-- primero le cambio el precio a un producto para poder comparar
+UPDATE `tienda`.`producto` SET `precio` = '559' WHERE (`codigo` = '2');
+
+SELECT *
+FROM producto
+WHERE precio = (SELECT MAX(precio)
+  FROM producto
+  WHERE codigo_fabricante = (SELECT codigo
+    FROM fabricante
+    WHERE nombre = 'Lenovo'));
+
+-- vuelvo al precio que tenia
+UPDATE `tienda`.`producto` SET `precio` = '120' WHERE (`codigo` = '2');
 
 -- 3. Lista el nombre del producto más caro del fabricante Lenovo.
+select len.*
+from (select p.nombre, p.precio, f.nombre as 'fabricante'
+from fabricante f
+inner join producto p
+on p.codigo_fabricante=f.codigo and f.nombre='lenovo') len
+order by len.precio desc
+limit 1;
+
+select len.*
+from (select p.nombre, p.precio, f.nombre as 'fabricante'
+from fabricante f
+inner join producto p
+on p.codigo_fabricante= f.codigo and f.nombre='lenovo') len, producto p
+group by p.precio
+having max(len.precio) limit 1;
 
 -- 4. Lista todos los productos del fabricante Asus que tienen un precio superior al precio medio de todos sus productos.
+select len.*
+from (select p.nombre, p.precio, f.nombre as 'fabricante'
+from fabricante f
+inner join producto p
+on p.codigo_fabricante= f.codigo and f.nombre='Asus') len, producto p
+group by p.precio
+having precio > avg(len.precio);
 
 -- Subconsultas con IN y NOT IN 
 -- 1. Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando IN o NOT IN).
