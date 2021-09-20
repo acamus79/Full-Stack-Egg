@@ -48,6 +48,11 @@ limit 1;
 select nombre, min(precio) 
 from producto;
 
+-- asi si!!
+select nombre, precio 
+from producto
+where precio = (select min(precio) from producto);
+
 -- 15. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT) --
 select nombre , precio
 from producto
