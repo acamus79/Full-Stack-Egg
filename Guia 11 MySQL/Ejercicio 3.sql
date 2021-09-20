@@ -122,7 +122,21 @@ order by precio;
 
 -- Consultas Multitabla --
 -- 1. Devuelve una lista con el código del producto, nombre del producto, código del fabricante y nombre del fabricante, de todos los productos de la base de datos. --
--- 2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos. Ordene el resultado por el nombre del abricante, por orden alfabético.
+select p.codigo, p.nombre 'Producto Nombre', p.codigo_fabricante 'Cod. Fabricante', f.nombre 'Fabricante'
+from producto p
+join fabricante f
+on p.codigo_fabricante = f.codigo;
+
+-- 2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos. Ordene el resultado por el nombre del abricante, por orden alfabético. --
+select p.codigo, p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+from producto p
+join fabricante f
+on p.codigo_fabricante = f.codigo
+order by p.nombre;
+
+
+
+
 -- 3. Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato. 
 -- 4. Devuelve una lista de todos los productos del fabricante Lenovo. --
 -- 5. Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que $200. --
