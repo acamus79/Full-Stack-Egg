@@ -159,8 +159,20 @@ where f.nombre
 like 'Cru%' and p.precio > 200;
 
 -- 6. Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard. Utilizando el operador IN. --
+select p.codigo, p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+from producto p
+join fabricante f
+on p.codigo_fabricante = f.codigo
+where f.nombre
+in ('Asus', 'Hewlett-Packard')
+order by precio;
 
 
-
--- 7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente) --
-
+-- 7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual 
+-- a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente) --
+select p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+from producto p
+join fabricante f
+on p.codigo_fabricante = f.codigo
+where p.precio >= 180 
+order by p.precio and p.nombre asc;
