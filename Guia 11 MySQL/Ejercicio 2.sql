@@ -133,13 +133,10 @@ Select 	dp.nombre_depto,
         e.cod_jefe,
         e.nombre,
         e.cargo_emp
-from
-(SELECT 	nombre_depto,
-			e.id_depto,
-		count(nombre_depto)-1 as dirigidos
+from (SELECT nombre_depto, e.id_depto, count(nombre_depto)-1 as dirigidos
 FROM departamentos d
-	left join empleados e
-		on e.id_depto = d.id_depto
+left join empleados e
+on e.id_depto = d.id_depto
 group by nombre_depto
 having count((nombre_depto)-1)>=2) dp
 
@@ -147,6 +144,11 @@ left join empleados e
 	on dp.id_depto = e.id_depto
 where cargo_emp like '%jefe%';
 
+SELECT e.cod_jefe, e.nombre, count(*) 
+FROM empleados e, departamentos d
+WHERE d.id_depto = e.id_depto
+GROUP BY e.cod_jefe
+HAVING count(*) >= 2;
 
 /* ??????
 
