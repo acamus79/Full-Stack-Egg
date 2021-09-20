@@ -1,44 +1,5 @@
 USE tienda;
 
-/* Enunciado
-
-
-2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de 
-todos los productos de la base de datos. Ordene el resultado por el nombre del 
-fabricante, por orden alfabético.
-3. Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato. 
-4. Devuelve una lista de todos los productos del fabricante Lenovo.
-5. Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que $200.
-6. Devuelve un listado con todos los productos de los fabricantes Asus, HewlettPackard. Utilizando el operador IN.
-7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual a $180. Ordene el resultado 
-en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente)
-
-Consultas Multitabla 
-Resuelva todas las consultas utilizando las cláusulas LEFT JOIN y RIGHT JOIN.
-
-1. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto 
-con los productos que tiene cada uno de ellos. El listado deberá mostrar también 
-aquellos fabricantes que no tienen productos asociados.
-2. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen 
-ningún producto asociado.
-Subconsultas (En la cláusula WHERE) 
-Con operadores básicos de comparación
-1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN).
-2. Devuelve todos los datos de los productos que tienen el mismo precio que el 
-producto más caro del fabricante Lenovo. (Sin utilizar INNER JOIN).
-3. Lista el nombre del producto más caro del fabricante Lenovo.
-4. Lista todos los productos del fabricante Asus que tienen un precio superior al precio 
-medio de todos sus productos.
-Subconsultas con IN y NOT IN 
-1. Devuelve los nombres de los fabricantes que tienen productos asociados. 
-(Utilizando IN o NOT IN).
-2. Devuelve los nombres de los fabricantes que no tienen productos asociados. 
-(Utilizando IN o NOT IN).
-Subconsultas (En la cláusula HAVING) 
-1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo 
-número de productos que el fabricante Lenovo */
-
-
 -- EJERCICIOS --
 -- 1. Lista el nombre de todos los productos que hay en la tabla producto. --
 SELECT nombre FROM producto;
@@ -168,11 +129,52 @@ in ('Asus', 'Hewlett-Packard')
 order by precio;
 
 
--- 7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual 
--- a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente) --
+/*7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual 
+ a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente) */
 select p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
 from producto p
 join fabricante f
 on p.codigo_fabricante = f.codigo
 where p.precio >= 180 
 order by p.precio and p.nombre asc;
+
+/* Consultas Multitabla 
+Resuelva todas las consultas utilizando las cláusulas LEFT JOIN y RIGHT JOIN.*/
+
+/* 1. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los productos que tiene cada uno de ellos. El listado deberá 
+mostrar también aquellos fabricantes que no tienen productos asociados.*/
+select p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+from fabricante f
+left join producto p
+on f.codigo = p.codigo_fabricante;
+
+-- 2. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen ningún producto asociado. --
+select p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+from fabricante f
+left join producto p
+on f.codigo = p.codigo_fabricante
+where p.nombre is null;
+
+/*Subconsultas (En la cláusula WHERE) Con operadores básicos de comparación*/
+-- 1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN). --
+-- ????? me parece que no es asi
+select p.nombre 'Producto Nombre', p.precio 'Precio', f.nombre 'Fabricante'
+from fabricante f, producto p
+where f.nombre like 'Leno%';
+
+-- 2. Devuelve todos los datos de los productos que tienen el mismo precio que el producto más caro del fabricante Lenovo. (Sin utilizar INNER JOIN).
+
+-- 3. Lista el nombre del producto más caro del fabricante Lenovo.
+
+-- 4. Lista todos los productos del fabricante Asus que tienen un precio superior al precio medio de todos sus productos.
+
+-- Subconsultas con IN y NOT IN 
+-- 1. Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando IN o NOT IN).
+
+-- 2. Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando IN o NOT IN).
+
+-- Subconsultas (En la cláusula HAVING) 
+-- 1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo --
+
+
+
