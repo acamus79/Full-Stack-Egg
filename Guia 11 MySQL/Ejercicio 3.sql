@@ -1,13 +1,8 @@
 USE tienda;
 
 /* Enunciado
-18. Lista todos los productos donde el código de fabricante sea 1, 3 o 5. Utilizando el operador IN.
-23. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre.
 
-Consultas Multitabla 
- 
-1. Devuelve una lista con el código del producto, nombre del producto, código del 
-fabricante y nombre del fabricante, de todos los productos de la base de datos.
+
 2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de 
 todos los productos de la base de datos. Ordene el resultado por el nombre del 
 fabricante, por orden alfabético.
@@ -105,5 +100,32 @@ where precio >= 120
 order by precio;
 
 -- 17. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN. --
+select nombre, round(precio) 'Precio' 
+from producto
+where precio 
+between 60 and 200
+order by precio;
 
+-- 18. Lista todos los productos donde el código de fabricante sea 1, 3 o 5. Utilizando el operador IN. --
+select nombre, round(precio) 'Precio' , codigo_fabricante
+from producto
+where codigo_fabricante
+in (1, 3, 5)
+order by precio;
+
+-- 23. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre. --
+select nombre, round(precio) 'Precio' , codigo_fabricante
+from producto
+where nombre
+like 'Por%'
+order by precio;
+
+-- Consultas Multitabla --
+-- 1. Devuelve una lista con el código del producto, nombre del producto, código del fabricante y nombre del fabricante, de todos los productos de la base de datos. --
+-- 2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos. Ordene el resultado por el nombre del abricante, por orden alfabético.
+-- 3. Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato. 
+-- 4. Devuelve una lista de todos los productos del fabricante Lenovo. --
+-- 5. Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que $200. --
+-- 6. Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard. Utilizando el operador IN. --
+-- 7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente) --
 
