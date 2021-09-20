@@ -1,4 +1,4 @@
-PREGUNTAS DE APRENDIZAJE
+** PREGUNTAS DE APRENDIZAJE **
 
 1) Responda Verdadero (V) o Falso (F) 
 
@@ -105,4 +105,3 @@ a) ROUND()
 b) ORDER BY
 c) FLOOR()
 d) COUNT() (V)
-
