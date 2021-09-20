@@ -170,8 +170,8 @@ where p.nombre is null;
 
 /*Subconsultas (En la cláusula WHERE) Con operadores básicos de comparación*/
 -- 1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN). --
--- ????? me parece que no es asi
 
+-- ????? me parece que no es asi
 select nombre, precio , codigo_fabricante
 from producto
 where codigo_fabricante = (select fabricante.codigo from fabricante where fabricante.nombre like 'Leno%');
@@ -225,13 +225,141 @@ on p.codigo_fabricante= f.codigo and f.nombre='Asus') len, producto p
 group by p.precio
 having precio > avg(len.precio);
 
+
 -- Subconsultas con IN y NOT IN 
 -- 1. Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando IN o NOT IN).
+select distinct nombre 'Nombre Fabricante'
+from fabricante 
+where codigo in (select codigo_fabricante from producto);
+
 
 -- 2. Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando IN o NOT IN).
+select nombre 'Nombre Fabricante'
+from fabricante
+where codigo not in (select codigo_fabricante from producto);
+
 
 -- Subconsultas (En la cláusula HAVING) 
 -- 1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo --
+select f.nombre 'Nombre Fabricante'
+from fabricante f inner join producto p
+on f.codigo = p.codigo_fabricante
+GROUP BY f.codigo
+having count(p.codigo_fabricante) >= 2;
 
 
 
+SELECT fabricante.nombre, COUNT(producto.codigo)
+FROM fabricante INNER JOIN producto
+ON fabricante.codigo = producto.codigo_fabricante
+GROUP BY fabricante.codigo
+HAVING COUNT(producto.codigo) >= (SELECT COUNT(producto.codigo)
+    FROM fabricante INNER JOIN producto
+    ON fabricante.codigo = producto.codigo_fabricante
+    WHERE fabricante.nombre = 'Lenovo');
+
+
+/*
+PREGUNTAS DE APRENDIZAJE
+1) Responda Verdadero (V) o Falso (F) 
+V F
+Una primary key es la columna (columnas) que tiene datos 
+completamente únicos a lo largo de la tabla.
+(V) ( )
+La función principal de una clave primaria en una tabla es mantener su 
+integridad.
+(V) ( )
+Las foreign keys o llaves foráneas son campos que vinculan una tabla 
+con la clave primaria o externa de otra tabla.
+(V) ( )
+Una tabla no puede tener más de una clave foránea definida.
+( ) (F)
+INSERT, UPDATE y CREATE son commandos DDL. 
+() (F)
+El comando DROP se utiliza para eliminar todas las filas de una tabla. 
+( ) (F)
+2) ¿Cuál de las siguientes sentencias son ciertas sobre las relaciones? 
+a) Las relaciones son entidades (F)
+b) Las relaciones son enlaces lógicos entre las tablas implementadas a través de 
+primary y foreign keys. (V)
+c) Las relaciones son almacenadas como atributos en la base de datos. (F)
+d) Las relaciones explícitamente definen una asociación entre 2 tablas. (V)
+
+3) ¿Cómo se crea una base de datos con SQL? 
+a) CREATE DATABASE (V)
+b) UPDATE DATABASE
+c) ALTER DATABASE
+d) Las anteriores respuestas no son correctas
+
+4) En SQL, ¿cuál de estas sentencias añade una fila a una tabla en una base de datos? 
+a) ADD
+b) INSERT (V)
+c) UPDATE
+d) INCLUDE
+
+5) En SQL, para modificar la estructura de una tabla de una base de datos se emplea la 
+instrucción 
+a) ALTER TABLE (V)
+b) CHANGE TABLE
+c) MODIFY TABLE
+d) Las anteriores respuestas no son correctas
+ 
+6) ¿Qué instrucción se emplea para eliminar todo el contenido de una tabla, pero 
+conservando la tabla? 
+a) DELETE TABLE (V)
+b) DROP TABLE
+c) TRUNCATE TABLE
+d) Las anteriores respuestas no son correctas
+
+7) ¿Cómo se borra toda una base de datos con SQL? 
+a) DELETE DATABASE 
+b) DROP DATABASE (V)
+c) ERASE DATABASE
+d) Las anteriores respuestas no son correctas
+
+8) ¿En cuál de las siguientes sentencias del lenguaje SQL se emplea la cláusula SET? 
+a) DELETE
+b) DROP
+c) SELECT
+d) UPDATE (V)
+
+9) En SQL, para eliminar las filas duplicadas del resultado de una sentencia SELECT se 
+emplea: 
+a) NO DUPLICATE
+b) UNIQUE
+c) DISTINCT (V)
+d) Las anteriores respuestas no son correctas
+
+10) Una sentencia SELECT sin la cláusula WHERE devuelve 
+a) Todos los registros existentes en la tabla que no estén relacionados con otra tabla
+b) Todos los registros existentes en la tabla (V)
+c) No se puede ejecutar una sentencia SELECT sin la cláusula WHERE
+d) Las anteriores respuestas no son correctas
+
+11) En SQL, para ordenar los datos devueltos por una sentencia SELECT se emplea la 
+cláusula 
+a) ORDER BY (V)
+b) ORDERED BY
+c) SORT BY
+d) SORTED BY
+
+12) En una cláusula LIKE, ¿cómo se obtienen todos los nombres de personas que 
+comienzan con "Juan"? 
+a) LIKE "Juan%" (V)
+b) LIKE "Juan*"
+c) LIKE "Juan$"
+d) LIKE "Juan&"
+ 
+13) ¿Cuál de las siguientes no es una función de agregación? 
+a) AVG()
+b) MAX()
+c) SUM()
+d) LIMIT() (V)
+
+14) ¿Cuál de las siguientes si es una función de agregación? 
+a) ROUND()
+b) ORDER BY
+c) FLOOR()
+d) COUNT() (V)
+
+*/
