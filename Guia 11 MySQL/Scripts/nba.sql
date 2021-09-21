@@ -1080,7 +1080,7 @@ INSERT INTO estadisticas VALUES ('06/07',21,20.5,2.9,2.2,9.3);
 INSERT INTO estadisticas VALUES ('07/08',21,17.5,2,2,6.8);
 INSERT INTO estadisticas VALUES ('07/08',226,3.8,0.7,0.2,2.4);
 INSERT INTO estadisticas VALUES ('04/05',466,5.7,2.2,0.2,1.3);
-INSERT INTO estadisticas VALUES ('5.6',1,5.6,1.4,0.3,3.6);
+INSERT INTO estadisticas VALUES ('05/06',1,5.6,1.4,0.3,3.6);
 INSERT INTO estadisticas VALUES ('05/06',466,9.9,3.2,0.3,2.2);
 INSERT INTO estadisticas VALUES ('06/07',466,10.2,3.7,0.3,2.5);
 INSERT INTO estadisticas VALUES ('07/08',466,16.1,6.6,0.3,3.4);
