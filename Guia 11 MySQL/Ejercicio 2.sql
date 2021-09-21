@@ -181,4 +181,8 @@ select nombre 'Nombre Empleado', sal_emp 'Salario mayor o igual al promedio'
 from empleados 
 where sal_emp >= (select avg(sal_emp) from empleados);
 
+Select d.nombre_depto, e.nombre, e.sal_emp
+from empleados e inner join departamentos d on d.id_depto=e.id_depto
+Where  e.sal_emp >= (Select AVG(e.sal_emp) from empleados e)
+Order by d.nombre_depto;
 
