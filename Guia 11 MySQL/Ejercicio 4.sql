@@ -115,7 +115,7 @@ order by j.Altura desc limit 1;
 -- 14. Mostrar la media de puntos en partidos de los equipos de la división Pacific.
 -- ?? de nuevo me parece que hay un fallo de redaccion o un olvido de tipeo con el punto 16 sera esto de LOCAL
 
-select e.Nombre, e.Conferencia, e.Division, avg(puntos_local) as 'Promedio'
+select e.Nombre, e.Conferencia, e.Division, avg(puntos_local) as 'Promedio Local'
 from equipos e
 join partidos p
 on p.equipo_local = e.Nombre
@@ -138,7 +138,12 @@ FROM partidos;
 
 -- 16. Mostrar la media de puntos en partidos de los equipos de la división Pacific.
 -- ?? sera esto de Visitante
-
+select e.Nombre, e.Conferencia, e.Division, avg(puntos_visitante) as 'Promedio Visitante'
+from equipos e
+join partidos p
+on p.equipo_visitante = e.Nombre
+where e.Division = 'Pacific'
+group by e.Nombre;
 
 -- 17. Mostrar los puntos de cada equipo en los partidos, tanto de local como de visitante. 
 
