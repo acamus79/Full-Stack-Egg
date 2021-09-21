@@ -23,3 +23,23 @@ libras, ordenados por nombre alfabéticamente.
 
 */
 
+USE nba;
+
+-- 1. Mostrar el nombre de todos los jugadores ordenados alfabéticamente.
+select Nombre, Peso
+from jugadores
+order by Nombre;
+
+-- 2. Mostrar el nombre de los jugadores que sean pivots (‘C’) y que pesen más de 200 
+select Nombre, Posicion, Peso
+from jugadores
+where Posicion = 'C' and Peso >200
+order by Peso;
+
+-- 3. Mostrar el nombre de todos los equipos ordenados alfabéticamente.
+select Nombre
+from equipos
+order by Nombre;
+
+-- 4. Mostrar el nombre de los equipos del este (East).
+
