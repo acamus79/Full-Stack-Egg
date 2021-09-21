@@ -105,4 +105,42 @@ on j.codigo = e.jugador
 group by e.jugador
 order by sum(puntos_por_partido) desc limit 1;
 
+-- 13. Mostrar el nombre del equipo, conferencia y división del jugador más alto de la NBA.
+select e.Nombre, e.Conferencia, e.Division, j.Nombre, j.Altura
+from equipos e
+join jugadores j
+on j.Nombre_equipo = e.Nombre
+order by j.Altura desc limit 1;
 
+-- 14. Mostrar la media de puntos en partidos de los equipos de la división Pacific.
+-- ?? de nuevo me parece que hay un fallo de redaccion o un olvido de tipeo con el punto 16 sera esto de LOCAL
+
+select e.Nombre, e.Conferencia, e.Division, avg(puntos_local) as 'Promedio'
+from equipos e
+join partidos p
+on p.equipo_local = e.Nombre
+where e.Division = 'Pacific'
+group by e.Nombre;
+
+
+-- 15. Mostrar el partido o partidos (equipo_local, equipo_visitante y diferencia) con mayor diferencia de puntos.
+SELECT equipo_local, equipo_visitante, diferencia 
+FROM (SELECT equipo_local, equipo_visitante, abs(puntos_local - puntos_visitante) as diferencia FROM partidos) t 
+WHERE diferencia = (SELECT max(abs(puntos_local - puntos_visitante)) FROM partidos);
+
+-- saco la diferencia de puntos por partido
+SELECT equipo_local, equipo_visitante, abs(puntos_local - puntos_visitante) as diferencia 
+FROM partidos;
+
+-- la maxima diferencia
+SELECT max(abs(puntos_local - puntos_visitante)) 
+FROM partidos;
+
+-- 16. Mostrar la media de puntos en partidos de los equipos de la división Pacific.
+-- ?? sera esto de Visitante
+
+
+-- 17. Mostrar los puntos de cada equipo en los partidos, tanto de local como de visitante. 
+
+
+-- 18. Mostrar quien gana en cada partido (codigo, equipo_local, equipo_visitante, equipo_ganador), en caso de empate sera null.
