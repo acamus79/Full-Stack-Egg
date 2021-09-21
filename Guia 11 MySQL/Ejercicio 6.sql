@@ -1,7 +1,6 @@
 /*
 
-7. Mostrar los datos (nombre, peso, altura) de la prevolución de Arbok.
-8. Mostrar aquellos pokemon que evolucionan por intercambio.
+
 9. Mostrar el nombre del movimiento con más prioridad.
 10. Mostrar el pokemon más pesado.
 11. Mostrar el nombre y tipo del ataque con más potencia.
@@ -68,4 +67,35 @@ on ti.id_tipo = t.id_tipo
 where ti.nombre = 'fuego' or ti.nombre = 'volador';
 
 -- 6. Mostrar los pokemon con una estadística base de ps mayor que 200.
+select p.nombre, e.ps
+from pokemon p
+inner join estadisticas_base e
+on e.numero_pokedex = p.numero_pokedex
+where e.ps > 200;
+
+-- 7. Mostrar los datos (nombre, peso, altura) de la prevolución de Arbok.
+select nombre, peso, altura,  e.pokemon_origen
+from pokemon p
+join evoluciona_de e
+on e.pokemon_origen= p.numero_pokedex
+where e.pokemon_evolucionado = (select numero_pokedex from pokemon where LOWER(nombre) = 'Arbok');
+
+
+select p.nombre, p.altura, p.peso
+from pokemon p, evoluciona_de ev
+where p.numero_pokedex = ev.pokemon_origen
+and ev.pokemon_evolucionado = (select numero_pokedex 
+                    from pokemon 
+                    where LOWER(nombre) = 'arbok');
+                    
+-- 8. Mostrar aquellos pokemon que evolucionan por intercambio.
+select * 
+from forma_evolucion fev
+inner join tipo_evolucion tev 
+on (tev.id_tipo_evolucion = fev.tipo_evolucion)
+inner join pokemon_forma_evolucion pfev
+on (pfev.id_forma_evolucion = fev.id_forma_evolucion)
+inner join pokemon pk
+on (pk.numero_pokedex = pfev.numero_pokedex)
+where tev.tipo_evolucion = "Intercambio";
 
