@@ -42,4 +42,67 @@ from equipos
 order by Nombre;
 
 -- 4. Mostrar el nombre de los equipos del este (East).
+select Nombre, Conferencia
+from equipos
+where Conferencia like 'eas%';
+
+select Nombre, Conferencia
+from equipos
+where Conferencia = 'East';
+
+-- 5. Mostrar los equipos donde su ciudad empieza con la letra ‘c’, ordenados por nombre.
+select Nombre
+from equipos
+where Nombre like 'c%';
+
+-- 6. Mostrar todos los jugadores y su equipo ordenados por nombre del equipo.
+select Nombre, Nombre_equipo
+from jugadores 
+order by Nombre_equipo;
+
+-- 7. Mostrar todos los jugadores del equipo “Raptors” ordenados por nombre.
+select Nombre, Nombre_equipo
+from jugadores 
+where Nombre_equipo like 'rapt%'
+order by Nombre;
+
+-- 8. Mostrar los puntos por partido del jugador ‘Pau Gasol’.
+select Puntos_por_partido, jugador, Temporada
+from estadisticas 
+where jugador = (select codigo from jugadores where Nombre like 'Pau G%');
+
+select e.Puntos_por_partido, e.jugador, e.Temporada, j.Nombre
+from estadisticas e
+join jugadores j
+on j.codigo = e.jugador
+where j.Nombre like 'Pau G%';
+
+-- 9. Mostrar los puntos por partido del jugador ‘Pau Gasol’ en la temporada ’04/05′.
+select e.Puntos_por_partido, e.jugador, e.Temporada, j.Nombre
+from estadisticas e
+join jugadores j
+on j.codigo = e.jugador
+where j.Nombre like 'Pau G%' and e.Temporada like '04/%';
+
+-- 10. Mostrar el número de puntos de cada jugador en toda su carrera.
+select j.Nombre, round(sum(puntos_por_partido),2) as 'Total Puntos'
+from estadisticas e
+join jugadores j
+on j.codigo = e.jugador
+group by e.jugador
+order by sum(puntos_por_partido);
+
+-- 11. Mostrar el número de jugadores de cada equipo.
+select Nombre_equipo, count(Nombre_equipo) as 'Nro de Jugadores'
+from jugadores
+group by Nombre_equipo;
+
+-- 12. Mostrar el jugador que más puntos ha realizado en toda su carrera.
+select j.Nombre, round(sum(puntos_por_partido),2) as 'Total Puntos'
+from estadisticas e
+join jugadores j
+on j.codigo = e.jugador
+group by e.jugador
+order by sum(puntos_por_partido) desc limit 1;
+
 
