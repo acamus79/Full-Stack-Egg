@@ -1,11 +1,7 @@
 /*
 
 
-9. Mostrar el nombre del movimiento con más prioridad.
-10. Mostrar el pokemon más pesado.
-11. Mostrar el nombre y tipo del ataque con más potencia.
-12. Mostrar el número de movimientos de cada tipo.
-13. Mostrar todos los movimientos que puedan envenenar.
+
 14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
 15. Mostrar todos los movimientos que aprende pikachu.
 16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
@@ -89,7 +85,7 @@ and ev.pokemon_evolucionado = (select numero_pokedex
                     where LOWER(nombre) = 'arbok');
                     
 -- 8. Mostrar aquellos pokemon que evolucionan por intercambio.
-select * 
+select pk.nombre, tev.tipo_evolucion 
 from forma_evolucion fev
 inner join tipo_evolucion tev 
 on (tev.id_tipo_evolucion = fev.tipo_evolucion)
@@ -98,4 +94,51 @@ on (pfev.id_forma_evolucion = fev.id_forma_evolucion)
 inner join pokemon pk
 on (pk.numero_pokedex = pfev.numero_pokedex)
 where tev.tipo_evolucion = "Intercambio";
+
+-- CREO una vista
+create view
+union_pokemon as
+select pk.numero_pokedex, pk.nombre, pk.peso,  pk.altura,    tev.tipo_evolucion 
+from forma_evolucion fev
+inner join tipo_evolucion tev 
+on (tev.id_tipo_evolucion = fev.tipo_evolucion)
+inner join pokemon_forma_evolucion pfev
+on (pfev.id_forma_evolucion = fev.id_forma_evolucion)
+inner join pokemon pk
+on (pk.numero_pokedex = pfev.numero_pokedex);
+-- uso la vista creada
+select * from union_pokemon where tipo_evolucion = 'Intercambio';
+
+-- 9. Mostrar el nombre del movimiento con más prioridad.
+select nombre, prioridad
+from movimiento
+order by prioridad desc limit 1;
+
+-- 10. Mostrar el pokemon más pesado.
+select *
+from pokemon
+order by peso desc limit 1;
+
+-- 11. Mostrar el nombre y tipo del ataque con más potencia.
+select nombre, potencia
+from movimiento
+order by potencia desc limit 1;
+
+-- 12. Mostrar el número de movimientos de cada tipo.
+select count(t.id_tipo) 'Nro de Movimientos', t.nombre 'Movimiento tipo'
+from movimiento m
+join tipo t
+on t.id_tipo = m.id_tipo
+group by m.id_tipo;
+
+-- 13. Mostrar todos los movimientos que puedan envenenar.
+select m.*, mes.probabilidad, es.efecto_secundario
+from movimiento_efecto_secundario mes
+join efecto_secundario es
+on es.id_efecto_secundario = mes.id_efecto_secundario
+join movimiento m
+on mes.id_movimiento = m.id_movimiento
+where mes.id_efecto_secundario = (select id_efecto_secundario
+from efecto_secundario where efecto_secundario like 'env%');
+
 
