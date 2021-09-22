@@ -1,25 +1,5 @@
-/*
+Use pokemondb;
 
-
-
-14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
-15. Mostrar todos los movimientos que aprende pikachu.
-16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
-17. Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel.
-18. Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%.
-19. Mostrar todos los pokemon que evolucionan por piedra. 
-20. Mostrar todos los pokemon que no pueden evolucionar. 
-21. Mostrar la cantidad de los pokemon de cada tipo.
-14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
-15. Mostrar todos los movimientos que aprende pikachu.
-16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
-17. Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel.
-18. Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%.
-19. Mostrar todos los pokemon que evolucionan por piedra. 
-20. Mostrar todos los pokemon que no pueden evolucionar. 
-21. Mostrar la cantidad de los pokemon de cada tipo.
-
-*/
 -- 1. Mostrar el nombre de todos los pokemon.
 select nombre 
 from pokemon;
@@ -75,8 +55,7 @@ from pokemon p
 join evoluciona_de e
 on e.pokemon_origen= p.numero_pokedex
 where e.pokemon_evolucionado = (select numero_pokedex from pokemon where LOWER(nombre) = 'Arbok');
-
-
+-- otra forma
 select p.nombre, p.altura, p.peso
 from pokemon p, evoluciona_de ev
 where p.numero_pokedex = ev.pokemon_origen
@@ -94,7 +73,6 @@ on (pfev.id_forma_evolucion = fev.id_forma_evolucion)
 inner join pokemon pk
 on (pk.numero_pokedex = pfev.numero_pokedex)
 where tev.tipo_evolucion = "Intercambio";
-
 -- CREO una vista
 create view
 union_pokemon as
@@ -118,6 +96,11 @@ order by prioridad desc limit 1;
 select *
 from pokemon
 order by peso desc limit 1;
+-- otra manera
+select nombre, peso
+from pokemon
+where peso = (select max(peso) 
+        from pokemon)
 
 -- 11. Mostrar el nombre y tipo del ataque con más potencia.
 select nombre, potencia
@@ -141,4 +124,22 @@ on mes.id_movimiento = m.id_movimiento
 where mes.id_efecto_secundario = (select id_efecto_secundario
 from efecto_secundario where efecto_secundario like 'env%');
 
+-- 14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
 
+-- 15. Mostrar todos los movimientos que aprende pikachu.
+
+-- 16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
+
+-- 17. Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel.
+-- 18. Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%.
+-- 19. Mostrar todos los pokemon que evolucionan por piedra. 
+-- 20. Mostrar todos los pokemon que no pueden evolucionar. 
+-- 21. Mostrar la cantidad de los pokemon de cada tipo.
+-- 14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
+-- 15. Mostrar todos los movimientos que aprende pikachu.
+-- 16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
+-- 17. Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel.
+-- 18. Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%.
+-- 19. Mostrar todos los pokemon que evolucionan por piedra. 
+-- 20. Mostrar todos los pokemon que no pueden evolucionar. 
+-- 21. Mostrar la cantidad de los pokemon de cada tipo.
