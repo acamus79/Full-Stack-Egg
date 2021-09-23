@@ -14,7 +14,7 @@ public abstract class DAO {
     private final String USER = "root";
     private final String PASSWORD = "root";
     private final String DATABASE = "perros";
-    private final String DRIVER = "com.mysql.jdbc.Driver";
+    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
     protected void conectarBase() throws Exception {
         try {
