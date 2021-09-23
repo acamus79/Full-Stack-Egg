@@ -77,9 +77,9 @@ public class ServicioFabricante {
         }
     }
 
-    public void eliminarUsuario(String correo) throws MiExcepcion {
+    public void eliminarFabricante(Integer cod) throws MiExcepcion {
         try {
-            if (correo == null || correo.trim().isEmpty()) {
+            if (cod == null || cod ) {
                 throw new MiExcepcion("DEBE INGRESAR UN CORREO");
             }
 
@@ -101,15 +101,15 @@ public class ServicioFabricante {
 
     public void imprimirUsuarios() throws MiExcepcion {
         try {
-            List<Usuario> fabricantes = fabricanteDAO.obtenerUsuarios();
+            List<Fabricante> fabricantes = f.obtenerFabricante();
 
             if (fabricantes.isEmpty()) {
                 throw new MiExcepcion("NO EXISTEN USUARIOS");
             } else {
                 System.out.println("*** LISTA DE USUARIOS ***");
                 System.out.printf("%-20s%-15s%-15s\n", "CORREO", "NOMBRE", "APELLIDO"); // FORMATO DE IMPRESIÓN
-                for (Usuario fabricante : fabricantes) {
-                    System.out.println(fabricante);
+                for (Fabricante aux : fabricantes) {
+                    System.out.println(aux);
                 }
                 System.out.println();
             }
