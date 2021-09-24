@@ -52,7 +52,7 @@ public class FabricanteDAO extends DAO {
             return f;
         } catch (SQLException | MiExcepcion e) {
             System.out.println(e.getMessage());
-            throw new MiExcepcion("ERROR AL OBTENER USUARIO");
+            throw new MiExcepcion("ERROR AL OBTENER FABRICANTE");
         } finally {
             desconectarBase();
         }
@@ -78,14 +78,22 @@ public class FabricanteDAO extends DAO {
     }
     
     public void eliminarFabricante(Integer cod) throws MiExcepcion {
+        try {
+            // SENTENCIA SQL DE ELIMINACIÓN
+            String sql = "DELETE FROM fabricante WHERE codigo = '" + cod + "';";
+
+            insertarModificarEliminar(sql);
+        } catch (MiExcepcion e) {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL ELIMINAR FABRICANTE");
+        }
         
     }
 
     public List<Fabricante> obtenerFabricante() throws MiExcepcion {
         try {
             // SENTENCIA SQL DE CONSULTA
-            String sql = "SELECT * FROM usuario"; // "SELECT correo, nombre, apellido FROM usuario";
-
+            String sql = "SELECT * FROM fabricante"; 
             consultarBase(sql);
 
             List<Fabricante> fabricantes = new ArrayList<>();
@@ -93,9 +101,9 @@ public class FabricanteDAO extends DAO {
 
             while (resultado.next()) {
                 aux = new Fabricante();
-
                 aux.setCodigo(resultado.getInt(1));
                 aux.setNombre(resultado.getString(2));
+
                 fabricantes.add(aux);
             }
 
