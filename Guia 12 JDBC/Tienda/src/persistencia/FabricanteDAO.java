@@ -74,5 +74,9 @@ public class FabricanteDAO extends DAO {
         }
 
     }
+    
+    public void eliminarFabricante(Integer cod) throws MiExcepcion {
+        
+    }
 
 }
