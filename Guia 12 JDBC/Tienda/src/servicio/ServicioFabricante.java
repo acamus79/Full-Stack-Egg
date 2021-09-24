@@ -79,17 +79,17 @@ public class ServicioFabricante {
 
     public void eliminarFabricante(Integer cod) throws MiExcepcion {
         try {
-            if (cod == null || cod ) {
+            if (cod == null || cod<0 ) {
                 throw new MiExcepcion("DEBE INGRESAR UN CORREO");
             }
 
-            Usuario fabricante = fabricanteDAO.buscarUsuarioPorCorreo(correo);
+            Fabricante fabricante = f.buscarFabricantePorCodigo(cod);
 
             if (fabricante == null) {
                 throw new MiExcepcion("EL CORREO INGRESADO NO ESTÁ ASOCIADO A NINGÚN USUARIO");
             }
 
-            fabricanteDAO.eliminarUsuario(correo);
+            f.eliminarFabricante(cod);
         } catch (MiExcepcion e) {
             // e.printStackTrace();
             throw e;
