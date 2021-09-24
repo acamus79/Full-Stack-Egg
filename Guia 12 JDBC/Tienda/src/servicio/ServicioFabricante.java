@@ -99,15 +99,15 @@ public class ServicioFabricante {
         }
     }
 
-    public void imprimirUsuarios() throws MiExcepcion {
+    public void imprimirFabricantes() throws MiExcepcion {
         try {
             List<Fabricante> fabricantes = f.obtenerFabricante();
 
             if (fabricantes.isEmpty()) {
-                throw new MiExcepcion("NO EXISTEN USUARIOS");
+                throw new MiExcepcion("NO EXISTEN FABRICANTES");
             } else {
-                System.out.println("*** LISTA DE USUARIOS ***");
-                System.out.printf("%-20s%-15s%-15s\n", "CORREO", "NOMBRE", "APELLIDO"); // FORMATO DE IMPRESIÓN
+                System.out.println("*** LISTA DE FABRICANTES ***");
+                System.out.printf("%-20s%-15s\n", "CODIGO", "NOMBRE"); // FORMATO DE IMPRESIÓN
                 for (Fabricante aux : fabricantes) {
                     System.out.println(aux);
                 }
