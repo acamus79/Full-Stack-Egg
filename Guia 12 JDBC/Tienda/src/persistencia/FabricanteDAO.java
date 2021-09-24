@@ -17,9 +17,12 @@ import java.util.List;
  */
 public class FabricanteDAO extends DAO {
 
+    //GUARDAR
     public void guardarFabricante(Fabricante f) throws MiExcepcion {
-        try {
-            if (f == null) {
+        try
+        {
+            if (f == null)
+            {
                 throw new MiExcepcion("FABRICANTE INVÁLIDO");
             }
             // SENTENCIA SQL DE INSERCIÓN -- INSERT INTO `tienda`.`fabricante` (`codigo`, `nombre`) VALUES ('10', 'pHILLIPS');
@@ -28,41 +31,50 @@ public class FabricanteDAO extends DAO {
                     + "', '" + f.getNombre() + "');";
             insertarModificarEliminar(sql);
 
-        } catch (MiExcepcion e) {
+        } catch (MiExcepcion e)
+        {
             System.out.println(e.getMessage());
             throw new MiExcepcion("ERROR AL GUARDAR USUARIO");
         }
 
     }
 
+    //BUSCAR
     public Fabricante buscarFabricantePorCodigo(int cod) throws MiExcepcion {
 
-        try {
+        try
+        {
             // SENTENCIA SQL DE CONSULTA
             String sql = "SELECT * FROM fabricante WHERE codigo = '" + cod + "';";
             consultarBase(sql);
             Fabricante f = null;
 
-            while (resultado.next()) {
+            while (resultado.next())
+            {
                 f = new Fabricante();
 
                 f.setCodigo(resultado.getInt(1));
                 f.setNombre(resultado.getString(2));
             }
             return f;
-        } catch (SQLException | MiExcepcion e) {
+        } catch (SQLException | MiExcepcion e)
+        {
             System.out.println(e.getMessage());
             throw new MiExcepcion("ERROR AL OBTENER FABRICANTE");
-        } finally {
+        } finally
+        {
             desconectarBase();
         }
 
     }
 
+    //MODIFICAR
     public void modificarFabricante(Fabricante f) throws MiExcepcion {
 
-        try {
-            if (f == null) {
+        try
+        {
+            if (f == null)
+            {
                 throw new MiExcepcion("FABRICANTE INVÁLIDO");
             }
             // SENTENCIA SQL DE MODIFICACIÓN
@@ -70,36 +82,43 @@ public class FabricanteDAO extends DAO {
                     + "WHERE codigo = '" + f.getCodigo() + "';";
 
             insertarModificarEliminar(sql);
-        } catch (MiExcepcion e) {
+        } catch (MiExcepcion e)
+        {
             System.out.println(e.getMessage());
             throw new MiExcepcion("ERROR AL MODIFICAR FABRICANTE");
         }
 
     }
-    
+
+    //ELIMINAR
     public void eliminarFabricante(Integer cod) throws MiExcepcion {
-        try {
+        try
+        {
             // SENTENCIA SQL DE ELIMINACIÓN
             String sql = "DELETE FROM fabricante WHERE codigo = '" + cod + "';";
 
             insertarModificarEliminar(sql);
-        } catch (MiExcepcion e) {
+        } catch (MiExcepcion e)
+        {
             System.out.println(e.getMessage());
             throw new MiExcepcion("ERROR AL ELIMINAR FABRICANTE");
         }
-        
+
     }
 
+    //OBTENER
     public List<Fabricante> obtenerFabricante() throws MiExcepcion {
-        try {
+        try
+        {
             // SENTENCIA SQL DE CONSULTA
-            String sql = "SELECT * FROM fabricante"; 
+            String sql = "SELECT * FROM fabricante";
             consultarBase(sql);
 
             List<Fabricante> fabricantes = new ArrayList<>();
             Fabricante aux = null;
 
-            while (resultado.next()) {
+            while (resultado.next())
+            {
                 aux = new Fabricante();
                 aux.setCodigo(resultado.getInt(1));
                 aux.setNombre(resultado.getString(2));
@@ -108,14 +127,14 @@ public class FabricanteDAO extends DAO {
             }
 
             return fabricantes;
-        } catch (SQLException | MiExcepcion e) {
+        } catch (SQLException | MiExcepcion e)
+        {
             System.out.println(e.getMessage());
             throw new MiExcepcion("ERROR AL OBTENER FABRICANTES");
-        } finally {
+        } finally
+        {
             desconectarBase();
         }
     }
-    
-    
-    
+
 }
