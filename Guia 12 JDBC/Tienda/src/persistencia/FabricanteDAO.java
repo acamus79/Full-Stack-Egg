@@ -8,6 +8,8 @@ package persistencia;
 import entidad.Fabricante;
 import excepcion.MiExcepcion;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -79,4 +81,33 @@ public class FabricanteDAO extends DAO {
         
     }
 
+    public List<Fabricante> obtenerFabricante() throws MiExcepcion {
+        try {
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT * FROM usuario"; // "SELECT correo, nombre, apellido FROM usuario";
+
+            consultarBase(sql);
+
+            List<Fabricante> fabricantes = new ArrayList<>();
+            Fabricante aux = null;
+
+            while (resultado.next()) {
+                aux = new Fabricante();
+
+                aux.setCodigo(resultado.getInt(1));
+                aux.setNombre(resultado.getString(2));
+                fabricantes.add(aux);
+            }
+
+            return fabricantes;
+        } catch (SQLException | MiExcepcion e) {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER FABRICANTES");
+        } finally {
+            desconectarBase();
+        }
+    }
+    
+    
+    
 }
