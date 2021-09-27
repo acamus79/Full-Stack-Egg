@@ -59,8 +59,6 @@ f) Ingresar un producto a la base de datos.
 g) Ingresar un fabricante a la base de datos
 h) Editar un producto con datos a elección.
 
-
-
  */
 package principal;
 
@@ -79,7 +77,6 @@ public class Main {
         // TODO code application logic here
         
         Menu menu = new Menu();
-
         menu.menuPrincipal();
         
     }
