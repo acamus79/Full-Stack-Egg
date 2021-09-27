@@ -46,7 +46,12 @@ public class ServicioProducto {
             {
                 throw new MiExcepcion("DEBE INGRESAR UN CODIGO DE FABRICANTE");
             }
-
+            
+            if (!pDAO.buscarProductoPorFab(cod_fab))
+            {
+                throw new MiExcepcion("NO EXISTE EL FABRICANTE");
+            }
+            
             Producto p = new Producto();
 
             p.setCodigo(codigo);
