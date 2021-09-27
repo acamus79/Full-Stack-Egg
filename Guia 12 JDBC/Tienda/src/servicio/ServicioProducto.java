@@ -19,7 +19,7 @@ public class ServicioProducto {
     private ProductoDAO pDAO;
 
     public ServicioProducto() {
-        pDAO = new ProductoDAO();
+        this.pDAO = new ProductoDAO();
     }
 
 //CREA NUEVO    
@@ -154,7 +154,7 @@ public class ServicioProducto {
             } else
             {
                 System.out.println("*** LISTA DE PRODUCTOS ***");
-                System.out.printf("%-20s%-15s%-15s%-15s\n", "CODIGO", "NOMBRE", "PRECIO $", "COD. FABRICANTE"); // FORMATO DE IMPRESIÓN
+                System.out.printf("%-8s%-10s%-15s%-5s\n", "CODIGO", "Cod.FABR", "PRECIO $", "NOMBRE" ); // FORMATO DE IMPRESIÓN
                 for (Producto aux : productos)
                 {
                     System.out.println(aux);
