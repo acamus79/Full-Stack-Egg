@@ -32,12 +32,13 @@ public class Menu {
         
         do {
             try {
-                System.out.println("****** MENU ******");
-                System.out.println("* 1.- Mostrar Fabricantes");
-                System.out.println("* 2.- Administracion de Fabricantes");
-                System.out.println("* 3.- Mostrar Productos");
-                System.out.println("* 4.- Administracion de Productos");
-                System.out.println("* 5.- Salir");
+                System.out.println("*********  MENU PRINCIPAL  *********");
+                System.out.println("* 1.- Mostrar Fabricantes          *");
+                System.out.println("* 2.- Administracion de Fabricantes*");
+                System.out.println("* 3.- Mostrar Productos            *");
+                System.out.println("* 4.- Administracion de Productos  *");
+                System.out.println("* 5.- Salir                        *");
+                System.out.println("************************************");
         
             opcion = leer.nextInt();
                                 
@@ -173,7 +174,9 @@ public class Menu {
         try {
             System.out.println("INGRESE CODIGO: ");
             int codigo = leer.nextInt();
-
+            
+            
+            
             System.out.println("INGRESE NOMBRE: ");
             String nombre = leer.next();
 
