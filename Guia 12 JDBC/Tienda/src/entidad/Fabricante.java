@@ -36,6 +36,11 @@ public class Fabricante {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s%-15s", codigo, nombre );
+    }
     
     
 }
