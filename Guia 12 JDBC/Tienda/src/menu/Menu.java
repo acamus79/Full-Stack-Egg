@@ -4,8 +4,8 @@
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
 package menu;
-
 import excepcion.MiExcepcion;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,43 +41,41 @@ public class Menu {
 
         op = leer.nextInt();
 
-        do
-        {
-
-            switch (op)
-            {
-                case 1:
-                {
-                    try
-                    {
-                        servFab.muestraFabricantes();
-                    } catch (MiExcepcion ex)
-                    {
-                        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        do {
+            try {
+                switch (op) {
+                    case 1: {
+                        try {
+                            servFab.muestraFabricantes();
+                        } catch (MiExcepcion ex) {
+                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
-                }
-                break;
-
-                case 2:
-                    menuFabricante();
                     break;
-                case 3:
-                {
-                    try
-                    {
-                        servProd.muestraProducto();
-                    } catch (MiExcepcion ex)
-                    {
-                        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+
+                    case 2:
+                        menuFabricante();
+                        break;
+                    case 3: {
+                        try {
+                            servProd.muestraProducto();
+                        } catch (MiExcepcion ex) {
+                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
-                }
-                break;
-
-                case 4:
-                    menuProducto();
                     break;
-                case 5:
-                    System.out.println("CHAU!!!");
+
+                    case 4:
+                        menuProducto();
+                        break;
+                    case 5:
+                        System.out.println("CHAU!!!");
+                    default:
+                        System.out.println("LA OPCIÓN INGRESADA ES INVÁLIDA");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("NO SE ADMITEN CARACTERES");
+                leer.next();
             }
         } while (op != 5);
 
@@ -99,8 +97,7 @@ public class Menu {
 
     // CRUD FABRICANTE
     public void crearFabricante() {
-        try
-        {
+        try {
             System.out.println("INGRESE CODIGO: ");
             int codigo = leer.nextInt();
 
@@ -108,15 +105,13 @@ public class Menu {
             String nombre = leer.next();
 
             servFab.crearFabricante(codigo, nombre);
-        } catch (MiExcepcion e)
-        {
+        } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void modificarFabricante() {
-        try
-        {
+        try {
             System.out.println("INGRESE CODIGO: ");
             int codigo = leer.nextInt();
 
@@ -124,29 +119,25 @@ public class Menu {
             String nombre = leer.next();
 
             servFab.modificarFabricante(codigo, nombre);
-        } catch (MiExcepcion e)
-        {
+        } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void eliminarFabricante() {
-        try
-        {
+        try {
             System.out.println("INGRESE CODIGO DE FABRICANTE: ");
             int codigo = leer.nextInt();
 
             servFab.eliminarFabricante(codigo);
-        } catch (MiExcepcion e)
-        {
+        } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
 
     // CRUD PRODUCTO
     public void crearProducto() { //Integer codigo, String nombre, Double precio, Integer cod_fab
-        try
-        {
+        try {
             System.out.println("INGRESE CODIGO: ");
             int codigo = leer.nextInt();
 
@@ -160,15 +151,13 @@ public class Menu {
             int cod_fab = leer.nextInt();
 
             servProd.crearProducto(codigo, nombre, precio, cod_fab);
-        } catch (MiExcepcion e)
-        {
+        } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void modificarProducto() {
-        try
-        {
+        try {
             System.out.println("INGRESE CODIGO: ");
             int codigo = leer.nextInt();
 
@@ -182,21 +171,18 @@ public class Menu {
             int cod_fab = leer.nextInt();
 
             servProd.modificarProducto(codigo, nombre, precio, cod_fab);
-        } catch (MiExcepcion e)
-        {
+        } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void eliminarProducto() {
-        try
-        {
+        try {
             System.out.println("INGRESE CODIGO DE PRODUCTO: ");
             int codigo = leer.nextInt();
 
             servProd.eliminarProducto(codigo);
-        } catch (MiExcepcion e)
-        {
+        } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
