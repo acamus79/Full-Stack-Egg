@@ -90,19 +90,19 @@ public class ServicioProducto {
     }
 
 //ELIMINA
-    public void eliminarFabricante(Integer cod) throws MiExcepcion {
+    public void eliminarProducto(Integer cod) throws MiExcepcion {
         try {
             if (cod == null || cod<0 ) {
-                throw new MiExcepcion("DEBE INGRESAR UN CORREO");
+                throw new MiExcepcion("DEBE INGRESAR UN CODIGO");
             }
 
-            Fabricante fabricante = f.buscarFabricantePorCodigo(cod);
+            Producto p = pDAO.buscarProductoPorCodigo(cod);
 
-            if (fabricante == null) {
-                throw new MiExcepcion("EL CORREO INGRESADO NO ESTÁ ASOCIADO A NINGÚN USUARIO");
+            if (p == null) {
+                throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN USUARIO");
             }
 
-            f.eliminarFabricante(cod);
+            pDAO.eliminarProducto(cod);
         } catch (MiExcepcion e) {
             // e.printStackTrace();
             throw e;
@@ -113,16 +113,16 @@ public class ServicioProducto {
     }
 
 //MUESTRA    
-    public void muestraFabricantes() throws MiExcepcion {
+    public void muestraProducto() throws MiExcepcion {
         try {
-            List<Fabricante> fabricantes = f.obtenerFabricante();
+            List<Producto> productos = pDAO.obtenerProducto();
 
-            if (fabricantes.isEmpty()) {
-                throw new MiExcepcion("NO EXISTEN FABRICANTES");
+            if (productos.isEmpty()) {
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
             } else {
-                System.out.println("*** LISTA DE FABRICANTES ***");
-                System.out.printf("%-20s%-15s\n", "CODIGO", "NOMBRE"); // FORMATO DE IMPRESIÓN
-                for (Fabricante aux : fabricantes) {
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-20s%-15s%-15s%-15s\n", "CODIGO", "NOMBRE", "PRECIO $", "COD. FABRICANTE"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos) {
                     System.out.println(aux);
                 }
                 System.out.println();
