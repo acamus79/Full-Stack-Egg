@@ -60,7 +60,7 @@ public class ServicioProducto {
     }
 
 //MODIFICA
-    public void modificarFabricante(Integer codigo, String nombre) throws MiExcepcion {
+    public void modificarProducto(Integer codigo, String nombre) throws MiExcepcion {
         try {
             // VALIDACIÓN
             if (codigo == null | codigo < 0) {
@@ -71,15 +71,15 @@ public class ServicioProducto {
                 throw new MiExcepcion("DEBE INGRESAR UN NOMBRE");
             }
 
-            Fabricante fabricante = f.buscarFabricantePorCodigo(codigo);
+            Producto p = pDAO.buscarProductoPorCodigo(codigo);
 
-            if (fabricante == null) {
-                throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN FABRICANTE");
+            if (p == null) {
+                throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN PRODUCTO");
             }
 
-            fabricante.setNombre(nombre);
+            p.setNombre(nombre);
 
-            f.modificarFabricante(fabricante);
+            pDAO.modificarProducto(p);
         } catch (MiExcepcion e) {
             // e.printStackTrace();
             throw e;
