@@ -63,6 +63,12 @@ public class Producto {
     public void setCodigoFabricante(int codigoFabricante) {
         this.codigoFabricante = codigoFabricante;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-8s%-10s%-15s%-5s", codigo, codigoFabricante, precio, nombre);
+    }
+    
     
     
 }
