@@ -103,7 +103,7 @@ public class ServicioFabricante {
     }
 
 //MUESTRA    
-    public void muestraFabricantes() throws MiExcepcion {
+    public void muestraFabricante() throws MiExcepcion {
         try {
             List<Fabricante> fabricantes = f.obtenerFabricante();
 
