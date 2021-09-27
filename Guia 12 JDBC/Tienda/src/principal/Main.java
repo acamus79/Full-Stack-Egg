@@ -64,6 +64,8 @@ h) Editar un producto con datos a elección.
  */
 package principal;
 
+import menu.Menu;
+
 /**
  *
  * @author Adrian E. Camus
@@ -76,7 +78,9 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        
+        Menu menu = new Menu();
+
+        menu.menuPrincipal();
         
     }
     
