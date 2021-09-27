@@ -4,6 +4,7 @@
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
 package menu;
+
 import excepcion.MiExcepcion;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,7 +18,6 @@ import servicio.*;
  */
 public class Menu {
 
-    private int op;
     private Scanner leer;
     private ServicioFabricante servFab;
     private ServicioProducto servProd;
@@ -26,12 +26,13 @@ public class Menu {
         // ISO-8859-1 PERMITE USAR CARACTERES ESPECIALES
         leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
         //usuarioServicio = new UsuarioServicio();
-        op = 0;
+
         servFab = new ServicioFabricante();
         servProd = new ServicioProducto();
     }
 
     public void menuPrincipal() {
+        int op = 0;
         System.out.println("****** MENU ******");
         System.out.println("* 1.- Mostrar Fabricantes");
         System.out.println("* 2.- Administracion de Fabricantes");
@@ -44,44 +45,35 @@ public class Menu {
         do {
             try {
                 switch (op) {
-                    case 1: {
-                        try {
-                            servFab.muestraFabricantes();
-                        } catch (MiExcepcion ex) {
-                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    break;
-
+                    case 1:
+                        servFab.muestraFabricante();
+                        break;
                     case 2:
                         menuFabricante();
                         break;
-                    case 3: {
-                        try {
-                            servProd.muestraProducto();
-                        } catch (MiExcepcion ex) {
-                            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    break;
-
+                    case 3:
+                        servProd.muestraProducto();
+                        break;
                     case 4:
                         menuProducto();
                         break;
                     case 5:
                         System.out.println("CHAU!!!");
                     default:
-                        System.out.println("LA OPCIÓN INGRESADA ES INVÁLIDA");
+                        System.out.println("OPCIÓN INVÁLIDA");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("NO SE ADMITEN CARACTERES");
                 leer.next();
+            } catch (MiExcepcion e) {
+                System.out.println(e.getMessage());
             }
         } while (op != 5);
 
     }
 
     public void menuFabricante() {
+        int op = 0;
         System.out.println("* 2.- Nuevo Fabricante");
         System.out.println("* 3.- Modificar Fabricante");
         System.out.println("* 4.- Borrar Fabricante");
@@ -89,6 +81,7 @@ public class Menu {
     }
 
     public void menuProducto() {
+        int op = 0;
         System.out.println("* 6.- Nuevo Producto");
         System.out.println("* 7.- Modificar Producto");
         System.out.println("* 8.- Borrar un Producto");
