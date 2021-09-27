@@ -21,7 +21,8 @@ public class ServicioFabricante {
     public ServicioFabricante() {
     f = new FabricanteDAO();
     }
-    
+
+//CREA NUEVO    
     public void crearFabricante(Integer codigo, String nombre) throws MiExcepcion {
         try {
             // VALIDACIÓN
@@ -48,6 +49,7 @@ public class ServicioFabricante {
         }
     }
 
+//MODIFICA
     public void modificarFabricante(Integer codigo, String nombre) throws MiExcepcion {
         try {
             // VALIDACIÓN
@@ -77,6 +79,7 @@ public class ServicioFabricante {
         }
     }
 
+//ELIMINA
     public void eliminarFabricante(Integer cod) throws MiExcepcion {
         try {
             if (cod == null || cod<0 ) {
@@ -99,7 +102,8 @@ public class ServicioFabricante {
         }
     }
 
-    public void imprimirFabricantes() throws MiExcepcion {
+//MUESTRA    
+    public void muestraFabricantes() throws MiExcepcion {
         try {
             List<Fabricante> fabricantes = f.obtenerFabricante();
 
@@ -121,7 +125,6 @@ public class ServicioFabricante {
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
     }
-    
     
     
     
