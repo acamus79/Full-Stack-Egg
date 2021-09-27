@@ -5,6 +5,7 @@
  */
 package persistencia;
 
+import entidad.Fabricante;
 import entidad.Producto;
 import excepcion.MiExcepcion;
 import java.sql.SQLException;
@@ -59,6 +60,26 @@ public class ProductoDAO extends DAO {
                 p.setCodigoFabricante(resultado.getInt(4));
             }
             return p;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTO");
+        } finally
+        {
+            desconectarBase();
+        }
+
+    }
+    
+    public boolean buscarProductoPorFab(int cod_fab) throws MiExcepcion {
+
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT * FROM fabricante WHERE codigo = '" + cod_fab + "';";
+            consultarBase(sql);
+            return resultado.next();
+            
         } catch (SQLException | MiExcepcion e)
         {
             System.out.println(e.getMessage());
