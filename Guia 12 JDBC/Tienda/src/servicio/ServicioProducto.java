@@ -15,33 +15,38 @@ import persistencia.ProductoDAO;
  * @author Adrian E. Camus
  */
 public class ServicioProducto {
- 
-      private ProductoDAO pDAO;
+
+    private ProductoDAO pDAO;
 
     public ServicioProducto() {
-    pDAO = new ProductoDAO();
+        pDAO = new ProductoDAO();
     }
 
 //CREA NUEVO    
     public void crearProducto(Integer codigo, String nombre, Double precio, Integer cod_fab) throws MiExcepcion {
-        try {
+        try
+        {
             // VALIDACIÓN
-            if (codigo == null | codigo < 0) {
+            if (codigo == null | codigo < 0)
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN CODIGO");
             }
 
-            if (nombre == null | nombre.trim().isEmpty()) {
+            if (nombre == null | nombre.trim().isEmpty())
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN NOMBRE");
             }
-            
-            if (precio == null | precio < 0) {
+
+            if (precio == null | precio < 0)
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN PRECIO");
             }
-            
-            if (cod_fab == null | cod_fab < 0) {
+
+            if (cod_fab == null | cod_fab < 0)
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN CODIGO DE FABRICANTE");
             }
-                        
+
             Producto p = new Producto();
 
             p.setCodigo(codigo);
@@ -49,41 +54,61 @@ public class ServicioProducto {
             p.setPrecio(precio);
             p.setCodigoFabricante(cod_fab);
             pDAO.guardarProducto(p);
-            
-        } catch (MiExcepcion e) {
+
+        } catch (MiExcepcion e)
+        {
             // e.printStackTrace();
             throw e;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             // e.printStackTrace();
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
     }
 
 //MODIFICA
-    public void modificarProducto(Integer codigo, String nombre) throws MiExcepcion {
-        try {
+    public void modificarProducto(Integer codigo, String nombre, Double precio, Integer cod_fab) throws MiExcepcion {
+        try
+        {
             // VALIDACIÓN
-            if (codigo == null | codigo < 0) {
+            if (codigo == null | codigo < 0)
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN CODIGO");
             }
-
-            if (nombre == null | nombre.trim().isEmpty()) {
+            
+            if (nombre == null | nombre.trim().isEmpty())
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN NOMBRE");
             }
-
+            
+            if (precio == null | precio < 0)
+            {
+                throw new MiExcepcion("DEBE INGRESAR UN PRECIO");
+            }
+            
+            if (cod_fab == null | cod_fab < 0)
+            {
+                throw new MiExcepcion("DEBE INGRESAR UN CODIGO DE FABRICANTE");
+            }
+            
             Producto p = pDAO.buscarProductoPorCodigo(codigo);
 
-            if (p == null) {
+            if (p == null)
+            {
                 throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN PRODUCTO");
             }
 
             p.setNombre(nombre);
+            p.setPrecio(precio);
+            p.setCodigoFabricante(cod_fab);
 
             pDAO.modificarProducto(p);
-        } catch (MiExcepcion e) {
+        } catch (MiExcepcion e)
+        {
             // e.printStackTrace();
             throw e;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             // e.printStackTrace();
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
@@ -91,22 +116,27 @@ public class ServicioProducto {
 
 //ELIMINA
     public void eliminarProducto(Integer cod) throws MiExcepcion {
-        try {
-            if (cod == null || cod<0 ) {
+        try
+        {
+            if (cod == null || cod < 0)
+            {
                 throw new MiExcepcion("DEBE INGRESAR UN CODIGO");
             }
 
             Producto p = pDAO.buscarProductoPorCodigo(cod);
 
-            if (p == null) {
+            if (p == null)
+            {
                 throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN USUARIO");
             }
 
             pDAO.eliminarProducto(cod);
-        } catch (MiExcepcion e) {
+        } catch (MiExcepcion e)
+        {
             // e.printStackTrace();
             throw e;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             // e.printStackTrace();
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
@@ -114,31 +144,32 @@ public class ServicioProducto {
 
 //MUESTRA    
     public void muestraProducto() throws MiExcepcion {
-        try {
+        try
+        {
             List<Producto> productos = pDAO.obtenerProducto();
 
-            if (productos.isEmpty()) {
+            if (productos.isEmpty())
+            {
                 throw new MiExcepcion("NO EXISTEN PRODUCTOS");
-            } else {
+            } else
+            {
                 System.out.println("*** LISTA DE PRODUCTOS ***");
                 System.out.printf("%-20s%-15s%-15s%-15s\n", "CODIGO", "NOMBRE", "PRECIO $", "COD. FABRICANTE"); // FORMATO DE IMPRESIÓN
-                for (Producto aux : productos) {
+                for (Producto aux : productos)
+                {
                     System.out.println(aux);
                 }
                 System.out.println();
             }
-        } catch (MiExcepcion e) {
+        } catch (MiExcepcion e)
+        {
             // e.printStackTrace();
             throw e;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             // e.printStackTrace();
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
     }
-    
-    
-    
-    
-    
-    
+
 }
