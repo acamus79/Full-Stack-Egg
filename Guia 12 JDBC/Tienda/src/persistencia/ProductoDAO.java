@@ -144,6 +144,4 @@ public class ProductoDAO extends DAO {
     }
 
     
-    
-    
 }
