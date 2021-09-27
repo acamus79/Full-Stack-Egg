@@ -20,7 +20,7 @@ public class DAO {
     private final String USUARIO = "root";
     private final String CLAVE = "root";
     private final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
-    private final String URL = "jdbc:mysql://localhost:3306/egg?useSSL=false";
+    private final String URL = "jdbc:mysql://localhost:3306/tienda?useSSL=false";
     
     
     protected void conectarDB() throws MiExcepcion {
