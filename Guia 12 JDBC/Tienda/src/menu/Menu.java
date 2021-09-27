@@ -23,26 +23,25 @@ public class Menu {
     public Menu() {
         // ISO-8859-1 PERMITE USAR CARACTERES ESPECIALES
         leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
-        //usuarioServicio = new UsuarioServicio();
-
         servFab = new ServicioFabricante();
         servProd = new ServicioProducto();
     }
 
     public void menuPrincipal() {
-        int op = 0;
-        System.out.println("****** MENU ******");
-        System.out.println("* 1.- Mostrar Fabricantes");
-        System.out.println("* 2.- Administracion de Fabricantes");
-        System.out.println("* 3.- Mostrar Productos");
-        System.out.println("* 4.- Administracion de Productos");
-        System.out.println("* 5.- Salir");
-
-        op = leer.nextInt();
-
+        int opcion = 0;
+        
         do {
             try {
-                switch (op) {
+                System.out.println("****** MENU ******");
+                System.out.println("* 1.- Mostrar Fabricantes");
+                System.out.println("* 2.- Administracion de Fabricantes");
+                System.out.println("* 3.- Mostrar Productos");
+                System.out.println("* 4.- Administracion de Productos");
+                System.out.println("* 5.- Salir");
+        
+            opcion = leer.nextInt();
+                                
+                switch (opcion) {
                     case 1:
                         servFab.muestraFabricante();
                         break;
@@ -57,8 +56,6 @@ public class Menu {
                         break;
                     case 5:
                         System.out.println("CHAU!!!");
-                    default:
-                        System.out.println("OPCIÓN INVÁLIDA");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("NO SE ADMITEN CARACTERES");
@@ -66,24 +63,69 @@ public class Menu {
             } catch (MiExcepcion e) {
                 System.out.println(e.getMessage());
             }
-        } while (op != 5);
+        } while (opcion != 5);
 
     }
 
     public void menuFabricante() {
         int op = 0;
-        System.out.println("* 2.- Nuevo Fabricante");
-        System.out.println("* 3.- Modificar Fabricante");
-        System.out.println("* 4.- Borrar Fabricante");
+        
+        do {
+            try {
+        System.out.println("***** MENU FABRICANTES *****");
+        System.out.println("* 1.- Nuevo Fabricante     *");
+        System.out.println("* 2.- Modificar Fabricante *");
+        System.out.println("* 3.- Borrar Fabricante    *");
+        System.out.println("* 4.- Volver               *");
         op = leer.nextInt();
+        switch (op) {
+                    case 1:
+                        crearFabricante();
+                        break;
+                    case 2:
+                        modificarFabricante();
+                        break;
+                    case 3:
+                        eliminarFabricante();
+                        break;
+                    case 4:
+                        System.out.println("- VOLVER AL MENU PRINCIPAL -");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("NO SE ADMITEN CARACTERES");
+                leer.next();
+            }
+        } while (op != 4);
     }
 
     public void menuProducto() {
         int op = 0;
-        System.out.println("* 6.- Nuevo Producto");
-        System.out.println("* 7.- Modificar Producto");
-        System.out.println("* 8.- Borrar un Producto");
+        do {
+            try {
+        System.out.println("***** MENU PRODUCTOS *****");
+        System.out.println("* 1.- Nuevo Producto     *");
+        System.out.println("* 2.- Modificar Producto *");
+        System.out.println("* 3.- Borrar un Producto *");
+        System.out.println("* 4.- Volver             *");
         op = leer.nextInt();
+        switch (op) {
+                    case 1:
+                        crearProducto();
+                        break;
+                    case 2:
+                        modificarProducto();
+                        break;
+                    case 3:
+                        eliminarProducto();
+                        break;
+                    case 4:
+                        System.out.println("- VOLVER AL MENU PRINCIPAL -");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("NO SE ADMITEN CARACTERES");
+                leer.next();
+            }
+        } while (op != 4);
     }
 
     // CRUD FABRICANTE
