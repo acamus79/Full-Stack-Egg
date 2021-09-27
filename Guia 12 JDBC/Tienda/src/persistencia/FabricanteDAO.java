@@ -34,7 +34,7 @@ public class FabricanteDAO extends DAO {
         } catch (MiExcepcion e)
         {
             System.out.println(e.getMessage());
-            throw new MiExcepcion("ERROR AL GUARDAR USUARIO");
+            throw new MiExcepcion("ERROR AL GUARDAR FABRICANTE");
         }
 
     }
