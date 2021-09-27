@@ -122,7 +122,6 @@ public class FabricanteDAO extends DAO {
                 aux = new Fabricante();
                 aux.setCodigo(resultado.getInt(1));
                 aux.setNombre(resultado.getString(2));
-
                 fabricantes.add(aux);
             }
 
