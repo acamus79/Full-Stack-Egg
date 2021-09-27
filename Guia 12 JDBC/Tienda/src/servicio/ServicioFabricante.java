@@ -111,7 +111,7 @@ public class ServicioFabricante {
                 throw new MiExcepcion("NO EXISTEN FABRICANTES");
             } else {
                 System.out.println("*** LISTA DE FABRICANTES ***");
-                System.out.printf("%-20s%-15s\n", "CODIGO", "NOMBRE"); // FORMATO DE IMPRESIÓN
+                System.out.printf("%-15s%-15s\n", "CODIGO", "NOMBRE"); // FORMATO DE IMPRESIÓN
                 for (Fabricante aux : fabricantes) {
                     System.out.println(aux);
                 }
