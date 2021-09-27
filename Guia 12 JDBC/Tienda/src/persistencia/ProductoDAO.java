@@ -16,8 +16,8 @@ import java.util.List;
  * @author Adrian E. Camus
  */
 public class ProductoDAO extends DAO {
-    
-     //GUARDAR
+
+    //GUARDAR
     public void guardarProducto(Producto p) throws MiExcepcion {
         try
         {
@@ -28,7 +28,7 @@ public class ProductoDAO extends DAO {
             // SENTENCIA SQL DE INSERCIÓN -- INSERT INTO `tienda`.`fabricante` (`codigo`, `nombre`) VALUES ('10', 'pHILLIPS');
             String sql = "INSERT INTO producto (codigo, nombre, precio, codigo_fabricante) "
                     + "VALUES('" + p.getCodigo()
-                    + "', '" + p.getNombre() + "', '" +p.getPrecio() + "', '" + p.getCodigoFabricante() + "');";
+                    + "', '" + p.getNombre() + "', '" + p.getPrecio() + "', '" + p.getCodigoFabricante() + "');";
             insertarModificarEliminar(sql);
 
         } catch (MiExcepcion e)
@@ -81,8 +81,8 @@ public class ProductoDAO extends DAO {
             }
             // SENTENCIA SQL DE MODIFICACIÓN
             String sql = "UPDATE producto SET nombre = '" + p.getNombre() + "', "
-                     + "apellido = '" + p.getPrecio() + "' "
-                     + "apellido = '" + p.getCodigoFabricante() + "' "
+                    + "apellido = '" + p.getPrecio() + "' "
+                    + "apellido = '" + p.getCodigoFabricante() + "' "
                     + "WHERE codigo = '" + p.getCodigo() + "';";
 
             insertarModificarEliminar(sql);
@@ -143,5 +143,4 @@ public class ProductoDAO extends DAO {
         }
     }
 
-    
 }
