@@ -15,9 +15,8 @@ import entidades.*;
  *
  * @author Adrian E. Camus
  */
-public class FamiliaDAO extends DAO{
-    
-    
+public class FamiliaDAO extends DAO {
+
     //GUARDAR
     public void guardarFamilia(Familia f) throws MiExcepcion {
         try
@@ -26,11 +25,12 @@ public class FamiliaDAO extends DAO{
             {
                 throw new MiExcepcion("PRODUCTO INVÁLIDO");
             }
-            // SENTENCIA SQL DE INSERCIÓN -- INSERT INTO `tienda`.`fabricante` (`codigo`, `nombre`) VALUES ('10', 'pHILLIPS');
+            // SENTENCIA SQL DE INSERCIÓN 
             String sql = "INSERT INTO familias (id_familia, nombre, edad_minima, edad_maxima, num_hijos, email, id_casa_familia) "
                     + "VALUES('" + f.getId()
-                    + "', '" + f.getNombre() + "', '" + f.getEdad_minima() + "', '" + f.getEdad_maxima()+ "', '" + f.getNum_hijos()
-                    + "', '" + f.getEmail()+ "', '" +f.getCasa().getId_casa() + "');";
+                    + "', '" + f.getNombre() + "', '" + f.getEdad_minima() + "', '" + f.getEdad_maxima() + "', '" + f.getNum_hijos()
+                    + "', '" + f.getEmail() + "', '" + f.getCasa().getId_casa() + "');";
+            
             insertarModificarEliminar(sql);
 
         } catch (MiExcepcion e)
@@ -50,15 +50,15 @@ public class FamiliaDAO extends DAO{
             String sql = "SELECT * FROM familias f"
                     + " INNER JOIN casas c on c.id_casa = f.id_casa_familia "
                     + "WHERE id_familia = '" + id + "';";
-            
+
             consultarBase(sql);
             Familia f = null;
             Casa c = null;
             while (resultado.next())
             {
                 f = new Familia();
-                c= new Casa();
-                
+                c = new Casa();
+
                 f.setId(resultado.getInt(1));
                 f.setNombre(resultado.getString(2));
                 f.setEdad_minima(resultado.getInt(3));
@@ -66,7 +66,7 @@ public class FamiliaDAO extends DAO{
                 f.setNum_hijos(resultado.getInt(5));
                 f.setEmail(resultado.getString(6));
                 f.setId_casa_familia(resultado.getInt(7));
-                
+
                 //Ahora la Casa
                 c.setId_casa(resultado.getInt(8));
                 c.setCalle(resultado.getNString(9));
@@ -78,6 +78,8 @@ public class FamiliaDAO extends DAO{
                 c.setFecha_hasta(resultado.getDate(15));
                 c.setTiempo_minimo(resultado.getInt(16));
                 c.setTiempo_maximo(resultado.getInt(17));
+                c.setPrecio_habitacion(resultado.getDouble(18));
+                c.setTipo_vivienda(resultado.getString(19));
                 // y recien ahora seteo el objeto casa a la familia
                 f.setCasa(c);
             }
@@ -92,7 +94,7 @@ public class FamiliaDAO extends DAO{
         }
 
     }
-    
+
     public boolean buscarFamiliaPorCasa(int id_casa) throws MiExcepcion {
 
         try
@@ -101,7 +103,7 @@ public class FamiliaDAO extends DAO{
             String sql = "SELECT * FROM familias WHERE id_casa_familia = '" + id_casa + "';";
             consultarBase(sql);
             return resultado.next();
-            
+
         } catch (SQLException | MiExcepcion e)
         {
             System.out.println(e.getMessage());
@@ -163,7 +165,7 @@ public class FamiliaDAO extends DAO{
             // SENTENCIA SQL DE CONSULTA CON INNER JOIN
             String sql = "SELECT * FROM familias f"
                     + " INNER JOIN casas c on c.id_casa = f.id_casa_familia;";
-                    
+
             consultarBase(sql);
 
             List<Familia> familias = new ArrayList<>();
@@ -173,8 +175,8 @@ public class FamiliaDAO extends DAO{
             while (resultado.next())
             {
                 f = new Familia();
-                c= new Casa();
-                
+                c = new Casa();
+
                 f.setId(resultado.getInt(1));
                 f.setNombre(resultado.getString(2));
                 f.setEdad_minima(resultado.getInt(3));
@@ -182,7 +184,7 @@ public class FamiliaDAO extends DAO{
                 f.setNum_hijos(resultado.getInt(5));
                 f.setEmail(resultado.getString(6));
                 f.setId_casa_familia(resultado.getInt(7));
-                
+
                 //Ahora seteo la Casa
                 c.setId_casa(resultado.getInt(8));
                 c.setCalle(resultado.getNString(9));
@@ -210,6 +212,4 @@ public class FamiliaDAO extends DAO{
         }
     }
 
-  
-    
 }
