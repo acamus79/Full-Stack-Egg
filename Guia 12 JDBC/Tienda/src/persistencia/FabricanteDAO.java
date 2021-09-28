@@ -78,7 +78,7 @@ public class FabricanteDAO extends DAO {
                 throw new MiExcepcion("FABRICANTE INVÁLIDO");
             }
             // SENTENCIA SQL DE MODIFICACIÓN
-            String sql = "UPDATE fabricante SET nombre = '" + f.getNombre() + "', "
+            String sql = "UPDATE fabricante SET nombre = '" + f.getNombre() + "' "
                     + "WHERE codigo = '" + f.getCodigo() + "';";
 
             insertarModificarEliminar(sql);
