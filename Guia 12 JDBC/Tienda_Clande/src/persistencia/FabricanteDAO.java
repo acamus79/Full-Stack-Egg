@@ -18,7 +18,7 @@ import servicios.MiExcepcion;
 public class FabricanteDAO extends DAO{
     
     //GUARDAR 
-    public void FabricanteUsuario(Fabricante aux) throws MiExcepcion {
+    public void guardarFabricante(Fabricante aux) throws MiExcepcion {
         try {
             if (aux == null) {
                 throw new MiExcepcion("OBJETO FABRICANTE NULO");
@@ -29,9 +29,8 @@ public class FabricanteDAO extends DAO{
             VALUES ('12', 'LG');
             
             */
-            String query = "INSERT INTO fabricante (codigo, nombre) VALUES ('" 
-                    + aux.getCodigo() 
-                    +"',"+ aux.getNombre()
+            String query = "INSERT INTO fabricante (nombre) VALUES ('" 
+                    + aux.getNombre()
                     + "');";
             //llamo al metodo HEREDADO de DAO 
             insertarModificarEliminar(query);
@@ -88,7 +87,7 @@ public class FabricanteDAO extends DAO{
         }
     }
 
-    public void eliminarPorCOdigo(Integer cod) throws MiExcepcion {
+    public void eliminarPorCodigo(Integer cod) throws MiExcepcion {
         try {
             // SENTENCIA SQL DE ELIMINACIÓN
             String sql = "DELETE FROM fabricante WHERE codigo = '" + cod + "';";
@@ -100,7 +99,7 @@ public class FabricanteDAO extends DAO{
         }
     }
 
-    public List<Fabricante> obtenerFabricante(String fab) throws MiExcepcion {
+    public List<Fabricante> obtenerFabricante() throws MiExcepcion {
         try {
             // SENTENCIA SQL DE CONSULTA
             String sql = "SELECT * FROM fabricante;";
@@ -127,10 +126,6 @@ public class FabricanteDAO extends DAO{
             desconectarBase();
         }
     }
-    
-    
-    
-    
     
     
 }

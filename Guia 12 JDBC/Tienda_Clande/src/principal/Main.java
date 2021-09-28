@@ -49,6 +49,7 @@ Paquete servicios:
 En este paquete se almacenarán aquellas clases que llevarán adelante lógica del 
 negocio. En general se crea un servicio para administrar cada una de las entidades 
 y algunos servicios para manejar operaciones muy específicas como las estadísticas.
+
 Realizar un menú en java a través del cual se permita elegir qué consulta se desea
 realizar. Las consultas a realizar sobre la BD son las siguientes:
 a) Lista el nombre de todos los productos que hay en la tabla producto. 
