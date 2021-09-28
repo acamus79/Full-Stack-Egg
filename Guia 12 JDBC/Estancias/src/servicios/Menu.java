@@ -71,13 +71,13 @@ public class Menu {
         
         do {
             try {
-                System.out.println("*********  MENU PRINCIPAL  DE CONSULTAS                                           *********");
-                System.out.println("* 1.- Familias que tienen al menos 3 hijos, y con edad máxima inferior a 10 años          *");
-                System.out.println("* 2.- Casas disponibles entre el 1/08/20 y el 31/08/20 en Reino Unido                     *");
-                System.out.println("* 3.- Mostrar Productos                                                                   *");
-                System.out.println("* 4.- Administracion de Productos                                                         *");
-                System.out.println("* 5.- Salir                                                                               *");
-                System.out.println("************************************");
+                System.out.println("==     MENU PRINCIPAL   ==");
+                System.out.println("|| 1.- Mostrar Tablas    ||");
+                System.out.println("|| 2.- Editar Registros  ||");
+                System.out.println("|| 3.- Borrar Registros  ||");
+                System.out.println("|| 4.- Agregar Registros ||");
+                System.out.println("|| 5.- Salir             ||");
+                System.out.println("==========================");
         
             opcion = leer.nextInt();
                                 
