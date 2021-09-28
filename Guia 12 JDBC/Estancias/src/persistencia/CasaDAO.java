@@ -7,7 +7,6 @@
 package persistencia;
 
 import entidades.Casa;
-import entidades.Familia;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -152,8 +151,8 @@ public class CasaDAO extends DAO{
         {
             // SENTENCIA SQL DE ELIMINACIÓN
             String sql = "DELETE FROM casas WHERE id_casa = '" + id + "';";
-
             insertarModificarEliminar(sql);
+            
         } catch (MiExcepcion e)
         {
             System.out.println(e.getMessage());
