@@ -119,20 +119,37 @@ public class CasaDAO extends DAO{
         {
             if (c == null)
             {
-                throw new MiExcepcion("FAMILIA INVALIDA");
+                throw new MiExcepcion("OBJETO CASA NULO");
             }
-            // SENTENCIA SQL DE MODIFICACIÓN
+            /* SENTENCIA SQL DE MODIFICACIÓN
+            
+            UPDATE casas SET 
+            calle = 'Oscuridad', 
+            numero = '69', 
+            codigo_postal = '5500',
+            ciudad = 'Mendoza', 
+            pais = 'Argentina', 
+            fecha_desde = '2021-08-01', 
+            fecha_hasta = '2021-09-31', 
+            tiempo_minimo = '7', 
+            tiempo_maximo = '60', 
+            precio_habitacion = '45.00', 
+            tipo_vivienda = 'Casa' 
+            WHERE (`id_casa` = '8');
+            
+            */
+            
             String sql = "UPDATE casas SET"
                     + "calle = '" + c.getCalle() + "', "
-                    + "numero = '" + c.getNumero() + "' "
-                    + "codigo_postal= '" + c.getCodigo_postal() + "' "
-                    + "ciudad = '" + c.getCiudad() + "' "
-                    + "pais = '" + c.getPais() + "' "
-                    + "fecha_desde = '" + c.getFecha_desde() + "' "
-                    + "fecha_hasta = '" + c.getFecha_hasta() + "' "
-                    + "tiempo_minimo = '" + c.getTiempo_minimo() + "' "
-                    + "tiempo_maximo = '" + c.getTiempo_maximo() + "' "
-                    + "precio_habitacion = '" + c.getPrecio_habitacion() + "' "
+                    + "numero = '" + c.getNumero() + "', "
+                    + "codigo_postal= '" + c.getCodigo_postal() + "', "
+                    + "ciudad = '" + c.getCiudad() + "', "
+                    + "pais = '" + c.getPais() + "', "
+                    + "fecha_desde = '" + c.getFecha_desde() + "', "
+                    + "fecha_hasta = '" + c.getFecha_hasta() + "', "
+                    + "tiempo_minimo = '" + c.getTiempo_minimo() + "', "
+                    + "tiempo_maximo = '" + c.getTiempo_maximo() + "', "
+                    + "precio_habitacion = '" + c.getPrecio_habitacion() + "', "
                     + "tipo_vivienda = '" + c.getTipo_vivienda() + "' "
                     + "WHERE id_casa = '" + c.getId_casa() + "';";
 
@@ -156,7 +173,7 @@ public class CasaDAO extends DAO{
         } catch (MiExcepcion e)
         {
             System.out.println(e.getMessage());
-            throw new MiExcepcion("ERROR AL ELIMINAR FAMILIA");
+            throw new MiExcepcion("ERROR AL ELIMINAR CASA");
         }
 
     }
@@ -197,7 +214,7 @@ public class CasaDAO extends DAO{
         } catch (SQLException | MiExcepcion e)
         {
             System.out.println(e.getMessage());
-            throw new MiExcepcion("ERROR AL OBTENER PRODUCTOS");
+            throw new MiExcepcion("ERROR AL OBTENER CASA");
         } finally
         {
             desconectarBase();
