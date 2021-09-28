@@ -102,8 +102,8 @@ public class ProductoDAO extends DAO {
             }
             // SENTENCIA SQL DE MODIFICACIÓN
             String sql = "UPDATE producto SET nombre = '" + p.getNombre() + "', "
-                    + "apellido = '" + p.getPrecio() + "' "
-                    + "apellido = '" + p.getCodigoFabricante() + "' "
+                    + "precio = '" + p.getPrecio() + "' "
+                    + "codigo_fabricante = '" + p.getCodigoFabricante() + "' "
                     + "WHERE codigo = '" + p.getCodigo() + "';";
 
             insertarModificarEliminar(sql);
