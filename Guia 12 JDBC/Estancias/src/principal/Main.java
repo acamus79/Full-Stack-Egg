@@ -47,6 +47,8 @@ en la pestaña de Services en Netbeans.
 
 Agregar en “Libraries” la librería “MySQL JDBC Driver” para permitir conectar la 
 aplicación de Java con la base de datos MySQL.
+
+
 Paquete entidades: 
 Dentro de este paquete se deben crear todas las clases necesarias que queremos 
 persistir en la base de datos. Por ejemplo, una de las clases a crear dentro de este 
@@ -59,6 +61,7 @@ paquete es la clase “Familia.java” con los siguientes atributos:
 • private String email;
 Agregar a cada clase el/los constructores necesarios y los métodos públicos getters y 
 setters para poder acceder a los atributos privados de la clase.
+
 Paquete servicios: 
 En este paquete se almacenarán aquellas clases que llevarán adelante lógica del 
 negocio. En general se crea un servicio para administrar cada una de las entidades y 
@@ -66,8 +69,10 @@ algunos servicios para manejar operaciones muy específicas como las estadístic
 Para realizar las consultas con la base de datos, dentro del paquete servicios, creamos 
 las clases para cada una de las entidades con los métodos necesarios para realizar 
 consultas a la base de datos. Una de las clases a crear en este paquete será: 
+
 FamiliaServicio.java, y en esta clase se implementará, por ejemplo, un método para listar 
 todas las familias que ofrecen alguna habitación para realizar estancias.
+
 Realizar un menú en java a través del cual se permita elegir qué consulta se desea 
 realizar. Las consultas a realizar sobre la BD son las siguientes:
 a) Listar aquellas familias que tienen al menos 3 hijos, y con edad máxima inferior a 10 
