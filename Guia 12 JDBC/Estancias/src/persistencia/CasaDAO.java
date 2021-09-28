@@ -179,7 +179,7 @@ public class CasaDAO extends DAO{
                 c = new Casa();
                 //Ahora seteo la Casa
                 c.setId_casa(resultado.getInt(1));
-                c.setCalle(resultado.getNString(2));
+                c.setCalle(resultado.getString(2));
                 c.setNumero(resultado.getInt(3));
                 c.setCodigo_postal(resultado.getString(4));
                 c.setCiudad(resultado.getString(5));
