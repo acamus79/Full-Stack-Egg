@@ -1,0 +1,220 @@
+/*
+ * Sin licencia.
+ * Uso para capacitación
+ * 2021 Año de la Prevención y Lucha contra el COVID-19.
+ */
+
+package persistencia;
+
+import entidades.Casa;
+import entidades.Familia;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import servicios.MiExcepcion;
+
+/**
+ * 
+ * @author Adrian E. Camus
+ */
+public class CasaDAO extends DAO{
+    
+    //GUARDAR
+    public void guardarCasa(Casa c) throws MiExcepcion {
+        try
+        {
+            if (c == null)
+            {
+                throw new MiExcepcion("PRODUCTO INVÁLIDO");
+            }
+            // SENTENCIA SQL DE INSERCIÓN 
+            String sql = "INSERT INTO casas (id_casa, calle, numero, codigo_postal, ciudad, pais, fecha_desde, fecha_hasta, tiempo_minimo, tiempo_maximo, precio_habitacion, tipo_vivienda) "
+                    + "VALUES('" + c.getId_casa()           //1
+                    + "', '" + c.getCalle()                 //2
+                    + "', '" + c.getNumero()                //3
+                    + "', '" + c.getCodigo_postal()         //4
+                    + "', '" + c.getCiudad()                //5
+                    + "', '" + c.getPais()                  //6
+                    + "', '" + c.getFecha_desde()           //7
+                    + "', '" + c.getFecha_hasta()           //8
+                    + "', '" + c.getTiempo_minimo()         //9
+                    + "', '" + c.getTiempo_maximo()         //10
+                    + "', '" + c.getPrecio_habitacion()     //11
+                    + "', '" + c.getTipo_vivienda()         //12
+                    + "');";
+            
+            insertarModificarEliminar(sql);
+
+        } catch (MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL GUARDAR PRODUCTO");
+        }
+
+    }
+
+    //BUSCAR
+    public Casa buscarCasaPorId(int id) throws MiExcepcion {
+
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA CON INNER JOIN
+            String sql = "SELECT * FROM casas"
+                       + "WHERE id_casa = '" + id + "';";
+
+            consultarBase(sql);
+            Casa c = null;
+            while (resultado.next())
+            {
+                c = new Casa();
+                c.setId_casa(resultado.getInt(1));
+                c.setCalle(resultado.getNString(2));
+                c.setNumero(resultado.getInt(3));
+                c.setCodigo_postal(resultado.getString(4));
+                c.setCiudad(resultado.getString(5));
+                c.setPais(resultado.getString(6));
+                c.setFecha_desde(resultado.getDate(7));
+                c.setFecha_hasta(resultado.getDate(8));
+                c.setTiempo_minimo(resultado.getInt(9));
+                c.setTiempo_maximo(resultado.getInt(10));
+                c.setPrecio_habitacion(resultado.getDouble(11));
+                c.setTipo_vivienda(resultado.getString(12));
+            
+            }
+            return c;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTO");
+        } finally
+        {
+            desconectarBase();
+        }
+
+    }
+
+    public boolean verificaCasaPorId(int id_casa) throws MiExcepcion {
+
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT * FROM casas WHERE id_casa = '" + id_casa + "';";
+            consultarBase(sql);
+            return resultado.next();
+
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTO");
+        } finally
+        {
+            desconectarBase();
+        }
+
+    }
+
+    //MODIFICAR  
+    public void modificarCasa(Casa c) throws MiExcepcion {
+
+        try
+        {
+            if (c == null)
+            {
+                throw new MiExcepcion("FAMILIA INVALIDA");
+            }
+            // SENTENCIA SQL DE MODIFICACIÓN
+            String sql = "UPDATE casas SET"
+                    + "calle = '" + c.getCalle() + "', "
+                    + "numero = '" + c.getNumero() + "' "
+                    + "codigo_postal= '" + c.getCodigo_postal() + "' "
+                    + "ciudad = '" + c.getCiudad() + "' "
+                    + "pais = '" + c.getPais() + "' "
+                    + "fecha_desde = '" + c.getFecha_desde() + "' "
+                    + "fecha_hasta = '" + c.getFecha_hasta() + "' "
+                    + "tiempo_minimo = '" + c.getTiempo_minimo() + "' "
+                    + "tiempo_maximo = '" + c.getTiempo_maximo() + "' "
+                    + "precio_habitacion = '" + c.getPrecio_habitacion() + "' "
+                    + "tipo_vivienda = '" + c.getTipo_vivienda() + "' "
+                    + "WHERE id_casa = '" + c.getId_casa() + "';";
+
+            insertarModificarEliminar(sql);
+        } catch (MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL MODIFICAR PRODUCTO");
+        }
+
+    }
+
+    //ELIMINAR
+    public void eliminarFamilia(Integer id) throws MiExcepcion {
+        try
+        {
+            // SENTENCIA SQL DE ELIMINACIÓN
+            String sql = "DELETE FROM familias WHERE id_familia = '" + id + "';";
+
+            insertarModificarEliminar(sql);
+        } catch (MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL ELIMINAR FAMILIA");
+        }
+
+    }
+
+    //OBTENER
+    public List<Familia> obtenerFamilia() throws MiExcepcion {
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA CON INNER JOIN
+            String sql = "SELECT * FROM familias f"
+                    + " INNER JOIN casas c on c.id_casa = f.id_casa_familia;";
+
+            consultarBase(sql);
+
+            List<Familia> familias = new ArrayList<>();
+            Familia f = null;
+            Casa c = null;
+
+            while (resultado.next())
+            {
+                f = new Familia();
+                c = new Casa();
+
+                f.setId(resultado.getInt(1));
+                f.setNombre(resultado.getString(2));
+                f.setEdad_minima(resultado.getInt(3));
+                f.setEdad_maxima(resultado.getInt(4));
+                f.setNum_hijos(resultado.getInt(5));
+                f.setEmail(resultado.getString(6));
+                f.setId_casa_familia(resultado.getInt(7));
+
+                //Ahora seteo la Casa
+                c.setId_casa(resultado.getInt(8));
+                c.setCalle(resultado.getNString(9));
+                c.setNumero(resultado.getInt(10));
+                c.setCodigo_postal(resultado.getString(11));
+                c.setCiudad(resultado.getString(12));
+                c.setPais(resultado.getString(13));
+                c.setFecha_desde(resultado.getDate(14));
+                c.setFecha_hasta(resultado.getDate(15));
+                c.setTiempo_minimo(resultado.getInt(16));
+                c.setTiempo_maximo(resultado.getInt(17));
+                // y recien ahora seteo el objeto casa a la familia
+                f.setCasa(c);
+                //y ahora agrego el objeto familia a la lista
+                familias.add(f);
+            }
+            return familias;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTOS");
+        } finally
+        {
+            desconectarBase();
+        }
+    }
+
+
+}
