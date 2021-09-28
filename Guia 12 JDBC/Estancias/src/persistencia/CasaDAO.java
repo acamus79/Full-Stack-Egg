@@ -113,7 +113,7 @@ public class CasaDAO extends DAO{
 
     }
 
-    //MODIFICAR  
+    //MODIFICAR
     public void modificarCasa(Casa c) throws MiExcepcion {
 
         try
@@ -147,11 +147,11 @@ public class CasaDAO extends DAO{
     }
 
     //ELIMINAR
-    public void eliminarFamilia(Integer id) throws MiExcepcion {
+    public void eliminarCasa(Integer id) throws MiExcepcion {
         try
         {
             // SENTENCIA SQL DE ELIMINACIÓN
-            String sql = "DELETE FROM familias WHERE id_familia = '" + id + "';";
+            String sql = "DELETE FROM casas WHERE id_casa = '" + id + "';";
 
             insertarModificarEliminar(sql);
         } catch (MiExcepcion e)
@@ -163,49 +163,38 @@ public class CasaDAO extends DAO{
     }
 
     //OBTENER
-    public List<Familia> obtenerFamilia() throws MiExcepcion {
+    public List<Casa> obtenerCasa() throws MiExcepcion {
         try
         {
-            // SENTENCIA SQL DE CONSULTA CON INNER JOIN
-            String sql = "SELECT * FROM familias f"
-                    + " INNER JOIN casas c on c.id_casa = f.id_casa_familia;";
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT * FROM casas f;";
 
             consultarBase(sql);
 
-            List<Familia> familias = new ArrayList<>();
-            Familia f = null;
+            List<Casa> casas = new ArrayList<>();
             Casa c = null;
 
             while (resultado.next())
             {
-                f = new Familia();
+                //Instancio el objeto c con el constructor vacio de Casa
                 c = new Casa();
-
-                f.setId(resultado.getInt(1));
-                f.setNombre(resultado.getString(2));
-                f.setEdad_minima(resultado.getInt(3));
-                f.setEdad_maxima(resultado.getInt(4));
-                f.setNum_hijos(resultado.getInt(5));
-                f.setEmail(resultado.getString(6));
-                f.setId_casa_familia(resultado.getInt(7));
-
                 //Ahora seteo la Casa
-                c.setId_casa(resultado.getInt(8));
-                c.setCalle(resultado.getNString(9));
-                c.setNumero(resultado.getInt(10));
-                c.setCodigo_postal(resultado.getString(11));
-                c.setCiudad(resultado.getString(12));
-                c.setPais(resultado.getString(13));
-                c.setFecha_desde(resultado.getDate(14));
-                c.setFecha_hasta(resultado.getDate(15));
-                c.setTiempo_minimo(resultado.getInt(16));
-                c.setTiempo_maximo(resultado.getInt(17));
-                // y recien ahora seteo el objeto casa a la familia
-                f.setCasa(c);
-                //y ahora agrego el objeto familia a la lista
-                familias.add(f);
+                c.setId_casa(resultado.getInt(1));
+                c.setCalle(resultado.getNString(2));
+                c.setNumero(resultado.getInt(3));
+                c.setCodigo_postal(resultado.getString(4));
+                c.setCiudad(resultado.getString(5));
+                c.setPais(resultado.getString(6));
+                c.setFecha_desde(resultado.getDate(7));
+                c.setFecha_hasta(resultado.getDate(8));
+                c.setTiempo_minimo(resultado.getInt(9));
+                c.setTiempo_maximo(resultado.getInt(10));
+                c.setPrecio_habitacion(resultado.getDouble(11));
+                c.setTipo_vivienda(resultado.getString(12));
+                //y ahora agrego el objeto "c" a la lista "casas"
+                casas.add(c);
             }
-            return familias;
+            return casas;
         } catch (SQLException | MiExcepcion e)
         {
             System.out.println(e.getMessage());
