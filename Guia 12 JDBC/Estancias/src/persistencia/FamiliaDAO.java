@@ -130,7 +130,7 @@ public class FamiliaDAO extends DAO {
                     + "edad_maxima = '" + f.getEdad_maxima() + "' "
                     + "num_hijos = '" + f.getNum_hijos() + "' "
                     + "email = '" + f.getEmail() + "' "
-                    + "id_casa_familia = '" + f.getEmail() + "' "
+                    + "id_casa_familia = '" + f.getCasa().getId_casa() + "' "
                     + "WHERE id_familia = '" + f.getId() + "';";
 
             insertarModificarEliminar(sql);
