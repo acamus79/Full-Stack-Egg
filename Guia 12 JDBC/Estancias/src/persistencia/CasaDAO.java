@@ -166,7 +166,7 @@ public class CasaDAO extends DAO{
         try
         {
             // SENTENCIA SQL DE CONSULTA
-            String sql = "SELECT * FROM casas f;";
+            String sql = "SELECT * FROM casas;";
 
             consultarBase(sql);
 
