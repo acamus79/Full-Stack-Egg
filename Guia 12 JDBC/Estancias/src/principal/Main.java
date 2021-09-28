@@ -8,7 +8,8 @@ Nos han pedido que hagamos una aplicación Java de consola para una pequeña
 empresa que se dedica a organizar estancias en el extranjero dentro de una familia. El 
 objetivo es el desarrollo del sistema de reserva de casas para realizar estancias en el 
 exterior, utilizando el lenguaje JAVA, una base de datos MySQL y JDBC para realizar la 
-ejecución de operaciones sobre la base de datos (BD). 
+ejecución de operaciones sobre la base de datos (BD).
+
 Creación de la Base de Datos MySQL 
 La información que se desea almacenar en la base de datos es la siguiente: 
 • Se tienen contactos con familias de diferentes países que ofrecen alguna de las 
