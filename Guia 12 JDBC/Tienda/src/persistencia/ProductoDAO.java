@@ -101,8 +101,17 @@ public class ProductoDAO extends DAO {
                 throw new MiExcepcion("PRODUCTO INVÁLIDO");
             }
             // SENTENCIA SQL DE MODIFICACIÓN
-            String sql = "UPDATE producto SET nombre = '" + p.getNombre() + "' "
-                    + "precio = '" + p.getPrecio() + "' "
+            /*
+            UPDATE producto SET codigo = '51', 
+            nombre = 'algo', 
+            precio = '25.50', 
+            codigo_fabricante = '2' 
+            WHERE (codigo = '78');
+            
+            */
+            
+            String sql = "UPDATE producto SET nombre = '" + p.getNombre() + "', "
+                    + "precio = '" + p.getPrecio() + "', "
                     + "codigo_fabricante = '" + p.getCodigoFabricante() + "' "
                     + "WHERE codigo = '" + p.getCodigo() + "';";
 
