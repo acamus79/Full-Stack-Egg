@@ -62,22 +62,19 @@ public class Menu {
     }
     
     
-    
-    
-    
-    
     public void menuPrincipal() {
         int opcion = 0;
         
         do {
             try {
-                System.out.println("==     MENU PRINCIPAL   ==");
-                System.out.println("|| 1.- Mostrar Tablas    ||");
-                System.out.println("|| 2.- Editar Registros  ||");
-                System.out.println("|| 3.- Borrar Registros  ||");
-                System.out.println("|| 4.- Agregar Registros ||");
-                System.out.println("|| 5.- Salir             ||");
-                System.out.println("==========================");
+                System.out.println("==     MENU PRINCIPAL   ===");
+                System.out.println("|| 1.- Mostrar Tablas      ||");
+                System.out.println("|| 2.- Editar Registros    ||");
+                System.out.println("|| 3.- Borrar Registros    ||");
+                System.out.println("|| 4.- Agregar Registros   ||");
+                System.out.println("|| 5.- Consultas Ejercicio ||");
+                System.out.println("|| 5.- Salir               ||");
+                System.out.println("===========================");
         
             opcion = leer.nextInt();
                                 
