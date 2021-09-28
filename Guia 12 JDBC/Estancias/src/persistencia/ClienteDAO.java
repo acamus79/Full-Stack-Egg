@@ -159,30 +159,26 @@ public class ClienteDAO extends DAO{
 
             consultarBase(sql);
 
-            List<Casa> casas = new ArrayList<>();
-            Casa c = null;
+            List<Cliente> clientes = new ArrayList<>();
+            Cliente c = null;
 
             while (resultado.next())
             {
                 //Instancio el objeto c con el constructor vacio de Casa
-                c = new Casa();
+                c = new Cliente();
                 //Ahora seteo la Casa
-                c.setId_casa(resultado.getInt(1));
-                c.setCalle(resultado.getNString(2));
-                c.setNumero(resultado.getInt(3));
-                c.setCodigo_postal(resultado.getString(4));
-                c.setCiudad(resultado.getString(5));
-                c.setPais(resultado.getString(6));
-                c.setFecha_desde(resultado.getDate(7));
-                c.setFecha_hasta(resultado.getDate(8));
-                c.setTiempo_minimo(resultado.getInt(9));
-                c.setTiempo_maximo(resultado.getInt(10));
-                c.setPrecio_habitacion(resultado.getDouble(11));
-                c.setTipo_vivienda(resultado.getString(12));
+                c.setId_cliente(resultado.getInt(1));
+                c.setNombre(resultado.getString(2));
+                c.setCalle(resultado.getString(3));
+                c.setNumero(resultado.getInt(4));
+                c.setCodigo_postal(resultado.getString(5));
+                c.setCiudad(resultado.getString(6));
+                c.setPais(resultado.getString(7));
+                c.setEmail(resultado.getString(8));
                 //y ahora agrego el objeto "c" a la lista "casas"
-                casas.add(c);
+                clientes.add(c);
             }
-            return casas;
+            return clientes;
         } catch (SQLException | MiExcepcion e)
         {
             System.out.println(e.getMessage());
