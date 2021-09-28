@@ -11,5 +11,7 @@ package entidades;
  * @author Adrian E. Camus
  */
 public class Estancia {
-
+        
+    
+    
 }
