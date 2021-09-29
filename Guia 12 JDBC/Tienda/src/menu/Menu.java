@@ -132,14 +132,8 @@ public class Menu {
                     case 5:
                         
                         break;    
-                    case 6: {
-                try {
-                    servProd.listarPorNombre();
-                } catch (MiExcepcion ex)
-                {
-                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+                    case 6: 
+                        listarNombrePrecio();
                     break;    
     
                     case 7:
@@ -256,6 +250,16 @@ public class Menu {
         
     }
     
-    
+    public void listarNombrePrecio() {
+        
+        try
+        {
+            servProd.listarPorNombre();
+        } catch (MiExcepcion ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
     
 }
