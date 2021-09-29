@@ -212,19 +212,15 @@ public class ServicioProducto {
     public void listarPorNombre() throws MiExcepcion{
         try
         {
-            List<Producto> productos = pDAO.obtenerProducto();
+            List<String> productos = pDAO.obtenerNombrePrecio();
 
             if (productos.isEmpty())
             {
                 throw new MiExcepcion("NO EXISTEN PRODUCTOS");
             } else
             {
-                System.out.println("*** LISTA DE PRODUCTOS ***");
-                System.out.printf("%-1s%-1s%-10s%-5s\n", " ", " ", "PRECIO $", "NOMBRE" ); // FORMATO DE IMPRESIÓN
-                for (Producto aux : productos)
-                {
-                    System.out.println(aux);
-                }
+                System.out.println("*** NOMBRE - $ PRECIO ***");
+                productos.forEach(aux -> {System.out.println(aux);});
                 System.out.println();
             }
         } catch (MiExcepcion e)
