@@ -67,7 +67,7 @@ public class FabricanteDAO extends DAO{
     public Fabricante buscarPorClavePrincipal(Integer cod) throws MiExcepcion {
         try {
             // SENTENCIA SQL DE CONSULTA
-            String sql = "SELECT * FROM Fabricante WHERE codigo = '" + cod + "';";
+            String sql = "SELECT * FROM fabricante WHERE codigo = '" + cod + "';";
             //llama al metodo heredado con el el string creado como parametro
             consultarBase(sql);
 

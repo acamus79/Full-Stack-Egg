@@ -11,7 +11,7 @@ package entidades;
  */
 public class Fabricante {
     
-    private int codigo;
+    private Integer codigo;
     private String nombre;
 
     public Fabricante() {
@@ -22,7 +22,7 @@ public class Fabricante {
         this.nombre = nombre;
     }
 
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 

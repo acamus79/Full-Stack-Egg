@@ -7,6 +7,8 @@ package servicios;
 
 import entidades.Fabricante;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import persistencia.FabricanteDAO;
 
 /**
@@ -20,7 +22,11 @@ public class ServicioFabricante {
     public ServicioFabricante() {
     f_DAO = new FabricanteDAO();
     }
-
+/*
+    CRUD
+            Create - Release - Update - Delete
+*/    
+    
 //CREA NUEVO    
     public void crearFabricante(String nombre) throws MiExcepcion {
         
@@ -122,8 +128,28 @@ public class ServicioFabricante {
         }
     }
     
-    
-    
+   
+     public Fabricante verificaFabricante(int codigo) throws MiExcepcion{
+        
+         Fabricante f = null;
+         
+        try
+        {
+            
+           f = f_DAO.buscarPorClavePrincipal(codigo);
+          
+           //if(f==)
+
+           
+        } catch (MiExcepcion ex){
+            ex.getMessage();
+            System.out.println("ALGO FALLO");
+            
+        }
+        return f;
+     } 
+        
+
     
     
 }

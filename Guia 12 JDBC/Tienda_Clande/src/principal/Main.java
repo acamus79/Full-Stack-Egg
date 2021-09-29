@@ -69,6 +69,9 @@ h) Editar un producto con datos a elección.
  */
 package principal;
 
+import servicios.Menu;
+import servicios.MiExcepcion;
+
 /**
  *
  * @author Adrian E. Camus
@@ -77,10 +80,14 @@ public class Main {
 
     /**
      * @param args the command line arguments
+     * @throws servicios.MiExcepcion
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MiExcepcion {
         
+        Menu m = new Menu();
         
-    }
+        m.menuPrincipal();
+        
+            }
     
 }
