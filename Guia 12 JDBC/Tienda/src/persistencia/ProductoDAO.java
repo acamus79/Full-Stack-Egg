@@ -237,4 +237,43 @@ public class ProductoDAO extends DAO {
         }
     }
 
+     public Producto buscarBarato() throws MiExcepcion {
+
+         try
+        {
+            /* SENTENCIA SQL DE CONSULTA
+            
+            select *
+            from producto
+            order by precio
+            limit 1;
+            */
+        
+            String sql = "SELECT * FROM producto ORDER BY precio LIMIT 1;";
+            consultarBase(sql);
+            Producto p = null;
+
+            while (resultado.next())
+            {
+                p = new Producto();
+
+                p.setCodigo(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getDouble(3));
+                p.setCodigoFabricante(resultado.getInt(4));
+            }
+            return p;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTO");
+        } finally
+        {
+            desconectarBase();
+        }
+
+    }
+    
+    
+    
 }
