@@ -25,8 +25,8 @@ public class FabricanteDAO extends DAO{
             }
             /* SENTENCIA SQL DE INSERCIÓN
             
-            INSERT INTO fabricante (codigo, nombre) 
-            VALUES ('12', 'LG');
+            INSERT INTO fabricante (nombre) 
+            VALUES ('LG');
             
             */
             String query = "INSERT INTO fabricante (nombre) VALUES ('" 
