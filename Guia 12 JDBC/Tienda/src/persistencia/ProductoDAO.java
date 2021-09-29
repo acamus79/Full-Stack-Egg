@@ -206,5 +206,35 @@ public class ProductoDAO extends DAO {
             desconectarBase();
         }
     }
+    
+    
+    public List<String> obtenerNombrePrecio() throws MiExcepcion {
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT nombre, precio FROM producto ORDER BY nombre";
+            consultarBase(sql);
+
+            List<String> nomb_precio = new ArrayList<>();
+            Producto aux = null;
+            String variable = null;
+
+            while (resultado.next())
+            {
+                aux = new Producto();
+                variable = resultado.getString(1)+" - $ "+ resultado.getDouble(2);
+                nomb_precio.add(variable);
+            }
+
+            return nomb_precio;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTOS");
+        } finally
+        {
+            desconectarBase();
+        }
+    }
 
 }
