@@ -5,7 +5,6 @@
  */
 package persistencia;
 
-import entidad.Fabricante;
 import entidad.Producto;
 import excepcion.MiExcepcion;
 import java.sql.SQLException;
@@ -26,10 +25,12 @@ public class ProductoDAO extends DAO {
             {
                 throw new MiExcepcion("PRODUCTO INVÁLIDO");
             }
+                                    
             // SENTENCIA SQL DE INSERCIÓN -- INSERT INTO `tienda`.`fabricante` (`codigo`, `nombre`) VALUES ('10', 'pHILLIPS');
             String sql = "INSERT INTO producto (codigo, nombre, precio, codigo_fabricante) "
                     + "VALUES('" + p.getCodigo()
                     + "', '" + p.getNombre() + "', '" + p.getPrecio() + "', '" + p.getCodigoFabricante() + "');";
+            
             insertarModificarEliminar(sql);
 
         } catch (MiExcepcion e)
@@ -70,8 +71,8 @@ public class ProductoDAO extends DAO {
         }
 
     }
-    
-    public boolean buscarProductoPorFab(int cod_fab) throws MiExcepcion {
+    //VERIFICA SI EXISTE FABRICANTE
+    public boolean verificarFabricante(int cod_fab) throws MiExcepcion {
 
         try
         {
@@ -90,6 +91,40 @@ public class ProductoDAO extends DAO {
         }
 
     }
+    
+    public List<Producto> buscarProductoPorNombre(String nombre) throws MiExcepcion {
+
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT * FROM producto WHERE nombre LIKE '" + nombre + "%';";
+            consultarBase(sql);
+            List<Producto> productos = new ArrayList<>();
+            Producto p = null;
+
+            while (resultado.next())
+            {
+                p = new Producto();//instancio en objeto de mi clase Producto
+
+                p.setCodigo(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getDouble(3));
+                p.setCodigoFabricante(resultado.getInt(4));
+                
+                productos.add(p);//Agrego a la lista el objeto instanciado y seteado
+            }
+            return productos;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTO");
+        } finally
+        {
+            desconectarBase();
+        }
+
+    }
+    
 
     //MODIFICAR
     public void modificarProducto(Producto p) throws MiExcepcion {
@@ -107,7 +142,6 @@ public class ProductoDAO extends DAO {
             precio = '25.50', 
             codigo_fabricante = '2' 
             WHERE (codigo = '78');
-            
             */
             
             String sql = "UPDATE producto SET nombre = '" + p.getNombre() + "', "
