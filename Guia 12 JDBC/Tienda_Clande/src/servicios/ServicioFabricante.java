@@ -23,6 +23,10 @@ public class ServicioFabricante {
 
 //CREA NUEVO    
     public void crearFabricante(String nombre) throws MiExcepcion {
+        
+        //direccion.setId(UUID.randomUUID().toString());
+
+        
         try {
             // VALIDACIÓN
             if (nombre == null | nombre.trim().isEmpty()) {
