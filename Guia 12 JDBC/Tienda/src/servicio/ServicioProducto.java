@@ -158,7 +158,7 @@ public class ServicioProducto {
                 throw new MiExcepcion("NO EXISTEN PRODUCTOS");
             } else
             {
-                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.println("\n*** LISTA DE PRODUCTOS ***");
                 System.out.printf("%-8s%-10s%-15s%-5s\n", "CODIGO", "Cod.FABR", "PRECIO $", "NOMBRE" ); // FORMATO DE IMPRESIÓN
                 for (Producto aux : productos)
                 {
@@ -188,7 +188,7 @@ public class ServicioProducto {
                 throw new MiExcepcion("NO EXISTEN PRODUCTOS");
             } else
             {
-                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.println("\n*** LISTA DE PRODUCTOS ***");
                 System.out.printf("%-8s%-10s%-15s%-5s\n", "CODIGO", "Cod.FABR", "PRECIO $", "NOMBRE" ); // FORMATO DE IMPRESIÓN
                 for (Producto aux : productos)
                 {
@@ -219,9 +219,9 @@ public class ServicioProducto {
                 throw new MiExcepcion("NO EXISTEN PRODUCTOS");
             } else
             {
-                System.out.println("*** NOMBRE - $ PRECIO ***");
+                System.out.println("\n*** NOMBRE - $ PRECIO ***");
                 productos.forEach(aux -> {System.out.println(aux);});
-                System.out.println();
+                System.out.println("\n");
             }
         } catch (MiExcepcion e)
         {
@@ -235,6 +235,30 @@ public class ServicioProducto {
     
     }
     
-    
+    public void buscaMasBarato() throws MiExcepcion {
+        try
+        {
+            
+            Producto p = pDAO.buscarBarato();
+
+            if (p == null)
+            {
+                throw new MiExcepcion("NO HAY PRODUCTO");
+            }
+            System.out.println("\n*** PRODUCTO MAS ECONOMICO ***");
+            System.out.printf("%-8s%-10s%-15s%-5s\n", "CODIGO", "Cod.FABR", "PRECIO $", "NOMBRE" );
+            System.out.println(p);
+            System.out.println("\n");
+            
+        } catch (MiExcepcion e)
+        {
+            // e.printStackTrace();
+            throw e;
+        } catch (Exception e)
+        {
+            // e.printStackTrace();
+            throw new MiExcepcion("ERROR DE SISTEMA");
+        }
+    }
     
 }
