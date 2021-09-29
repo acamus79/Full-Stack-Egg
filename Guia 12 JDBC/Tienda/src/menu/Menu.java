@@ -34,7 +34,7 @@ public class Menu {
         
         do {
             try {
-                System.out.println("*********  MENU PRINCIPAL  *********");
+                System.out.println("\n*********  MENU PRINCIPAL  *********");
                 System.out.println("* 1.- Mostrar Fabricantes          *");
                 System.out.println("* 2.- Administracion de Fabricantes*");
                 System.out.println("* 3.- Mostrar Productos            *");
@@ -75,7 +75,7 @@ public class Menu {
         
         do {
             try {
-        System.out.println("***** MENU FABRICANTES *****");
+        System.out.println("\n***** MENU FABRICANTES *****");
         System.out.println("* 1.- Nuevo Fabricante     *");
         System.out.println("* 2.- Modificar Fabricante *");
         System.out.println("* 3.- Borrar Fabricante    *");
@@ -102,11 +102,11 @@ public class Menu {
         } while (op != 4);
     }
 
-    public void menuProducto() {
+    public void menuProducto() throws MiExcepcion {
         int op = 0;
         do {
             try {
-        System.out.println("***** MENU PRODUCTOS *****");
+        System.out.println("\n***** MENU PRODUCTOS *****");
         System.out.println("* 1.- Nuevo Producto     *");
         System.out.println("* 2.- Modificar Producto *");
         System.out.println("* 3.- Borrar un Producto *");
@@ -130,7 +130,7 @@ public class Menu {
                         buscaPorNombre();
                         break;
                     case 5:
-                        
+                        servProd.buscaMasBarato();
                         break;    
                     case 6: 
                         listarNombrePrecio();
