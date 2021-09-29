@@ -25,7 +25,6 @@ public class ServicioFabricante {
     public void crearFabricante(String nombre) throws MiExcepcion {
         
         //direccion.setId(UUID.randomUUID().toString());
-
         
         try {
             // VALIDACIÓN
