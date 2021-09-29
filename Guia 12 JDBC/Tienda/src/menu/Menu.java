@@ -8,6 +8,8 @@ package menu;
 import excepcion.MiExcepcion;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import servicio.*;
 
 /**
@@ -78,6 +80,7 @@ public class Menu {
         System.out.println("* 2.- Modificar Fabricante *");
         System.out.println("* 3.- Borrar Fabricante    *");
         System.out.println("* 4.- Volver               *");
+        System.out.println("****************************");
         op = leer.nextInt();
         switch (op) {
                     case 1:
@@ -107,7 +110,11 @@ public class Menu {
         System.out.println("* 1.- Nuevo Producto     *");
         System.out.println("* 2.- Modificar Producto *");
         System.out.println("* 3.- Borrar un Producto *");
-        System.out.println("* 4.- Volver             *");
+        System.out.println("* 4.- Buscar p/Nombre    *");
+        System.out.println("* 5.- Mostrar mas Barato *");
+        System.out.println("* 6.- Listar por nombre/$*");
+        System.out.println("* 7.- Volver             *");
+        System.out.println("**************************");
         op = leer.nextInt();
         switch (op) {
                     case 1:
@@ -120,13 +127,29 @@ public class Menu {
                         eliminarProducto();
                         break;
                     case 4:
+                        buscaPorNombre();
+                        break;
+                    case 5:
+                        
+                        break;    
+                    case 6: {
+                try {
+                    servProd.listarPorNombre();
+                } catch (MiExcepcion ex)
+                {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                    break;    
+    
+                    case 7:
                         System.out.println("- VOLVER AL MENU PRINCIPAL -");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("NO SE ADMITEN CARACTERES");
                 leer.next();
             }
-        } while (op != 4);
+        } while (op != 7);
     }
 
     // CRUD FABRICANTE
@@ -174,9 +197,7 @@ public class Menu {
         try {
             System.out.println("INGRESE CODIGO: ");
             int codigo = leer.nextInt();
-            
-            
-            
+                                    
             System.out.println("INGRESE NOMBRE: ");
             String nombre = leer.next();
 
@@ -216,11 +237,25 @@ public class Menu {
         try {
             System.out.println("INGRESE CODIGO DE PRODUCTO: ");
             int codigo = leer.nextInt();
-
             servProd.eliminarProducto(codigo);
         } catch (MiExcepcion e) {
             System.out.println(e.getMessage());
         }
     }
 
+    //CONSULTAS ESPECIALES
+    
+    public void buscaPorNombre(){
+        try {
+            System.out.println("INGRESE EL NOMBRE DEL PRODUCTO A BUSCAR: ");
+            String variable = leer.next();
+            servProd.buscaPorNombre(variable);
+        } catch (MiExcepcion e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    
+    
 }
