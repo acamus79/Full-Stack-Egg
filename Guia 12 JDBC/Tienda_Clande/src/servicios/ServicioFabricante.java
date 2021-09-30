@@ -24,7 +24,8 @@ public class ServicioFabricante {
 
     /*
     CRUD
-            Create - Release - Update - Delete
+            Create - Read - Update     - Delete
+            Crear  - Leer - Actualizar - Borrar
      */
 
 //CREA NUEVO    
