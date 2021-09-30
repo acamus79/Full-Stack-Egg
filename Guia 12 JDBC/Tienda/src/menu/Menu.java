@@ -113,7 +113,8 @@ public class Menu {
         System.out.println("* 4.- Buscar p/Nombre    *");
         System.out.println("* 5.- Mostrar mas Barato *");
         System.out.println("* 6.- Listar por nombre/$*");
-        System.out.println("* 7.- Volver             *");
+        System.out.println("* 7.- entre $ 120/202    *");
+        System.out.println("* 8.- Volver             *");
         System.out.println("**************************");
         op = leer.nextInt();
         switch (op) {
@@ -135,15 +136,17 @@ public class Menu {
                     case 6: 
                         listarNombrePrecio();
                     break;    
-    
-                    case 7:
+                    case 7:servProd.muestraRangoPre(120d, 202d);
+                    break;    
+                    
+                    case 8:
                         System.out.println("- VOLVER AL MENU PRINCIPAL -");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("NO SE ADMITEN CARACTERES");
                 leer.next();
             }
-        } while (op != 7);
+        } while (op != 8);
     }
 
     // CRUD FABRICANTE

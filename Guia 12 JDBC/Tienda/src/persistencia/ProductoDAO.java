@@ -25,12 +25,12 @@ public class ProductoDAO extends DAO {
             {
                 throw new MiExcepcion("PRODUCTO INVÁLIDO");
             }
-                                    
+
             // SENTENCIA SQL DE INSERCIÓN -- INSERT INTO `tienda`.`fabricante` (`codigo`, `nombre`) VALUES ('10', 'pHILLIPS');
             String sql = "INSERT INTO producto (codigo, nombre, precio, codigo_fabricante) "
                     + "VALUES('" + p.getCodigo()
                     + "', '" + p.getNombre() + "', '" + p.getPrecio() + "', '" + p.getCodigoFabricante() + "');";
-            
+
             insertarModificarEliminar(sql);
 
         } catch (MiExcepcion e)
@@ -71,6 +71,7 @@ public class ProductoDAO extends DAO {
         }
 
     }
+
     //VERIFICA SI EXISTE FABRICANTE
     public boolean verificarFabricante(int cod_fab) throws MiExcepcion {
 
@@ -80,7 +81,7 @@ public class ProductoDAO extends DAO {
             String sql = "SELECT * FROM fabricante WHERE codigo = '" + cod_fab + "';";
             consultarBase(sql);
             return resultado.next();
-            
+
         } catch (SQLException | MiExcepcion e)
         {
             System.out.println(e.getMessage());
@@ -91,7 +92,7 @@ public class ProductoDAO extends DAO {
         }
 
     }
-    
+
     public List<Producto> buscarProductoPorNombre(String nombre) throws MiExcepcion {
 
         try
@@ -110,7 +111,7 @@ public class ProductoDAO extends DAO {
                 p.setNombre(resultado.getString(2));
                 p.setPrecio(resultado.getDouble(3));
                 p.setCodigoFabricante(resultado.getInt(4));
-                
+
                 productos.add(p);//Agrego a la lista el objeto instanciado y seteado
             }
             return productos;
@@ -124,7 +125,6 @@ public class ProductoDAO extends DAO {
         }
 
     }
-    
 
     //MODIFICAR
     public void modificarProducto(Producto p) throws MiExcepcion {
@@ -142,8 +142,8 @@ public class ProductoDAO extends DAO {
             precio = '25.50', 
             codigo_fabricante = '2' 
             WHERE (codigo = '78');
-            */
-            
+             */
+
             String sql = "UPDATE producto SET nombre = '" + p.getNombre() + "', "
                     + "precio = '" + p.getPrecio() + "', "
                     + "codigo_fabricante = '" + p.getCodigoFabricante() + "' "
@@ -206,40 +206,39 @@ public class ProductoDAO extends DAO {
             desconectarBase();
         }
     }
-    
-    
-    public List<String> obtenerNombrePrecio() throws MiExcepcion {
+
+//    
+//    public List<String> obtenerNombrePrecio() throws MiExcepcion {
+//        try
+//        {
+//            // SENTENCIA SQL DE CONSULTA
+//            String sql = "SELECT nombre, precio FROM producto ORDER BY nombre";
+//            consultarBase(sql);
+//
+//            List<String> nomb_precio = new ArrayList<>();
+//            Producto aux = null;
+//            String variable = null;
+//
+//            while (resultado.next())
+//            {
+//                aux = new Producto();
+//                variable = resultado.getString(1)+" - $ "+ resultado.getDouble(2);
+//                nomb_precio.add(variable);
+//            }
+//
+//            return nomb_precio;
+//        } catch (SQLException | MiExcepcion e)
+//        {
+//            System.out.println(e.getMessage());
+//            throw new MiExcepcion("ERROR AL OBTENER PRODUCTOS");
+//        } finally
+//        {
+//            desconectarBase();
+//        }
+//    }
+    public Producto buscarBarato() throws MiExcepcion {
+
         try
-        {
-            // SENTENCIA SQL DE CONSULTA
-            String sql = "SELECT nombre, precio FROM producto ORDER BY nombre";
-            consultarBase(sql);
-
-            List<String> nomb_precio = new ArrayList<>();
-            Producto aux = null;
-            String variable = null;
-
-            while (resultado.next())
-            {
-                aux = new Producto();
-                variable = resultado.getString(1)+" - $ "+ resultado.getDouble(2);
-                nomb_precio.add(variable);
-            }
-
-            return nomb_precio;
-        } catch (SQLException | MiExcepcion e)
-        {
-            System.out.println(e.getMessage());
-            throw new MiExcepcion("ERROR AL OBTENER PRODUCTOS");
-        } finally
-        {
-            desconectarBase();
-        }
-    }
-
-     public Producto buscarBarato() throws MiExcepcion {
-
-         try
         {
             /* SENTENCIA SQL DE CONSULTA
             
@@ -247,8 +246,8 @@ public class ProductoDAO extends DAO {
             from producto
             order by precio
             limit 1;
-            */
-        
+             */
+
             String sql = "SELECT * FROM producto ORDER BY precio LIMIT 1;";
             consultarBase(sql);
             Producto p = null;
@@ -273,7 +272,41 @@ public class ProductoDAO extends DAO {
         }
 
     }
-    
-    
-    
+
+    public List<Producto> obtenerRangoPrecios(double min, double max) throws MiExcepcion {
+                
+        try
+        {
+            // SENTENCIA SQL DE CONSULTA
+            String sql = "SELECT * FROM producto p JOIN fabricante f ON f.codigo = p.codigo_fabricante "
+                    + "WHERE p.precio BETWEEN "+min+ "AND "+max+" ;";
+
+            consultarBase(sql);
+
+            List<Producto> productos = new ArrayList<>();
+            Producto p = null;
+
+            while (resultado.next())
+            {
+                p = new Producto();
+
+                p.setCodigo(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getDouble(3));
+                p.setCodigoFabricante(resultado.getInt(4));
+
+                productos.add(p);
+            }
+
+            return productos;
+        } catch (SQLException | MiExcepcion e)
+        {
+            System.out.println(e.getMessage());
+            throw new MiExcepcion("ERROR AL OBTENER PRODUCTOS");
+        } finally
+        {
+            desconectarBase();
+        }
+    }
+
 }
