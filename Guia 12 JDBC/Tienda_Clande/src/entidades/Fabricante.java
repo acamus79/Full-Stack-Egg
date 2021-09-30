@@ -7,10 +7,10 @@ package entidades;
 
 /**
  *
- * @author Adrian E. Camus
+ * @author Alta Clande
  */
 public class Fabricante {
-    
+
     private Integer codigo;
     private String nombre;
 
@@ -37,7 +37,10 @@ public class Fabricante {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return String.format("%-15s%-35s", codigo, nombre);
+    }
+
 }

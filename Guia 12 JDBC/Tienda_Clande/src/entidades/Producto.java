@@ -7,17 +7,17 @@ package entidades;
 
 /**
  *
- * @author Adrian E. Camus
+ * @author Alta Clande
  */
 public class Producto {
-    
+
     private Integer codigo;
     private String nombre;
     private Double precio;
     private Fabricante fabricante;
 
     public Producto() {
-    this.fabricante = new Fabricante();
+        this.fabricante = new Fabricante();
     }
 
     public Producto(Integer codigo, String nombre, Double precio, Fabricante cod_fab) {
@@ -58,7 +58,5 @@ public class Producto {
     public void setFabricante(Fabricante fabricante) {
         this.fabricante = fabricante;
     }
-    
-    
-    
+
 }

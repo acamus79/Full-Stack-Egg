@@ -74,7 +74,7 @@ import servicios.MiExcepcion;
 
 /**
  *
- * @author Adrian E. Camus
+ * @author Alta Clande
  */
 public class Main {
 

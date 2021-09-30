@@ -11,7 +11,7 @@ import persistencia.ProductoDAO;
 
 /**
  *
- * @author Adrian E. Camus
+ * @author Alta Clande
  */
 public class ServicioProducto {
 
@@ -31,21 +31,22 @@ public class ServicioProducto {
                 throw new MiExcepcion("DEBE INGRESAR UN NOMBRE");
             }
             Producto aux = new Producto();
-            
+
             aux.setNombre(nombre);
             // VALIDACIÓN PRECIO
-            if(precio == null | precio < 0 ){
+            if (precio == null | precio < 0)
+            {
                 throw new MiExcepcion("EL PRECIO NO ES VIABLE");
             }
             aux.setPrecio(precio);
             // VALIDACIÓN FABRICANTE
-            if(f == null){
-                System.out.println("el fabricante esta vacio");
+            if (f == null)
+            {
                 throw new MiExcepcion("EL FABRICANTE NO ES VIABLE");
-            }else{
-                System.out.println("ACA ESTOY SETEANDO EL FABRICANTE");
-            aux.setFabricante(f);
-            }            
+            } else
+            {
+                aux.setFabricante(f);
+            }
             //llamo al metodo del ProductoDAO que persiste un fabricante
             p_DAO.guardarProducto(aux);
 
@@ -59,9 +60,9 @@ public class ServicioProducto {
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
     }
-/*
+
 //MODIFICA
-    public void modificarFabricante(Integer codigo, String nombre) throws MiExcepcion {
+    public void modificarProducto(Integer codigo, String nombre, Double precio, Fabricante fabri) throws MiExcepcion {
         try
         {
             // VALIDACIÓN
@@ -75,16 +76,24 @@ public class ServicioProducto {
                 throw new MiExcepcion("DEBE INGRESAR UN NOMBRE");
             }
 
-            Fabricante aux = f_DAO.buscarPorClavePrincipal(codigo);
+            if (precio == null)
+            {
+                throw new MiExcepcion("DEBE INGRESAR UN PRECIO");
+            }
+
+            Producto aux = p_DAO.buscarPorClavePrincipal(codigo);
 
             if (aux == null)
             {
-                throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN FABRICANTE");
+                throw new MiExcepcion("EL CODIGO INGRESADO NO ESTÁ ASOCIADO A NINGÚN PRODUCTO");
             }
 
             aux.setNombre(nombre);
 
-            f_DAO.modificarFabricante(aux);
+            aux.setFabricante(fabri);
+            aux.setPrecio(precio);
+
+            p_DAO.modificarProducto(aux);
 
         } catch (MiExcepcion e)
         {
@@ -97,6 +106,7 @@ public class ServicioProducto {
         }
     }
 
+    /*
 //ELIMINA
     public void eliminarFabricante(Integer cod) throws MiExcepcion {
         try
@@ -124,23 +134,23 @@ public class ServicioProducto {
             throw new MiExcepcion("ERROR DE SISTEMA");
         }
     }
-
+     */
 //MUESTRA    
-    public void muestraFabricante() throws MiExcepcion {
+    public void muestraProducto() throws MiExcepcion {
         try
         {
-            List<Fabricante> fabricantes = f_DAO.obtenerFabricante();
+            List<Producto> productos = p_DAO.obtenerProducto();
 
-            if (fabricantes.isEmpty())
+            if (productos.isEmpty())
             {
-                throw new MiExcepcion("NO EXISTEN FABRICANTES");
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
             } else
             {
-                System.out.println("*** LISTA DE FABRICANTES ***");
-                System.out.printf("%-15s%-15s\n", "CODIGO", "NOMBRE"); // FORMATO DE IMPRESIÓN
-                for (Fabricante aux : fabricantes)
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-15s\n", "NOMBRE"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos)
                 {
-                    System.out.println(aux);
+                    System.out.println(aux.getNombre());
                 }
                 System.out.println();
             }
@@ -155,15 +165,172 @@ public class ServicioProducto {
         }
     }
 
-     public boolean verificaFabricante(int codigo){
-        
-        
-        
-        
-        return false;
-        
+    public void muestraProductoPrecio() throws MiExcepcion {
+        try
+        {
+            List<Producto> productos = p_DAO.obtenerProducto();
+
+            if (productos.isEmpty())
+            {
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
+            } else
+            {
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-35s%-35s\n", "NOMBRE", "PRECIO"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos)
+                {
+                    System.out.printf("%-35s%-35s\n", "[" + aux.getNombre() + "]", "$" + aux.getPrecio());
+                }
+                System.out.println();
+            }
+        } catch (MiExcepcion e)
+        {
+            // e.printStackTrace();
+            throw e;
+        } catch (Exception e)
+        {
+            // e.printStackTrace();
+            throw new MiExcepcion("ERROR DE SISTEMA");
+        }
     }
-   */ 
-    
-    
+
+    public void muestraProducto120202() throws MiExcepcion {
+
+        try
+        {
+            List<Producto> productos = p_DAO.obtenerProductoRangoPrecios();
+
+            if (productos.isEmpty())
+            {
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
+            } else
+            {
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-15s%-35s%-15s%-25s\n", "CODIGO", "NOMBRE", "PRECIO", "FABRICANTE"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos)
+                {
+                    System.out.printf("%-15s%-35s%-15s%-25s\n", aux.getCodigo(), aux.getNombre(), "$" + aux.getPrecio(), aux.getFabricante().getNombre());
+                }
+                System.out.println();
+            }
+        } catch (MiExcepcion e)
+        {
+            // e.printStackTrace();
+            throw e;
+        } catch (Exception e)
+        {
+            // e.printStackTrace();
+            throw new MiExcepcion("ERROR DE SISTEMA");
+        }
+    }
+
+    public void muestraPortatiles() throws MiExcepcion {
+
+        try
+        {
+            List<Producto> productos = p_DAO.obtenerPortatiles();
+
+            if (productos.isEmpty())
+            {
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
+            } else
+            {
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-15s%-35s%-15s%-25s\n", "CODIGO", "NOMBRE", "PRECIO", "FABRICANTE"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos)
+                {
+                    System.out.printf("%-15s%-35s%-15s%-25s\n", aux.getCodigo(), aux.getNombre(), "$" + aux.getPrecio(), aux.getFabricante().getNombre());
+                }
+                System.out.println();
+            }
+        } catch (MiExcepcion e)
+        {
+            // e.printStackTrace();
+            throw e;
+        } catch (Exception e)
+        {
+            // e.printStackTrace();
+            throw new MiExcepcion("ERROR DE SISTEMA");
+        }
+    }
+
+    public void muestraMasBarato() throws MiExcepcion {
+
+        try
+        {
+            List<Producto> productos = p_DAO.obtenerMasBarato();
+
+            if (productos.isEmpty())
+            {
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
+            } else
+            {
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-15s%-35s%-15s%-25s\n", "CODIGO", "NOMBRE", "PRECIO", "FABRICANTE"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos)
+                {
+                    System.out.printf("%-15s%-35s%-15s%-25s\n", aux.getCodigo(), aux.getNombre(), "$" + aux.getPrecio(), aux.getFabricante().getNombre());
+                }
+                System.out.println();
+            }
+        } catch (MiExcepcion e)
+        {
+            // e.printStackTrace();
+            throw e;
+        } catch (Exception e)
+        {
+            // e.printStackTrace();
+            throw new MiExcepcion("ERROR DE SISTEMA");
+        }
+    }
+
+    public void muestraProductosTODO() throws MiExcepcion {
+
+        try
+        {
+            List<Producto> productos = p_DAO.obtenerProducto();
+
+            if (productos.isEmpty())
+            {
+                throw new MiExcepcion("NO EXISTEN PRODUCTOS");
+            } else
+            {
+                System.out.println("*** LISTA DE PRODUCTOS ***");
+                System.out.printf("%-15s%-35s%-15s%-25s\n", "CODIGO", "NOMBRE", "PRECIO", "FABRICANTE"); // FORMATO DE IMPRESIÓN
+                for (Producto aux : productos)
+                {
+                    System.out.printf("%-15s%-35s%-15s%-25s\n", aux.getCodigo(), aux.getNombre(), "$" + aux.getPrecio(), aux.getFabricante().getNombre());
+                }
+                System.out.println();
+            }
+        } catch (MiExcepcion e)
+        {
+            // e.printStackTrace();
+            throw e;
+        } catch (Exception e)
+        {
+            // e.printStackTrace();
+            throw new MiExcepcion("ERROR DE SISTEMA");
+        }
+    }
+
+    public Producto verificaProducto(int codigo) throws MiExcepcion {
+
+        Producto p = null;
+
+        try
+        {
+
+            p = p_DAO.buscarPorClavePrincipal(codigo);
+
+            //if(f==)
+        } catch (MiExcepcion ex)
+        {
+            ex.getMessage();
+            System.out.println("ALGO FALLO");
+
+        }
+        return p;
+
+    }
 }

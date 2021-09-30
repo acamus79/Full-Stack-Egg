@@ -7,7 +7,7 @@ package servicios;
 
 /**
  *
- * @author Adrian E. Camus
+ * @author Alta Clande
  */
 public class MiExcepcion extends Exception {
 
