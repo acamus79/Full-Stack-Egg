@@ -179,7 +179,7 @@ public class ServicioProducto {
                 System.out.printf("%-35s%-35s\n", "NOMBRE", "PRECIO"); // FORMATO DE IMPRESIÓN
                 for (Producto aux : productos)
                 {
-                    System.out.printf("%-35s%-35s\n", "[" + aux.getNombre() + "]", "$" + aux.getPrecio());
+                    System.out.printf("%-35s%-35s\n", aux.getNombre() , "$ " + aux.getPrecio());
                 }
                 System.out.println();
             }

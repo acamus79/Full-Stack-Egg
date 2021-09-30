@@ -25,7 +25,7 @@ public class DAO {
         try
         {
             // CARGA EL CONTROLADOR
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             // ESTABLECE LA CONEXIÓN
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tienda?useSSL=false", "root", "root");
         } catch (ClassNotFoundException | SQLException e)
