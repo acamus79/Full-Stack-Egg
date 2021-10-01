@@ -26,8 +26,12 @@ package servicios;
 
 import entidades.Fabricante;
 import entidades.Producto;
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -49,13 +53,12 @@ public class Menu {
 
     }
 
-    public void menuPrincipal() throws MiExcepcion {
+    public void menuPrincipal() throws MiExcepcion  {
 
         do
         {
             try
             {
-
                 System.out.println(" MENU PRINCIPAL ");
                 System.out.println(" 1- ver nombre producto");
                 System.out.println(" 2- Producto por nombre y precio");
@@ -72,44 +75,42 @@ public class Menu {
                 switch (var)
                 {
                     case 1:
-
                         System.out.println("Vamos a mostrar solo los nombres de TODOS los productos");
                         sp.muestraProducto();
-
                         break;
+
                     case 2:
                         System.out.println("Vamos a mostrar solo los nombres y precios de TODOS los productos");
                         sp.muestraProductoPrecio();
-
                         break;
+
                     case 3:
                         System.out.println("Productos entre 120 y 202 morlacos");
                         sp.muestraProducto120202();
-
                         break;
-                    case 4:
 
+                    case 4:
                         System.out.println("Ver todos los portatiles");
                         sp.muestraPortatiles();
-
                         break;
-                    case 5:
 
+                    case 5:
                         System.out.println("Ver el producto mas barato");
                         sp.muestraMasBarato();
-
                         break;
+
                     case 6:
                         nuevoProducto();
                         break;
+
                     case 7:
                         nuevoFabricante();
                         break;
+
                     case 8:
-
                         editarProducto();
-
                         break;
+
                     case 9:
                         System.out.println("NOS VIMOS EN DYSNEY");
                         break;
@@ -129,6 +130,7 @@ public class Menu {
 
     }
 
+   
     private void nuevoFabricante() throws MiExcepcion {
 
         System.out.println("Ingrese el nombre del nuevo fabricante");
