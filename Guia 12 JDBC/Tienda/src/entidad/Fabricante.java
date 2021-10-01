@@ -41,6 +41,5 @@ public class Fabricante {
     public String toString() {
         return String.format("%-15s%-15s", codigo, nombre );
     }
-    
-    
+
 }
