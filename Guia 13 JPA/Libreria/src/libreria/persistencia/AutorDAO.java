@@ -3,7 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package libreria.persistencia;
 
 import libreria.entidades.Autor;
@@ -13,12 +12,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 public class AutorDAO {
 
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAModeloBasePU");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     private final EntityManager em = emf.createEntityManager();
 
     public void guardarAutor(Autor autor) throws Exception {
@@ -44,6 +43,5 @@ public class AutorDAO {
                 .getResultList();
         return autores;
     }
-    
-    
+
 }

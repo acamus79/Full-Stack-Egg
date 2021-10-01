@@ -3,7 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package libreria.entidades;
 
 import com.sun.istack.internal.NotNull;
@@ -15,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 @Entity
@@ -24,11 +23,11 @@ public class Libro {
     @Id
     @GeneratedValue
     private String id;
-    
-    @NotNull 
+
+    @NotNull
     @Column(unique = true)
     private Long isbn;
-    
+
     private String titulo;
     private Integer anio;
     private Integer nroEjemplares;
@@ -39,9 +38,7 @@ public class Libro {
     private Autor autor;
     @OneToOne
     private Editorial editorial;
-    
-    
-    
+
     public Libro() {
     }
 
@@ -138,6 +135,4 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    
-    
 }
