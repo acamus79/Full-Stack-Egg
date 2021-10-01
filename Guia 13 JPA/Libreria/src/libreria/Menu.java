@@ -16,12 +16,12 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    private final Scanner sc;
-    private 
+    private Scanner sc;
 
     public Menu() {
         sc = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
     }
+  
     
         
     
