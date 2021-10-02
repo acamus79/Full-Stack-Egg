@@ -42,6 +42,18 @@ public class EditorialDAO {
         em.persist(editorial);
         em.getTransaction().commit();
     }
+    
+    public List<Editorial> listarTodos() throws Exception {
+        List<Editorial> editoriales = em.createQuery("SELECT d FROM Direccion d")
+                .getResultList();
+        return editoriales;
+    }
+    
+    public void modificarEditorial(Editorial editorial) throws Exception { // Este metodo es para ingresar o modificar
+        em.getTransaction().begin();
+        em.merge(editorial); // Para modificar un objeto - Sobreescribe los atributos
+        em.getTransaction().commit();    
+    }
 
     public void eliminar(String id) throws Exception {
         Editorial editorial = buscarPorId(id);
@@ -49,11 +61,15 @@ public class EditorialDAO {
         em.remove(editorial);
         em.getTransaction().commit();
     }
-
-    public List<Editorial> listarTodos() throws Exception {
-        List<Editorial> editoriales = em.createQuery("SELECT d FROM Direccion d")
-                .getResultList();
-        return editoriales;
+    
+     public void eliminarPorNombre(String nombre) throws Exception {
+        Editorial editorial = buscarPorNombre(nombre);
+        em.getTransaction().begin(); 
+        em.remove(editorial);
+        em.getTransaction().commit();    
     }
+   
+
+    
 
 }
