@@ -58,8 +58,7 @@ public class AutorDAO {
         em.merge(autor); // Para modificar un objeto - Sobreescribe los atributos
         em.getTransaction().commit();    
     }
-    
-    
+        
     //DELETE
     public void eliminar(String id) throws Exception {
         Autor autor = buscarPorId(id);
@@ -70,9 +69,9 @@ public class AutorDAO {
      
     public void eliminarPorNombre(String nombre) throws Exception {
         Autor autor = buscarPorNombre(nombre);
-        em.getTransaction().begin(); //Inicio   
+        em.getTransaction().begin(); 
         em.remove(autor);
-        em.getTransaction().commit(); //Fin (Si algo fallo ... vuelve pa atras)    
+        em.getTransaction().commit();    
     }
    
         
