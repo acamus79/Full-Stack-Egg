@@ -20,15 +20,27 @@ public class EditorialDAO {
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     private final EntityManager em = emf.createEntityManager();
 
+     public Editorial buscarPorNombre(String nombre) throws Exception {
+         // Para traer objeto con el nombre
+         Editorial editorial = (Editorial) em.createQuery("SELECT d "
+                + " FROM Editorial d"
+                + " WHERE d.nombre LIKE :nombre").
+                setParameter("nombre", nombre).
+                getSingleResult(); 
+        return editorial;
+    }
+    
+    
+    public Editorial buscarPorId(String id) throws Exception {
+        Editorial editorial = em.find(Editorial.class, id);
+        return editorial;
+    }
+    
+    //CRUD
     public void guardarEditorial(Editorial editorial) throws Exception {
         em.getTransaction().begin();
         em.persist(editorial);
         em.getTransaction().commit();
-    }
-
-    public Editorial buscarPorId(String id) throws Exception {
-        Editorial editorial = em.find(Editorial.class, id);
-        return editorial;
     }
 
     public void eliminar(String id) throws Exception {
