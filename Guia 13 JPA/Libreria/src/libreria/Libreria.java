@@ -26,7 +26,7 @@ public class Libreria {
         
         ServicioAutor au = new ServicioAutor();
         au.creaautor("borges");
-        //au.eliminarautor("borges");
+        //au.eliminarautor("Jose Luis Borges");
         au.modificarautor("borges", "Jose Luis Borges");
         
     }

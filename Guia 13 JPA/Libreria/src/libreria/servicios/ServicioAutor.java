@@ -31,7 +31,7 @@ public class ServicioAutor {
                 throw new Exception("Debe indicar el nombre del autor");
             }
             autornuevo.setNombre(nombre);
-            autornuevo.setId(UUID.randomUUID().toString());
+            autornuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
             autornuevo.setAlta(Boolean.TRUE);
             autorDAO.guardarAutor(autornuevo);
 
