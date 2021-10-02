@@ -25,8 +25,6 @@ public class Autor {
 
     @NotNull
     @Column(unique = true)
-    private Integer codAutor;
-
     private String nombre;
 
     private Boolean alta;
@@ -34,9 +32,8 @@ public class Autor {
     public Autor() {
     }
 
-    public Autor(String id, Integer codAutor, String nombre, Boolean alta) {
+    public Autor(String id, String nombre, Boolean alta) {
         this.id = id;
-        this.codAutor = codAutor;
         this.nombre = nombre;
         this.alta = alta;
     }
@@ -47,14 +44,6 @@ public class Autor {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Integer getCodAutor() {
-        return codAutor;
-    }
-
-    public void setCodAutor(Integer codAutor) {
-        this.codAutor = codAutor;
     }
 
     public String getNombre() {
