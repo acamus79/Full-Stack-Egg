@@ -28,13 +28,17 @@ public class Libro {
     @NotNull
     @Column(unique = true)
     private Long isbn;
-
+    
+    @NotNull
+    @Column(unique = true)
     private String titulo;
+    
     private Integer anio;
     private Integer nroEjemplares;
     private Integer ejemplaresPrestados;
     private Integer ejemplaresRestantes;
     private Boolean alta;
+    
     @ManyToOne
     private Autor autor;
     @OneToOne

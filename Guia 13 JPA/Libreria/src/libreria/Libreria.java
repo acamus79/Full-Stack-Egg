@@ -8,6 +8,7 @@ package libreria;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import libreria.servicios.ServicioAutor;
 
 /**
  *
@@ -23,7 +24,10 @@ public class Libreria {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
         EntityManager em = emf.createEntityManager();
         
-        
+        ServicioAutor au = new ServicioAutor();
+        au.creaautor("borges");
+        //au.eliminarautor("borges");
+        au.modificarautor("borges", "Jose Luis Borges");
         
     }
     
