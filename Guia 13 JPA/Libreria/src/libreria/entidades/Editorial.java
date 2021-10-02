@@ -19,14 +19,10 @@ import javax.persistence.Id;
 @Entity
 public class Editorial {
 
-     @Id
+    @Id
     @GeneratedValue
     private String id;
-
-    @NotNull
-    @Column(unique = true)
-    private Integer codEditorial;
-
+    
     @NotNull
     @Column(unique = true)
     private String nombre;
@@ -36,9 +32,9 @@ public class Editorial {
     public Editorial() {
     }
 
-    public Editorial(String id, Integer codEditorial, String nombre, Boolean alta) {
+    public Editorial(String id, String nombre, Boolean alta) {
         this.id = id;
-        this.codEditorial = codEditorial;
+
         this.nombre = nombre;
         this.alta = alta;
     }
@@ -49,14 +45,6 @@ public class Editorial {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Integer getCodEditorial() {
-        return codEditorial;
-    }
-
-    public void setCodEditorial(Integer codEditorial) {
-        this.codEditorial = codEditorial;
     }
 
     public String getNombre() {
