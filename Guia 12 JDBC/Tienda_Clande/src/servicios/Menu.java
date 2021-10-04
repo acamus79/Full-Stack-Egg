@@ -39,7 +39,7 @@ import java.util.logging.Logger;
  */
 public class Menu {
 
-    Scanner sc;
+    private Scanner sc;
     private int var;
     private ServicioFabricante sf;
     private ServicioProducto sp;
