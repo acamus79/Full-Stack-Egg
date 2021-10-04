@@ -27,9 +27,10 @@ public class Main {
         
         ServicioAutor au = new ServicioAutor();
         au.creaautor("borges");
-        //au.eliminarautor("Jose Luis Borges");
-        au.modificarautor("borges", "Jose Luis Borges");
         
+        au.modificarautor("borges", "Jose Luis Borges");
+        au.eliminarautor("Jose Luis Borges");
+        au.creaautor("JORGE LUIS BORGES");
         
     }
     
