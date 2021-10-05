@@ -12,9 +12,12 @@
  */
 package libreria;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
-import libreria.entidades.Libro;
+import libreria.entidades.*;
 import libreria.persistencia.LibroDAO;
 import libreria.servicios.*;
 
@@ -36,13 +39,14 @@ public class Menu {
         servLibro = new ServicioLibro();
     }
 
-    public void menu() {
+    public void menu() throws Exception {
         int op = 0;
 
         do
         {
             try
             {
+
                 System.out.println("*****      BIBLIOTECA     ******");
                 System.out.println("** 1. ADMINISTRAR LIBROS      **");
                 System.out.println("** 2. ADMINISTRAR AUTORES     **");
@@ -64,7 +68,7 @@ public class Menu {
 
                         break;
                     case 4:
-                      
+
                         System.out.println("\nCHAU!!  \n");
                         break;
                     default:
@@ -78,10 +82,12 @@ public class Menu {
                 System.out.println("PAPARULO NO METAS LETRAS\n\n");
                 sc.next();
             }
+
+            limpiarPantalla();
         } while (op != 4);
     }
 
-    private void menuLibro() {
+    private void menuLibro() throws Exception {
         int op = 0;
 
         do
@@ -116,7 +122,7 @@ public class Menu {
                         System.out.println("OPCION EN DESARROLLO");
                         break;
                     case 5:
-                        
+
                         break;
                     case 6:
 
@@ -138,10 +144,11 @@ public class Menu {
                 System.out.println("PAPARULO NO METAS LETRAS\n\n");
                 sc.next();
             }
+            limpiarPantalla();
         } while (op != 8);
     }
 
-    private void menuAutor() {
+    private void menuAutor() throws Exception {
         int op = 0;
 
         do
@@ -164,13 +171,13 @@ public class Menu {
 
                         break;
                     case 2:
-                        
+
                         break;
                     case 3:
-                        
+
                         break;
                     case 4:
-                        
+                        buscaAutorNombre();
                         break;
                     case 5:
                         System.out.println("\n- VOLVIENDO AL MENU PRINCIPAL -\n");
@@ -189,8 +196,7 @@ public class Menu {
         } while (op != 5);
     }
 
-    
-    private void buscaLibro(){
+    private void buscaLibro() throws Exception {
         int op = 0;
         do
         {
@@ -212,13 +218,13 @@ public class Menu {
                         porISBN();
                         break;
                     case 2:
-                       porTitulo();
+                        porTitulo();
                         break;
                     case 3:
-                       
+
                         break;
                     case 4:
-
+                        porAutor();
                         break;
                     case 5:
                         System.out.println("\n- VOLVIENDO AL MENU PRINCIPAL -\n");
@@ -234,33 +240,60 @@ public class Menu {
                 System.out.println("PAPARULO NO METAS LETRAS\n\n");
                 sc.next();
             }
+            limpiarPantalla();
         } while (op != 5);
-        
-        
+
     }
-    
-    
-    private void porISBN(){
+
+    private void porISBN() {
         System.out.println("Ingrese el codigo ISBN");
         Libro l1 = servLibro.buscaISBN(sc.nextLong());
-       
+
         System.out.println("RESULTADO:");
         System.out.println(l1);
-        
+
     }
-    
-    private void porTitulo(){
+
+    private void porTitulo() {
         System.out.println("Ingrese el titulo a buscar");
         Libro l1 = servLibro.buscaLibro(sc.next());
-       
-        System.out.println("RESULTADO:");
+        System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
         System.out.println(l1);
-        
+
     }
     
-    
-    
-    
+    private void porAutor(){
+        System.out.println("Ingrese el nombre del autor");
+        List<Libro> l1 = servLibro.buscaPorAutor(sc.next());
+        
+        for (Libro libro : l1)
+        {
+            System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
+        System.out.println(libro);
+        }
+        
+    }
+
+    public void limpiarPantalla() throws AWTException {
+        //Dejo esre metodo para ir borrando la consola.. y que no sea un desorden.
+        Robot pressbot = new Robot();
+        pressbot.setAutoDelay(30); // Tiempo de espera antes de borrar
+        pressbot.keyPress(17); // Orden para apretar CTRL key
+        pressbot.keyPress(76);// Orden para apretar L key
+        pressbot.keyRelease(17); // Orden para soltar CTRL key
+        pressbot.keyRelease(76); // Orden para soltar L key
+
+    }
+
+    private void buscaAutorNombre() {
+
+        System.out.println("\nIngrese el nombre del Autor a buscar");
+        Autor a1 = servAut.buscaAutor(sc.next());
+        System.out.printf("\n%-15s%-35s\n", "NOMBRE", "ID\n");
+        System.out.println(a1);
+
+    }
+
     /*
     
      */

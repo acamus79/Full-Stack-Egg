@@ -22,7 +22,7 @@ public class AutorDAO {
 
     public Autor buscarPorNombre(String nombre) throws Exception {
          // Para traer objeto con el nombre
-         Autor autor = (Autor) em.createQuery("SELECT d "
+          Autor autor = (Autor) em.createQuery("SELECT d "
                 + " FROM Autor d"
                 + " WHERE d.nombre LIKE :nombre").
                 setParameter("nombre", nombre).

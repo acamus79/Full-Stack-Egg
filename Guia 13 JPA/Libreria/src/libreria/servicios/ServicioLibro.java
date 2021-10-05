@@ -5,8 +5,10 @@
  */
 package libreria.servicios;
 
+import java.util.List;
 import java.util.UUID;
 import libreria.entidades.*;
+import libreria.persistencia.AutorDAO;
 import libreria.persistencia.LibroDAO;
 
 /**
@@ -51,16 +53,20 @@ public class ServicioLibro {
             }
             
             libronuevo.setEditorial(editorial);
+            
             //Magia para obtener los ejemplares
             int ejemplares = (int) (Math.random() * 999 + 1);
             int prestados = ejemplares - (int) (Math.random() * 88 + 1);
 
-            libronuevo.setIsbn((long) (int) (Math.random() * 100000 + 1));
+            libronuevo.setIsbn((long) (int) (Math.random() * 999999 + 1));
+            
             libronuevo.setNroEjemplares(ejemplares);
             libronuevo.setEjemplaresPrestados(prestados);
+            
             libronuevo.setEjemplaresRestantes(ejemplares - prestados);
 
             libronuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+            
             libronuevo.setAlta(Boolean.TRUE);
             libroDAO.guardarLibro(libronuevo);
 
@@ -135,6 +141,34 @@ public class ServicioLibro {
     }
     
 
+     public List<Libro> buscaPorAutor(String nombre){
+        List<Libro> buscado = null;
+        AutorDAO autorDAO = new AutorDAO();
+        Autor a1 = null;
+        
+        try
+        {
+            if (nombre == null || nombre.trim().isEmpty())
+            {
+                throw new Exception("Debe indicar el nombre del Autor");
+            }
+            
+            a1 = autorDAO.buscarPorNombre(nombre);
+            
+            buscado = libroDAO.buscaPorAutor(a1.getId());
+            
+            return buscado;
+            
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        
+    }
+    
+    
+    
 //    public void modificarLibro(String titulo, Libro libroAMod) {
 //        Libro aux = null;
 //            

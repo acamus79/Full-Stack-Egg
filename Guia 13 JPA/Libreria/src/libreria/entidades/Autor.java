@@ -62,4 +62,11 @@ public class Autor {
         this.alta = alta;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%-15s%-35s", nombre, id);
+    }
+  
+    
+    
 }

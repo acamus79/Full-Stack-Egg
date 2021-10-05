@@ -41,6 +41,10 @@ public class LibroDAO {
         return libro;
     }
     
+    
+    
+    
+    
     public Libro buscaPorISBN(Long isbn) throws Exception {
 
         Libro libro = (Libro) em.createQuery("SELECT l "
@@ -51,14 +55,13 @@ public class LibroDAO {
         return libro;
     }
     
-     public Libro buscaPorAutor(String id) throws Exception {
+     public List<Libro> buscaPorAutor(String id) throws Exception {
 
-        Libro libro = (Libro) em.createQuery("SELECT l "
+        List<Libro> libros = em.createQuery("SELECT l "
                 + " FROM Libro l"
                 + " WHERE l.AUTOR_ID LIKE :id").
-                setParameter("AUTOR_ID", id).
-                getSingleResult();
-        return libro;
+                setParameter("AUTOR_ID", id).getResultList();
+        return libros;
     }
     
 
