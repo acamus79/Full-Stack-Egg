@@ -40,7 +40,14 @@ public class Libreria {
 //        
 //        m.menu();
         
+        Autor aut1 = au.creaautor("Cortazar");
+        Autor aut2 = au.creaautor("Cortazar");
+        Autor aut3 = au.creaautor("Cortazar");
+        Autor aut4 = au.creaautor("Cortazar");
+        Autor aut5 = au.creaautor("Cortazar");
         
+
+
         Editorial edit1 = editorSv.creaEditorial("MINOTAURO");
         Editorial edit2 =editorSv.creaEditorial("SUDAMERICANA");
         Editorial edit3 =editorSv.creaEditorial("PENGUIN RANDOM HOUSE");
