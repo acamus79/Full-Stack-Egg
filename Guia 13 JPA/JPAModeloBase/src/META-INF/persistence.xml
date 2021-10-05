@@ -5,6 +5,7 @@
     <class>com.redsocial.dominio.direccion.Direccion</class>
     <class>com.redsocial.dominio.mascota.Mascota</class>
     <class>com.redsocial.dominio.usuario.Usuario</class>
+    <class>com.redsocial.persistencia.NewEntity</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpamodelobasico?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

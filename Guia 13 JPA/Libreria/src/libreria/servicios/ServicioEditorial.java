@@ -3,7 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package libreria.servicios;
 
 import java.util.UUID;
@@ -11,11 +10,11 @@ import libreria.entidades.Editorial;
 import libreria.persistencia.EditorialDAO;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 public class ServicioEditorial {
-    
+
     private EditorialDAO editorialDAO;
 
     public ServicioEditorial() {
@@ -23,20 +22,20 @@ public class ServicioEditorial {
 
     }
 
-    public Editorial creaeditorial(String nombre) {
-        Editorial editorialNuevo = new Editorial();
+    public Editorial creaEditorial(String nombre) {
+        Editorial editorialnuevo = new Editorial();
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre del editorial");
             }
-            editorialNuevo.setNombre(nombre);
-            editorialNuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            editorialNuevo.setAlta(Boolean.TRUE);
-            editorialDAO.guardarEditorial(editorialNuevo);
+            editorialnuevo.setNombre(nombre);
+            editorialnuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+            editorialnuevo.setAlta(Boolean.TRUE);
+            editorialDAO.guardarEditorial(editorialnuevo);
 
-            return editorialNuevo;
+            return editorialnuevo;
 
         } catch (Exception e)
         {
@@ -46,13 +45,13 @@ public class ServicioEditorial {
 
     }
 
-    public void eliminareditorial(String nombre) {
+    public void eliminarEditorial(String nombre) {
 
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre del editorial");
             }
             editorialDAO.eliminarPorNombre(nombre);
         } catch (Exception e)
@@ -61,17 +60,17 @@ public class ServicioEditorial {
         }
     }
 
-    public void modificareditorial(String nombre, String nuevonombre) {
+    public void modificarEditorial(String nombre, String nuevonombre) {
         Editorial aux = null;
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre de la Editorial");
             }
             if (nuevonombre == null || nuevonombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre de la Editorial");
             }
             aux = editorialDAO.buscarPorNombre(nombre);
             aux.setNombre(nuevonombre);
@@ -83,6 +82,5 @@ public class ServicioEditorial {
         }
 
     }
-    
 
 }
