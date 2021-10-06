@@ -41,10 +41,12 @@ public class Libro {
     
     @ManyToOne
     private Autor autor;
+    
     @OneToOne
     private Editorial editorial;
 
     public Libro() {
+        
     }
 
     public Libro(String id, Long isbn, String titulo, Integer anio, Integer nroEjemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {

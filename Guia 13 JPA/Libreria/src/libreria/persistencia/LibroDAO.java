@@ -55,12 +55,13 @@ public class LibroDAO {
         return libro;
     }
     
-     public List<Libro> buscaPorAutor(String id) throws Exception {
+     public List<Libro> buscaPorAutor(String nombAut) throws Exception {
 
         List<Libro> libros = em.createQuery("SELECT l "
                 + " FROM Libro l"
-                + " WHERE l.AUTOR_ID LIKE :id").
-                setParameter("AUTOR_ID", id).getResultList();
+                + " WHERE l.autor.nombre LIKE :nombAut")
+                .setParameter("autor.nombre", nombAut)
+                .getResultList();
         return libros;
     }
     

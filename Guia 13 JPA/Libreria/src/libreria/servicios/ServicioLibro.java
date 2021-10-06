@@ -143,19 +143,15 @@ public class ServicioLibro {
 
      public List<Libro> buscaPorAutor(String nombre){
         List<Libro> buscado = null;
-        AutorDAO autorDAO = new AutorDAO();
-        Autor a1 = null;
-        
+                
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
                 throw new Exception("Debe indicar el nombre del Autor");
             }
-            
-            a1 = autorDAO.buscarPorNombre(nombre);
-            
-            buscado = libroDAO.buscaPorAutor(a1.getId());
+                       
+            buscado = libroDAO.buscaPorAutor(nombre);
             
             return buscado;
             
