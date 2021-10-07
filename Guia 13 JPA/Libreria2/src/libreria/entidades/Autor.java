@@ -3,7 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package libreria.entidades;
 
 import com.sun.istack.internal.NotNull;
@@ -66,7 +65,5 @@ public class Autor {
     public String toString() {
         return String.format("%-15s%-35s", nombre, id);
     }
-  
-    
-    
+
 }

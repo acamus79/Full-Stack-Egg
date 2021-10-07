@@ -62,7 +62,7 @@ public class ServicioEditorial {
     }
 
     public void modificarEditorial(String nombre, String nuevonombre) {
-      try
+        try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
@@ -72,17 +72,18 @@ public class ServicioEditorial {
             {
                 throw new Exception("Debe indicar el nombre de la Editorial");
             }
-            
+
             List<Editorial> edit = editorialDAO.buscarPorNombre(nombre);
-            
+
             for (Editorial aux : edit)
             {
-                if(aux.getNombre().equals(nombre)){
+                if (aux.getNombre().equals(nombre))
+                {
                     aux.setNombre(nuevonombre);
                     editorialDAO.modificarEditorial(aux);
                 }
             }
-            
+
         } catch (Exception e)
         {
             System.out.println(e.getMessage());

@@ -15,7 +15,6 @@ import libreria.persistencia.AutorDAO;
  */
 public class ServicioAutor {
 
-    
     private AutorDAO autorDAO;
 
     public ServicioAutor() {
@@ -83,29 +82,28 @@ public class ServicioAutor {
         }
 
     }
-    
-    public Autor buscaAutor(String nombre){
-        
+
+    public Autor buscaAutor(String nombre) {
+
         Autor buscado = null;
-        
+
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
                 throw new Exception("Debe indicar el nombre del Autor");
             }
-            
+
             buscado = autorDAO.buscarPorNombre(nombre);
-            
+
             return buscado;
-            
+
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
             return null;
         }
-                
+
     }
 
-    
 }
