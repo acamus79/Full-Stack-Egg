@@ -3,16 +3,18 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
+
 package libreria.servicios;
 
 import java.util.List;
 import java.util.UUID;
-import libreria.entidades.*;
-import libreria.persistencia.AutorDAO;
+import libreria.entidades.Autor;
+import libreria.entidades.Editorial;
+import libreria.entidades.Libro;
 import libreria.persistencia.LibroDAO;
 
 /**
- *
+ * 
  * @author Adrian E. Camus
  */
 public class ServicioLibro {
@@ -201,28 +203,4 @@ public class ServicioLibro {
         }
 
     }
-
-//    public void modificarLibro(String titulo, Libro libroAMod) {
-//        Libro aux = null;
-//            
-//        try
-//        {
-//            if (titulo == null || titulo.trim().isEmpty())
-//            {
-//                throw new Exception("Debe indicar el titulo de la Libro");
-//            }
-//            if (libroAMod == null)
-//            {
-//                throw new Exception("Debe indicar el Libro");
-//            }
-//            
-//            libroDAO.guardarLibro(aux);
-//
-//        } catch (Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//        }
-//
-//    }
-//    
 }

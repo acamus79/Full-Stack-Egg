@@ -17,6 +17,7 @@ import libreria.entidades.Libro;
  */
 public class LibroDAO {
 
+    
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     private final EntityManager em = emf.createEntityManager();
 
@@ -178,4 +179,6 @@ public class LibroDAO {
         return libros;
     }
 
+    
+    
 }
