@@ -145,9 +145,7 @@ public class Libro {
     @Override
     public String toString() {
         return String.format("%-15s%-35s%-25s%-25s", isbn, titulo,autor.getNombre(),editorial.getNombre());
-        
-        
-        //return "Libro{" + "isbn=" + isbn + ", titulo=" + titulo + ", anio=" + anio + ", ejemplaresRestantes=" + ejemplaresRestantes + ", autor=" + autor.getNombre() + ", editorial=" + editorial.getNombre() + '}';
+
     }
 
     

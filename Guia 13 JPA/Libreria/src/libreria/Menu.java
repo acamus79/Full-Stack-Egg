@@ -119,6 +119,7 @@ public class Menu {
                         break;
                     case 4:
                         System.out.println("OPCION EN DESARROLLO");
+                        muestraEditorial(servEdit.buscaTodo());
                         break;
                     case 5:
 
@@ -309,21 +310,21 @@ public class Menu {
 
     private void muestraEditorial(List<Editorial> edit) {
 
-        System.out.printf("%-15s%-35s%-25s\n", "ID", "NOMBRE", "ALTA");
+        System.out.printf("%-35s%-35s\n", "NOMBRE", "ID" );
         
-        for (int i = 0; i < edit.size()-1; i++)
+        for (int i = 0; i < edit.size(); i++)
         {
-            System.out.println(i+")");
+            System.out.println((i+1)+")"+edit.get(i));
         }
         
         
         
         
         
-        for (Editorial aux : edit)
-        {
-            System.out.println(aux);
-        }
+//        for (Editorial aux : edit)
+//        {
+//            System.out.println(aux);
+//        }
         System.out.println("\n\nPresione Enter para continuar...");
         try
         {
