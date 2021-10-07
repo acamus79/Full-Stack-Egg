@@ -61,7 +61,7 @@ public class ServicioAutor {
         }
     }
 
-    public void modificarautor(String nombre, String nuevonombre) {
+    public void modificaAutor(String nombre, String nuevonombre) {
         Autor aux = null;
         try
         {

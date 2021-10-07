@@ -3,7 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package libreria.servicios;
 
 import java.util.List;
@@ -12,11 +11,11 @@ import libreria.entidades.Editorial;
 import libreria.persistencia.EditorialDAO;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 public class ServicioEditorial {
-  
+
     private EditorialDAO editorialDAO;
 
     public ServicioEditorial() {
@@ -47,25 +46,10 @@ public class ServicioEditorial {
 
     }
 
-    public void eliminaPorNombre(String nombre) {
-
+    public void eliminaEditorial(Editorial edit) {
         try
         {
-            if (nombre == null || nombre.trim().isEmpty())
-            {
-                throw new Exception("Debe indicar el nombre del editorial");
-            }
-            editorialDAO.eliminarPorNombre(nombre);
-        } catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    public void eliminaEditorial(Editorial edit){
-        try
-        {
-            if (edit == null )
+            if (edit == null)
             {
                 throw new Exception("Editorial no valida");
             }
@@ -74,12 +58,11 @@ public class ServicioEditorial {
         {
             System.out.println(e.getMessage());
         }
-        
+
     }
 
     public void modificarEditorial(String nombre, String nuevonombre) {
-        Editorial aux = null;
-        try
+      try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
@@ -89,10 +72,17 @@ public class ServicioEditorial {
             {
                 throw new Exception("Debe indicar el nombre de la Editorial");
             }
-            aux = editorialDAO.buscarPorNombre(nombre);
-            aux.setNombre(nuevonombre);
-            editorialDAO.modificarEditorial(aux);
-
+            
+            List<Editorial> edit = editorialDAO.buscarPorNombre(nombre);
+            
+            for (Editorial aux : edit)
+            {
+                if(aux.getNombre().equals(nombre)){
+                    aux.setNombre(nuevonombre);
+                    editorialDAO.modificarEditorial(aux);
+                }
+            }
+            
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
@@ -105,9 +95,27 @@ public class ServicioEditorial {
 
         try
         {
-
             buscado = editorialDAO.listarTodos();
+            return buscado;
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
 
+    }
+
+    public List<Editorial> buscaEdit(String nombre) {
+        List<Editorial> buscado = null;
+
+        try
+        {
+            if (nombre == null || nombre.trim().isEmpty())
+            {
+                throw new Exception("Debe indicar el nombre de la Editorial");
+            }
+
+            buscado = editorialDAO.buscarPorNombre(nombre);
             return buscado;
 
         } catch (Exception e)

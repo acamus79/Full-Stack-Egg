@@ -17,17 +17,16 @@ import libreria.entidades.Editorial;
  */
 public class EditorialDAO {
 
-    
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     private final EntityManager em = emf.createEntityManager();
 
-    public Editorial buscarPorNombre(String nombre) throws Exception {
+    public List<Editorial> buscarPorNombre(String nombre) throws Exception {
         // Para traer objeto con el nombre
-        Editorial editorial = (Editorial) em.createQuery("SELECT d "
+        List<Editorial> editorial = em.createQuery("SELECT d "
                 + " FROM Editorial d"
-                + " WHERE d.nombre LIKE :nombre").
-                setParameter("nombre", nombre).
-                getSingleResult();
+                + " WHERE d.nombre LIKE CONCAT('%', :nombre, '%')", Editorial.class)
+                .setParameter("nombre", nombre)
+                .getResultList();
         return editorial;
     }
 
@@ -36,7 +35,6 @@ public class EditorialDAO {
         return editorial;
     }
 
-    //CRUD
     public void guardarEditorial(Editorial editorial) throws Exception {
         em.getTransaction().begin();
         em.persist(editorial);
@@ -61,13 +59,5 @@ public class EditorialDAO {
         em.remove(editorial);
         em.getTransaction().commit();
     }
-
-    public void eliminarPorNombre(String nombre) throws Exception {
-        Editorial editorial = buscarPorNombre(nombre);
-        em.getTransaction().begin();
-        em.remove(editorial);
-        em.getTransaction().commit();
-    }
-    
 
 }

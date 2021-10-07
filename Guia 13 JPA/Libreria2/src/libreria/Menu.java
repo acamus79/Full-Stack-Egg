@@ -183,7 +183,7 @@ public class Menu {
                         muestraBorraEditorial(servEdit.buscaTodo());
                         break;
                     case 4:
-
+                        buscaEditorial();
                         break;
                     case 5:
                         System.out.println("\n- VOLVIENDO AL MENU PRINCIPAL -\n");
@@ -304,7 +304,9 @@ public class Menu {
     }
 
     private void buscaEditorial() {
-
+        System.out.println("\nIngrese el nombre de la Editorial a buscar");
+        List<Editorial> a1 = servEdit.buscaEdit(sc.next());
+        muestraEditorial(a1);
     }
 
 //**************** metodos libros ********************
@@ -459,7 +461,7 @@ public class Menu {
             try
             {
                 System.in.read();
-            } catch (Exception e)
+            } catch (IOException e)
             {
             }
         } catch (Exception e)
@@ -497,7 +499,7 @@ public class Menu {
         try
         {
             System.in.read();
-        } catch (Exception e)
+        } catch (IOException e)
         {
         }
     }
