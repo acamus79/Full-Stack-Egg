@@ -216,8 +216,6 @@ public class ServicioLibro {
 //                throw new Exception("Debe indicar el Libro");
 //            }
 //            
-//                       
-//            
 //            libroDAO.guardarLibro(aux);
 //
 //        } catch (Exception e)

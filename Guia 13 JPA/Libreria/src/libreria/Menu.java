@@ -317,14 +317,6 @@ public class Menu {
             System.out.println((i+1)+")"+edit.get(i));
         }
         
-        
-        
-        
-        
-//        for (Editorial aux : edit)
-//        {
-//            System.out.println(aux);
-//        }
         System.out.println("\n\nPresione Enter para continuar...");
         try
         {
@@ -370,8 +362,6 @@ public class Menu {
             List<Editorial> edit = null;
             
             muestraEditorial(servEdit.buscaTodo());
-            
-            
             
         }else {
             System.out.println("Ya existe un libro con ese nombre");
