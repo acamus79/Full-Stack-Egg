@@ -3,7 +3,6 @@
  * Uso para capacitación
  * 2021 Año de la Prevención y Lucha contra el COVID-19.
  */
-
 package libreria.entidades;
 
 import com.sun.istack.internal.NotNull;
@@ -13,7 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * 
+ *
  * @author Adrian E. Camus
  */
 @Entity
@@ -22,7 +21,7 @@ public class Editorial {
     @Id
     @GeneratedValue
     private String id;
-    
+
     @NotNull
     @Column(unique = true)
     private String nombre;
@@ -63,5 +62,9 @@ public class Editorial {
         this.alta = alta;
     }
 
-    
+    @Override
+    public String toString() {
+        return String.format("%-35s", nombre);
+    }
+
 }
