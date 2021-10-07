@@ -17,42 +17,42 @@ import libreria.entidades.Editorial;
  */
 public class EditorialDAO {
 
+    
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     private final EntityManager em = emf.createEntityManager();
 
-     public Editorial buscarPorNombre(String nombre) throws Exception {
-         // Para traer objeto con el nombre
-         Editorial editorial = (Editorial) em.createQuery("SELECT d "
+    public Editorial buscarPorNombre(String nombre) throws Exception {
+        // Para traer objeto con el nombre
+        Editorial editorial = (Editorial) em.createQuery("SELECT d "
                 + " FROM Editorial d"
                 + " WHERE d.nombre LIKE :nombre").
                 setParameter("nombre", nombre).
-                getSingleResult(); 
+                getSingleResult();
         return editorial;
     }
-    
-    
+
     public Editorial buscarPorId(String id) throws Exception {
         Editorial editorial = em.find(Editorial.class, id);
         return editorial;
     }
-    
+
     //CRUD
     public void guardarEditorial(Editorial editorial) throws Exception {
         em.getTransaction().begin();
         em.persist(editorial);
         em.getTransaction().commit();
     }
-    
+
     public List<Editorial> listarTodos() throws Exception {
-        List<Editorial> editoriales = em.createQuery("SELECT d FROM Direccion d")
+        List<Editorial> editoriales = em.createQuery("SELECT d FROM Editorial d")
                 .getResultList();
         return editoriales;
     }
-    
+
     public void modificarEditorial(Editorial editorial) throws Exception { // Este metodo es para ingresar o modificar
         em.getTransaction().begin();
         em.merge(editorial); // Para modificar un objeto - Sobreescribe los atributos
-        em.getTransaction().commit();    
+        em.getTransaction().commit();
     }
 
     public void eliminar(String id) throws Exception {
@@ -61,15 +61,13 @@ public class EditorialDAO {
         em.remove(editorial);
         em.getTransaction().commit();
     }
-    
-     public void eliminarPorNombre(String nombre) throws Exception {
-        Editorial editorial = buscarPorNombre(nombre);
-        em.getTransaction().begin(); 
-        em.remove(editorial);
-        em.getTransaction().commit();    
-    }
-   
 
+    public void eliminarPorNombre(String nombre) throws Exception {
+        Editorial editorial = buscarPorNombre(nombre);
+        em.getTransaction().begin();
+        em.remove(editorial);
+        em.getTransaction().commit();
+    }
     
 
 }

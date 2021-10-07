@@ -6,6 +6,7 @@
 
 package libreria.servicios;
 
+import java.util.List;
 import java.util.UUID;
 import libreria.entidades.Editorial;
 import libreria.persistencia.EditorialDAO;
@@ -15,7 +16,7 @@ import libreria.persistencia.EditorialDAO;
  * @author Adrian E. Camus
  */
 public class ServicioEditorial {
-    
+  
     private EditorialDAO editorialDAO;
 
     public ServicioEditorial() {
@@ -23,20 +24,20 @@ public class ServicioEditorial {
 
     }
 
-    public Editorial creaeditorial(String nombre) {
-        Editorial editorialNuevo = new Editorial();
+    public Editorial creaEditorial(String nombre) {
+        Editorial editorialnuevo = new Editorial();
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre del editorial");
             }
-            editorialNuevo.setNombre(nombre);
-            editorialNuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            editorialNuevo.setAlta(Boolean.TRUE);
-            editorialDAO.guardarEditorial(editorialNuevo);
+            editorialnuevo.setNombre(nombre);
+            editorialnuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+            editorialnuevo.setAlta(Boolean.TRUE);
+            editorialDAO.guardarEditorial(editorialnuevo);
 
-            return editorialNuevo;
+            return editorialnuevo;
 
         } catch (Exception e)
         {
@@ -46,13 +47,13 @@ public class ServicioEditorial {
 
     }
 
-    public void eliminareditorial(String nombre) {
+    public void eliminaPorNombre(String nombre) {
 
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre del editorial");
             }
             editorialDAO.eliminarPorNombre(nombre);
         } catch (Exception e)
@@ -60,18 +61,33 @@ public class ServicioEditorial {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void eliminaEditorial(Editorial edit){
+        try
+        {
+            if (edit == null )
+            {
+                throw new Exception("Editorial no valida");
+            }
+            editorialDAO.eliminar(edit.getId());
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+    }
 
-    public void modificareditorial(String nombre, String nuevonombre) {
+    public void modificarEditorial(String nombre, String nuevonombre) {
         Editorial aux = null;
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre de la Editorial");
             }
             if (nuevonombre == null || nuevonombre.trim().isEmpty())
             {
-                throw new Exception("Debe indicar el nombre de la editorial");
+                throw new Exception("Debe indicar el nombre de la Editorial");
             }
             aux = editorialDAO.buscarPorNombre(nombre);
             aux.setNombre(nuevonombre);
@@ -83,6 +99,22 @@ public class ServicioEditorial {
         }
 
     }
-    
 
+    public List<Editorial> buscaTodo() {
+        List<Editorial> buscado = null;
+
+        try
+        {
+
+            buscado = editorialDAO.listarTodos();
+
+            return buscado;
+
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
 }

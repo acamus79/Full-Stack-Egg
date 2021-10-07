@@ -63,5 +63,10 @@ public class Editorial {
         this.alta = alta;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%-35s", nombre);
+    }
+
     
 }

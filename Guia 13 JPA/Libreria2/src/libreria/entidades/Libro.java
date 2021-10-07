@@ -41,10 +41,12 @@ public class Libro {
     
     @ManyToOne
     private Autor autor;
+    
     @OneToOne
     private Editorial editorial;
 
     public Libro() {
+        
     }
 
     public Libro(String id, Long isbn, String titulo, Integer anio, Integer nroEjemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
@@ -140,4 +142,13 @@ public class Libro {
         this.editorial = editorial;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%-15s%-35s%-25s%-25s", isbn, titulo,autor.getNombre(),editorial.getNombre());
+
+    }
+
+    
+    
+    
 }
