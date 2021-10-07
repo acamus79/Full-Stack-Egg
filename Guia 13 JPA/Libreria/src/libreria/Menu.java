@@ -18,7 +18,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import libreria.entidades.*;
-import libreria.persistencia.LibroDAO;
 import libreria.servicios.*;
 
 /**
@@ -110,7 +109,7 @@ public class Menu {
                 switch (op)
                 {
                     case 1:
-
+                        muestraLibro(servLibro.buscaTodo());
                         break;
                     case 2:
                         System.out.println("OPCION EN DESARROLLO");
@@ -221,7 +220,7 @@ public class Menu {
                         porTitulo();
                         break;
                     case 3:
-
+                        porEditorial();
                         break;
                     case 4:
                         porAutor();
@@ -247,33 +246,93 @@ public class Menu {
 
     private void porISBN() {
         System.out.println("Ingrese el codigo ISBN");
-        Libro l1 = servLibro.buscaISBN(sc.nextLong());
 
-        System.out.println("RESULTADO:");
-        System.out.println(l1);
+        try
+        {
+            Libro l1 = servLibro.buscaISBN(sc.nextLong());
 
+            if (l1 == null)
+            {
+                System.out.println("No existe registro con ese ISBN");
+            } else
+            {
+                System.out.println("RESULTADO:");
+                System.out.println(l1);
+            }
+            System.out.println("\n\nPresione Enter para continuar...");
+            try
+            {
+                System.in.read();
+            } catch (Exception e)
+            {
+            }
+        } catch (Exception e)
+        {
+            e.getMessage();
+        }
     }
 
     private void porTitulo() {
         System.out.println("Ingrese el titulo a buscar");
-        Libro l1 = servLibro.buscaLibro(sc.next());
-        System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
-        System.out.println(l1);
+        List<Libro> l1 = servLibro.buscaLibro(sc.next());
+        muestraLibro(l1);
 
     }
-    
-    private void porAutor(){
+
+    private void porAutor() {
         System.out.println("Ingrese el nombre del autor");
         List<Libro> l1 = servLibro.buscaPorAutor(sc.next());
-        
-        for (Libro libro : l1)
-        {
-            System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
-        System.out.println(libro);
-        }
-        
+        muestraLibro(l1);
+    }
+    
+    private void porEditorial() {
+        System.out.println("Ingrese el nombre de la Editorial");
+        List<Libro> l1 = servLibro.buscaPorEditorial(sc.next());
+        muestraLibro(l1);
     }
 
+    private void muestraLibro(List<Libro> libros) {
+
+        System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
+        libros.forEach(libro ->
+        {
+            System.out.println(libro);
+        });
+        System.out.println("\n\nPresione Enter para continuar...");
+        try
+        {
+            System.in.read();
+        } catch (Exception e)
+        {
+        }
+    }
+
+    private void muestraEditorial(List<Editorial> edit) {
+
+        System.out.printf("%-15s%-35s%-25s\n", "ID", "NOMBRE", "ALTA");
+        
+        for (int i = 0; i < edit.size()-1; i++)
+        {
+            System.out.println(i+")");
+        }
+        
+        
+        
+        
+        
+        for (Editorial aux : edit)
+        {
+            System.out.println(aux);
+        }
+        System.out.println("\n\nPresione Enter para continuar...");
+        try
+        {
+            System.in.read();
+        } catch (Exception e)
+        {
+        }
+    }
+    
     public void limpiarPantalla() throws AWTException {
         //Dejo esre metodo para ir borrando la consola.. y que no sea un desorden.
         Robot pressbot = new Robot();
@@ -294,7 +353,32 @@ public class Menu {
 
     }
 
-    /*
+    private void buscaEditorial(){
+        
+    }
     
-     */
+    private void nuevoLibro(){
+        
+        System.out.println("Ingrese el titulo del Libro");
+        String titulo = sc.next();
+        List<Libro> aux = servLibro.buscaLibro(titulo);
+        
+        if(aux == null){
+            System.out.println("Ingrese el año de Editado");
+            Integer anio = sc.nextInt();
+            List<Editorial> edit = null;
+            
+            muestraEditorial(servEdit.buscaTodo());
+            
+            
+            
+        }else {
+            System.out.println("Ya existe un libro con ese nombre");
+            muestraLibro(aux);
+        }
+        
+    }
+    
+    
+    
 }

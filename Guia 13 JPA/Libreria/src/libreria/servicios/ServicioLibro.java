@@ -51,22 +51,22 @@ public class ServicioLibro {
             {
                 throw new Exception("Editorial nulo");
             }
-            
+
             libronuevo.setEditorial(editorial);
-            
+
             //Magia para obtener los ejemplares
             int ejemplares = (int) (Math.random() * 999 + 1);
             int prestados = ejemplares - (int) (Math.random() * 88 + 1);
 
             libronuevo.setIsbn((long) (int) (Math.random() * 999999 + 1));
-            
+
             libronuevo.setNroEjemplares(ejemplares);
             libronuevo.setEjemplaresPrestados(prestados);
-            
+
             libronuevo.setEjemplaresRestantes(ejemplares - prestados);
 
             libronuevo.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-            
+
             libronuevo.setAlta(Boolean.TRUE);
             libroDAO.guardarLibro(libronuevo);
 
@@ -94,77 +94,114 @@ public class ServicioLibro {
             System.out.println(e.getMessage());
         }
     }
-    
-    public Libro buscaLibro(String titulo){
-        Libro buscado = null;
-        
+
+    public List<Libro> buscaLibro(String titulo) {
+        List<Libro> buscado = null;
+
         try
         {
             if (titulo == null || titulo.trim().isEmpty())
             {
                 throw new Exception("Debe indicar el titulo del libro");
             }
-            
+
             buscado = libroDAO.buscaPorTitulo(titulo);
-            
+
             return buscado;
-            
+
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
             return null;
         }
-        
+
     }
-    
-    public Libro buscaISBN(Long isbn){
+
+    public Libro buscaISBN(Long isbn) {
         Libro buscado = null;
-        
+
         try
         {
-            if (isbn == null || isbn<0)
+            if (isbn == null || isbn < 0)
             {
                 throw new Exception("Debe indicar el ISBN");
             }
-            
+
             buscado = libroDAO.buscaPorISBN(isbn);
-            
+
             return buscado;
-            
+
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
             return null;
         }
 
-        
     }
-    
 
-     public List<Libro> buscaPorAutor(String nombre){
+    public List<Libro> buscaPorAutor(String nombre) {
+
         List<Libro> buscado = null;
-                
+
         try
         {
             if (nombre == null || nombre.trim().isEmpty())
             {
                 throw new Exception("Debe indicar el nombre del Autor");
             }
-                       
+
             buscado = libroDAO.buscaPorAutor(nombre);
-            
+
             return buscado;
-            
+
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
             return null;
         }
-        
     }
     
-    
-    
+    public List<Libro> buscaPorEditorial(String nombre) {
+
+        List<Libro> buscado = null;
+
+        try
+        {
+            if (nombre == null || nombre.trim().isEmpty())
+            {
+                throw new Exception("Debe indicar el nombre de la Editorial");
+            }
+
+            buscado = libroDAO.buscaPorEditorial(nombre);
+
+            return buscado;
+
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
+
+    public List<Libro> buscaTodo() {
+        List<Libro> buscado = null;
+
+        try
+        {
+
+            buscado = libroDAO.listarTodos();
+
+            return buscado;
+
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
+
 //    public void modificarLibro(String titulo, Libro libroAMod) {
 //        Libro aux = null;
 //            

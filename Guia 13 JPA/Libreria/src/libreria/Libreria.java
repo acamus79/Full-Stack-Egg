@@ -39,7 +39,6 @@ public class Libreria {
 //        Autor aut4 = au.creaautor("JORGE LUIS BORGES");
 //        Autor aut5 = au.creaautor("OSCAR WILDE");
 //
-//
 //        Editorial edit1 = eu.creaEditorial("Minotauro");
 //        Editorial edit2 = eu.creaEditorial("Sudamericana");
 //        Editorial edit3 = eu.creaEditorial("Penguin Random House");
@@ -53,7 +52,6 @@ public class Libreria {
 //        Editorial edit12 = eu.creaEditorial("Santillana");
 //        Editorial edit13 = eu.creaEditorial("Estrada");
 //        Editorial edit14 = eu.creaEditorial("Combel");
-//        
 //        
 //        Libro lb1 = lu.creaLibro("El señor de los anillos", 1937, aut1, edit1);
 //        Libro lb2 = lu.creaLibro("El señor de los anillos 2", 1939,  aut1, edit1);
@@ -75,7 +73,7 @@ public class Libreria {
 //        Libro lb18 = lu.creaLibro("El principe feliz y otros cuentos", 1888,  aut5, edit12);
 //        Libro lb19 = lu.creaLibro("El fantasma de Canterville", 1887, aut5, edit13);
 //        Libro lb20 = lu.creaLibro("El gigante egoista", 1888, aut5, edit14);
-        
+//        
         
     }
     

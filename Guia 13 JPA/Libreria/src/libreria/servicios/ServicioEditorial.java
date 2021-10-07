@@ -5,6 +5,7 @@
  */
 package libreria.servicios;
 
+import java.util.List;
 import java.util.UUID;
 import libreria.entidades.Editorial;
 import libreria.persistencia.EditorialDAO;
@@ -83,4 +84,21 @@ public class ServicioEditorial {
 
     }
 
+    public List<Editorial> buscaTodo() {
+        List<Editorial> buscado = null;
+
+        try
+        {
+
+            buscado = editorialDAO.listarTodos();
+
+            return buscado;
+
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
 }

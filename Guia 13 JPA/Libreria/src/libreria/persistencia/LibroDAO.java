@@ -31,41 +31,107 @@ public class LibroDAO {
         return libro;
     }
 
-    public Libro buscaPorTitulo(String titulo) throws Exception {
+    public List<Libro> buscaPorTitulo(String titulo) throws Exception {
 
-        Libro libro = (Libro) em.createQuery("SELECT l "
-                + " FROM Libro l"
-                + " WHERE l.titulo LIKE :titulo").
-                setParameter("titulo", titulo).
-                getSingleResult();
-        return libro;
+        try
+        {
+            List<Libro> libros = em.createQuery("SELECT l "
+                    + " FROM Libro l"
+                    + " WHERE l.titulo LIKE CONCAT('%', :titulo, '%')", Libro.class)
+                    .setParameter("titulo", titulo)
+                    .getResultList();
+            return libros;
+        } catch (Exception e)
+        {
+            System.out.println("ERROR al buscar por titulo");
+            return null;
+        }
+
     }
-    
-    
-    
-    
-    
+
     public Libro buscaPorISBN(Long isbn) throws Exception {
+        try
+        {
+            Libro libro = (Libro) em.createQuery("SELECT l "
+                    + " FROM Libro l"
+                    + " WHERE l.isbn = :isbn").
+                    setParameter("isbn", isbn).
+                    getSingleResult();
+            return libro;
 
-        Libro libro = (Libro) em.createQuery("SELECT l "
-                + " FROM Libro l"
-                + " WHERE l.isbn LIKE :isbn").
-                setParameter("isbn", isbn).
-                getSingleResult();
-        return libro;
+        } catch (Exception e)
+        {
+            System.out.println("ERROR al buscar por ISBN");
+            return null;
+        }
+    }
+
+    public List<Libro> buscaPorAutor(String nombAut) throws Exception {
+        try
+        {
+            List<Libro> libros = em.createQuery("SELECT l "
+                    + " FROM Libro l"
+                    + " WHERE l.autor.nombre LIKE CONCAT('%', :nombre, '%')", Libro.class)
+                    .setParameter("nombre", nombAut)
+                    .getResultList();
+            return libros;
+        } catch (Exception e)
+        {
+            System.out.println("ERROR al buscar por Autor");
+            return null;
+        }
     }
     
-     public List<Libro> buscaPorAutor(String nombAut) throws Exception {
-
-        List<Libro> libros = em.createQuery("SELECT l "
-                + " FROM Libro l"
-                + " WHERE l.autor.nombre LIKE :nombAut")
-                .setParameter("autor.nombre", nombAut)
-                .getResultList();
-        return libros;
+    public List<Libro> buscaPorEditorial(String nombEdit) throws Exception {
+        try
+        {
+            List<Libro> libros = em.createQuery("SELECT l "
+                    + " FROM Libro l"
+                    + " WHERE l.editorial.nombre LIKE CONCAT('%', :nombre, '%')", Libro.class)
+                    .setParameter("nombre", nombEdit)
+                    .getResultList();
+            return libros;
+        } catch (Exception e)
+        {
+            System.out.println("ERROR al buscar por Autor");
+            return null;
+        }
     }
     
+    
+    
+    
+    /*
+        public List<Alumnos> findAlumnosByDni(Alumnos alumnos) {
+        
+        Query q = em.createQuery("select a 
+        from Alumnos a 
+        where a.dni = " + alumnos.getDni());
+     
+        return q.getResultList();
+     
+     return em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE CONCAT('%', :nombre, '%')", Autor.class).setParameter("nombre", nombre).getResultList();
+              
+     
+     public Autor buscarAutorPorNombre(String nombre, Boolean estado) throws MiExcepcion {
+        try {
+            Autor autor = em.createQuery("SELECT a FROM Autor a WHERE a.nombre = :nombre AND a.alta = :estado", Autor.class)
+                    .setParameter("nombre", nombre)
+                    .setParameter("estado", estado)
+                    .getSingleResult();
 
+            return autor;
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw new MiExcepcion("ERROR AL BUSCAR AUTOR POR ID");
+        }
+    }
+
+     
+     
+        }
+     */
     public void eliminar(String id) throws Exception {
         Libro libro = buscarPorId(id);
         em.getTransaction().begin();
@@ -74,10 +140,26 @@ public class LibroDAO {
     }
 
     public void eliminaPorTitulo(String titulo) throws Exception {
-        Libro libro = buscaPorTitulo(titulo);
+        List<Libro> libros = buscaPorTitulo(titulo);
+        Libro buscado = new Libro();
+        try
+        {
+            if(libros == null){
+            System.out.println("NO existe un libro con ese titulo");
+        }else {
+           for (Libro aux : libros)
+        {
+            if(aux.getTitulo() == titulo)
+                buscado = aux;
+        }
         em.getTransaction().begin();
-        em.remove(libro);
-        em.getTransaction().commit();
+        em.remove(buscado);
+        em.getTransaction().commit(); 
+        }
+        } catch (Exception e)
+        {
+            System.out.println("Error al Eliminar");
+        }
     }
 
     /*
@@ -91,7 +173,7 @@ public class LibroDAO {
     }
      */
     public List<Libro> listarTodos() throws Exception {
-        List<Libro> libros = em.createQuery("SELECT d FROM Direccion d")
+        List<Libro> libros = em.createQuery("SELECT d FROM Libro d")
                 .getResultList();
         return libros;
     }
