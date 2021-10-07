@@ -6,7 +6,6 @@
 
 package libreria.entidades;
 
-import com.sun.istack.internal.NotNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,18 +24,18 @@ public class Libro {
     @GeneratedValue
     private String id;
 
-    @NotNull
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private Long isbn;
     
-    @NotNull
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String titulo;
     
     private Integer anio;
     private Integer nroEjemplares;
     private Integer ejemplaresPrestados;
     private Integer ejemplaresRestantes;
+    
+    @Column(nullable = false)
     private Boolean alta;
     
     @ManyToOne
@@ -148,7 +147,5 @@ public class Libro {
 
     }
 
-    
-    
     
 }

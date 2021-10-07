@@ -5,7 +5,7 @@
  */
 package libreria.entidades;
 
-import com.sun.istack.internal.NotNull;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +21,8 @@ public class Autor {
     @Id
     @GeneratedValue
     private String id;
-
-    @NotNull
-    @Column(unique = true)
+    
+    @Column(unique = true, nullable = false)
     private String nombre;
 
     private Boolean alta;
