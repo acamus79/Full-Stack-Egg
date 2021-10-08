@@ -152,7 +152,7 @@ public class Menu {
         System.out.printf("\n%-15s%-35s\n", "NOMBRE", "ID\n");
         System.out.println(a1);
     }
-    
+
     private Autor muestraCreaAutor(List<Autor> aut) {
         Autor aux = null;
         int opcion = 0;
@@ -186,7 +186,7 @@ public class Menu {
         }
         return aux;
     }
-    
+
 //************* metodos Editorial ********************
     private void menuEditorial() {
         int op = 0;
@@ -195,7 +195,7 @@ public class Menu {
         {
             try
             {
-                System.out.println("*****  EDITORIALES    ******");
+                System.out.println("\n\n*****  EDITORIALES    ******");
                 System.out.println("** 1. MOSTRAR EDITORIALES **");
                 System.out.println("** 2. AGREGAR EDITORIAL   **");
                 System.out.println("** 3. BORRAR EDITORIAL    **");
@@ -240,10 +240,12 @@ public class Menu {
         Editorial aux = null;
         int opcion = 0;
         muestraEditorial(edit);
+
         //luego de la ultima editorial muestro una linea mas con la opcion de NUEVA
         System.out.println((edit.size() + 1) + ") Nueva Editorial");
-        System.out.println("\nSeleccione el numero de una Editorial ó " + (edit.size() + 1) + " para una Editorial Nueva");
+        System.out.println("\n\nSeleccione el numero de una Editorial ó " + (edit.size() + 1) + " para una Editorial Nueva\n");
         //queda el cursor esperando que el usuario elija alguna editorial o crear una nueva
+
         try
         {
             opcion = sc.nextInt();
@@ -254,6 +256,14 @@ public class Menu {
             sc.next();
         }
 
+//         System.out.println("\n\nPresione Enter para continuar...");
+//        try
+//        {
+//            System.in.read();
+//        } catch (IOException e)
+//        {
+//            e.getMessage();
+//        }
         //logica para elegir la editorial
         if (opcion <= 0)
         {//por si el pillo del usuario escribe CERO o -1
@@ -262,6 +272,21 @@ public class Menu {
         {
             System.out.println("Ingrese el nombre de la nueva Editorial");
             aux = servEdit.creaEditorial(sc.next());//le asigno lo que me devuelve el servicio
+            System.out.println("\n\nPresione Enter para continuar...");
+            try
+            {
+                System.in.read();
+                if (aux == null)
+                {
+                    System.out.println("No se pudo crear una nueva Editorial");
+                } else
+                {
+                    System.out.println("**** Editorial Creada ****");
+                    System.out.println("aux");
+                }
+            } catch (IOException e)
+            {
+            }
 
         } else if (opcion <= edit.size() && opcion > 0)//sino si opcion es menor o igual al tamaño de la lista y mayor que CERO
         {
@@ -277,15 +302,6 @@ public class Menu {
         for (int i = 0; i < edit.size(); i++)
         {
             System.out.println((i + 1) + ") " + edit.get(i));
-        }
-
-        System.out.println("\n\nPresione Enter para continuar...");
-        try
-        {
-            System.in.read();
-        } catch (IOException e)
-        {
-            e.getMessage();
         }
     }
 
@@ -330,17 +346,13 @@ public class Menu {
         }
         //logica para elegir la editorial a borrar
         
-        for (Editorial editorial : aux)
-        {
-            servLibro.eliminarPorEditorial(editorial);
+        if(op > 0 && op < aux.size()+1){
+            //Elimino todos los libros de la editorial
+            servLibro.eliminarPorEditorial(aux.get(op - 1));
+            //elimino la editorial
+            servEdit.eliminaEditorial(aux.get(op - 1));
         }
-        
-        while (op > 0 && op < aux.size())
-        {
-            servEdit.eliminaEditorial(aux.get(op-1));
-            op = 0;// igualo opcion a CERO para que no entre mas al while
-        }
-
+       
     }
 
     private void buscaEditorial() {
@@ -419,15 +431,15 @@ public class Menu {
 
         if (aux == null)
         {
-            
+
             System.out.println("Ingrese el año de Editado");
             Integer anio = sc.nextInt();
-                                    
+
             Editorial ed = muestraCreaEditorial(servEdit.buscaTodo());
             Autor at = muestraCreaAutor(servAut.buscaTodo());
-                        
+
             Libro nuevo = servLibro.creaLibro(titulo, anio, at, ed);
-                        
+
         } else
         {
             System.out.println("Ya existe un libro con ese nombre");

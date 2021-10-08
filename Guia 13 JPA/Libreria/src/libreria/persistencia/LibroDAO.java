@@ -169,7 +169,7 @@ public class LibroDAO {
         //Libro buscado = new Libro();
         try
         {
-            if (libros == null)
+            if (libros == null || libros.size()==0)
             {
                 System.out.println("NO existe un libro con esa Editorial");
             } else
