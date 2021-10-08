@@ -96,6 +96,21 @@ public class ServicioLibro {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void eliminarPorEditorial(Editorial edit) {
+
+        try
+        {
+            if (edit == null)
+            {
+                throw new Exception("Debe indicar la Editorial");
+            }
+            libroDAO.eliminaPorEditorial(edit);
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public List<Libro> buscaLibro(String titulo) {
         List<Libro> buscado = null;

@@ -5,6 +5,7 @@
  */
 package libreria.servicios;
 
+import java.util.List;
 import java.util.UUID;
 import libreria.entidades.Autor;
 import libreria.persistencia.AutorDAO;
@@ -98,6 +99,21 @@ public class ServicioAutor {
 
             return buscado;
 
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+    }
+
+    public List<Autor> buscaTodo() {
+        List<Autor> buscado = null;
+
+        try
+        {
+            buscado = autorDAO.listarTodos();
+            return buscado;
         } catch (Exception e)
         {
             System.out.println(e.getMessage());

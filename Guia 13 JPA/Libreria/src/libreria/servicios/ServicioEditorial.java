@@ -53,10 +53,11 @@ public class ServicioEditorial {
             {
                 throw new Exception("Editorial no valida");
             }
-            editorialDAO.eliminar(edit.getId());
+            editorialDAO.eliminar(edit);
         } catch (Exception e)
         {
-            System.out.println(e.getMessage());
+            System.out.println("\nLA EDITORIAL NO SE PUDO BORRAR");
+            //System.out.println(e.getMessage());
         }
 
     }

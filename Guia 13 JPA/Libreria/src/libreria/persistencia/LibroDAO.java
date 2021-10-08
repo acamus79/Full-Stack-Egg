@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import libreria.entidades.Editorial;
 import libreria.entidades.Libro;
 
 /**
@@ -17,7 +18,6 @@ import libreria.entidades.Libro;
  */
 public class LibroDAO {
 
-    
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     private final EntityManager em = emf.createEntityManager();
 
@@ -82,7 +82,7 @@ public class LibroDAO {
             return null;
         }
     }
-    
+
     public List<Libro> buscaPorEditorial(String nombEdit) throws Exception {
         try
         {
@@ -98,10 +98,7 @@ public class LibroDAO {
             return null;
         }
     }
-    
-    
-    
-    
+
     /*
         public List<Alumnos> findAlumnosByDni(Alumnos alumnos) {
         
@@ -145,18 +142,49 @@ public class LibroDAO {
         Libro buscado = new Libro();
         try
         {
-            if(libros == null){
-            System.out.println("NO existe un libro con ese titulo");
-        }else {
-           for (Libro aux : libros)
+            if (libros == null)
+            {
+                System.out.println("NO existe un libro con ese titulo");
+            } else
+            {
+                for (Libro aux : libros)
+                {
+                    if (aux.getTitulo() == titulo)
+                    {
+                        buscado = aux;
+                    }
+                }
+                em.getTransaction().begin();
+                em.remove(buscado);
+                em.getTransaction().commit();
+            }
+        } catch (Exception e)
         {
-            if(aux.getTitulo() == titulo)
-                buscado = aux;
+            System.out.println("Error al Eliminar");
         }
-        em.getTransaction().begin();
-        em.remove(buscado);
-        em.getTransaction().commit(); 
-        }
+    }
+
+    public void eliminaPorEditorial(Editorial edit) throws Exception {
+        List<Libro> libros = buscaPorEditorial(edit.getNombre());
+        //Libro buscado = new Libro();
+        try
+        {
+            if (libros == null)
+            {
+                System.out.println("NO existe un libro con esa Editorial");
+            } else
+            {
+                for (Libro aux : libros)
+                {
+                    if (aux.getEditorial().getId().equals(edit.getId()))
+                    {
+                        em.getTransaction().begin();
+                        em.remove(aux);
+                        em.getTransaction().commit();
+                    }
+
+                }
+            }
         } catch (Exception e)
         {
             System.out.println("Error al Eliminar");
@@ -179,6 +207,4 @@ public class LibroDAO {
         return libros;
     }
 
-    
-    
 }

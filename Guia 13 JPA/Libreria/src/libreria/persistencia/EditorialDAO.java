@@ -5,6 +5,7 @@
  */
 package libreria.persistencia;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -53,11 +54,22 @@ public class EditorialDAO {
         em.getTransaction().commit();
     }
 
-    public void eliminar(String id) throws Exception {
-        Editorial editorial = buscarPorId(id);
-        em.getTransaction().begin();
-        em.remove(editorial);
-        em.getTransaction().commit();
-    }
+    public void eliminar(Editorial editorial) throws SQLIntegrityConstraintViolationException, Exception {
+        //Editorial editorial = buscarPorId(id);
+        
+        try
+        {
+            em.getTransaction().begin();
+            em.remove(editorial);
+            em.getTransaction().commit();
+            throw new SQLIntegrityConstraintViolationException();
+            
+        } catch (Exception e)
+        {
+            //e.printStackTrace();
+           throw e;
 
+        }
+
+    }
 }
