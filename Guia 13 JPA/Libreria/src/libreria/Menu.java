@@ -156,7 +156,7 @@ public class Menu {
     private Autor muestraCreaAutor(List<Autor> aut) {
         Autor aux = null;
         int opcion = 0;
-        //muestraAutor(aut);
+        muestraAutor(aut);
         //luego de la ultima editorial muestro una linea mas con la opcion de NUEVA
         System.out.println((aut.size() + 1) + ") Nuevo Autor");
         System.out.println("\nSeleccione el numero de un Autor ó " + (aut.size() + 1) + " para un Autor Nuevo");
@@ -185,6 +185,16 @@ public class Menu {
             aux = aut.get(opcion);//le asigno el Objeto de la lista segun el valor del indice
         }
         return aux;
+    }
+    
+    private void muestraAutor(List<Autor> autores) {
+
+        System.out.printf("%-35s\n", "NRO. NOMBRE");
+        //recorro y muestro los Autores
+        for (int i = 0; i < autores.size(); i++)
+        {
+            System.out.println((i + 1) + ") " + autores.get(i));
+        }
     }
 
 //************* metodos Editorial ********************
@@ -256,14 +266,6 @@ public class Menu {
             sc.next();
         }
 
-//         System.out.println("\n\nPresione Enter para continuar...");
-//        try
-//        {
-//            System.in.read();
-//        } catch (IOException e)
-//        {
-//            e.getMessage();
-//        }
         //logica para elegir la editorial
         if (opcion <= 0)
         {//por si el pillo del usuario escribe CERO o -1
@@ -290,7 +292,7 @@ public class Menu {
 
         } else if (opcion <= edit.size() && opcion > 0)//sino si opcion es menor o igual al tamaño de la lista y mayor que CERO
         {
-            aux = edit.get(opcion);//le asigno el Objeto de la lista segun el valor del indice
+            aux = edit.get(opcion-1);//le asigno el Objeto de la lista segun el valor del indice
         }
         return aux;
     }
@@ -345,7 +347,6 @@ public class Menu {
             sc.next();
         }
         //logica para elegir la editorial a borrar
-        
         if(op > 0 && op < aux.size()+1){
             //Elimino todos los libros de la editorial
             servLibro.eliminarPorEditorial(aux.get(op - 1));
@@ -368,7 +369,7 @@ public class Menu {
         {
             try
             {
-                System.out.println("*****   LIBROS    ******");
+                System.out.println("\n*****   LIBROS    ******");
                 System.out.println("** 1. MOSTRAR LIBROS **");
                 System.out.println("** 2. PRESTAMO       **");
                 System.out.println("** 3. DEVOLUCION     **");
@@ -397,10 +398,10 @@ public class Menu {
                         muestraEditorial(servEdit.buscaTodo());
                         break;
                     case 5:
-
+                        nuevoLibro();
                         break;
                     case 6:
-
+                        borraLibro(servLibro.buscaTodo());
                         break;
                     case 7:
                         buscaLibro();
@@ -427,9 +428,10 @@ public class Menu {
 
         System.out.println("Ingrese el titulo del Libro");
         String titulo = sc.next();
+        
         List<Libro> aux = servLibro.buscaLibro(titulo);
 
-        if (aux == null)
+        if (aux == null || aux.isEmpty())
         {
 
             System.out.println("Ingrese el año de Editado");
@@ -546,17 +548,33 @@ public class Menu {
     private void muestraLibro(List<Libro> libros) {
 
         System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
-        libros.forEach(libro ->
+       
+        for (int i = 0; i < libros.size(); i++)
         {
-            System.out.println(libro);
-        });
-        System.out.println("\n\nPresione Enter para continuar...");
-        try
-        {
-            System.in.read();
-        } catch (IOException e)
-        {
+            System.out.println((i + 1) + ") " + libros.get(i));
         }
+                       
     }
 
+    private void borraLibro(List<Libro> libros){
+        int opcion = 0;
+        muestraLibro(libros);
+        System.out.println("0) PARA VOLVER");
+        System.out.println("\nSeleccione el numero para borrar ó CERO para Volver");
+        //queda el cursor esperando que el usuario elija alguna editorial o volver
+        try
+        {
+            opcion = sc.nextInt();
+        } catch (InputMismatchException e)
+        {
+            e.getMessage();
+            System.out.println("PAPARULO NO METAS LETRAS\n\n");
+            sc.next();
+        }
+        if(opcion > 0 && opcion < libros.size()+1){
+            //Elimino todos los libros de la editorial
+            servLibro.eliminarLibro(libros.get(opcion - 1).getTitulo());
+        }
+    }
+            
 }
