@@ -186,7 +186,7 @@ public class Menu {
         }
         return aux;
     }
-    
+
     private void muestraAutor(List<Autor> autores) {
 
         System.out.printf("%-35s\n", "NRO. NOMBRE");
@@ -292,7 +292,7 @@ public class Menu {
 
         } else if (opcion <= edit.size() && opcion > 0)//sino si opcion es menor o igual al tamaño de la lista y mayor que CERO
         {
-            aux = edit.get(opcion-1);//le asigno el Objeto de la lista segun el valor del indice
+            aux = edit.get(opcion - 1);//le asigno el Objeto de la lista segun el valor del indice
         }
         return aux;
     }
@@ -347,13 +347,14 @@ public class Menu {
             sc.next();
         }
         //logica para elegir la editorial a borrar
-        if(op > 0 && op < aux.size()+1){
+        if (op > 0 && op < aux.size() + 1)
+        {
             //Elimino todos los libros de la editorial
             servLibro.eliminarPorEditorial(aux.get(op - 1));
             //elimino la editorial
             servEdit.eliminaEditorial(aux.get(op - 1));
         }
-       
+
     }
 
     private void buscaEditorial() {
@@ -386,6 +387,13 @@ public class Menu {
                 {
                     case 1:
                         muestraLibro(servLibro.buscaTodo());
+                        System.out.println("\n\nPresione Enter para continuar...");
+                        try
+                        {
+                            System.in.read();
+                        } catch (IOException e)
+                        {
+                        }
                         break;
                     case 2:
                         System.out.println("OPCION EN DESARROLLO");
@@ -428,7 +436,7 @@ public class Menu {
 
         System.out.println("Ingrese el titulo del Libro");
         String titulo = sc.next();
-        
+
         List<Libro> aux = servLibro.buscaLibro(titulo);
 
         if (aux == null || aux.isEmpty())
@@ -547,16 +555,16 @@ public class Menu {
 
     private void muestraLibro(List<Libro> libros) {
 
-        System.out.printf("%-15s%-35s%-25s%-25s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
-       
+        System.out.printf("%-16s%-36s%-26s%-26s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
+
         for (int i = 0; i < libros.size(); i++)
         {
             System.out.println((i + 1) + ") " + libros.get(i));
         }
-                       
+
     }
 
-    private void borraLibro(List<Libro> libros){
+    private void borraLibro(List<Libro> libros) {
         int opcion = 0;
         muestraLibro(libros);
         System.out.println("0) PARA VOLVER");
@@ -571,10 +579,11 @@ public class Menu {
             System.out.println("PAPARULO NO METAS LETRAS\n\n");
             sc.next();
         }
-        if(opcion > 0 && opcion < libros.size()+1){
+        if (opcion > 0 && opcion < libros.size() + 1)
+        {
             //Elimino todos los libros de la editorial
             servLibro.eliminarLibro(libros.get(opcion - 1).getTitulo());
         }
     }
-            
+
 }
