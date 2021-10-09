@@ -45,7 +45,7 @@ public class AutorDAO {
 
     //READ
     public List<Autor> listarTodos() throws Exception {
-        List<Autor> autores = em.createQuery("SELECT d FROM Direccion d")
+        List<Autor> autores = em.createQuery("SELECT d FROM Autor d")
                 .getResultList();
         return autores;
     }
