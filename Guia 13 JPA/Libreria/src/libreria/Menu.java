@@ -555,7 +555,7 @@ public class Menu {
 
     private void muestraLibro(List<Libro> libros) {
 
-        System.out.printf("%-16s%-36s%-26s%-26s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
+        System.out.printf("%-17s%-38s%-26s%-26s\n", "ISBN", "TITULO", "AUTOR", "EDITORIAL");
 
         for (int i = 0; i < libros.size(); i++)
         {
