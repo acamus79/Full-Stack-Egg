@@ -105,7 +105,7 @@ public class Menu {
         {
             try
             {
-                System.out.println("*****  AUTORES    ******");
+                System.out.println("\n*****  AUTORES    ******");
                 System.out.println("** 1. MOSTRAR AUTORES **");
                 System.out.println("** 2. AGREGAR AUTOR   **");
                 System.out.println("** 3. BORRAR AUTOR    **");
