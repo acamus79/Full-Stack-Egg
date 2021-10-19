@@ -1,0 +1,17 @@
+p {
+    font-size: 12;
+    font-family: arial, helvetica;
+    font-weight: normal;
+    }
+    h1 {
+    font-size: 16;
+    font-family: verdana, arial;
+    text-decoration: underline;
+    text-align: center;
+    background-color: rgb(161, 187, 187);
+    }
+    body {
+    background-color: #5f55bb;
+    font-family: arial;
+    color: White;
+    }
