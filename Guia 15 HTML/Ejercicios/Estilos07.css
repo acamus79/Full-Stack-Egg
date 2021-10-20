@@ -1,0 +1,29 @@
+body {
+    background-color: #5f55bb;
+    font-family: arial;
+    color: White;
+    }
+    h1 {
+        font-size: 16;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration: underline;
+        text-align: center;
+        background-color: rgb(121, 158, 158);
+        }
+    h2 {
+            font-size: 14;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: underline;
+            text-align: center;
+            background-color: rgb(181, 243, 243);
+        }
+    p {
+    font-size: 12;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    text-align: left;
+    }
+
+    
+
+    
