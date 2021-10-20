@@ -1,0 +1,130 @@
+/* [ Encabezado H1 ] */
+
+h1{
+
+    /* [ Color del encabezado H1 ] */
+    color: teal;
+
+    /* [ Alinear ] */
+    text-align: left;
+}
+
+/* [ Strong ] */
+
+strong{
+
+    color: red;
+
+}
+
+/* [ Destacado ] */
+
+span.destacado{
+
+    color: yellow;
+
+}
+
+/* [ Encabezado H2 ] */
+
+h2{
+
+color: blue;
+
+}
+
+/* [ Acceso ] */
+
+a{
+
+color: red;
+
+}
+
+/* [ Em ] */
+
+em{
+
+    color: blue;
+
+}
+
+/* [ Span.Especial ] */
+
+/*Cuando usamos CLASS usamos el . */
+
+span.especial{
+
+    color: rgb(103, 0, 199);
+
+}
+
+/* [ Th.Especial ] */
+
+th.especial{
+
+    color: rgb(95, 95, 0);
+
+}
+
+/* [ Th ] */
+
+th{
+
+    color: red;
+    border: 1px solid black;
+
+}
+
+/* [ TD ] */
+
+td{
+
+    color: green;
+    border: 1px solid black;
+
+}
+
+/* [ Tabla ] */
+
+table{
+
+    border-style: 1px solid black;
+
+}
+
+div#adicional{
+
+    color:rgb(234, 255, 45);
+
+}
+
+/*Cuando usas ID <span id="especial"> usamos # para separarlo */
+
+span#especial{
+
+    color: rgb(255, 0, 200);
+
+}
+
+div#adicional a{
+
+    color: green;
+
+}
+
+/* [ Tabla / Italic ] */
+
+tr em{
+
+    color: green;
+
+}
+
+/* [ Tabla / Bold · Strong ] */
+
+tr strong{
+
+    color: yellow;
+
+}
