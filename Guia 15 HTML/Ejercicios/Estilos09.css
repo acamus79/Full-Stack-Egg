@@ -1,0 +1,22 @@
+ol{
+    list-style:decimal;
+}
+
+ul li{
+    counter-increment: numero_item;
+}
+
+ul li:before{
+
+    content: counter( numero_item,
+    decimal-leading-zero );
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 18px;
+    background: darkslategrey;
+    color: white;
+    padding: 5px;
+    display: inline-block;
+    margin-right: 8px;
+
+}
