@@ -1,0 +1,57 @@
+GIT - COMANDOS
+- VERSION
+git --version
+git version
+
+Ambos comandos sirven para saber qué versión de GIT tenemos instalada
+en nuestra pc. En caso de que no aparezca nada, significa que no tenemos
+GIT instalado.
+
+- CONFIGURACIÓN DE DATOS
+git config --global user.name "Martín Pérez"
+git config --global user.email "martinperez@gmail.com"
+git config --list
+ls
+
+- CONFIGURACIÓN DE RAMA EN REPOSITORIO LOCAL
+git branch -M main
+Sirve para modificar el nombre de la rama master por main para que no
+haya conflictos con la rama main del repositorio remoto.
+
+git config --global init.defaultBranch main
+Sirve para modificar la rama pricipal por default a main 
+para que la proxima vez que hagamos un git init se cree la rama main y
+no la master
+
+- BRANCH
+CREACIÓN DE UNA RAMA:
+git branch <nombre-de-la-rama>
+git branch minuevarama (EJEMPLO)
+
+Por medio de este comando, se creará una rama de forma local.
+Ahora bien, si queremos enviar nuestra rama creada al repositorio
+remoto, debemos aplicar el siguiente comando:
+git push <nombre-remoto> <nombre-de-la-rama>
+git push origin minuevarama (EJEMPLO)
+
+LISTAR LAS RAMAS EXISTENTES:
+git branch
+git branch --list
+git branch -a
+
+ELIMINAR UNA RAMA:
+git branch -d <nombre-de-la-rama>
+git branch -d minuevarama
+
+git merge <nombre-de-rama>
+git push origin --delete <nombre-de-rama>
+git branch -d nombre-rama
+
+git fetch - 1º paso
+git checkout develop - 2ª paso
+git branch nueva-rama - 3ª paso
+cambio en el archivo
+git push origin nueva-rama
+
+git remote add origin https://TOKEN@github.com/USUARIO-QUE-CREO-EL-REPOSITORIO/NOMBRE-DEL-PROYECTO.git --> Sirve para agregar un repositorio remoto como "origin" con nuestro public access token y poder realizar nuestros push autenticándonos
+git remote set-url origin https://TOKEN@github.com/USUARIO-QUE-CREO-EL-REPOSITORIO/NOMBRE-DEL-PROYECTO.git --> Sirve para cambiar el link del repositorio remoto "origin" si es que ya lo habíamos creado
