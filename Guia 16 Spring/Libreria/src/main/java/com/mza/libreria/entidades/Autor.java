@@ -29,15 +29,7 @@ public class Autor {
     private Boolean alta;
 
     //CONSTRUCTORES
-    public Autor() {
-    }
-
-    public Autor(String id, String nombre, Boolean alta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.alta = alta;
-    }
-
+   
     //GETTERS & SETTERS
     public String getId() {
         return id;
