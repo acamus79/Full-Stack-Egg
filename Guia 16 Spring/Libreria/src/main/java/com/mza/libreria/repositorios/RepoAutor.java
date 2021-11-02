@@ -6,11 +6,15 @@
 
 package com.mza.libreria.repositorios;
 
+import com.mza.libreria.entidades.Autor;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+import org.springframework.stereotype.Repository;
+
 /**
  * 
  * @author Adrian E. Camus
  */
-
-public class RepoAutor {
+@Repository
+public interface RepoAutor extends JpaRepositoryImplementation<Autor, String>{
 
 }

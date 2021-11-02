@@ -23,10 +23,8 @@ public class Libro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    //@NotNull
-    private long isbn;
+    private Long isbn;
 
-    //@NotNull
     @Column(unique = true)
     private String titulo;
 
@@ -69,7 +67,7 @@ public class Libro {
     /**
      * @param isbn the isbn to set
      */
-    public void setIsbn(long isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
 

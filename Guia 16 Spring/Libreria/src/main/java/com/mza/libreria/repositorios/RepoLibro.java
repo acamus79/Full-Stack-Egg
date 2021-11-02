@@ -6,10 +6,15 @@
 
 package com.mza.libreria.repositorios;
 
+import com.mza.libreria.entidades.Libro;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  * 
  * @author Adrian E. Camus
  */
-public class RepoLibro {
+@Repository
+public interface RepoLibro extends JpaRepository<Libro, String>{
 
 }

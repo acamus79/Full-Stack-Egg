@@ -6,10 +6,15 @@
 
 package com.mza.libreria.repositorios;
 
+import com.mza.libreria.entidades.Editorial;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  * 
  * @author Adrian E. Camus
  */
-public class RepoEditorial {
+@Repository
+public interface RepoEditorial extends JpaRepository<Editorial, String>{
 
 }
