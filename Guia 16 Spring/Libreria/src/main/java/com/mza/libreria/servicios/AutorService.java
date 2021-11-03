@@ -50,4 +50,8 @@ public class AutorService {
         }
 
     }
+    
+    public List buscaAutor(){
+        return aRepo.buscaAutor();
+    }
 }
