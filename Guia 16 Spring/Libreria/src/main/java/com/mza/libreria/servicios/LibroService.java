@@ -8,11 +8,13 @@ package com.mza.libreria.servicios;
 
 import com.mza.libreria.entidades.*;
 import com.mza.libreria.excepciones.MiExcepcion;
-import com.mza.libreria.repositorios.RepoLibro;
+import com.mza.libreria.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.List;
+import javax.transaction.Transactional;
 
 
 /**
@@ -24,18 +26,33 @@ public class LibroService {
 
     @Autowired
     private RepoLibro rLibro;
-
-
-    public void creaLibro(Long isbn,
+  
+    @Transactional
+    public void creaLibro( Long isbn,
                            String titulo,
                            Integer anio,
                            Integer ejemplares,
                            Autor autor,
-                           Editorial editorial) throws MiExcepcion{
-
+                           Editorial editorial) throws Exception{
+        
+        Libro lib1 = new Libro();
+        
+        validar(titulo,isbn,anio,ejemplares,autor,editorial);
+        
+        lib1.setAlta(Boolean.TRUE);
+        lib1.setAnio(anio);
+        lib1.setAutor(autor);
+        lib1.setEditorial(editorial);
+        lib1.setEjemplares(ejemplares);
+        lib1.setIsbn(isbn);
+        lib1.setTitulo(titulo);
+        
+        rLibro.save(lib1);
+                
     }
-
-    private void validar(String titulo, Long isbn,
+    
+    
+    public void validar(String titulo, Long isbn,
                          Integer anio, Integer ejemplares,
                          Autor autor, Editorial editorial) throws MiExcepcion {
 
@@ -54,6 +71,7 @@ public class LibroService {
         if(autor.toString().isEmpty() || autor == null){
             //aca deberia llamar un metodo que busque Autores
             throw new MiExcepcion("Autor no valido");
+            
         }
         if (editorial.toString().isEmpty() || editorial == null){
             //aca deberia llamar un metodo que busque editoriales
@@ -62,4 +80,6 @@ public class LibroService {
 
     }
 
+    
+    
 }
