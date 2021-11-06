@@ -45,10 +45,9 @@ public class ServicioMascota {
 
         mRepo.save(mascota);
     }
-    
-        
-    public void modificar(String idUsuario, String idMascota, String nombre, Sexo sexo) throws ErrorServicio{
-        
+
+    public void modificar(String idUsuario, String idMascota, String nombre, Sexo sexo) throws ErrorServicio {
+
         validar(nombre, sexo);
         //Esta linea va a la base de datos y busca segun el id si hay una mascota
         Optional<Mascota> respuesta = mRepo.findById(idMascota);
@@ -58,20 +57,44 @@ public class ServicioMascota {
             Mascota mascota = respuesta.get();
             //si el ID del usuario dueño de la mascota es igual al id de usuario que me 
             //viene por parametro hago las modificaciones
-            if(mascota.getUsuario().getId().equals(idUsuario)){
+            if (mascota.getUsuario().getId().equals(idUsuario))
+            {
                 mascota.setNombre(nombre);
                 mascota.setSexo(sexo);
-                
+
                 mRepo.save(mascota);
-            }else{
+            } else
+            {
                 throw new ErrorServicio("NO ES DUEÑO DE LA MASCOTA");
             }
-                        
-        }else{
+
+        } else
+        {
             throw new ErrorServicio("No existe una mascota con el identificador solicitado");
         }
-        
-        
+
+    }
+
+    public void eliminar(String idUsuario, String idMascota, String nombre, Sexo sexo) throws ErrorServicio {
+
+        validar(nombre, sexo);
+        Optional<Mascota> respuesta = mRepo.findById(idMascota);
+
+        if (respuesta.isPresent())
+        {
+            Mascota mascota = respuesta.get();
+            if (mascota.getUsuario().getId().equals(idUsuario))
+            {
+                mascota.setBaja(new Date());
+                mRepo.save(mascota);
+            } else
+            {
+                throw new ErrorServicio("NO ES DUEÑO DE LA MASCOTA");
+            }
+        } else
+        {
+            throw new ErrorServicio("No existe una mascota con el identificador solicitado");
+        }
     }
 
     public void validar(String nombre, Sexo sexo) throws ErrorServicio {
