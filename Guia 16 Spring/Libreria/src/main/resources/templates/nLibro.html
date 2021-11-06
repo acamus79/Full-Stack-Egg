@@ -4,7 +4,7 @@ Sin licencia.
 Uso para capacitación
 2021 Año de la Prevención y Lucha contra el COVID-19.
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Nuevo Libro</title>
         <meta charset="UTF-8">
@@ -34,6 +34,13 @@ Uso para capacitación
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
+                                            
+                <!--<label for="autorNombre">Autor</label>
+                        <select th:field="*{autorNombre}" class="form-control">
+                            <option value="">Elegir...</option>
+                            <option>...</option>
+                        </select>-->
+                      
                     <label for="inputAutor">Autor</label>
                     <select id="inputAutor" class="form-control">
                       <option selected>Elegir...</option>

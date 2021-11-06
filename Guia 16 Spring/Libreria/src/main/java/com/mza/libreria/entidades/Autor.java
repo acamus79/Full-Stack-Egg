@@ -15,11 +15,12 @@ import java.util.List;
  * @author Adrian E. Camus
  */
 @Entity
+
 public class Autor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @Column(unique = true)
     private String nombre;
@@ -36,14 +37,14 @@ public class Autor {
     /**
      * @return the id
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
