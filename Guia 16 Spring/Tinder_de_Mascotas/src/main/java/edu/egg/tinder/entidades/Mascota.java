@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -41,7 +42,11 @@ public class Mascota {
     
     @ManyToOne
     private Usuario usuario;
-
+    
+    @OneToOne
+    private Foto foto;
+    
+    
     /**
      * @return the id
      */
@@ -125,7 +130,19 @@ public class Mascota {
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
-    
-    
 
+    /**
+     * @return the foto
+     */
+    public Foto getFoto() {
+        return foto;
+    }
+
+    /**
+     * @param foto the foto to set
+     */
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+        
 }
