@@ -30,6 +30,9 @@ public class ServicioMascota {
     // creo un objeto de la clase RepoUsuario y lo denomino uRepo
     @Autowired
     RepoUsuario uRepo;
+    
+    @Autowired
+    ServicioFoto sFoto;
 
     public void agregar(String idUsuario, String nombre, Sexo sexo) throws ErrorServicio {
 
