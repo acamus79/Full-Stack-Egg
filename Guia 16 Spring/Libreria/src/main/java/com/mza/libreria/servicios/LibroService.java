@@ -36,13 +36,13 @@ public class LibroService {
         validar(libro.getTitulo(), libro.getIsbn(), libro.getAnio(), libro.getEjemplares());
 
         //valido los atributos que son objetos de otra clase
-//        if (libro.getAutor().toString().isEmpty() || libro.getAutor() == null)
-//        {
-//            throw new MiExcepcion("Autor no valido");
-//        } else
-//        {
-//            libro.setAutor(sAutor.buscaPorId(libro.getAutor().getId()));
-//        }
+        if (libro.getAutor() == null)
+        {
+            throw new MiExcepcion("Autor no puede ser nulo");
+        } else
+        {
+            libro.setAutor(sAutor.buscaPorId(libro.getAutor().getId()));
+        }
 
 //        if (libro.getEditorial().toString().isEmpty() || libro.getEditorial() == null)
 //        {
