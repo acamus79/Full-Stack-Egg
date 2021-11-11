@@ -1,0 +1,14 @@
+body {
+    background-image: url(/img/background-img-proyecto-personas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color:beige;
+}

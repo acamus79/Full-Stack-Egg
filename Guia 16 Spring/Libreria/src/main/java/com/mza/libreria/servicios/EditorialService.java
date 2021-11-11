@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -25,27 +27,60 @@ import java.util.List;
 public class EditorialService {
 
     @Autowired
-    private RepoEditorial rEdito;
-
-    public void creaEditorial(String nombre, List<Libro> libros) throws MiExcepcion {
+    private RepoEditorial eRepo;
+    
+    @Transactional
+    public void creaEditorial(String nombre) throws MiExcepcion {
 
         validar(nombre);
 
         Editorial edito = new Editorial();
+//        List<Libro> listaLibros = new ArrayList<>();
+//        
+//        edito.setLibros(listaLibros);
 
-        if(libros.isEmpty()){
-            List<Libro> listLibros = new ArrayList<Libro>();
-            edito.setLibros(listLibros);
-        }else{
-            edito.setLibros(libros);}
+//        if(libros.isEmpty()){
+//            List<Libro> listLibros = new ArrayList<Libro>();
+//            edito.setLibros(listLibros);
+//        }else{
+//            edito.setLibros(libros);}
 
         edito.setAlta(Boolean.TRUE);
         edito.setNombre(nombre);
 
-        rEdito.save(edito);
+        eRepo.save(edito);
     }
 
-
+//    @Transactional
+//    public void agregaLibro(Libro libro, Editorial editorial)throws MiExcepcion {
+//        if(libro!=null && libro.getEditorial().equals(editorial)){
+//            editorial.getLibros().add(libro);
+//            eRepo.save(editorial);
+//        }else{
+//            throw new MiExcepcion("No se pudo agregar la editorial al Libro");
+//        }
+//    }
+    
+    @Transactional(readOnly = true)
+    public List<Editorial> buscaEditoriales(){
+        return eRepo.findAll();
+    }
+    
+    @Transactional(readOnly = true)
+    public Editorial buscaPorNombre(String nombre){
+        return eRepo.buscaPorNombre(nombre);
+    }
+    
+    @Transactional(readOnly = true)
+    public Editorial buscaPorId(Editorial editorial) {
+        Optional<Editorial> optional = eRepo.findById(editorial.getId());
+        if (optional.isPresent())
+        {
+            editorial = optional.get();
+        }
+        return editorial;
+    }
+    
     private void validar(String nombre) throws MiExcepcion{
 
         if(nombre.isEmpty() || nombre == null){

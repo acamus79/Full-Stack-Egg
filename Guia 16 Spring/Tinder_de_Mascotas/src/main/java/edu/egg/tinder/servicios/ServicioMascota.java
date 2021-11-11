@@ -5,6 +5,7 @@
  */
 package edu.egg.tinder.servicios;
 
+import edu.egg.tinder.entidades.Foto;
 import edu.egg.tinder.entidades.Mascota;
 import edu.egg.tinder.entidades.Usuario;
 import edu.egg.tinder.enumeradores.Sexo;
@@ -13,8 +14,10 @@ import edu.egg.tinder.repositorios.RepoMascota;
 import edu.egg.tinder.repositorios.RepoUsuario;
 import java.util.Date;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -34,7 +37,8 @@ public class ServicioMascota {
     @Autowired
     ServicioFoto sFoto;
 
-    public void agregar(String idUsuario, String nombre, Sexo sexo) throws ErrorServicio {
+    @Transactional
+    public void agregar(MultipartFile archivo, String idUsuario, String nombre, Sexo sexo) throws ErrorServicio {
 
         Usuario usuario = uRepo.findById(idUsuario).get();
 
@@ -45,11 +49,15 @@ public class ServicioMascota {
         mascota.setAlta(new Date());
         mascota.setNombre(nombre);
         mascota.setSexo(sexo);
+        
+        Foto foto = sFoto.guardar(archivo);
+        mascota.setFoto(foto);
 
         mRepo.save(mascota);
     }
-
-    public void modificar(String idUsuario, String idMascota, String nombre, Sexo sexo) throws ErrorServicio {
+    
+    @Transactional
+    public void modificar(MultipartFile archivo, String idUsuario, String idMascota, String nombre, Sexo sexo) throws ErrorServicio {
 
         validar(nombre, sexo);
         //Esta linea va a la base de datos y busca segun el id si hay una mascota
@@ -64,7 +72,14 @@ public class ServicioMascota {
             {
                 mascota.setNombre(nombre);
                 mascota.setSexo(sexo);
-
+                
+                String idFoto = null;
+                if(mascota.getFoto()!= null){
+                    idFoto= mascota.getFoto().getId();
+                }
+                Foto foto = sFoto.modificar(idFoto, archivo);
+                mascota.setFoto(foto);
+                
                 mRepo.save(mascota);
             } else
             {
@@ -77,7 +92,8 @@ public class ServicioMascota {
         }
 
     }
-
+    
+    @Transactional
     public void eliminar(String idUsuario, String idMascota, String nombre, Sexo sexo) throws ErrorServicio {
 
         validar(nombre, sexo);

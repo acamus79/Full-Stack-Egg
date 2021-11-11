@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-Sin licencia.
-Uso para capacitación
-2021 Año de la Prevención y Lucha contra el COVID-19.
--->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Nuevo Libro</title>
@@ -13,58 +8,79 @@ Uso para capacitación
     </head>
 
     <body>
+      <br>
+      <div class="container m-auto">
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Exito</h5>
+            <p class="card-text" th:text="${exito}"></p>
+          </div>
+        </div>
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Error</h5>
+            <p class="card-text" th:text="${error}"></p>
+          </div>
+        </div>
+      </div>
 
-        <div class="container-fluid">
+        <div class="container m-auto" align="center">
           <br>
-            <form align="center">
-                <div class="form-row">
-                  <div class="form-group col-md-4">
+            <form th:action="@{/libros/registroLibro}" method="post" th:object="${libro}">
+              <input hidden th:field="*{id}">
+               <div class="form-row">
+                  <div class="form-group col-md-8">
                     <label for="inputTitulo">TITULO</label>
-                    <input type="text" class="form-control" id="inputTitulo" placeholder="Ingrese el Titulo del Libro">
+                    <input type="text" class="form-control" name="titulo" placeholder="Ingrese el Titulo del Libro" required>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputISBN">ISBN</label>
-                    <input type="text" class="form-control" id="inputISBN" placeholder="Ingrese el código de 13 digitos">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputEjemplares">EJEMPLARES</label>
-                    <input type="number" class="form-control" id="inputEjemplares" placeholder="Ingrese la cantidad de Ejemplares">
-                  </div>
-                </div>
-
+               </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
-                                            
-                <!--<label for="autorNombre">Autor</label>
-                        <select th:field="*{autorNombre}" class="form-control">
-                            <option value="">Elegir...</option>
-                            <option>...</option>
-                        </select>-->
-                      
-                    <label for="inputAutor">Autor</label>
-                    <select id="inputAutor" class="form-control">
-                      <option selected>Elegir...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputEditorial">Editorial</label>
-                    <select id="inputEditorial" class="form-control">
-                      <option selected>Elegir...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <button type="submit" class="btn btn-primary">Nuevo Autor</button>
-                    </div>    
-                    <div class="form-group col-md-4">
-                        <button type="submit" class="btn btn-primary">Nueva Editorial</button>
+                    <div class="form-group col-md-3">
+                      <label for="inputEjemplares">AÑO</label>
+                      <input type="number" class="form-control" name="anio" placeholder="Ingrese el año de edición" required>
                     </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputEjemplares">EJEMPLARES</label>
+                      <input type="number" class="form-control" name="ejemplares" placeholder="Ingrese la cantidad de Ejemplares" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputISBN">ISBN</label>
+                      <input type="text" class="form-control" name="isbn" placeholder="Ingrese el código">
+                    </div>  
                 </div>
-                    <button type="submit" class="btn btn-primary" align="center">ENVIAR LIBRO</button>
+                
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="autor">Autor</label>
+                    <select id="autor" class="form-control">
+                      <option selected>Seleccione un Autor</option>
+                      <option th:each="a : ${autores}" th:utext="${a.nombre}" th:value="${a.id}"></option>
+                    </select>
+                    <br>
+                    <a th:href="@{/autores/registroAutor}" class="btn btn-primary">Nuevo Autor</a>
+                  </div>
+                 
+                  <div class="form-group col-md-4">
+                    <label for="editorial">Editorial</label>
+                    <select id="editorial" class="form-control">
+                      <option value="0" selected>Seleccione una Editorial</option>
+                      <option th:each="e : ${editoriales}" th:value="${e.id}" th:utext="${e.nombre}"></option>
+                    </select>
+                    <br>
+                    <a th:href="@{/editoriales/registroEditorial}" class="btn btn-primary">Nueva Editorial</a>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-primary" align="center">REGISTRAR LIBRO</button>
               </form>
+
+              <section class="py-5 text-center container">
+                <div class="row py-lg-5">
+                  <div class="col-lg-6 col-md-8 mx-auto">
+                    <a th:href="@{/}" class="btn btn-primary my-2">VOLVER</a>
+                  </div>
+                </div>
+              </section>
+
         </div>
 
 

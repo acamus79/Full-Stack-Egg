@@ -5,30 +5,29 @@
  */
 package com.mza.libreria.entidades;
 
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import java.util.List;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author Adrian E. Camus
  */
 @Entity
-
 public class Autor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
+    
     @Column(unique = true)
     private String nombre;
 
     private Boolean alta;
 
-    @OneToMany(mappedBy = "autor")
-    private List<Libro> libros;
+//    @OneToMany(mappedBy = "autor")
+//    private List<Libro> libros;
 
     //CONSTRUCTORES
    
@@ -37,14 +36,14 @@ public class Autor {
     /**
      * @return the id
      */
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -76,18 +75,18 @@ public class Autor {
         this.alta = alta;
     }
 
-    /**
-     * @return the libros
-     */
-    public List<Libro> getLibros() {
-        return libros;
-    }
+//    /**
+//     * @return the libros
+//     */
+//    public List<Libro> getLibros() {
+//        return libros;
+//    }
+//
+//    /**
+//     * @param libros the libros to set
+//     */
+//    public void setLibros(List<Libro> libros) {
+//        this.libros = libros;
+//    }
 
-    /**
-     * @param libros the libros to set
-     */
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
-    }
-    
 }

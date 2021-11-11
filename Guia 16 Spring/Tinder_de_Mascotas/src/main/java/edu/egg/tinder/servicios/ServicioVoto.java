@@ -9,7 +9,6 @@ import edu.egg.tinder.entidades.Mascota;
 import edu.egg.tinder.entidades.Voto;
 import edu.egg.tinder.errores.ErrorServicio;
 import edu.egg.tinder.repositorios.RepoMascota;
-import edu.egg.tinder.repositorios.RepoUsuario;
 import edu.egg.tinder.repositorios.RepoVoto;
 import java.util.Date;
 import java.util.Optional;
@@ -27,9 +26,12 @@ public class ServicioVoto {
     @Autowired
     RepoMascota mRepo;
 
-    // creo un objeto de la clase RepoUsuario y lo denomino uRepo
+    // creo un objeto de la clase RepoVoto y lo denomino vRepo
     @Autowired
     RepoVoto vRepo;
+    
+    @Autowired
+    ServicioNotificacion sNotificacion;
 
     public void votar(String idUsuario, String idMascota1, String idMascota2) throws ErrorServicio {
         
@@ -62,6 +64,9 @@ public class ServicioVoto {
         {
             Mascota mascota2 = respuesta2.get();
             voto.setMascota2(mascota2);
+            
+            sNotificacion.enviar("Tu Mascota ha sido Votada", "Tinder de Mascotas", mascota2.getUsuario().getMail());
+            
         } else
         {
             throw new ErrorServicio("No existe una Mascota vinculada a ese identificador");
@@ -79,6 +84,7 @@ public class ServicioVoto {
             voto.setRespuesta(new Date());
             
             if(voto.getMascota2().getUsuario().getId().equals(idUsuario)){
+                sNotificacion.enviar("Tu voto fue correspondido", "Tinder de Mascotas", voto.getMascota1().getUsuario().getMail());
                 vRepo.save(voto);
             }else{
                 throw new ErrorServicio("No tiene permiso para realizar la acción");

@@ -11,24 +11,47 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
  * @author Adrian E. Camus
  */
 @Controller
+@RequestMapping("/autores")
 public class AutorController {
     @Autowired
     AutorService autorServicio;
 
-    @RequestMapping(value = "/autores", method = RequestMethod.GET)
-    public String launchPage(Model model) {
-        List<Autor> autores = autorServicio.buscaAutor();
-        model.addAttribute("autores", autores);
-
-        return "autores";
+    @GetMapping("/autores")
+    public String autores(ModelMap modelo) {
+        List<Autor> autores = autorServicio.buscaAutores();
+        modelo.addAttribute("autores", autores);
+        return "autores.html";
     }
-
+    
+    @GetMapping("/registroAutor")
+    public String formulario() {
+        return "nAutor.html";
+    }
+    
+    @PostMapping("/registroAutor")
+    public String registro(ModelMap modelo, @RequestParam String nombre) {
+                       
+        try
+        {
+            autorServicio.creaAutor(nombre);
+            modelo.put("exito", "Registro Exitoso");
+            return "nAutor";
+        } catch (Exception e)
+        {
+            modelo.put("error", "Falló el registro");
+            return "nAutor";
+        }
+        
+    }
 }

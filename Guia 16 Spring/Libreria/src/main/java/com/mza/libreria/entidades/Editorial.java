@@ -30,8 +30,9 @@ public class Editorial {
     private String nombre;
     
     private Boolean alta;
-    @OneToMany(mappedBy = "editorial")
-    private List<Libro> libros;
+    
+//    @OneToMany(mappedBy = "editorial")
+//    private List<Libro> libros;
 
     //CONSTRUCTORES
    
@@ -79,11 +80,11 @@ public class Editorial {
         this.alta = alta;
     }
 
-    public List<Libro> getLibros() {
-        return libros;
-    }
-
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
-    }
+//    public List<Libro> getLibros() {
+//        return libros;
+//    }
+//
+//    public void setLibros(List<Libro> libros) {
+//        this.libros = libros;
+//    }
 }

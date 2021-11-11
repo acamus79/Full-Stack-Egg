@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="/fragments/head :: head"></head>
+    <body>
+        <nav th:replace="/fragments/nav-bar :: nav-bar-dark"> </nav>
+        <div class="container">
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${error}" ></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div th:if="${success}" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${success}" ></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header d-flex">
+                    <h1> Lista de Personas</h1>
+                    <button class="btn-dark px-5 py-2 ms-auto"><a th:href="@{/ciudad/form}">Crear Ciudad</a></button>
+                </div>
+                <div class="card-body">
+                    <form class="row g-3" th:action="@{/ciudad/list}" method="GET">
+                        <div class="col">
+                            <input type="text" style="width: 100%;" name="q" placeholder="Buscar...">
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-dark mb-3">Buscar</button>
+                        </div>
+                    </form>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Nombre</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each=" c,iterator : ${ciudades} ">
+                                <td th:text="${iterator.index+1}"></td>
+                                <td th:text="${c.nombre}"></td>
+                                <td>
+                                    <button class="btn-dark"><a th:href="@{/ciudad/delete}+'?id='+${c.id}" class=" px-5 py-2 ">Eliminar</a></button>
+                                    <button class="btn-dark"><a th:href="@{/ciudad/form}+'?id='+${c.id}" class=" px-5 py-2 ">Editar</a></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <p th:if="${ciudades.isEmpty}">No hay ciudades para mostrar</p>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="/fragments/head :: head"></head>
+    <body>
+        <nav th:replace="/fragments/nav-bar :: nav-bar-dark"> </nav>
+        <div class="container">
+            <div class="card mt-5">
+                <div class="card-header d-flex">
+                    <h1>Crear Ciudad</h1>
+                    <button class="btn-dark ms-auto"><a class=" px-5 py-2" th:href="@{/ciudad/list}">Volver</a></button>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/ciudad/save}" method="POST" th:object="${ciudad}" class="col-6 mx-auto">
+                        <input hidden th:field="*{id}">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" th:field="*{nombre}" placeholder="Mar del Plata">
+                        </div>
+                        <button type="submit" class="btn-dark px-5 py-2 ms-auto">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
