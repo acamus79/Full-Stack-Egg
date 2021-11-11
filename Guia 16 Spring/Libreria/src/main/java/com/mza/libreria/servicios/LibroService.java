@@ -36,7 +36,7 @@ public class LibroService {
         validar(libro.getTitulo(), libro.getIsbn(), libro.getAnio(), libro.getEjemplares());
 
         //valido los atributos que son objetos de otra clase
-        if (libro.getAutor() == null)
+        if (libro.getAutor().toString().isEmpty() || libro.getAutor() == null)
         {
             throw new MiExcepcion("Autor no puede ser nulo");
         } else
@@ -44,13 +44,13 @@ public class LibroService {
             libro.setAutor(sAutor.buscaPorId(libro.getAutor().getId()));
         }
 
-//        if (libro.getEditorial().toString().isEmpty() || libro.getEditorial() == null)
-//        {
-//            throw new MiExcepcion("Editorial no valida");
-//        } else
-//        {
-//            libro.setEditorial(sEditorial.buscaPorId(libro.getEditorial()));
-//        }
+        if (libro.getEditorial().toString().isEmpty() || libro.getEditorial() == null)
+        {
+            throw new MiExcepcion("Editorial no valida");
+        } else
+        {
+            libro.setEditorial(sEditorial.buscaPorId(libro.getEditorial()));
+        }
 
         return rLibro.save(libro);
     }
