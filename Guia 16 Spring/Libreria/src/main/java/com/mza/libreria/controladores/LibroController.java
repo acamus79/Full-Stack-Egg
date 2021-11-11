@@ -93,7 +93,7 @@ public class LibroController {
 
         } catch (MiExcepcion e)
         {
-            modelo.put("error", "Falló el registro");
+            modelo.put("error", e.getMessage());
             return "nLibro";
         }
 
