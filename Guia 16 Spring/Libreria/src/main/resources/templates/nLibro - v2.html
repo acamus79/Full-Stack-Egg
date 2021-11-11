@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Biblioteca</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+  <body>
+      <!-- Navigation-->
+      <!-- Responsive navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" th:href="@{/}">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+      <header>
+      <br>
+      <div class="container m-auto">
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Exito</h5>
+            <p class="card-text" th:text="${exito}"></p>
+          </div>
+        </div>
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Error</h5>
+            <p class="card-text" th:text="${error}"></p>
+          </div>
+        </div>
+      </div>
+      </header>
+        <!-- Page Content-->
+        <div class="container m-auto">
+          <div class="card text-white bg-dark mb-3">
+            <div class="card-body" align="center">
+          <h5 class="card-title">Registro de un Nuevo Libro</h5>
+          <br>
+            <form th:action="@{/libros/registroLibro}" method="post" th:object="${libro}">
+              <input hidden th:field="*{id}">
+              <section class="py-2 text-center container">
+                <div class="col-lg-8 col-md-5 mx-auto">
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputTitulo">TITULO</label>
+                    <input type="text" class="form-control" name="titulo" placeholder="Ingrese el Titulo del Libro" required>
+                  </div>
+               </div>
+              </div>
+              </section>
+              <section class="py-2 text-center container">
+                <div class="col-lg-8 col-md-1 mx-auto">
+                  <div class="row py-lg-2">
+                    <div class="form-group col-md-4">
+                      <label for="inputEjemplares">AÑO</label>
+                      <input type="number" class="form-control" name="anio" placeholder="Ingrese el año de edición" required>
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="inputEjemplares">EJEMPLARES</label>
+                      <input type="number" class="form-control" name="ejemplares" placeholder="Ingrese la cantidad de Ejemplares" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputISBN">ISBN</label>
+                      <input type="text" class="form-control" name="isbn" placeholder="Ingrese el código">
+                    </div>  
+                  </div>
+                </div>
+              </section>
+              <section class="py-2 text-center container">
+                <div class="col-lg-8 col-md-1 mx-auto">
+                  <div class="row py-lg-2">
+                      <div class="form-group col-md-6">
+                        <label for="autor">Autor</label>
+                        <select class="form-control" th:field="*{autor.id}">
+                          <option value="0" selected>Seleccione un Autor</option>
+                          <option th:each="a : ${autores}" th:utext="${a.nombre}" th:value="${a.id}"></option>
+                        </select>
+                        <br>
+                        <a th:href="@{/autores/registroAutor}" class="btn btn-primary">Nuevo Autor</a>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="editorial">Editorial</label>
+                          <select class="form-control" th:field="*{editorial.id}">
+                            <option value="0" selected>Seleccione una Editorial</option>
+                            <option th:each="e : ${editoriales}" th:value="${e.id}" th:utext="${e.nombre}"></option>
+                          </select>
+                        <br>
+                          <a th:href="@{/editoriales/registroEditorial}" class="btn btn-primary">Nueva Editorial</a>
+                      </div>
+                  </div>
+                </div>
+              </section>                 
+            </div>
+              <br>
+              <section class="py-2 text-center container">
+                <div class="row py-lg-2">
+                  <div class="col-lg-6 col-md-8 mx-auto">
+                <button type="submit" class="btn btn-info" align="center">REGISTRAR LIBRO</button>
+              </div>
+            </div>
+          </section>
+              </form>
+              <section class="py-2 text-center container">
+                <div class="row py-lg-2">
+                  <div class="col-lg-6 col-md-8 mx-auto">
+                    <a th:href="@{/}" class="btn btn-primary my-2">VOLVER</a>
+                  </div>
+                </div>
+              </section>
+            </div>
+        </div>
+      
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a></p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    </body>
+</html>
