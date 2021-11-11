@@ -52,8 +52,8 @@
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="autor">Autor</label>
-                    <select id="autor" class="form-control">
-                      <option selected>Seleccione un Autor</option>
+                    <select class="form-control" th:field="*{autor.id}">
+                      <option value="0" selected>Seleccione un Autor</option>
                       <option th:each="a : ${autores}" th:utext="${a.nombre}" th:value="${a.id}"></option>
                     </select>
                     <br>
@@ -62,7 +62,7 @@
                  
                   <div class="form-group col-md-4">
                     <label for="editorial">Editorial</label>
-                    <select id="editorial" class="form-control">
+                    <select class="form-control" th:field="*{editorial.id}">
                       <option value="0" selected>Seleccione una Editorial</option>
                       <option th:each="e : ${editoriales}" th:value="${e.id}" th:utext="${e.nombre}"></option>
                     </select>
