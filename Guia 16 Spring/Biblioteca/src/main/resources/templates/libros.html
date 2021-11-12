@@ -58,9 +58,9 @@ Uso para capacitación
                         <tr>
                             <th>N°</th>
                             <th>Titulo</th>
-                            <th>Ejemplares</th>
                             <th>Autor</th>
                             <th>Editorial</th>
+                            <th>Ejemplares</th>
                             <th>Administracion</th>
                         </tr>
                     </thead>
@@ -68,11 +68,11 @@ Uso para capacitación
                         <tr th:each=" p,iterator : ${libros}">
                             <td th:text="${iterator.index+1}"></td>
                             <td th:text="${p.titulo}"></td>
-                            <td th:text="${p.ejemplares}"></td>
                             <td th:text="${p.autor} == null ? 'sin registro' : ${p.autor.nombre} "></td>
                             <td th:text="${p.editorial} == null ? 'sin registro' : ${p.editorial.nombre} "></td>
+                            <td th:text="${p.ejemplares}"></td>
                             <td>
-                                <button class="btn-dark"><a th:href="@{/persona/delete}+'?id='+${p.id}" class=" px-5 py-2 ">Eliminar</a></button>
+                                <button class="btn-dark"><a th:href="@{/libros/borraLibro}+'?id='+${p.id}" class=" px-5 py-2 ">Eliminar</a></button>
                                 <button class="btn-dark"><a th:href="@{/libros/registroLibro}+'?id='+${p.id}" class=" px-5 py-2 ">Editar</a></button>
                             </td>
                         </tr>
