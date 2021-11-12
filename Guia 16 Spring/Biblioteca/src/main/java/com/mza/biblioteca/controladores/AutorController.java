@@ -49,7 +49,7 @@ public class AutorController {
             return "nAutor";
         } catch (Exception e)
         {
-            modelo.put("error", "Falló el registro");
+            modelo.put("error", "Ya existe un Autor con ese Nombre");
             return "nAutor";
         }
         
