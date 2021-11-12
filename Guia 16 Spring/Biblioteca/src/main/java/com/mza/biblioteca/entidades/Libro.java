@@ -24,12 +24,12 @@ public class Libro {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-
-    private String isbn;
-
+    
     @Column(unique = true)
+    private String isbn;
+    
+    
     private String titulo;
-
     private Integer anio;
     private Integer ejemplares;
     private Integer ejemplaresPrestados;
