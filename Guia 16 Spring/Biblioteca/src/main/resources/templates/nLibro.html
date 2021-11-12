@@ -22,6 +22,7 @@
     <header>
       <br>
       <div class="container m-auto">
+        <!-- si el modelo tiene una variable "error" distinta de null crear un card de texto blanco con fondo danger --> 
         <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
           <div class="card-body">
             <h5 class="card-title">Error</h5>
@@ -29,13 +30,14 @@
           </div>
         </div>
       </div>
-        <!-- Page Content-->
+        <!-- Contenido -->
         <div class="container m-auto">
-          
           <div class="card text-white bg-dark mb-3">
             <div class="card-body" align="center">
-          <h5 class="card-title">Registro de un Nuevo Libro</h5>
+          <h5 class="card-title">Formulario Libros</h5>
           <br>
+          <!-- En esta linea declaro que la accion se va a desallorar en el metodo post de /Libros/registroLibro 
+          va a tener un objeto llamado libro, en la linea siguiente se declara un input oculto el campo id -->
             <form th:action="@{/libros/registroLibro}" method="post" th:object="${libro}">
               <input hidden th:field="*{id}">
               <section class="py-2 text-center container">
@@ -43,7 +45,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="inputTitulo">TITULO</label>
-                    <input type="text" class="form-control" name="titulo" placeholder="Ingrese el Titulo del Libro" required>
+                    <input type="text" class="form-control" name="titulo" th:placeholder="${libro.titulo}" required>
                   </div>
                </div>
               </div>
@@ -53,15 +55,15 @@
                   <div class="row py-lg-2">
                     <div class="form-group col-md-4">
                       <label for="inputEjemplares">AÑO</label>
-                      <input type="number" class="form-control" name="anio" placeholder="Ingrese el año de edición" required>
+                      <input type="number" class="form-control" name="anio" th:placeholder="${libro.anio}" required>
                     </div>
                     <div class="form-group col-md-5">
                       <label for="inputEjemplares">EJEMPLARES</label>
-                      <input type="number" class="form-control" name="ejemplares" placeholder="Ingrese la cantidad de Ejemplares" required>
+                      <input type="number" class="form-control" name="ejemplares" th:placeholder="${libro.ejemplares}" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputISBN">ISBN</label>
-                      <input type="text" class="form-control" name="isbn" placeholder="Ingrese el código">
+                      <input type="text" class="form-control" name="isbn" th:placeholder="${libro.isbn}">
                     </div>  
                   </div>
                 </div>

@@ -18,7 +18,7 @@
         <!-- CSS propio -->
         <link href="/css/styles.css" rel="stylesheet"/>
     </head>
-<body>
+<body id="inicio">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
@@ -29,9 +29,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#sobre_mi">Sobre mi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyecto">Proyecto</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#login">Ingresar</a></li>
                 </ul>
             </div>
         </div>
@@ -41,12 +41,32 @@
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Biblioteca</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Gestion de Libros web</h2>
-                    <a class="btn btn-primary" th:href="@{/libros/registroLibro}">ingresar</a>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Gestión de Libros web</h2>
+                    <a class="btn btn-primary" th:href="@{/libros/lista}"><i class="fas fa-book"></i> libros</a>
+                    <a class="btn btn-primary" th:href="@{/autores/lista}"><i class="fas fa-user-edit"></i> autores</a>
+                    <a class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="far fa-newspaper"></i> editoriales</a>
                 </div>
             </div>
         </div>
     </header>
+<!-- Proyecto -->
+<section class="about-section text-center" id="proyecto">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-white mb-4">Ejercicio Final EGG Programacion FullStack</h2>
+                <p class="text-white-50">
+                    Sistema de Guardado de una Librería Web 
+ 
+                    El objetivo de este ejercicio consiste en el desarrollo de un sistema web de guardado de 
+                    libros en JAVA utilizando una base de datos MySQL, JPA Repository para persistir 
+                    objetos y Spring Boot como framework de desarrollo web. 
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Footer-->
 <footer class="footer bg-black small text-center text-white-50">
     <div class="container px-4 px-lg-5">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a>

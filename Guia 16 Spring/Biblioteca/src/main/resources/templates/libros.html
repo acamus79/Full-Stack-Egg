@@ -24,7 +24,7 @@ Uso para capacitación
         <link href="/css/styles.css" rel="stylesheet"/>
     </head>
     <body>
-      <div class="container">
+      <div class="container-fluid">
         <div class="container m-auto">
           <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
             <div class="card-body">
@@ -42,7 +42,7 @@ Uso para capacitación
         <div class="card mt-3">
             <div class="card-header d-flex">
                 <h1> Lista de Libros</h1>
-                <button class="btn-dark px-5 py-2 ms-auto"><a th:href="@{/libros/registroLibro}">Registrar Libro</a></button>
+                <a th:href="@{/libros/registroLibro}" class="btn btn-dark my-2 ms-auto">NUEVO LIBRO</a>
             </div>
             <div class="card-body">
                 <form class="row g-3" th:action="@{/libros/lista}" method="GET">
@@ -50,7 +50,7 @@ Uso para capacitación
                         <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
                     </div>
                     <div class="col-2">
-                        <button type="submit" class="btn btn-dark mb-3">Buscar</button>
+                      <button type="submit" class="btn btn-dark mb-3">Buscar</button>
                     </div>
                 </form>
                 <table class="table table-dark table-striped">
@@ -72,8 +72,8 @@ Uso para capacitación
                             <td th:text="${p.editorial} == null ? 'sin registro' : ${p.editorial.nombre} "></td>
                             <td th:text="${p.ejemplares}"></td>
                             <td>
-                                <button class="btn-dark"><a th:href="@{/libros/borraLibro}+'?id='+${p.id}" class=" px-5 py-2 ">Eliminar</a></button>
-                                <button class="btn-dark"><a th:href="@{/libros/registroLibro}+'?id='+${p.id}" class=" px-5 py-2 ">Editar</a></button>
+                              <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-edit"></i></a>
+                              <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -85,16 +85,15 @@ Uso para capacitación
     <section class="py-2 text-center container">
       <div class="row py-lg-2">
         <div class="col-lg-10 col-md-8 mx-auto">
-          <a th:href="@{/}" class="btn btn-primary my-2">INICIO</a>
-          <a th:href="@{/libros/lista}" class="btn btn-primary my-2">LIBROS</a>
-          <a th:href="@{/}" class="btn btn-primary my-2">AUTORES</a>
-          <a th:href="@{/}" class="btn btn-primary my-2">EDITORIALES</a>
+          <a th:href="@{/}" class="btn btn-primary my-2"><i class="fas fa-home"></i> INICIO</a>
+          <a th:href="@{/}" class="btn btn-primary my-2"><i class="fas fa-user-edit"></i> AUTORES</a>
+          <a th:href="@{/}" class="btn btn-primary my-2"><i class="far fa-newspaper"></i> EDITORIALES</a>
         </div>
       </div>
     </section>
         
     <!-- Footer-->
-    <footer class="footer small text-center text-white-50">
+    <footer class="footer small text-center text-dark-50">
       <div class="container px-4 px-lg-5">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a>
       </div>
     </footer>
