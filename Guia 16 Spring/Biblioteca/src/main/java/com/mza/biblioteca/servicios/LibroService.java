@@ -11,6 +11,7 @@ import com.mza.biblioteca.excepciones.MiExcepcion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 
@@ -90,6 +91,14 @@ public class LibroService {
     public Optional<Libro> buscarPorId(String id) {
     return rLibro.findById(id);
   }
+    
+    public List<Libro> listaLibro(){
+        return rLibro.findAll();
+    }
+    
+    public List<Libro> listaBuscada(String buscar){
+        return rLibro.buscar(buscar);
+    }
     
     public void validar(String titulo, String isbn,
             Integer anio, Integer ejemplares) throws MiExcepcion {

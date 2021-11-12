@@ -34,10 +34,8 @@ public class LibroController {
 
     @Autowired
     LibroService libroServicio;
-
     @Autowired
     EditorialService editorialServicio;
-
     @Autowired
     AutorService autorServicio;
 
@@ -50,6 +48,7 @@ public class LibroController {
             if (optional.isPresent())
             {
                 modelo.addAttribute("libro", optional.get());
+                
             } else
             {
                 return "redirect:/libros/lista";
@@ -59,7 +58,7 @@ public class LibroController {
             modelo.addAttribute("libro", new Libro());
         }
 
-//hermosamente uso los repositorios para trerme una lista de autores y editoriales
+        //hermosamente uso los servicios para trerme una lista de autores y editoriales
         List<Autor> autores = autorServicio.buscaAutores();
         modelo.addAttribute("autores", autores);
 
@@ -67,6 +66,36 @@ public class LibroController {
         modelo.addAttribute("editoriales", editoriales);
 
         return "nLibro";
+    }
+
+    @PostMapping("/registroLibro")
+    public String registrar(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
+
+        try
+        {
+            libroServicio.creaLibro(libro);
+            modelo.put("exito", "Registro Exitoso");
+            return "redirect:/libros/lista";
+
+        } catch (MiExcepcion e)
+        {
+            modelo.put("error", e.getMessage());
+            return "nLibro";
+        }
+
+    }
+    
+    @GetMapping("/lista")
+    public String listaLibros(ModelMap modelo, @RequestParam(required = false) String buscar) {
+        //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
+        if (buscar != null)
+        {
+            modelo.addAttribute("libros", libroServicio.listaBuscada(buscar));
+        } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
+        {
+            modelo.addAttribute("libros", libroServicio.listaLibro());
+        }
+        return "libros";
     }
 
 //    @GetMapping("/registroLibro")
@@ -79,28 +108,7 @@ public class LibroController {
 //        modelo.addAttribute("editoriales", editoriales);
 //
 //        return "nLibro";
-//    }
-
-
-    @PostMapping("/registroLibro")
-    public String registrar(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
-
-        try
-        {
-            libroServicio.creaLibro(libro);
-            modelo.put("exito", "Registro Exitoso");
-            return "nLibro";
-
-        } catch (MiExcepcion e)
-        {
-            modelo.put("error", e.getMessage());
-            return "nLibro";
-        }
-
-    }
-    
-    
-    
+//    }    
 //    @PostMapping("/registroLibro")
 //    public String registrar(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Autor autor, @RequestParam Editorial editorial) {
 //
@@ -117,5 +125,4 @@ public class LibroController {
 //        }
 //
 //    }
-
 }
