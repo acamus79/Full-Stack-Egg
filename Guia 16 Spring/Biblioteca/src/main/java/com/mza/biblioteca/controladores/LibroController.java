@@ -40,7 +40,7 @@ public class LibroController {
     AutorService autorServicio;
 
     @GetMapping("/registroLibro")
-    public String creaLibro(ModelMap modelo, @RequestParam(required = false) String id) {
+    public String registro(ModelMap modelo, @RequestParam(required = false) String id) {
 
         if (id != null)
         {
@@ -55,7 +55,12 @@ public class LibroController {
             }
         } else
         {
-            modelo.addAttribute("libro", new Libro());
+            Libro aux = new Libro();
+            aux.setTitulo("Ingrese el título del Libro");
+            aux.setAnio(0000);
+            aux.setEjemplares(0);
+            aux.setIsbn("Ingrese código");
+            modelo.addAttribute("libro", aux);
         }
 
         //hermosamente uso los servicios para trerme una lista de autores y editoriales
@@ -69,7 +74,7 @@ public class LibroController {
     }
 
     @PostMapping("/registroLibro")
-    public String registrar(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
+    public String registro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
 
         try
         {
@@ -88,7 +93,7 @@ public class LibroController {
     @GetMapping("/lista")
     public String listaLibros(ModelMap modelo, @RequestParam(required = false) String buscar) {
         //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
-        if (buscar != null)
+        if (buscar != null || buscar.length()<1)
         {
             modelo.addAttribute("libros", libroServicio.listaBuscada(buscar));
         } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
