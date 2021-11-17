@@ -1,0 +1,16 @@
+com\Biblioteca\EggClandestina\controladores\PortalControlador.class
+com\Biblioteca\EggClandestina\errores\ErrorServicio.class
+com\Biblioteca\EggClandestina\servicios\ServicioEditorial.class
+com\Biblioteca\EggClandestina\controladores\ControladorAutor.class
+com\Biblioteca\EggClandestina\entidades\EntidadAutor.class
+com\Biblioteca\EggClandestina\servicios\ServicioAutor.class
+com\Biblioteca\EggClandestina\repositorios\RepositorioAutor.class
+com\Biblioteca\EggClandestina\servicios\ServicioLibro.class
+com\Biblioteca\EggClandestina\repositorios\RepositorioEditorial.class
+com\Biblioteca\EggClandestina\configuraciones\ConfiguracionSeguridad.class
+com\Biblioteca\EggClandestina\controladores\ControladorLibro.class
+com\Biblioteca\EggClandestina\EggClandestinaApplication.class
+com\Biblioteca\EggClandestina\entidades\EntidadEditorial.class
+com\Biblioteca\EggClandestina\entidades\EntidadLibro.class
+com\Biblioteca\EggClandestina\controladores\ControladorEditorial.class
+com\Biblioteca\EggClandestina\repositorios\RepositorioLibro.class

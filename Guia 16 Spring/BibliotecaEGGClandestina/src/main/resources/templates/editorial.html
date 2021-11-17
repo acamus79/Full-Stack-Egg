@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"><!--Estilos Personalizados-->
+    <title>Biblioteca : Editorial</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark "><!--Navegación-->
+        <div class="container">
+        <a href="/" class="navbar-brand ">Biblioteca</a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item">
+                    <a class="nav-link " href="/libro" >Libro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/autor" >Autor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/editorial" >Editorial</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav><!--Fin Navegación-->
+    <div class="container mt-5"><!--Contenedor-->
+            
+        <div class="row m-0 d-flex w-100 justify-content-center mb-5">
+            <div class="col-12 px-2 text-center">
+                    <h1 class="display-4 font-weight-bolder">Editoriales</h1>
+                
+            </div>
+        </div>
+        <div class="row m-0 d-flex w-100 justify-content-center">
+            <div class="col-4 px-2">
+                    <button class="btn btn-dark btn-lg btn-block " type="button"><a class="text-decoration-none text-light font-weight-bold" href="/creareditorial">CARGAR EDITORIAL</a></button>
+                
+            </div>
+        </div>
+        <div class="row w-100 mt-5 mr-0 ">
+            <form class="form-inline row m-0 w-100" method="get" action="">
+                <div class="col-md-1"><label class="font-weight-bold h5" for="">Buscar</label></div>
+                <div class="col-md-8"><input class="form-control w-100" type="text" name="" id=""></div>
+                <div class="col-md-3 px-0"><button class="btn btn-dark btn-block px-0" type="button">Buscar</button></div>
+            </form>
+        </div>
+        <div class="row mt-5"><!--Contenedor de la fila-->
+            <div class="col-sm-12 col-md-4 mb-3"><!-- autor -->
+                <ul class="list-group ">
+                    <li class="list-group-item bg-dark text-light">Id</li>
+                    <li class="list-group-item">
+                        <h3>Editorial</h3>
+                    </li>
+                    <li class="list-group-item font-weight-bold">
+                        <div class="d-flex w-100 justify-content-end ">
+                            <a class=" btn btn-dark btn-sm mr-2 " href="/editareditorial" role="button"> Editar</a>
+                            <a class="btn btn-danger btn-sm " href="#" role="button"> Eliminar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div><!--Fin autor -->
+            <div class="col-sm-12 col-md-4 mb-3"><!-- autor -->
+                <ul class="list-group ">
+                    <li class="list-group-item bg-dark text-light">Id</li>
+                    <li class="list-group-item">
+                        <h3>Editorial</h3>
+                    </li>
+                    <li class="list-group-item font-weight-bold">
+                        <div class="d-flex w-100 justify-content-end ">
+                            <a class=" btn btn-dark btn-sm mr-2 " href="/editareditorial" role="button"> Editar</a>
+                            <a class="btn btn-danger btn-sm " href="#" role="button"> Eliminar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div><!--Fin autor -->
+            <div class="col-sm-12 col-md-4 mb-3"><!-- autor -->
+                <ul class="list-group ">
+                    <li class="list-group-item bg-dark text-light">Id</li>
+                    <li class="list-group-item">
+                        <h3>Editorial</h3>
+                    </li>
+                    <li class="list-group-item font-weight-bold">
+                        <div class="d-flex w-100 justify-content-end ">
+                            <a class=" btn btn-dark btn-sm mr-2 " href="/editareditorial" role="button"> Editar</a>
+                            <a class="btn btn-danger btn-sm " href="#" role="button"> Eliminar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div><!--Fin autor -->
+            
+            
+        </div><!--Fin de la columna-->
+    </div><!--Fin contenedor-->
+<div class="container-fluid mt-5">
+    <div class="row bg-dark">
+        <div class="col-md-12">
+            <h5 class="text-center text-light p-3 ">EGG clandestina</h5>
+        </div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

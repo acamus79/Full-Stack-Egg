@@ -1,0 +1,16 @@
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\configuraciones\ConfiguracionSeguridad.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\controladores\ControladorEditorial.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\servicios\ServicioAutor.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\servicios\ServicioEditorial.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\controladores\ControladorAutor.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\repositorios\RepositorioEditorial.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\EggClandestinaApplication.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\repositorios\RepositorioAutor.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\entidades\EntidadEditorial.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\entidades\EntidadAutor.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\errores\ErrorServicio.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\controladores\PortalControlador.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\servicios\ServicioLibro.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\entidades\EntidadLibro.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\controladores\ControladorLibro.java
+D:\Documentos\GitHub\Full-Stack-Egg\Guia 16 Spring\BibliotecaEGGClandestina\src\main\java\com\Biblioteca\EggClandestina\repositorios\RepositorioLibro.java

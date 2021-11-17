@@ -65,7 +65,7 @@ public class ServicioUsuario implements UserDetailsService {
         //Mediante el Repositorio de usuario utilizo el metodo save para persistir en la base
         rUsuario.save(usuario);
         
-        sNotificacion.enviar("Bienvenido al Tinder de Mascotas", "Tinder de Mascotas", usuario.getMail());
+        //sNotificacion.enviar("Bienvenido al Tinder de Mascotas", "Tinder de Mascotas", usuario.getMail());
     }
     
     @Transactional
