@@ -56,6 +56,7 @@ public class LibroController {
         } else
         {
             Libro aux = new Libro();
+            aux.setAlta(Boolean.TRUE);
             aux.setTitulo("Ingrese el título del Libro");
             aux.setAnio(0000);
             aux.setEjemplares(0);
@@ -93,7 +94,7 @@ public class LibroController {
     @GetMapping("/lista")
     public String listaLibros(ModelMap modelo, @RequestParam(required = false) String buscar) {
         //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
-        if (buscar != null || buscar.length()<1)
+        if (buscar != null)
         {
             modelo.addAttribute("libros", libroServicio.listaBuscada(buscar));
         } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
