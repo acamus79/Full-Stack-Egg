@@ -13,7 +13,7 @@ public class EntidadLibro {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    private Long isbn;
+    private String isbn;
     private String titulo;
     private Integer anio;
     private Integer emplares;
@@ -36,11 +36,11 @@ public class EntidadLibro {
         this.id = id;
     }
 
-    public Long getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Long isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

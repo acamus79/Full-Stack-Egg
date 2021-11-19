@@ -32,7 +32,7 @@ public class AutorService {
         validar(nombre);
 
         Autor autor = new Autor();
-        List<Libro> listaLibros = new ArrayList<>();
+        //List<Libro> listaLibros = new ArrayList<>();
         //autor.setLibros(listaLibros);
         autor.setAlta(Boolean.TRUE);
         autor.setNombre(nombre);

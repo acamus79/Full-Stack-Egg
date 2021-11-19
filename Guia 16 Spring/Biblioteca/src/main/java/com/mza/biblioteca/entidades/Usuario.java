@@ -6,24 +6,46 @@
 
 package com.mza.biblioteca.entidades;
 
+import com.mza.biblioteca.enumeradores.Rol;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
  * 
  * @author Adrian E. Camus
  */
+@Entity
 public class Usuario {
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    
     private String nombre;
     private String apellido;
     private String mail;
     private String clave;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date alta;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date baja;
+
+    @OneToOne
+    private Foto foto;
+    
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
+    
 
     /**
      * @return the id

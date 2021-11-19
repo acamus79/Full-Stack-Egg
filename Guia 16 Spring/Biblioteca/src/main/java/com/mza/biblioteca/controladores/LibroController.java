@@ -57,7 +57,7 @@ public class LibroController {
         {
             Libro aux = new Libro();
             aux.setAlta(Boolean.TRUE);
-            aux.setTitulo("Ingrese el título del Libro");
+            aux.setTitulo("Título del Libro");
             aux.setAnio(0000);
             aux.setEjemplares(0);
             aux.setIsbn("Ingrese código");
@@ -76,7 +76,7 @@ public class LibroController {
 
     @PostMapping("/registroLibro")
     public String registro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
-
+        System.out.println("ACA ESTOY INGRESANDO AL REGISTRO LIBRO");
         try
         {
             libroServicio.creaLibro(libro);
@@ -104,31 +104,41 @@ public class LibroController {
         return "libros";
     }
 
-//    @GetMapping("/registroLibro")
-//    public String formulario(ModelMap modelo, Autor autor, Editorial editorial) {
-//        //hermosamente uso el repositorio de autor para trerme una lista de autores
-//        List<Autor> autores = aRepo.findAll();
-//        modelo.addAttribute("autores", autores);
-//        
-//        List<Editorial> editoriales = eRepo.findAll();
-//        modelo.addAttribute("editoriales", editoriales);
-//
-//        return "nLibro";
-//    }    
-//    @PostMapping("/registroLibro")
-//    public String registrar(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Autor autor, @RequestParam Editorial editorial) {
-//
-//        try
-//        {
-//            libroServicio.creaLibro(isbn, titulo, anio, ejemplares, autor, editorial);
-//            modelo.put("exito", "Registro Exitoso");
-//            return "nLibro";
-//
-//        } catch (Exception e)
-//        {
-//            modelo.put("error", "Falló el registro");
-//            return "nLibro";
-//        }
-//
-//    }
+    @GetMapping("/borrar")
+    public String borrarLibro(ModelMap modelo, @RequestParam(required = false) String id){
+    System.out.println("ACA ESTOY INGRESANDO AL GET");
+        if (id != null)
+        {
+            Optional<Libro> optional = libroServicio.buscarPorId(id);
+            if (optional.isPresent())
+            {
+                modelo.addAttribute("libro", optional.get());
+            } else
+            {
+                return "redirect:/libros/lista";
+            }
+        } else
+        {
+            return "borrar";
+        }
+        return "borrar";
+    }
+
+    @PostMapping("/borrar")
+    public String borrarLibro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro){
+                        
+        try
+        {
+            libroServicio.bajaLibro(libro);
+            modelo.put("exito", "El libro se dio de baja");
+            return "redirect:/libros/lista";
+
+        } catch (MiExcepcion e)
+        {
+            modelo.put("error", "NO SE BORRO EL LIBRO");
+            return "borrar";
+        }
+
+    }
+
 }

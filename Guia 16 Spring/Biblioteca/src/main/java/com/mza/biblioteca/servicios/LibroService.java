@@ -24,10 +24,10 @@ public class LibroService {
 
     @Autowired
     private RepoLibro rLibro;
-
+    
     @Autowired
     private AutorService sAutor;
-
+    
     @Autowired
     private EditorialService sEditorial;
 
@@ -52,54 +52,22 @@ public class LibroService {
         {
             libro.setEditorial(sEditorial.buscaPorId(libro.getEditorial()));
         }
-
+        libro.setAlta(Boolean.TRUE);
         return rLibro.save(libro);
     }
 
-//    @Transactional
-//    public void creaLibro( String isbn,
-//                           String titulo,
-//                           Integer anio,
-//                           Integer ejemplares,
-//                           Autor autor,
-//                           Editorial editorial) throws Exception{
-//        
-//        Libro lib1 = new Libro();
-//        
-//        //Autor autor = sAutor.buscaPorId(autorID);
-//        //Editorial editorial = sEditorial.buscaPorNombre(nEditorial);
-//        
-//        validar(titulo,isbn,anio,ejemplares);
-//        
-//        lib1.setAlta(Boolean.TRUE);
-//        lib1.setAnio(anio);
-//        lib1.setEjemplares(ejemplares);
-//        lib1.setIsbn(isbn);
-//        lib1.setTitulo(titulo);
-//        
-//        lib1.setAutor(autor);
-//        
-//        lib1.setEditorial(editorial);
-//        
-////        sAutor.agregaLibro(lib1, autor);
-////        editorial.getLibros().add(lib1);
-//        
-//        rLibro.save(lib1);
-//                
-//    }
-    
     public Optional<Libro> buscarPorId(String id) {
-    return rLibro.findById(id);
-  }
-    
-    public List<Libro> listaLibro(){
+        return rLibro.findById(id);
+    }
+
+    public List<Libro> listaLibro() {
         return rLibro.findAll();
     }
-    
-    public List<Libro> listaBuscada(String buscar){
+
+    public List<Libro> listaBuscada(String buscar) {
         return rLibro.buscar(buscar);
     }
-    
+
     public void validar(String titulo, String isbn,
             Integer anio, Integer ejemplares) throws MiExcepcion {
 
@@ -121,5 +89,22 @@ public class LibroService {
         }
 
     }
-
+    
+    @Transactional
+    public void bajaLibro(Libro libro) throws MiExcepcion {
+        
+        Optional<Libro> op = rLibro.findById(libro.getId());
+        if(op.isPresent()){
+            Libro aux = op.get();
+            aux.setAlta(Boolean.FALSE);
+            rLibro.save(aux);
+        }
+        
+//        if (libro != null){
+//            libro.setAlta(Boolean.FALSE);
+//            rLibro.save(libro);
+//        }else{
+//            throw new MiExcepcion("El libro no puede ser nulo");
+//        }
+    }
 }

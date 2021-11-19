@@ -22,6 +22,9 @@ public interface RepoLibro extends JpaRepository<Libro, String>{
 // con esta query se obtiene contenido parecido a, LIKE %?1% remplaza a LIKE :variable
     @Query("SELECT p from Libro p WHERE p.titulo LIKE %?1% or p.autor.nombre LIKE %?1% or p.editorial.nombre LIKE %?1%")
     List<Libro> buscar(@Param("buscar") String buscar);
+
+//    @Query("SELECT a from Libro a WHERE a.alta LIKE :1")
+//    public List<Libro> activos();
     
 //de esta manera al buscar para encontrar resultado se debe usar contenido exacto    
 //    @Query("SELECT p from Libro p WHERE p.titulo LIKE :buscar or p.autor.nombre LIKE :buscar or p.editorial.nombre LIKE :buscar")

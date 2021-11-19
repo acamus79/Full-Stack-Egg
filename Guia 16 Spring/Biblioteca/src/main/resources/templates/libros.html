@@ -65,7 +65,8 @@ Uso para capacitación
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each=" p,iterator : ${libros}">
+                      <!-- En esta linea declaro un Iterator que recorre la lista libros pero solo si el atributo alta es TRUE -->
+                        <tr th:each="p,iterator : ${libros}" th:if="${p.alta} == TRUE">
                             <td th:text="${iterator.index+1}"></td>
                             <td th:text="${p.titulo}"></td>
                             <td th:text="${p.autor} == null ? 'sin registro' : ${p.autor.nombre} "></td>
@@ -73,7 +74,7 @@ Uso para capacitación
                             <td th:text="${p.ejemplares}"></td>
                             <td>
                               <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-edit"></i></a>
-                              <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-trash-alt"></i></a>
+                              <a class="mx-2" th:href="@{/libros/borrar}+'?id='+${p.id}"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -91,7 +92,7 @@ Uso para capacitación
         </div>
       </div>
     </section>
-        
+
     <!-- Footer-->
     <footer class="footer small text-center text-dark-50">
       <div class="container px-4 px-lg-5">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a>

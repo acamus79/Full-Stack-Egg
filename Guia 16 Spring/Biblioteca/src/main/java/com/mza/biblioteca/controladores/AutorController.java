@@ -53,4 +53,17 @@ public class AutorController {
         }
         
     }
+
+    @GetMapping("/lista")
+    public String listaLibros(ModelMap modelo, @RequestParam(required = false) String buscar) {
+        //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
+        if (buscar != null)
+        {
+            modelo.addAttribute("libros", autorServicio.buscaPorNombre(buscar));
+        } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
+        {
+            modelo.addAttribute("libros", autorServicio.buscaAutores());
+        }
+        return "autores";
+    }
 }

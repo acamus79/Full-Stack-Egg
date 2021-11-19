@@ -40,12 +40,12 @@
         </div>
         <div class="row d.flex w-100 justify-content-around">
             <div class="col-md-6">
-                <form class="form-row " method="get" action="">
+                <form class="form-row " method="post" th:action="@{/creareditorial}" >
                     <div class="col-3">
                         <label for="">Nombres Editorial</label>
                     </div>
                     <div class="col-9 mb-3">
-                        <input class="form-control w-100" type="text">
+                        <input class="form-control w-100" type="text" name="nombre" required placeholder="ingrese el nombre de la editorial">
                     </div>
                     
                     <div class="col-12 mt-3 mb-3">
