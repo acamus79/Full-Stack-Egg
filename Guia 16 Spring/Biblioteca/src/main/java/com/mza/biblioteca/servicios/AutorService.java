@@ -6,12 +6,10 @@
 package com.mza.biblioteca.servicios;
 
 import com.mza.biblioteca.entidades.Autor;
-import com.mza.biblioteca.entidades.Libro;
 import com.mza.biblioteca.excepciones.MiExcepcion;
 import com.mza.biblioteca.repositorios.RepoAutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.transaction.annotation.Transactional;

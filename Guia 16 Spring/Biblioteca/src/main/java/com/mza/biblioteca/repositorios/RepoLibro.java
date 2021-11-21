@@ -20,10 +20,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepoLibro extends JpaRepository<Libro, String>{
 // con esta query se obtiene contenido parecido a, LIKE %?1% remplaza a LIKE :variable
+    @Query("SELECT p from Libro p WHERE p.titulo LIKE %?1% or p.autor.nombre LIKE %?1% or p.editorial.nombre LIKE %?1% AND p.alta = true")
+    List<Libro> buscaActivos(@Param("buscar") String buscar);
+    
     @Query("SELECT p from Libro p WHERE p.titulo LIKE %?1% or p.autor.nombre LIKE %?1% or p.editorial.nombre LIKE %?1%")
-    List<Libro> buscar(@Param("buscar") String buscar);
+    List<Libro> buscaTodo(@Param("buscar") String buscar);
 
-//    @Query("SELECT a from Libro a WHERE a.alta LIKE :1")
+//    @Query("SELECT a from Libro a WHERE a.alta =true")
 //    public List<Libro> activos();
     
 //de esta manera al buscar para encontrar resultado se debe usar contenido exacto    

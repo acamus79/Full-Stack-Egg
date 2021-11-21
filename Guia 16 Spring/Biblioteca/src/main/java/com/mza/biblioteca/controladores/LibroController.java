@@ -34,8 +34,10 @@ public class LibroController {
 
     @Autowired
     LibroService libroServicio;
+    
     @Autowired
     EditorialService editorialServicio;
+    
     @Autowired
     AutorService autorServicio;
 

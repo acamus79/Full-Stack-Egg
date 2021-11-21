@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -55,17 +55,20 @@ public class LibroService {
         libro.setAlta(Boolean.TRUE);
         return rLibro.save(libro);
     }
-
+    
+    @Transactional(readOnly=true)
     public Optional<Libro> buscarPorId(String id) {
         return rLibro.findById(id);
     }
-
+    
+    @Transactional(readOnly=true)
     public List<Libro> listaLibro() {
         return rLibro.findAll();
     }
-
+    
+    @Transactional(readOnly=true)
     public List<Libro> listaBuscada(String buscar) {
-        return rLibro.buscar(buscar);
+        return rLibro.buscaActivos(buscar);
     }
 
     public void validar(String titulo, String isbn,

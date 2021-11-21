@@ -209,7 +209,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     }
 
- @Transactional(readOnly=true)
+    @Transactional(readOnly=true)
     public Usuario buscarPorId(String id) throws ErrorServicio {
 
         Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
@@ -224,7 +224,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     }
     
-   @Transactional(readOnly=true)
+    @Transactional(readOnly=true)
     public List<Usuario> todosLosUsuarios(){
  
         return usuarioRepositorio.findAll();

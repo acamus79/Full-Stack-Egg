@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author Adrian E. Camus
  */
 @Entity
-public class Foto {
+public class Portada {
 
     @Id
     @GeneratedValue(generator = "uuid")

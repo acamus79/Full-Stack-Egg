@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        
+
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-3 gx-lg-4 justify-content-center">
+                <div class="col-lg-5">
+                    <h2 class="mx-auto my-0 text-white-50">Registro de Nuevo Usuario</h2>
+                    <form th:action="@{/registro}" method="post">
+                        <label class="text-white mb-1">Nombre</label>
+                        <input type="text" class="form-control" name="nombre"/>
+                        <br>
+                        <label class="text-white mb-1">Apellido</label>
+                        <input type="text" class="form-control" name="apellido"/>
+                        <br>
+                        <label class="text-white mb-1">E-Mail</label>
+                        <input type="email" class="form-control" name="email"/>
+                        <br>
+                        <label class="text-white mb-1">Contraseña</label>
+                        <input type="password" class="form-control" name="clave1"/>
+                        <br>
+                        <label class="text-white mb-1">Repetir Contraseña</label>
+                        <input type="password" class="form-control" name="clave2"/>
+                        <br> 
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-book"></i> REGISTRARSE</button>
+                        <br>
+                        <br>
+                    </form>    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
