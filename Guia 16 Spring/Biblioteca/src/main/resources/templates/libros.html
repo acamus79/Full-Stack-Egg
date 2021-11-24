@@ -1,14 +1,11 @@
-<!--
-Sin licencia.
-Uso para capacitación
-2021 Año de la Prevención y Lucha contra el COVID-19.
--->
 <!DOCTYPE html>
 <html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
-  <head th:replace="/fragments/head :: head"></head>
+<head th:replace="/fragments/head :: head"></head>
     <body>
-      <div class="container-fluid">
-        <div class="container m-auto">
+    <!-- Header -->
+    <header class="masthead2">
+      <nav th:replace="/fragments/navbar :: nav"></nav>
+      <div class="container m-auto">
           <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
             <div class="card-body">
               <h5 class="card-title">Exito</h5>
@@ -22,60 +19,58 @@ Uso para capacitación
             </div>
           </div>
         </div>
-        <div class="card mt-3">
-            <div class="card-header d-flex">
-                <h1> Lista de Libros</h1>
-                <a th:href="@{/libros/registroLibro}" class="btn btn-dark my-2 ms-auto">NUEVO LIBRO</a>
-            </div>
+      </header>
+        <!-- Lista -->
+        <div class="container-fluid">
+        <div class="card mt-2">
+          <div class="card-header d-flex">
+            <h1>Lista de Libros Registrados</h1>
+          </div>
             <div class="card-body">
                 <form class="row g-3" th:action="@{/libros/lista}" method="GET">
                     <div class="col">
                         <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
                     </div>
-                    <div class="col-2">
-                      <button type="submit" class="btn btn-dark mb-3">Buscar</button>
+                    <div class="col-3">
+                      <!-- se pueden ocultar botones según el rol con sec:authorize="hasRole('ADMIN')" -->
+                      <button type="submit" class="btn btn-dark mb-3 p-2">Buscar</button>
+                      <a th:href="@{/libros/registroLibro}" class="btn btn-primary mb-3 p-2">NUEVO LIBRO</a>
                     </div>
                 </form>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>N°</th>
-                            <th>Titulo</th>
-                            <th>Autor</th>
-                            <th>Editorial</th>
-                            <th>Ejemplares</th>
-                            <th>Administracion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <!-- En esta linea declaro un Iterator que recorre la lista libros pero solo si el atributo alta es TRUE -->
-                        <tr th:each="p,iterator : ${libros}" th:if="${p.alta} == TRUE">
-                            <td th:text="${iterator.index+1}"></td>
-                            <td th:text="${p.titulo}"></td>
-                            <td th:text="${p.autor} == null ? 'sin registro' : ${p.autor.nombre} "></td>
-                            <td th:text="${p.editorial} == null ? 'sin registro' : ${p.editorial.nombre} "></td>
-                            <td th:text="${p.ejemplares}"></td>
-                            <td>
-                              <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-edit"></i></a>
-                              <a class="mx-2" th:href="@{/libros/borrar}+'?id='+${p.id}"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <p th:if="${libros.isEmpty}">No hay libros para mostrar</p>
+
+                <table>
+                  <tbody>
+                  <tr th:each="p,iterator : ${libros}">
+                    <td ><div th:replace="fragments/librocard :: div"></div></td>
+                    <td ><div th:replace="fragments/librocard :: div"></div></td>
+                  </tr>
+                </tbody>
                 </table>
+
+
+                <div class="row">
+                  <div class="col-4 bg-dark m-1" style="height: 160px;"></div>
+                  <div class="col-4 bg-dark m-1" style="height: 160px;"></div>
+                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
+                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
+                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
+                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
+                  <!-- <div>
+                   <div th:replace="fragments/librocard :: div"></div>
+
+                  </div> -->
+                    
+
+
+
+                </div>
+              
+
+
             </div>
         </div>
     </div>
-    <section class="py-2 text-center container">
-      <div class="row py-lg-2">
-        <div class="col-lg-10 col-md-8 mx-auto">
-          <a th:href="@{/}" class="btn btn-primary my-2"><i class="fas fa-home"></i> INICIO</a>
-          <a th:href="@{/}" class="btn btn-primary my-2"><i class="fas fa-user-edit"></i> AUTORES</a>
-          <a th:href="@{/}" class="btn btn-primary my-2"><i class="far fa-newspaper"></i> EDITORIALES</a>
-        </div>
-      </div>
-    </section>
-
+    <section th:replace="/fragments/btnFooters :: section"></section>
     <!-- Footer-->
     <footer th:replace="/fragments/footer :: footer"></footer>
     <!-- Bootstrap core JS-->

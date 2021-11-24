@@ -14,7 +14,9 @@ import com.mza.biblioteca.servicios.EditorialService;
 import com.mza.biblioteca.servicios.LibroService;
 import java.util.List;
 import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,18 +31,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Adrian E. Camus
  */
 @Controller
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("/libros")
 public class LibroController {
 
     @Autowired
     LibroService libroServicio;
-    
+
     @Autowired
     EditorialService editorialServicio;
-    
+
     @Autowired
     AutorService autorServicio;
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/registroLibro")
     public String registro(ModelMap modelo, @RequestParam(required = false) String id) {
 
@@ -50,7 +54,7 @@ public class LibroController {
             if (optional.isPresent())
             {
                 modelo.addAttribute("libro", optional.get());
-                
+
             } else
             {
                 return "redirect:/libros/lista";
@@ -60,25 +64,26 @@ public class LibroController {
             Libro aux = new Libro();
             aux.setAlta(Boolean.TRUE);
             aux.setTitulo("Título del Libro");
-            aux.setAnio(0000);
+            aux.setAnio(0);
             aux.setEjemplares(0);
             aux.setIsbn("Ingrese código");
             modelo.addAttribute("libro", aux);
         }
 
         //hermosamente uso los servicios para trerme una lista de autores y editoriales
-        List<Autor> autores = autorServicio.buscaAutores();
+        List<Autor> autores = autorServicio.buscaActivos();
         modelo.addAttribute("autores", autores);
 
-        List<Editorial> editoriales = editorialServicio.buscaEditoriales();
+        List<Editorial> editoriales = editorialServicio.buscaActivos();
         modelo.addAttribute("editoriales", editoriales);
 
         return "nLibro";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/registroLibro")
     public String registro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
-        System.out.println("ACA ESTOY INGRESANDO AL REGISTRO LIBRO");
+
         try
         {
             libroServicio.creaLibro(libro);
@@ -92,13 +97,30 @@ public class LibroController {
         }
 
     }
-    
+
     @GetMapping("/lista")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USUARIO')")
     public String listaLibros(ModelMap modelo, @RequestParam(required = false) String buscar) {
         //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
         if (buscar != null)
         {
             modelo.addAttribute("libros", libroServicio.listaBuscada(buscar));
+
+        } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
+        {
+            modelo.addAttribute("libros", libroServicio.listaLibro());
+        }
+        return "listalibros";
+    }
+
+    @GetMapping("/cardboard")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USUARIO')")
+    public String libro (ModelMap modelo, @RequestParam(required = false) String buscar) {
+        //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
+        if (buscar != null)
+        {
+            modelo.addAttribute("libros", libroServicio.listaBuscada(buscar));
+
         } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
         {
             modelo.addAttribute("libros", libroServicio.listaLibro());
@@ -106,9 +128,11 @@ public class LibroController {
         return "libros";
     }
 
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/borrar")
-    public String borrarLibro(ModelMap modelo, @RequestParam(required = false) String id){
-    System.out.println("ACA ESTOY INGRESANDO AL GET");
+    public String borrarLibro(ModelMap modelo, @RequestParam(required = false) String id) {
+        
         if (id != null)
         {
             Optional<Libro> optional = libroServicio.buscarPorId(id);
@@ -117,30 +141,70 @@ public class LibroController {
                 modelo.addAttribute("libro", optional.get());
             } else
             {
-                return "redirect:/libros/lista";
+                return "bLibro";
             }
         } else
         {
-            return "borrar";
+            return "bLibro";
         }
-        return "borrar";
+        return "bLibro";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/borrar")
-    public String borrarLibro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro){
-                        
+    public String borrarLibro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
+
         try
         {
             libroServicio.bajaLibro(libro);
             modelo.put("exito", "El libro se dio de baja");
-            return "redirect:/libros/lista";
-
+            //return "redirect:/libros/lista";
+            return "bLibro";
         } catch (MiExcepcion e)
         {
             modelo.put("error", "NO SE BORRO EL LIBRO");
-            return "borrar";
+            return "bLibro";
         }
 
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @GetMapping("/activar")
+    public String activarLibro(ModelMap modelo, @RequestParam(required = false) String id) {
+        
+        if (id != null)
+        {
+            Optional<Libro> optional = libroServicio.buscarPorId(id);
+            if (optional.isPresent())
+            {
+                modelo.addAttribute("libro", optional.get());
+            } else
+            {
+                return "aLibro";
+            }
+        } else
+        {
+            return "aLibro";
+        }
+        return "aLibro";
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PostMapping("/activar")
+    public String activarLibro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
+
+        try
+        {
+            libroServicio.altaLibro(libro);
+            modelo.put("exito", "El libro activo correctamente");
+            //return "redirect:/libros/lista";
+            return "aLibro";
+        } catch (MiExcepcion e)
+        {
+            modelo.put("error", "NO SE BORRO EL LIBRO");
+            return "aLibro";
+        }
+
+    }
+    
 }

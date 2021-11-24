@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light relative-top" id="mainNav">
+    <div class="container px-1 px-lg-1">
+        <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/#proyecto}">Proyecto</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/#contacto}">Contacto</a></li>
+                <!-- Si el usuario de sesion es NULO crea un link llamado "Ingresar" a la pagina de login -->
+                <li class="nav-item" th:if="${session.usuariosession == null}"><a class="nav-link" th:href="@{/login}">Ingresar</a></li>
+                <!-- Si el usuario de sesion es NULO crea un link al index en su seccion registro -->
+                <li class="nav-item" th:if="${session.usuariosession == null}"><a class="nav-link" th:href="@{/#registro}">Registrarse</a></li>               
+                <!-- Si el usuario de sesion es DISTINTO DE NULO mostrar nombre y apellido y
+                crear vinculo que redirija a /usuario/editar-perfil llevando el id del usuario de sesion --> 
+                <li class="nav-item" th:if="${session.usuariosession != null}">
+                    <a class="nav-link" 
+                    th:href="@{/usuario/editar-perfil(id=__${session.usuariosession.id}__)}"
+                    th:text="${session.usuariosession.nombre + ' ' +session.usuariosession.apellido}">
+                    </a>
+                </li>
+                <!-- Si el usuario de sesion es DISTINTO de NULO muestra imagen user2.png a un 25% de tamaño -->
+                <!-- <li class="nav-item" th:if="${session.usuariosession != null}"><br><img src="img/user2.png" width="25"></li> -->
+                <!-- Si el usuario de sesion es DISTINTO de NULO muestra el logout "Salir" -->
+                <li class="nav-item" th:if="${session.usuariosession != null}"><a class="nav-link" href="/logout">Salir</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- 
+<li class="nav-item "><p class="nav-link" tex="Usuario: " th:text="${#authentication.getPrincipal().getUsername()}"><br><img src="img/user2.png" width="25"></li>
+<h2 th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre + ' ' +session.usuariosession.apellido}"></h2>
+<a th:href="@{/usuario/editar-perfil(id=__${session.usuariosession.id}__)}" th:if="${session.usuariosession != null}" class="btn btn-primary btn-xl rounded-pill mt-5"> Configura tu perfil</a> -->

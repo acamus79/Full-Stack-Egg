@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="Página de ejemplo de Spring Boot + Thymeleaf para el curso de Egg" name="description"/>
+    <meta content="Cristian Solís" name="author"/>
+    <title>Libros - Egg</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="container mt-5 main">
+    <div class="alert alert-success" th:if="${exito}" th:text="${exito}"></div>
+    <div class="alert alert-danger" th:if="${error}" th:text="${error}"></div>
+    <h1>Listado de libros</h1>
+    <hr class="mb-4"/>
+    <div th:if="${libros.isEmpty()}">
+        <h5>Todavía no hay libros cargados. <a th:href="@{/libro/crear}">Cargar libro.</a></h5>
+    </div>
+    <div class="table-responsive" th:unless="${libros.isEmpty()}">
+        <a th:href="@{/libro/crear}" class="btn btn-success mb-4">Ingresar libro</a>
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
+            <tr>
+                <th class="col-2">ISBN</th>
+                <th class="col-4">Título</th>
+                <th class="col-1">Año</th>
+                <th class="col-1">E</th>
+                <th class="col-1">P</th>
+                <th class="col-1">R</th>
+                <th class="col-2">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="libro : ${libros}">
+                <td class="col-2" th:text="${libro.isbn}"></td>
+                <td class="col-4"
+                    th:text="|${libro.titulo} (${libro.autor.nombre} ${libro.autor.apellido}, ${libro.editorial.nombre})|"></td>
+                <td class="col-1" th:text="${libro.anio}"></td>
+                <td class="col-1" th:text="${libro.ejemplares}"></td>
+                <td class="col-1" th:text="${libro.prestados}"></td>
+                <td class="col-1" th:text="${libro.restantes}"></td>
+                <td class="col-2">
+                    <div class="d-flex justify-content-around">
+                        <a class="btn btn-warning btn-sm" th:href="@{/libro/editar/__${libro.id}__}">Editar</a>
+                        <form method="post"
+                              th:action="${libro.alta} ? @{/libro/eliminar/__${libro.id}__} : @{/libro/habilitar/__${libro.id}__}">
+                            <button th:class="${libro.alta} ? 'btn btn-danger btn-sm' : 'btn btn-primary btn-sm'"
+                                    type="submit" th:text="${libro.alta} ? 'Eliminar' : 'Habilitar'">
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- JS -->
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

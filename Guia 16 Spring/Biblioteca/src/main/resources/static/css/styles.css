@@ -4147,6 +4147,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  position: static;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -6697,6 +6698,14 @@ textarea.form-control-lg {
 
 .fixed-top {
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.relative-top {
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
@@ -11562,12 +11571,38 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../img/d1fc373bw.jpg");
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 80%, #000 100%), url("../img/masthead_large.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
 }
+
+.masthead2 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 10rem;
+  padding: 5px 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 80%, #000 100%), url("../img/small.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.masthead2 h1, .masthead2 .h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
+
 .masthead h1, .masthead .h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
@@ -11605,7 +11640,8 @@ body {
 }
 
 .about-section {
-  padding-top: 10rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
 }
 .about-section p {
@@ -11615,6 +11651,7 @@ body {
 .projects-section {
   padding: 10rem 0;
 }
+
 .projects-section .featured-text {
   padding: 2rem;
 }
@@ -11639,13 +11676,18 @@ body {
   }
 }
 
+.registro-section {
+  padding: 4rem 0;
+}
+
 .signup-section {
-  padding: 10rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("../assets/img/6124215.jpg");
+  padding: 8em 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("../img/masthead_large.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  height: 100vh;
 }
 
 .signup-section .social{
@@ -11720,4 +11762,5 @@ body {
 
 .footer {
   padding: 3rem 0;
+
 }

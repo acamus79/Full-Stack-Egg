@@ -6,6 +6,7 @@
 package com.mza.biblioteca.repositorios;
 
 import com.mza.biblioteca.entidades.Autor;
+import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 import org.springframework.data.repository.query.Param;
@@ -19,8 +20,11 @@ import org.springframework.stereotype.Repository;
 public interface RepoAutor extends JpaRepositoryImplementation<Autor, String> {
 
     @Query("SELECT a FROM Autor a WHERE a.nombre = :nombre")
-    public Autor buscaPorNombre(@Param("nombre") String nombre);
-    
+    public List<Autor> buscaPorNombre(@Param("nombre") String nombre);
+
+    @Query("SELECT a FROM Autor a Where a.alta = true")
+    public List<Autor> buscaActivos();
+
 }
 
 /*

@@ -24,10 +24,10 @@ public class LibroService {
 
     @Autowired
     private RepoLibro rLibro;
-    
+
     @Autowired
     private AutorService sAutor;
-    
+
     @Autowired
     private EditorialService sEditorial;
 
@@ -36,7 +36,8 @@ public class LibroService {
         //valido todos los datos que no son objetos
         validar(libro.getTitulo(), libro.getIsbn(), libro.getAnio(), libro.getEjemplares());
 
-        //valido los atributos que son objetos de otra clase
+        //valido los atributos que son objetos de otra clase en este metodo
+        //para en caso de ser necesario usar tambien la busqueda por ID y asignar el objeto
         if (libro.getAutor().toString().isEmpty() || libro.getAutor() == null)
         {
             throw new MiExcepcion("Autor no puede ser nulo");
@@ -55,25 +56,57 @@ public class LibroService {
         libro.setAlta(Boolean.TRUE);
         return rLibro.save(libro);
     }
-    
-    @Transactional(readOnly=true)
+
+    @Transactional(readOnly = true)
     public Optional<Libro> buscarPorId(String id) {
         return rLibro.findById(id);
     }
-    
-    @Transactional(readOnly=true)
+
+    @Transactional(readOnly = true)
     public List<Libro> listaLibro() {
         return rLibro.findAll();
     }
-    
-    @Transactional(readOnly=true)
+
+    @Transactional(readOnly = true)
     public List<Libro> listaBuscada(String buscar) {
-        return rLibro.buscaActivos(buscar);
+        return rLibro.buscaTodo(buscar);
     }
 
+    @Transactional
+    public void bajaLibro(Libro libro) throws MiExcepcion {
+
+        Optional<Libro> op = rLibro.findById(libro.getId());
+        if (op.isPresent())
+        {
+            Libro aux = op.get();
+            aux.setAlta(Boolean.FALSE);
+            rLibro.save(aux);
+        }
+
+    }
+    
+    @Transactional
+    public void altaLibro(Libro libro) throws MiExcepcion {
+
+        Optional<Libro> op = rLibro.findById(libro.getId());
+        if (op.isPresent())
+        {
+            Libro aux = op.get();
+            aux.setAlta(Boolean.TRUE);
+            rLibro.save(aux);
+        }
+
+    }
+    
     public void validar(String titulo, String isbn,
             Integer anio, Integer ejemplares) throws MiExcepcion {
 
+        //uso Optional para validar que no exista repetido un ISBN
+        Optional<Libro> op = rLibro.validaISBN(isbn);
+        if (op.isPresent())
+        {
+            throw new MiExcepcion("El ISBN indicado, ya se encuentra registrado");
+        }
         if (titulo.isEmpty() || titulo == null)
         {
             throw new MiExcepcion("Titulo no valido");
@@ -90,24 +123,5 @@ public class LibroService {
         {
             throw new MiExcepcion("Error en los Ejemplares");
         }
-
-    }
-    
-    @Transactional
-    public void bajaLibro(Libro libro) throws MiExcepcion {
-        
-        Optional<Libro> op = rLibro.findById(libro.getId());
-        if(op.isPresent()){
-            Libro aux = op.get();
-            aux.setAlta(Boolean.FALSE);
-            rLibro.save(aux);
-        }
-        
-//        if (libro != null){
-//            libro.setAlta(Boolean.FALSE);
-//            rLibro.save(libro);
-//        }else{
-//            throw new MiExcepcion("El libro no puede ser nulo");
-//        }
     }
 }

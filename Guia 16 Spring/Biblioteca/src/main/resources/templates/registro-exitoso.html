@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<!--
-Sin licencia.
-Uso para capacitación
-2021 Año de la Prevención y Lucha contra el COVID-19.
--->
-<html>
-
-<head th:replace="/fragments/head :: head"></head>
-
-<body>
-
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org"></html>
+  <head th:replace="/fragments/head :: head"></head>
+  <body>
+    <!-- NavBar -->
+    <nav th:replace="/fragments/navbar :: nav"></nav>
     <!-- Header -->
-    <header class="masthead text-center text-white">
-        <div class="masthead-content">
-            <div class="container">
-                <h3 class="masthead-subheading mb-2">Biblioteca OnLine</h1>
-                    <br>
-                    <h2 th:text="${titulo}"></h2>
-                    <p th:text="${descripcion}"></p>
-                    <h2 class="masthead-subheading mb-0" th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre + ' ' +session.usuariosession.apellido}"></h2>
-                    <a th:href="@{/usuario/editar-perfil(id=__${session.usuariosession.id}__)}" th:if="${session.usuariosession != null}" class="btn btn-primary btn-xl rounded-pill mt-5">Configura tu perfil</a>
-                    <a th:href="@{/login}" class="btn btn-primary btn-xl rounded-pill mt-5">Login</a>
-            </div>
+    <header class="masthead2">
+      <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="masthead-content container text-center">
+            <br><h1>Biblioteca OnLine</h1>
         </div>
+      </div>               
     </header>
+    <div class="d-flex justify-content-center">
+        <div class="container text-center">
+            <br>
+            <h2 class="text-white-70 mx-auto mt-2 mb-5" th:text="${titulo}"></h2>
+            <p class="text-white-70 mx-auto mt-2 mb-5" th:text="${descripcion}"></p>
+            <a th:href="@{/login}" class="btn btn-primary btn-xl mt-3 mb-3">Ingresar</a>
+            <br>
+        </div>
+    </div>
     <!-- Pie de Página -->
     <footer th:replace="/fragments/footer :: footer"></footer>
-</body>
-
+  </body>
 </html>

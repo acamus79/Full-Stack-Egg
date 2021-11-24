@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head"></head>
+    <body>
+    <!-- Header -->
+    <header class="masthead2">
+      <nav th:replace="/fragments/navbar :: nav"></nav>
+      <div class="container m-auto">
+          <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Exito</h5>
+              <p class="card-text" th:text="${exito}"></p>
+            </div>
+          </div>
+          <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Error</h5>
+              <p class="card-text" th:text="${error}"></p>
+            </div>
+          </div>
+        </div>
+      </header>
+        <!-- Lista -->
+        <div class="container-fluid">
+        <div class="card mt-2">
+          <div class="card-header d-flex">
+            <h1>Lista de Libros Registrados</h1>
+          </div>
+            <div class="card-body">
+                <form class="row g-3" th:action="@{/libros/lista}" method="GET">
+                    <div class="col">
+                        <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
+                    </div>
+                    <div class="col-3">
+                      <!-- se pueden ocultar botones segun el rol con sec:authorize="hasRole('ADMIN')" -->
+                      <button type="submit" class="btn btn-dark mb-3 p-2">Buscar</button>
+                      <a th:href="@{/libros/registroLibro}" class="btn btn-primary mb-3 p-2">NUEVO LIBRO</a>
+                    </div>
+                </form>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Editorial</th>
+                            <th>Ejemplares</th>
+                            <!-- con sec:authorize="hasRole('ADMIN')" podria ocultar columnas segun el rol -->
+                            <th>Estado</th>
+                            <th>Administracion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <!-- En esta linea declaro un Iterator que recorre la lista libros. 
+                        Si quiero que solo se muestren segun el tributo alta debo agregar la linea  th:if="${p.alta} == TRUE" -->
+                        <tr th:each="p,iterator : ${libros}">
+                            <td th:text="${iterator.index+1}"></td>
+                            <td th:text="${p.titulo}"></td>
+                            <td th:text="${p.autor} == null ? 'sin registro' : ${p.autor.nombre}"></td>
+                            <td th:text="${p.editorial} == null ? 'sin registro' : ${p.editorial.nombre} "></td>
+                            <td th:text="${p.ejemplares}"></td>
+                            <!--  == true ? 'Activo' : 'Baja'   Con esa instruccion consulto si el campo alta es true cambia 
+                              por Activo sino cambia por Baja -->
+                            <td sec:authorize="hasRole('ADMIN')" th:text="${p.alta} == true ? 'Activo' : 'Baja'"></td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                              <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-edit"></i></a>
+                              <a th:if="${p.alta} == true" class="mx-2" th:href="@{/libros/borrar}+'?id='+${p.id}"><i class="fas fa-trash-alt"></i></a>
+                              <a th:if="${p.alta} == false" class="mx-2" th:href="@{/libros/activar}+'?id='+${p.id}"><i class="fas fa-check"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <p th:if="${libros.isEmpty}">No hay libros para mostrar</p>
+                </table>
+            </div>
+        </div>
+    </div>
+    <section th:replace="/fragments/btnFooters :: section"></section>
+    <!-- Footer-->
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

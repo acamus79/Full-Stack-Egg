@@ -35,35 +35,20 @@ public class EditorialService {
         validar(nombre);
 
         Editorial edito = new Editorial();
-//        List<Libro> listaLibros = new ArrayList<>();
-//        
-//        edito.setLibros(listaLibros);
-
-//        if(libros.isEmpty()){
-//            List<Libro> listLibros = new ArrayList<Libro>();
-//            edito.setLibros(listLibros);
-//        }else{
-//            edito.setLibros(libros);}
-
         edito.setAlta(Boolean.TRUE);
         edito.setNombre(nombre);
 
         eRepo.save(edito);
     }
 
-//    @Transactional
-//    public void agregaLibro(Libro libro, Editorial editorial)throws MiExcepcion {
-//        if(libro!=null && libro.getEditorial().equals(editorial)){
-//            editorial.getLibros().add(libro);
-//            eRepo.save(editorial);
-//        }else{
-//            throw new MiExcepcion("No se pudo agregar la editorial al Libro");
-//        }
-//    }
-    
     @Transactional(readOnly = true)
     public List<Editorial> buscaEditoriales(){
         return eRepo.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Editorial> buscaActivos(){
+        return eRepo.buscaActivos();
     }
     
     @Transactional(readOnly = true)

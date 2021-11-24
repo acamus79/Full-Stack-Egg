@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${codigo}"></title>
+    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<div class="text-center mt-5">
+    <img th:src="@{/img/error.png}" width="175">
+    <h2 th:text="${codigo}" class="mt-3"></h2>
+    <p th:text="${mensaje}"></p>
+    <a th:href="@{/home}" class="btn btn-primary">Home</a>
+</div>
+
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

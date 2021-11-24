@@ -28,7 +28,7 @@ public class EditorialController {
     @Autowired
     EditorialService editorialServicio;
 
-    @GetMapping("/editoriales")
+    @GetMapping("/lista")
     public String editoriales(ModelMap modelo) {
         List<Editorial> editoriales = editorialServicio.buscaEditoriales();
         modelo.addAttribute("editoriales", editoriales);

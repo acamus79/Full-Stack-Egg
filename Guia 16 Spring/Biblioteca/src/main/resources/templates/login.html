@@ -2,30 +2,30 @@
 <html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="/fragments/head :: head"></head>
     <body>
-        <br>
-        <section class="about-section text-center" id="registro">
-            <div class="container px-5 px-lg-6">
-              <div class="row gx-5 gx-lg-6 justify-content-center">
-                <div class="col-lg-13">
-                  <h2 class="mx-auto my-0 text-white-50">
-                    INGRESO
-                  </h2>
-            <form th:action="@{/login}" method="post">
-                <section class="py-2 text-center container">
-                    <div class="row gx-5 gx-lg-6 justify-content-center">
-                        <div class="col-lg-8">
-                            <label for="" class="text-white mb-1">USUARIO</label>
-                            <input type="text" name="usuario">
-
-                        </div>
-                        <div class="col-lg-8">
-                            <label for="" class="text-white mb-1">CONTRASEÑA</label>
-                            <input type="text" name="clave">
-                        </div>
-                        
+        <section class="signup-section text-center">
+            <nav th:replace="/fragments/navbar :: nav"></nav>
+            <div class="container px-5 px-lg-8">
+              <div class="row gx-5 gx-lg-8 justify-content-center">
+                <div class="col-lg-6">
+                  <h2 class="text-white-50">INGRESO</h2>
+<!-- en el formulario de logeo utilizo la accion logincheck los nombres de los input deben ser username y password -->
+                    <form action="/logincheck" method="POST">
+                    <p th:if="${error != null}" th:text="${error}" style="color:red"></p>
+                    <p th:if="${logout != null}" th:text="${logout}" style="color:greenyellow"></p>
+                        <section class="py-2 text-center container">
+                        <div class="form-group">
+                        <label class="text-white mb-1">USUARIO</label>
+                        <input type="email" class="form-control" name="username" placeholder="Ingrese email" required/>
                     </div>
-                </section>    
-                <button type="submit" class="btn btn-primary"><i class="fas fa-book"></i> INGRESAR</button>
+                </section>
+                <section class="py-2 text-center container">
+                    <div class="form-group">
+                        <label class="text-white mb-1">CONTRASEÑA</label>
+                        <input type="password" class="form-control" name="password" required/>
+                    </div>
+                </section>
+                <br>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-user-check"></i> INGRESAR</button>
         </form>
             <br>
             <br>

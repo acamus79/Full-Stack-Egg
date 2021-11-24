@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="Página de ejemplo de Spring Boot + Thymeleaf para el curso de Egg" name="description"/>
+    <meta content="Cristian Solís" name="author"/>
+    <title th:text="|${title} - Egg|"></title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="container mt-5 main">
+    <h1 th:text="${title}"></h1>
+    <hr class="mb-4 col-xl-12"/>
+    <div class="alert alert-danger col-xl-6" th:if="${error}" th:text="${error}"></div>
+
+    <form autocomplete="off" class="needs-validation" id="formulario" method="POST"
+          novalidate th:action="@{/editorial/__${action}__}" th:object="${editorial}">
+
+        <input th:field="*{id}" type="hidden"/>
+
+        <div class="form-floating mb-3 col-xl-6">
+            <input class="form-control" id="nombre" placeholder="Nombre" required th:field="*{nombre}" type="text"/>
+            <label for="nombre">Nombre</label>
+            <div class="invalid-feedback">El nombre es obligatorio</div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3">
+                <button class="btn btn-success" th:text="${action == 'guardar'} ? 'Crear editorial' : 'Guardar cambios'"
+                        type="submit"></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- JS -->
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+<script>
+    (() => {
+        "use strict";
+
+        const form = document.getElementById("formulario");
+        form.addEventListener("submit", (event) => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add("was-validated");
+        }, false);
+    })()
+</script>
+</body>
+</html>

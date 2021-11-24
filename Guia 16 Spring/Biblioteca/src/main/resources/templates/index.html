@@ -2,66 +2,15 @@
 <html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
   <head th:replace="/fragments/head :: head"></head>
   <body id="inicio">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#inicio">Inicio</a>
-        <button
-          class="navbar-toggler navbar-toggler-right"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#proyecto">Proyecto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contacto">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#registro">Registrarse</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/login}">Ingresar</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
     <header class="masthead">
-      <div
-        class="
-          container
-          px-4 px-lg-5
-          d-flex
-          h-100
-          align-items-center
-          justify-content-center
-        "
-      >
+      <nav th:replace="/fragments/navbar :: nav"></nav>
+      <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
           <div class="text-center">
             <h1 class="mx-auto my-0 text-uppercase">Biblioteca</h1>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">
               Gestión de Libros web
             </h2>
-            <a class="btn btn-primary" th:href="@{/libros/lista}"
-              ><i class="fas fa-book"></i> libros</a
-            >
-            <a class="btn btn-primary" th:href="@{/autores/lista}"
-              ><i class="fas fa-user-edit"></i> autores</a
-            >
-            <a class="btn btn-primary" th:href="@{/editoriales/lista}"
-              ><i class="far fa-newspaper"></i> editoriales</a
-            >
           </div>
         </div>
       </div>
@@ -84,7 +33,6 @@
               <br><b><u>Otros</b></u> GitHub Desktop v2.9.4 - Google Picasa v3.9.141 c259 - MySQL Workbench v8.0.26
               <br>
               <br><b><u>Autor:</b></u> Adrián E. Camus
-
             </p>
           </div>
         </div>
@@ -162,7 +110,7 @@
               </section>
               <br />
               <button type="submit" class="btn btn-primary">
-                <i class="fas fa-book"></i> REGISTRARSE
+                <i class="fas fa-user-check"></i> REGISTRARSE
               </button>
               <br />
               <br />

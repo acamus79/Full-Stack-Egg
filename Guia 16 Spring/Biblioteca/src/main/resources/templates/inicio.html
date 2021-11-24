@@ -2,25 +2,11 @@
 <html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
     <head th:replace="/fragments/head :: head"></head>
 <body id="inicio">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#inicio">Inicio</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#proyecto">Proyecto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#registro">Registrarse</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/login}">Ingresar</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Esta linea se usa para obtener la información de logeo solo si se tiene en las dependencias del POM  thymeleaf-extras-springsecurity5-->
+    <!-- <span th:text="${#authentication.getPrincipal().getUsername()}"></span> <span th:text="${#authentication.getPrincipal().authorities}"></span> -->
     <header class="masthead">
+        <!-- NavBar -->
+        <nav th:replace="/fragments/navbar :: nav"></nav>
         <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
             <div class="d-flex justify-content-center">
                 <div class="text-center">
@@ -29,6 +15,7 @@
                     <a class="btn btn-primary" th:href="@{/libros/lista}"><i class="fas fa-book"></i> libros</a>
                     <a class="btn btn-primary" th:href="@{/autores/lista}"><i class="fas fa-user-edit"></i> autores</a>
                     <a class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="far fa-newspaper"></i> editoriales</a>
+                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="fas fa-user-edit"></i> usuarios</a>
                 </div>
             </div>
         </div>
@@ -77,10 +64,7 @@
 </section>
 
 <!-- Footer-->
-<footer class="footer bg-black small text-center text-white-50">
-    <div class="container px-4 px-lg-5">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a>
-    </div>
-</footer>
+<footer th:replace="/fragments/footer :: footer"></footer>
 <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>

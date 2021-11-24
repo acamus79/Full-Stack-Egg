@@ -26,9 +26,6 @@ public class Autor {
 
     private Boolean alta;
 
-//    @OneToMany(mappedBy = "autor")
-//    private List<Libro> libros;
-
     //CONSTRUCTORES
    
     //GETTERS & SETTERS

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="Página de ejemplo de Spring Boot + Thymeleaf para el curso de Egg" name="description"/>
+    <meta content="Cristian Solís" name="author"/>
+    <title>Sign Up - Egg</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/login}"><img th:src="@{/img/open-book.png}" width="45"/></a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="text-end">
+            <a class="btn btn-light me-1" th:href="@{/login}">Ingresar</a>
+            <a class="btn btn-warning" th:href="@{/signup}">Registrarse</a>
+        </div>
+    </div>
+</nav>
+
+<div th:if="${error}" class="container mt-4 text-center">
+    <div class="row col-md-4 mx-auto">
+        <div th:text="${error}" class="alert alert-danger m-0 shadow"></div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto px-0">
+            <div class="card text-center shadow">
+                <div class="card-header">
+                    <h3>Registro</h3>
+                </div>
+                <div class="card-body">
+                    <form id="formulario" class="needs-validation mb-4" th:action="@{/registro}" th:object="${usuario}"
+                          method="POST" autocomplete="off" novalidate>
+
+                        <div class="form-group mb-3">
+                            <input id="nombre" type="text" th:field="*{nombre}" placeholder="Nombre"
+                                   class="form-control" required/>
+                            <div class="invalid-feedback text-start">El nombre es obligatorio</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input id="apellido" type="text" th:field="*{apellido}" placeholder="Apellido"
+                                   class="form-control" required/>
+                            <div class="invalid-feedback text-start">El apellido es obligatorio</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input id="correo" type="email" th:field="*{correo}" placeholder="Correo"
+                                   class="form-control" required/>
+                            <div class="invalid-feedback text-start">El correo es obligatorio</div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input id="clave" type="password" th:field="*{clave}" placeholder="Contraseña"
+                                   class="form-control" required/>
+                            <div class="invalid-feedback text-start">La contraseña es obligatoria</div>
+                        </div>
+
+                        <div class="form-group d-grid gap-2">
+                            <button class="btn btn-success" type="submit">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<!-- JS -->
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+<script>
+    (() => {
+        "use strict";
+
+        const form = document.getElementById("formulario");
+        form.addEventListener("submit", (event) => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add("was-validated");
+        }, false);
+    })()
+</script>
+</body>
+</html>

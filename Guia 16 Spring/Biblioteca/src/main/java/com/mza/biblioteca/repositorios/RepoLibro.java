@@ -8,6 +8,7 @@ package com.mza.biblioteca.repositorios;
 
 import com.mza.biblioteca.entidades.Libro;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -25,6 +26,9 @@ public interface RepoLibro extends JpaRepository<Libro, String>{
     
     @Query("SELECT p from Libro p WHERE p.titulo LIKE %?1% or p.autor.nombre LIKE %?1% or p.editorial.nombre LIKE %?1%")
     List<Libro> buscaTodo(@Param("buscar") String buscar);
+    
+    @Query("SELECT i FROM Libro i WHERE i.isbn = :isbn")
+    public Optional<Libro> validaISBN (@Param("isbn") String isbn);
 
 //    @Query("SELECT a from Libro a WHERE a.alta =true")
 //    public List<Libro> activos();

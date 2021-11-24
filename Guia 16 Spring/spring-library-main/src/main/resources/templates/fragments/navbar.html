@@ -1,0 +1,79 @@
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/open-book.png}" width="45"/></a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-md-0 w-100">
+                <!--DROPDOWN LIBRO -->
+                <li class="nav-item dropdown text-white">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown"
+                       href="#"
+                       id="dropdown-libros" role="button">
+                        Libros
+                    </a>
+                    <ul aria-labelledby="dropdown-libros" class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/libro}">Mostrar todos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/libro/crear}">Crear libro</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--DROPDOWN AUTOR -->
+                <li class="nav-item dropdown text-white">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown"
+                       href="#"
+                       id="dropdown-autores" role="button">
+                        Autores
+                    </a>
+                    <ul aria-labelledby="dropdown-autores" class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item text-white" th:href="@{/autor}">Mostrar todos</a></li>
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/autor/crear}">Crear autor</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--DROPDOWN EDITORIAL -->
+                <li class="nav-item dropdown text-white">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown"
+                       href="#"
+                       id="dropdown-editoriales" role="button">
+                        Editorial
+                    </a>
+                    <ul aria-labelledby="dropdown-editoriales" class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/editorial}">Mostrar todos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/editorial/crear}">Crear editorial</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--DROPDOWN USUARIO -->
+                <li sec:authorize="hasRole('ADMIN')" class="nav-item dropdown text-white">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle text-reset" data-bs-toggle="dropdown"
+                       href="#"
+                       id="dropdown-usuarios" role="button">
+                        Usuario
+                    </a>
+                    <ul aria-labelledby="dropdown-usuarios" class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/usuario}">Mostrar todos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-white" th:href="@{/usuario/crear}">Crear usuario</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="text-end">
+            <a class="btn btn-light" th:href="@{/logout}">Finalizar sesión</a>
+        </div>
+    </div>
+</nav>

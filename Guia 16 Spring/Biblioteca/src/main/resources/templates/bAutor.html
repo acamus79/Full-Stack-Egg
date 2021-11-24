@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="/fragments/head :: head"></head>
+<body>
+    <!-- Header -->
+    <header class="masthead2">
+      <nav th:replace="/fragments/navbar :: nav"></nav>
+    </header>
+         <!-- Mensajes de exito o error -->
+         <div class="container m-auto">
+            <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3">
+              <div class="card-body">
+                <h3 class="card-title text-center">Exito</h3>
+                <div class="col-lg-10 col-md-8 mx-auto my-auto text-center">
+                    <p class="card-text" th:text="${exito}"></p>
+                    <a th:href="@{/libros/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> Regresar</a>
+                </div>
+              </div>
+            </div>
+            <div th:if="${error}!=null" class="card text-white bg-danger mb-3 mt-3">
+              <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>
+              </div>
+            </div>
+          </div>
+    <div class="py-2 text-center container-fluid">
+        <div class="card-header d-flex"><h3>Borrar Autor:</h3></div>
+    </div>    
+        <table class="card-text" cellpadding="18">
+            <thead>
+                <tr>
+                    <th>Autor:</th>
+                    <td th:text="${autor.id} == null ? 'sin registro' : ${autor.nombre}" colspan="2"></td>
+                </tr>
+                 <tr>
+                    <th>ID:</th>
+                    <td th:text="${autor.id} == null ? 'sin registro' : ${autor.id} "></td>
+                </tr>
+                <tr>
+                    <th>Estado:</th>
+                    <td th:text="${autor.alta} == true ? 'Activo' : 'Baja' "></td>
+                </tr>
+
+            </thead>
+        </table>
+        <form th:action="@{/autores/borrar}" method="post" th:object="${autor}">
+            <input hidden th:field="*{id}">
+            <div class="col-lg-10 col-md-8 mx-auto my-auto">
+            <button type="submit" class="btn btn-danger align-items-center">DESACTIVAR AUTOR</button>
+            <a th:href="@{/autores/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> CANCELAR</a>
+            </div>
+        </form>
+    </div>
+    </div>
+    <section th:replace="/fragments/btnFooters :: section"></section>
+    <!-- Footer-->
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

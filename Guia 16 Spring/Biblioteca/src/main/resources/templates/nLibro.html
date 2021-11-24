@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="AeCamuS"/>
-        <title>Biblioteca</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <!-- CSS propio -->
-        <link href="/css/styles.css" rel="stylesheet"/>
-    </head>
+  <head th:replace="/fragments/head :: head"></head>
   <body>
-    <header>
+    <header class="masthead2">
+      <nav th:replace="/fragments/navbar :: nav"></nav>
       <br>
       <div class="container m-auto">
         <!-- si el modelo tiene una variable "error" distinta de null crear un card de texto blanco con fondo danger --> 
@@ -30,11 +14,12 @@
           </div>
         </div>
       </div>
+    </header>  
         <!-- Contenido -->
         <div class="container m-auto">
-          <div class="card text-white bg-dark mb-3">
+          <div class="card text-white bg-dark mb-3 mt-3">
             <div class="card-body" align="center">
-          <h5 class="card-title">Formulario Libros</h5>
+          <h4 class="card-title">Formulario Registro de Libros</h4>
           <br>
           <!-- En esta linea declaro que la accion se va a desallorar en el metodo post de /Libros/registroLibro 
           va a tener un objeto llamado libro, en la linea siguiente se declara un input oculto el campo id -->
@@ -114,12 +99,9 @@
               </section>
             </div>
         </div>
-      </header>
+      
       <!-- Footer-->
-      <footer class="footer bg-black small text-center text-white-50">
-        <div class="container px-4 px-lg-5">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a>
-        </div>
-      </footer>
+      <footer th:replace="/fragments/footer :: footer"></footer>
       <!-- Bootstrap core JS-->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

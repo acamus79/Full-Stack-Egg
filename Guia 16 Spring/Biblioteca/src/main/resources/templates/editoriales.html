@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+  <head th:replace="/fragments/head :: head"></head>
+    <body>
+      <header class="masthead2">
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+        <div class="container m-auto">
+          <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Exito</h5>
+              <p class="card-text" th:text="${exito}"></p>
+            </div>
+          </div>
+          <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Error</h5>
+              <p class="card-text" th:text="${error}"></p>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="card mt-3">
+            <div class="card-header d-flex">
+                <h1>Lista de Editoriales Registradas</h1>
+            </div>
+            <div class="card-body">
+                <form class="row g-3" th:action="@{/editoriales/lista}" method="post">
+                    <div class="col">
+                        <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-dark mb-3 p-2">Buscar</button>
+                        <a sec:authorize="hasRole('ADMIN')" th:href="@{/editoriales/registroEditorial}" class="btn btn-primary mb-3 p-2">NUEVA EDITORIAL</a>
+                    </div>
+                </form>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Administracion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each=" a,iterator : ${editoriales}">
+                            <td th:text="${iterator.index+1}"></td>
+                            <td th:text="${a.nombre}"></td>
+                            <td sec:authorize="hasRole('ADMIN')" th:text="${a.alta} == true ? 'Activo' : 'Baja'"></td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                              <a class="mx-2" th:href="@{/editoriales/borrar}+'?id='+${a.id}"><i class="fas fa-trash-alt"></i></a>
+                              
+                            </td>
+                        </tr>
+                    </tbody>
+                    <p th:if="${editoriales.isEmpty}">No hay Editoriales para mostrar</p>
+                </table>
+            </div>
+        </div>
+    </div>
+      <section th:replace="/fragments/btnFooters :: section"></section>
+    <!-- Footer-->
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
+

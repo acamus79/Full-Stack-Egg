@@ -10,12 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/")
 public class MainControlller {
     
     @Autowired
@@ -23,7 +20,7 @@ public class MainControlller {
 
     @GetMapping("/")
     public String index(ModelMap modelo) {
-        List<Usuario> usuariosActivos = sUsuario.todosLosUsuarios();
+        List<Usuario> usuariosActivos = sUsuario.usuariosActivos();
         //Recordar que utilizo el modelo,para viajar con la llave usuarios al HTML la lista usuariosactivos
         modelo.addAttribute("usuarios", usuariosActivos);
         return "index.html";

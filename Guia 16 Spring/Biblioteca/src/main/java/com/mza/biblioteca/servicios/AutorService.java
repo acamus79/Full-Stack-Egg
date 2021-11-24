@@ -30,30 +30,24 @@ public class AutorService {
         validar(nombre);
 
         Autor autor = new Autor();
-        //List<Libro> listaLibros = new ArrayList<>();
-        //autor.setLibros(listaLibros);
         autor.setAlta(Boolean.TRUE);
         autor.setNombre(nombre);
 
         aRepo.save(autor);
     }
 
-//    @Transactional
-//    public void agregaLibro(Libro libro, Autor autor)throws MiExcepcion {
-//        if(libro!=null && libro.getAutor().equals(autor)){
-//            autor.getLibros().add(libro);
-//            aRepo.save(autor);
-//        }else{
-//            throw new MiExcepcion("No se pudo agregar el autor al Libro");
-//        }
-//    }
     @Transactional(readOnly = true)
     public List<Autor> buscaAutores() {
         return aRepo.findAll();
     }
 
     @Transactional(readOnly = true)
-    public Autor buscaPorNombre(String nombre) {
+    public List<Autor> buscaActivos() {
+        return aRepo.buscaActivos();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Autor> buscaPorNombre(String nombre) {
         return aRepo.buscaPorNombre(nombre);
     }
 
@@ -69,6 +63,32 @@ public class AutorService {
         }            
         
     }
+    
+    @Transactional(readOnly = true)
+    public Optional<Autor> opcionalPorId(String id) {
+        return aRepo.findById(id);
+    }
+    
+    public void borraAutor (Autor autor) throws MiExcepcion {
+        Optional<Autor> op = aRepo.findById(autor.getId());
+        if (op.isPresent())
+        {
+            Autor aux = op.get();
+            aux.setAlta(Boolean.FALSE);
+            aRepo.save(aux);
+        }
+    }
+
+    public void activaAutor (Autor autor) throws MiExcepcion {
+        Optional<Autor> op = aRepo.findById(autor.getId());
+        if (op.isPresent())
+        {
+            Autor aux = op.get();
+            aux.setAlta(Boolean.TRUE);
+            aRepo.save(aux);
+        }
+    }
+
 
     private void validar(String nombre) throws MiExcepcion {
 

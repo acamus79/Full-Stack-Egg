@@ -47,7 +47,7 @@ public class Controlador {
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
         if (error != null) {
-            model.put("error", "Usuario o clave incorrectos");
+            model.put("error", "Contraseña y/o e-mail incorrectos");
         }
         if (logout != null) {
             model.put("logout", "Ha salido correctamente.");

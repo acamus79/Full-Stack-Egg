@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="Página de ejemplo de Spring Boot + Thymeleaf para el curso de Egg" name="description"/>
+    <meta content="Cristian Solís" name="author"/>
+    <title>Autores - Egg</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+
+<div class="container mt-5 main">
+    <div class="alert alert-success" th:if="${exito}" th:text="${exito}"></div>
+    <div class="alert alert-danger col-xl-6" th:if="${error}" th:text="${error}"></div>
+    <h1>Listado de autores</h1>
+    <hr class="mb-4"/>
+    <div th:if="${autores.isEmpty()}">
+        <h5>Todavía no hay autores cargados. <a th:href="@{/autor/crear}">Cargar autor.</a></h5>
+    </div>
+
+    <a th:href="@{/autor/crear}" th:unless="${autores.isEmpty()}" class="btn btn-success mb-4">Ingresar autor</a>
+    <div class="row" th:unless="${autores.isEmpty()}">
+        <div class="col-3" th:each="autor : ${autores}">
+            <div class="card mb-4 shadow">
+                <div class="card-body text-center my-2">
+                    <img class="rounded-circle"
+                         th:src="${autor.image != null} ? @{/uploads/__${autor.image}__} : @{/uploads/foto-no-disponible.png}"
+                         width="165">
+                </div>
+                <div class="card-footer">
+                    <div th:text="|Nombre: ${autor.nombre}|"></div>
+                    <div th:text="|Apellido: ${autor.apellido}|"></div>
+                    <div class="d-flex justify-content-start my-2">
+                        <a class="btn btn-warning btn-sm me-2" th:href="@{/autor/editar/__${autor.id}__}">Editar</a>
+                        <form th:action="${autor.alta} ? @{/autor/eliminar/__${autor.id}__} : @{/autor/habilitar/__${autor.id}__}"
+                              method="POST">
+                            <button th:class="${autor.alta} ? 'btn btn-danger btn-sm' : 'btn btn-primary btn-sm'"
+                                    type="submit" th:text="${autor.alta} ? 'Eliminar' : 'Habilitar'">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- JS -->
+<script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

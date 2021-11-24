@@ -1,0 +1,49 @@
+<div class="col-sm-6 col-md-4 mb-3" th:each="libro : ${libros}"><!--libro-->
+    <ul class="list-group ">
+        <li class="list-group-item bg-dark text-light">ISBN: </li>
+        <li class="list-group-item">
+            <h4>Libro: <span th:text="${libro.titulo}"></span></h4>
+        </li>
+        <li class="list-group-item font-weight-bold ">
+            <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Año:</h5>
+                <p class="mb-0 font-weight-normal" th:text="${libro.anio}"></p>
+            </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Ejemplares:</h5>
+                <p class="mb-0 font-weight-normal" th:text="${libro.ejemplares}"></p>
+            </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Ejemplares Prestados:</h5>
+                <p class="mb-0 font-weight-normal">null</p>
+            </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Ejemplares Restantes:</h5>
+                <p class="mb-0 font-weight-normal">null</p>
+            </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Autor</h5>
+                <p class="mb-0 font-weight-normal" th:text="${libro.autor.nombre}"></p>
+            </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Editorial</h5>
+                <p class="mb-0 font-weight-normal" th:text="${libro.editorial.nombre}"></p>
+            </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="d-flex w-100 justify-content-center">
+               <a class=" btn btn-danger btn-sm mr-2 " href="#"> Solicitar</a> 
+            </div>
+        </li>
+    </ul>
+</div><!--Fin libro-->

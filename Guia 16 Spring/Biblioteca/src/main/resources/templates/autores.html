@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="AeCamuS"/>
-        <title>Biblioteca</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <!-- CSS propio -->
-        <link href="/css/styles.css" rel="stylesheet"/>
-    </head>
+  <head th:replace="/fragments/head :: head"></head>
     <body>
-      <div class="container">
+      <header class="masthead2">
+        <nav th:replace="/fragments/navbar :: nav"></nav>
         <div class="container m-auto">
           <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
             <div class="card-body">
@@ -34,18 +18,20 @@
             </div>
           </div>
         </div>
+      </header>
+      <div class="container">
         <div class="card mt-3">
             <div class="card-header d-flex">
-                <h1>Lista de Autores</h1>
-                <button class="btn-dark px-5 py-2 ms-auto"><a th:href="@{/autores/registroAutor}">Registrar Autor</a></button>
+                <h1>Lista de Autores Registrados</h1>
             </div>
             <div class="card-body">
-                <form class="row g-3" th:action="@{/autores/lista}" method="GET">
+                <form class="row g-3" th:action="@{/autores/lista}" method="post">
                     <div class="col">
                         <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
                     </div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-dark mb-3">Buscar</button>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-dark mb-3 p-2">Buscar</button>
+                        <a sec:authorize="hasRole('ADMIN')" th:href="@{/autores/registroAutor}" class="btn btn-primary mb-3 p-2">NUEVO AUTOR</a>
                     </div>
                 </form>
                 <table class="table table-dark table-striped">
@@ -53,6 +39,7 @@
                         <tr>
                             <th>N°</th>
                             <th>Nombre</th>
+                            <th>Estado</th>
                             <th>Administracion</th>
                         </tr>
                     </thead>
@@ -60,33 +47,22 @@
                         <tr th:each=" a,iterator : ${autores}">
                             <td th:text="${iterator.index+1}"></td>
                             <td th:text="${a.nombre}"></td>
-                            <td>
-                                <button class="btn-dark"><a th:href="@{/libros/borraLibro}+'?id='+${p.id}" class=" px-5 py-2 ">Eliminar</a></button>
-                                <button class="btn-dark"><a th:href="@{/libros/registroLibro}+'?id='+${p.id}" class=" px-5 py-2 ">Editar</a></button>
+                            <td sec:authorize="hasRole('ADMIN')" th:text="${a.alta} == true ? 'Activo' : 'Baja'"></td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                              <a th:if="${a.alta} == true" class="mx-2" th:href="@{/autores/borrar}+'?id='+${a.id}"><i class="fas fa-trash-alt"></i></a>
+                              <a th:if="${a.alta} == false" class="mx-2" th:href="@{/autores/activar}+'?id='+${a.id}"><i class="fas fa-check"></i></a>
+
                             </td>
                         </tr>
                     </tbody>
-                    <p th:if="${libros.isEmpty}">No hay Autores para mostrar</p>
+                    <p th:if="${autores.isEmpty}">No hay Autores para mostrar</p>
                 </table>
             </div>
         </div>
     </div>
-    <section class="py-2 text-center container">
-      <div class="row py-lg-2">
-        <div class="col-lg-10 col-md-8 mx-auto">
-          <a th:href="@{/}" class="btn btn-primary my-2">INICIO</a>
-          <a th:href="@{/libros/lista}" class="btn btn-primary my-2">LIBROS</a>
-          <a th:href="@{/}" class="btn btn-primary my-2">AUTORES</a>
-          <a th:href="@{/}" class="btn btn-primary my-2">EDITORIALES</a>
-        </div>
-      </div>
-    </section>
-        
+    <section th:replace="/fragments/btnFooters :: section"></section>
     <!-- Footer-->
-    <footer class="footer small text-center text-white-50">
-      <div class="container px-4 px-lg-5">Copyright &copy; <a href="https://acamus79.github.io/" target="_blank1">Adrian E. Camus</a>
-      </div>
-    </footer>
+    <footer th:replace="/fragments/footer :: footer"></footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>

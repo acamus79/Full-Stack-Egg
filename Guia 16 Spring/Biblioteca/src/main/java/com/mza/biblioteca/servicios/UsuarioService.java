@@ -187,26 +187,16 @@ public class UsuarioService implements UserDetailsService {
 
     @Transactional(readOnly = true)
     public List<Usuario> todosLosUsuarios() {
-
         return rUsuario.findAll();
-
     }
 
     @Transactional(readOnly = true)
     public List<Usuario> usuariosActivos() {
-        List<Usuario> users = rUsuario.findAll();
-        List<Usuario> uActivos = new ArrayList();
-        for (Usuario aux : users)
-        {
-            if (aux.getBaja() == null)
-            {
-                uActivos.add(aux);
-            }
-        }
-        return uActivos;
+        return rUsuario.buscaActivos();
     }
 
     public void validar(String nombre, String apellido, String email, String clave, String clave2) throws MiExcepcion {
+        Optional<Usuario> op = rUsuario.validaMail(email);
 
         if (nombre == null || nombre.isEmpty())
         {
@@ -223,9 +213,14 @@ public class UsuarioService implements UserDetailsService {
             throw new MiExcepcion("El mail no puede ser nulo");
         }
 
-        if (clave == null || clave.isEmpty() || clave.length() <4)
+        if (op.isPresent())
         {
-            throw new MiExcepcion("La clave del usuario no puede ser nula y tiene que tener mas de seis digitos");
+            throw new MiExcepcion("La dirección e-mail indicada, ya se encuentra registrada");
+        }
+
+        if (clave == null || clave.isEmpty() || clave.length() < 4)
+        {
+            throw new MiExcepcion("La clave del usuario no puede ser nula y tiene que tener cuatro o más caracteres");
         }
         if (!clave.equals(clave2))
         {

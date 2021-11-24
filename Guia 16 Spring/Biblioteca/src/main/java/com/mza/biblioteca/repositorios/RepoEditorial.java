@@ -12,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * 
  * @author Adrian E. Camus
@@ -21,4 +23,7 @@ public interface RepoEditorial extends JpaRepository<Editorial, String>{
 
     @Query("SELECT e FROM Editorial e WHERE e.nombre = :nombre")
     public Editorial buscaPorNombre(@Param("nombre") String nombre);
+
+    @Query("SELECT e FROM Editorial e WHERE e.alta = true")
+    public List<Editorial> buscaActivos();
 }

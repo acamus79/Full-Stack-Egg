@@ -1,41 +1,121 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="/fragments/head :: head"></head>
     <body>
-
-        
-
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-3 gx-lg-4 justify-content-center">
-                <div class="col-lg-5">
-                    <h2 class="mx-auto my-0 text-white-50">Registro de Nuevo Usuario</h2>
-                    <form th:action="@{/registro}" method="post">
-                        <label class="text-white mb-1">Nombre</label>
-                        <input type="text" class="form-control" name="nombre"/>
-                        <br>
-                        <label class="text-white mb-1">Apellido</label>
-                        <input type="text" class="form-control" name="apellido"/>
-                        <br>
-                        <label class="text-white mb-1">E-Mail</label>
-                        <input type="email" class="form-control" name="email"/>
-                        <br>
-                        <label class="text-white mb-1">Contraseña</label>
-                        <input type="password" class="form-control" name="clave1"/>
-                        <br>
-                        <label class="text-white mb-1">Repetir Contraseña</label>
-                        <input type="password" class="form-control" name="clave2"/>
-                        <br> 
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-book"></i> REGISTRARSE</button>
-                        <br>
-                        <br>
-                    </form>    
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-1 px-lg-1">
+                <a class="navbar-brand" th:href="@{/}">Inicio</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/#proyecto}">Proyecto</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/#contacto}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/#registro}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/login}">Ingresar</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
+        <header class="masthead2">
+            <br>
+            <div class="container px-4 px-lg-5 d-flex h-100-items-center justify-content-center">
+                <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Error al Registrar el Usuario</h5>
+                      <p class="card-text" th:text="${error}"></p>
+                    </div>
+                  </div>
+                <!-- <p th:if="${error != null}" th:text="${error}" style="color:red"></p> -->
+            </div>
+        </header>    
+            <section class="registro-section bg-light text-center">
+                <div class="container px-4 px-lg-4">
+                <img class="img-fluid" src="img/user.png" width="60" alt="...">
+                    <div class="row gx-3 gx-lg-4 justify-content-center">
+                        <div class="col-lg-13">
+                            <h2 class="mx-auto my-0 text-dark-80">Intentemos de Nuevo</h2>
+                                <form th:action="@{/registro}" method="post">
+                                    <section class="py-2 text-center container">
+                                        <div class="col-lg-9 col-md-2 mx-auto">
+                                          <div class="row py-lg-2">
+                                            <div class="form-group col-md-4">
+                                              <label class="text-dark-60 mb-1">NOMBRE</label>
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                name="nombre"
+                                                placeholder="Ingrese Nombre/s"
+                                                required
+                                              />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                              <label class="text-dark-60 mb-1">APELLIDO</label>
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                name="apellido"
+                                                placeholder="Ingrese Apellido/s"
+                                                required
+                                              />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                              <label class="text-dark-60 mb-1">E-MAIL</label>
+                                              <input
+                                                type="email"
+                                                class="form-control"
+                                                name="email"
+                                                placeholder="Ingrese un e-mail"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </section>
+                                      <section class="py-2 text-center container">
+                                        <div class="col-lg-9 col-md-2 mx-auto">
+                                          <div class="row py-lg-2">
+                                            <div class="form-group col-md-6">
+                                              <label class="text-dark-60 mb-1">CONTRASEÑA</label>
+                                              <input
+                                                type="password"
+                                                class="form-control"
+                                                name="clave1"
+                                                placeholder="Debe contener 4 caracteres o más"
+                                                required
+                                              />
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                              <label class="text-dark-60 mb-1">REPETIR CONTRASEÑA</label>
+                                              <input
+                                                type="password"
+                                                class="form-control"
+                                                name="clave2"
+                                                placeholder="Repita la Contraseña"
+                                                required
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </section>
+                                      <br />
+                                      <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-user-check"></i> REGISTRARSE
+                                      </button>
+                                    <br />
+                                <br />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        
+                 
+        
+        <!-- Pie de Página -->
+        <footer th:replace="/fragments/footer :: footer"></footer>
     </body>
 </html>
 
