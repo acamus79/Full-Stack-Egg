@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/foto")
-public class FotoController {
+@RequestMapping("/portada")
+public class PortadaController {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USUARIO')")
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/libro/{id}")
     public ResponseEntity<byte[]> fotoUsuario(@PathVariable String id) {
 
         try {
             Usuario usuario = usuarioServicio.buscarPorId(id);
             if (usuario.getFoto() == null) {
-                throw new ErrorServicio("El usuario no tiene una foto asignada.");
+                throw new ErrorServicio("El Libro no tiene una foto asignada.");
             }
             byte[] foto = usuario.getFoto().getContenido();
 
@@ -40,7 +40,7 @@ public class FotoController {
 
             return new ResponseEntity<>(foto, headers, HttpStatus.OK);
         } catch (ErrorServicio ex) {
-            Logger.getLogger(FotoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PortadaController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

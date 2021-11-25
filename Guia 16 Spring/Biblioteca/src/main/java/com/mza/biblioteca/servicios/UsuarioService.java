@@ -38,7 +38,7 @@ public class UsuarioService implements UserDetailsService {
     RepoUsuario rUsuario;
 
     @Autowired
-    FotoService sFoto;
+    PortadaService sFoto;
 
     @Transactional
     public void registrar(String nombre, String apellido, String email, String clave, String clave2) throws MiExcepcion {

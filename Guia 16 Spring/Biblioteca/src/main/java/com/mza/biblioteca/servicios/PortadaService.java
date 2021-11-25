@@ -7,23 +7,23 @@ package com.mza.biblioteca.servicios;
 
 import com.mza.biblioteca.entidades.Portada;
 import com.mza.biblioteca.excepciones.MiExcepcion;
-import com.mza.biblioteca.repositorios.FotoRepositorio;
 import java.io.IOException;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import com.mza.biblioteca.repositorios.RepoPortada;
 
 /**
  *
  * @author Adrian E. Camus
  */
 @Service
-public class FotoService {
+public class PortadaService {
 
     @Autowired
-    private FotoRepositorio rFoto;
+    private RepoPortada rPortada;
 
     @Transactional
     public Portada guardar(MultipartFile archivo) throws MiExcepcion {
@@ -32,12 +32,12 @@ public class FotoService {
         {
             try
             {
-                Portada foto = new Portada();
-                foto.setMime(archivo.getContentType());
-                foto.setNombre(archivo.getName());
-                foto.setContenido(archivo.getBytes());
+                Portada portada = new Portada();
+                portada.setMime(archivo.getContentType());
+                portada.setNombre(archivo.getName());
+                portada.setContenido(archivo.getBytes());
 
-                return rFoto.save(foto);
+                return rPortada.save(portada);
             } catch (IOException e)
             {
                 System.err.println(e.getMessage());
@@ -54,21 +54,21 @@ public class FotoService {
         {
             try
             {
-                Portada foto = new Portada();
+                Portada portada = new Portada();
 
                 if (idFoto != null)
                 {
-                    Optional<Portada> respuesta = rFoto.findById(idFoto);
+                    Optional<Portada> respuesta = rPortada.findById(idFoto);
                     if (respuesta.isPresent())
                     {
-                        foto = respuesta.get();
+                        portada = respuesta.get();
                     }
                 }
-                foto.setMime(archivo.getContentType());
-                foto.setNombre(archivo.getName());
-                foto.setContenido(archivo.getBytes());
+                portada.setMime(archivo.getContentType());
+                portada.setNombre(archivo.getName());
+                portada.setContenido(archivo.getBytes());
                 
-                return rFoto.save(foto);
+                return rPortada.save(portada);
             } catch (IOException e)
             {
                 System.err.println(e.getMessage());

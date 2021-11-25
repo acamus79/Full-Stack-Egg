@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -29,6 +30,7 @@ public class Libro {
     
     
     private String titulo;
+    private String sinopsis;
     private Integer anio;
     private Integer ejemplares;
     private Integer ejemplaresPrestados;
@@ -39,6 +41,9 @@ public class Libro {
     private Autor autor;
     @ManyToOne
     private Editorial editorial;
+    
+    @OneToOne
+    private Portada portada;
 
     //CONSTRUCTORES
    
@@ -182,6 +187,34 @@ public class Libro {
      */
     public void setEditorial(Editorial editorial) {
         this.editorial = editorial;
+    }
+
+    /**
+     * @return the sinopsis
+     */
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    /**
+     * @param sinopsis the sinopsis to set
+     */
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+
+    /**
+     * @return the portada
+     */
+    public Portada getPortada() {
+        return portada;
+    }
+
+    /**
+     * @param portada the portada to set
+     */
+    public void setPortada(Portada portada) {
+        this.portada = portada;
     }
 
     

@@ -3,7 +3,9 @@ package com.mza.biblioteca.repositorios;
 
 import com.mza.biblioteca.entidades.Portada;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface FotoRepositorio extends JpaRepository<Portada, String> {
+@Repository
+public interface RepoPortada extends JpaRepository<Portada, String> {
     
 }

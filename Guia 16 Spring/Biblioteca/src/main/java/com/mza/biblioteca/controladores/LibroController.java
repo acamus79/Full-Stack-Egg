@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -63,10 +64,11 @@ public class LibroController {
         {
             Libro aux = new Libro();
             aux.setAlta(Boolean.TRUE);
-            aux.setTitulo("Título del Libro");
+            aux.setTitulo("Ingrese el título del Libro");
+            aux.setSinopsis("Ingrese un resumen del libro, breve y general");
             aux.setAnio(0);
             aux.setEjemplares(0);
-            aux.setIsbn("Ingrese código");
+            aux.setIsbn("Ingrese el código");
             modelo.addAttribute("libro", aux);
         }
 
@@ -82,11 +84,11 @@ public class LibroController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/registroLibro")
-    public String registro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro) {
+    public String registro(ModelMap modelo, RedirectAttributes redirectAttributes, @ModelAttribute Libro libro, MultipartFile archivo) {
 
         try
         {
-            libroServicio.creaLibro(libro);
+            libroServicio.creaLibro(archivo, libro);
             modelo.put("exito", "Registro Exitoso");
             return "redirect:/libros/lista";
 
@@ -116,14 +118,14 @@ public class LibroController {
     @GetMapping("/cardboard")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USUARIO')")
     public String libro (ModelMap modelo, @RequestParam(required = false) String buscar) {
-        //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados
+        //si el parametro "buscar" NO es nulo, agrega al modelo una lista de libros buscados activos
         if (buscar != null)
         {
-            modelo.addAttribute("libros", libroServicio.listaBuscada(buscar));
+            modelo.addAttribute("libros", libroServicio.listaBuscadaActivos(buscar));
 
-        } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros
+        } else //si no viene parametro de busqueda, agrega al modelo una lista con todos los libros activos
         {
-            modelo.addAttribute("libros", libroServicio.listaLibro());
+            modelo.addAttribute("libros", libroServicio.listaActivos());
         }
         return "libros";
     }

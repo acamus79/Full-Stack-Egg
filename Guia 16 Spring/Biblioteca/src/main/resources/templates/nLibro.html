@@ -23,33 +23,42 @@
           <br>
           <!-- En esta linea declaro que la accion se va a desallorar en el metodo post de /Libros/registroLibro 
           va a tener un objeto llamado libro, en la linea siguiente se declara un input oculto el campo id -->
-            <form th:action="@{/libros/registroLibro}" method="post" th:object="${libro}">
+            <form th:action="@{/libros/registroLibro}" method="post" th:object="${libro}" enctype="multipart/form-data">
               <input hidden th:field="*{id}">
               <section class="py-2 text-center container">
                 <div class="col-lg-8 col-md-5 mx-auto">
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="inputTitulo">TITULO</label>
+                    <label for="inputTitulo">Título del Libro</label>
                     <input type="text" class="form-control" name="titulo" th:placeholder="${libro.titulo}" required>
                   </div>
                </div>
+               <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                  <label for="inputTitulo">Sinópsis</label>
+                  <input type="text" class="form-control" name="sinopsis" th:placeholder="${libro.sinopsis}">
+                </div>
+             </div>
               </div>
               </section>
               <section class="py-2 text-center container">
                 <div class="col-lg-8 col-md-1 mx-auto">
                   <div class="row py-lg-2">
-                    <div class="form-group col-md-4">
-                      <label for="inputEjemplares">AÑO</label>
+                    <div class="form-group col-md-3">
+                      <label for="inputEjemplares">Año</label>
                       <input type="number" class="form-control" name="anio" th:placeholder="${libro.anio}" required>
                     </div>
-                    <div class="form-group col-md-5">
-                      <label for="inputEjemplares">EJEMPLARES</label>
+                    <div class="form-group col-md-3">
+                      <label for="inputEjemplares">Ejemplares</label>
                       <input type="number" class="form-control" name="ejemplares" th:placeholder="${libro.ejemplares}" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputISBN">ISBN</label>
                       <input type="text" class="form-control" name="isbn" th:placeholder="${libro.isbn}">
-                    </div>  
+                    </div>
+                    <div class="form-group col-md-3">
+                    <label for="InputPortada">Portada</label>
+                      <input type="file" class="form-control" name="archivo"/>  
                   </div>
                 </div>
               </section>
@@ -63,7 +72,7 @@
                           <option th:each="a : ${autores}" th:utext="${a.nombre}" th:value="${a.id}"></option>
                         </select>
                         <br>
-                        <a th:href="@{/autores/registroAutor}" class="btn btn-primary">Nuevo Autor</a>
+                        <a th:href="@{/autores/registroAutor}" class="btn btn-primary p-2">Nuevo Autor</a>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="editorial">Editorial</label>
@@ -72,34 +81,23 @@
                             <option th:each="e : ${editoriales}" th:value="${e.id}" th:utext="${e.nombre}"></option>
                           </select>
                         <br>
-                          <a th:href="@{/editoriales/registroEditorial}" class="btn btn-primary">Nueva Editorial</a>
+                          <a th:href="@{/editoriales/registroEditorial}" class="btn btn-primary p-2">Nueva Editorial</a>
                       </div>
                   </div>
                 </div>
               </section>                 
             </div>
-              <br>
-              <section class="py-2 text-center container">
+              <section class="py-2 text-center container mb-3">
                 <div class="row py-lg-2">
                   <div class="col-lg-6 col-md-8 mx-auto">
-                <button type="submit" class="btn btn-info" align="center">REGISTRAR LIBRO</button>
+                <button type="submit" class="btn btn-info">REGISTRAR LIBRO</button>
               </div>
             </div>
           </section>
               </form>
-              <section class="py-2 text-center container">
-                <div class="row py-lg-2">
-                  <div class="col-lg-10 col-md-8 mx-auto">
-                    <a th:href="@{/}" class="btn btn-primary my-2">INICIO</a>
-                    <a th:href="@{/libros/lista}" class="btn btn-primary my-2">LIBROS</a>
-                    <a th:href="@{/}" class="btn btn-primary my-2">AUTORES</a>
-                    <a th:href="@{/}" class="btn btn-primary my-2">EDITORIALES</a>
-                  </div>
-                </div>
-              </section>
             </div>
         </div>
-      
+        <section th:replace="/fragments/btnFooters :: section"></section>
       <!-- Footer-->
       <footer th:replace="/fragments/footer :: footer"></footer>
       <!-- Bootstrap core JS-->

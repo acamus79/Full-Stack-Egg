@@ -20,56 +20,22 @@
           </div>
         </div>
       </header>
-        <!-- Lista -->
-        <div class="container-fluid">
-        <div class="card mt-2">
-          <div class="card-header d-flex">
-            <h1>Lista de Libros Registrados</h1>
-          </div>
-            <div class="card-body">
-                <form class="row g-3" th:action="@{/libros/lista}" method="GET">
-                    <div class="col">
-                        <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
-                    </div>
-                    <div class="col-3">
-                      <!-- se pueden ocultar botones según el rol con sec:authorize="hasRole('ADMIN')" -->
-                      <button type="submit" class="btn btn-dark mb-3 p-2">Buscar</button>
-                      <a th:href="@{/libros/registroLibro}" class="btn btn-primary mb-3 p-2">NUEVO LIBRO</a>
-                    </div>
-                </form>
-
-                <table>
-                  <tbody>
-                  <tr th:each="p,iterator : ${libros}">
-                    <td ><div th:replace="fragments/librocard :: div"></div></td>
-                    <td ><div th:replace="fragments/librocard :: div"></div></td>
-                  </tr>
-                </tbody>
-                </table>
+        <!-- Galeria de Libros -->
 
 
-                <div class="row">
-                  <div class="col-4 bg-dark m-1" style="height: 160px;"></div>
-                  <div class="col-4 bg-dark m-1" style="height: 160px;"></div>
-                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
-                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
-                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
-                  <div class="col-4 bg-dark m-1" style="height: 150px;"></div>
-                  <!-- <div>
-                   <div th:replace="fragments/librocard :: div"></div>
-
-                  </div> -->
-                    
-
-
-
-                </div>
-              
-
-
-            </div>
+      <div class="libros-container">
+        <div class="galeria-item" th:each="item : ${libros}">
+          <div th:replace="/fragments/librocard :: div"></div>
         </div>
-    </div>
+
+      </div>
+
+        
+
+
+
+
+        
     <section th:replace="/fragments/btnFooters :: section"></section>
     <!-- Footer-->
     <footer th:replace="/fragments/footer :: footer"></footer>

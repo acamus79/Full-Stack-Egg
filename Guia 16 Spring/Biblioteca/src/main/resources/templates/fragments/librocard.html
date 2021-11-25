@@ -1,48 +1,43 @@
-<div class="col-sm-6 col-md-4 mb-3" th:each="libro : ${libros}"><!--libro-->
+<div class="col-sm-12 col-md-12 mb-5"><!--libro-->
     <ul class="list-group ">
-        <li class="list-group-item bg-dark text-light">ISBN: </li>
+        <li class="list-group-item bg-dark text-light">ISBN:  <span class="mb-0" th:text="${item.isbn}"></span></li>
         <li class="list-group-item">
-            <h4>Libro: <span th:text="${libro.titulo}"></span></h4>
+            <img th:if="${item.portada != null}" th:src="${'/portada/libro/' + item.id}" alt="" width="80">
+            <img th:if="${item.portada == null}" src="/img/sinPortada.jpg" alt="" width="80">
+            <h5 th:text="${item.titulo}"></h5>
         </li>
-        <li class="list-group-item font-weight-bold ">
-            <div class="d-flex w-100 justify-content-between ">
-                <h5 class="mb-0">Año:</h5>
-                <p class="mb-0 font-weight-normal" th:text="${libro.anio}"></p>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-0"><b>Autor:</b></h5>
+                <h5 class="mb-0 " th:text="${item.autor.nombre}"></h5>
             </div>
         </li>
-        <li class="list-group-item font-weight-bold">
+        <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between ">
-                <h5 class="mb-0">Ejemplares:</h5>
-                <p class="mb-0 font-weight-normal" th:text="${libro.ejemplares}"></p>
+                <h5 class="mb-0">Editorial:</h5>
+                <h6 class="mb-0 " th:text="${item.editorial.nombre}"></h6>   
             </div>
         </li>
-        <li class="list-group-item font-weight-bold">
+        <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between ">
-                <h5 class="mb-0">Ejemplares Prestados:</h5>
-                <p class="mb-0 font-weight-normal">null</p>
+                <h5 class="mb-0">Año de Edición:</h5>
+                <h6 class="mb-0" th:text="${item.anio}"></h6>
             </div>
         </li>
-        <li class="list-group-item font-weight-bold">
+        <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between ">
-                <h5 class="mb-0">Ejemplares Restantes:</h5>
-                <p class="mb-0 font-weight-normal">null</p>
+                <h5 class="mb-0">Ejemplares Disponibles:</h5>
+                <h6 class="mb-0 " th:text="${item.ejemplares}"></h6>
             </div>
         </li>
-        <li class="list-group-item font-weight-bold">
-            <div class="d-flex w-100 justify-content-between ">
-                <h5 class="mb-0">Autor</h5>
-                <p class="mb-0 font-weight-normal" th:text="${libro.autor.nombre}"></p>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between sino-item">
+                <div th:text="${item.sinopsis}"></div>
             </div>
         </li>
-        <li class="list-group-item font-weight-bold">
-            <div class="d-flex w-100 justify-content-between ">
-                <h5 class="mb-0">Editorial</h5>
-                <p class="mb-0 font-weight-normal" th:text="${libro.editorial.nombre}"></p>
-            </div>
-        </li>
-        <li class="list-group-item font-weight-bold">
+        <li class="list-group-item">
             <div class="d-flex w-100 justify-content-center">
-               <a class=" btn btn-danger btn-sm mr-2 " href="#"> Solicitar</a> 
+               <a class=" btn btn-success btn-sm mr-2 " href="#"> Solicitar</a> 
             </div>
         </li>
     </ul>

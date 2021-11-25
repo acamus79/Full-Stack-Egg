@@ -7,6 +7,7 @@ package com.mza.biblioteca.servicios;
 
 import com.mza.biblioteca.repositorios.RepoLibro;
 import com.mza.biblioteca.entidades.Libro;
+import com.mza.biblioteca.entidades.Portada;
 import com.mza.biblioteca.excepciones.MiExcepcion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -30,9 +32,12 @@ public class LibroService {
 
     @Autowired
     private EditorialService sEditorial;
+    
+    @Autowired
+    private PortadaService sPortada;
 
     @Transactional
-    public Libro creaLibro(Libro libro) throws MiExcepcion {
+    public Libro creaLibro(MultipartFile archivo, Libro libro) throws MiExcepcion {
         //valido todos los datos que no son objetos
         validar(libro.getTitulo(), libro.getIsbn(), libro.getAnio(), libro.getEjemplares());
 
@@ -53,7 +58,12 @@ public class LibroService {
         {
             libro.setEditorial(sEditorial.buscaPorId(libro.getEditorial()));
         }
+        //Como estoy creando un nuevo libro, seteto en verdadero el atributo alta
         libro.setAlta(Boolean.TRUE);
+        //Creo un objeto portada y lo instancio con lo que me devuelve el metodo guardar del ServicioPortada
+        Portada portada = sPortada.guardar(archivo);
+        //Le seteo al libro la portada
+        libro.setPortada(portada);
         return rLibro.save(libro);
     }
 
@@ -66,10 +76,20 @@ public class LibroService {
     public List<Libro> listaLibro() {
         return rLibro.findAll();
     }
+    
+    @Transactional(readOnly = true)
+    public List<Libro> listaActivos() {
+        return rLibro.listaActivos();
+    }
 
     @Transactional(readOnly = true)
     public List<Libro> listaBuscada(String buscar) {
         return rLibro.buscaTodo(buscar);
+    }
+    
+    @Transactional(readOnly = true)
+    public List<Libro> listaBuscadaActivos(String buscar) {
+        return rLibro.buscaActivos(buscar);
     }
 
     @Transactional
@@ -101,7 +121,7 @@ public class LibroService {
     public void validar(String titulo, String isbn,
             Integer anio, Integer ejemplares) throws MiExcepcion {
 
-        //uso Optional para validar que no exista repetido un ISBN
+        //uso Optional para validar que no exista repetido un ISBN ya que es un atributo de tipo unico en mi entidad Libro
         Optional<Libro> op = rLibro.validaISBN(isbn);
         if (op.isPresent())
         {
