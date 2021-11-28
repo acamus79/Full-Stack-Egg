@@ -69,6 +69,7 @@ public class AutorService {
         return aRepo.findById(id);
     }
     
+    @Transactional
     public void borraAutor (Autor autor) throws MiExcepcion {
         Optional<Autor> op = aRepo.findById(autor.getId());
         if (op.isPresent())
@@ -78,7 +79,8 @@ public class AutorService {
             aRepo.save(aux);
         }
     }
-
+    
+    @Transactional
     public void activaAutor (Autor autor) throws MiExcepcion {
         Optional<Autor> op = aRepo.findById(autor.getId());
         if (op.isPresent())
@@ -88,7 +90,6 @@ public class AutorService {
             aRepo.save(aux);
         }
     }
-
 
     private void validar(String nombre) throws MiExcepcion {
 

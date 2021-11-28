@@ -27,16 +27,12 @@ public class PortadaController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USUARIO')")
     @GetMapping("/libro/{id}")
     public ResponseEntity<byte[]> portadaLibro(@PathVariable String id) throws MiExcepcion {
+        Libro libro = sLibro.buscarPorId(id);
 
-        Optional<Libro> op = sLibro.buscarPorId(id);
-        Libro libro = new Libro();
-        if (op.isPresent())
-        {
-            libro = op.get();
-        } else
-        {
+        if(libro == null){
             throw new MiExcepcion("No se puede asignar el archivo a ese ID");
         }
+
         try
         {
             if (libro.getPortada() == null)

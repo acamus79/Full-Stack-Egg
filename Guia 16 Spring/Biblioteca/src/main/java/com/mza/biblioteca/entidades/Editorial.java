@@ -23,7 +23,7 @@ public class Editorial {
 
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2") @Column(length = 36)
     private String id;
     
     @Column(unique = true)

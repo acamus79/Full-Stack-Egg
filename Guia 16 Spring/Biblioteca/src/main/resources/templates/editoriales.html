@@ -39,18 +39,22 @@
                         <tr>
                             <th>N°</th>
                             <th>Nombre</th>
-                            <th>Estado</th>
-                            <th>Administracion</th>
+                            <th sec:authorize="hasRole('ADMIN')">Estado</th>
+                            <th sec:authorize="hasRole('ADMIN')">Administracion</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each=" a,iterator : ${editoriales}">
                             <td th:text="${iterator.index+1}"></td>
                             <td th:text="${a.nombre}"></td>
-                            <td sec:authorize="hasRole('ADMIN')" th:text="${a.alta} == true ? 'Activo' : 'Baja'"></td>
                             <td sec:authorize="hasRole('ADMIN')">
-                              <a class="mx-2" th:href="@{/editoriales/borrar}+'?id='+${a.id}"><i class="fas fa-trash-alt"></i></a>
-                              
+                              <span th:if="${a.alta}" style="color: chartreuse;"><p>Activo</p></span>
+                              <span th:unless="${a.alta}" style="color:brown;"><p>Baja</p></span>
+                            </td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                              <!-- <a class="mx-2" th:href="@{/editoriales/borrar}+'?id='+${a.id}"><i class="fas fa-trash-alt"></i></a> -->
+                              <a th:if="${a.alta} == true" class="mx-2" th:href="@{/editoriales/borrar}+'?id='+${a.id}"><i class="fas fa-trash" style="color: indianred;"></i></a>
+                              <a th:if="${a.alta} == false" class="mx-2" th:href="@{/editoriales/activar}+'?id='+${a.id}"><i class="fas fa-arrow-up" style="color: chartreuse;"></i></a>
                             </td>
                         </tr>
                     </tbody>

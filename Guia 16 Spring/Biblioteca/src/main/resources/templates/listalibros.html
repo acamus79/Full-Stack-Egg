@@ -27,14 +27,15 @@
             <h1>Lista de Libros Registrados</h1>
           </div>
             <div class="card-body">
-                <form class="row g-3" th:action="@{/libros/lista}" method="GET">
+                <form class="row g-3" th:action="@{/libros/lista}" method="get">
                     <div class="col">
                         <input type="text" style="width: 100%;" name="buscar" placeholder="Buscar...">
                     </div>
                     <div class="col-3">
                       <!-- se pueden ocultar botones segun el rol con sec:authorize="hasRole('ADMIN')" -->
-                      <button type="submit" class="btn btn-dark mb-3 p-2">Buscar</button>
+                      <button type="submit" class="btn btn-dark mb-3 p-2"><i class="fas fa-search"></i> Buscar</button>
                       <a th:href="@{/libros/registroLibro}" class="btn btn-primary mb-3 p-2">NUEVO LIBRO</a>
+                      <a th:href="@{/libros/lista/?format=pdf}" class="btn btn-info mb-3 p-2"><i class="far fa-file-alt"></i> PDF</a>
                     </div>
                 </form>
                 <table class="table table-dark table-striped">
@@ -45,6 +46,8 @@
                             <th>Autor</th>
                             <th>Editorial</th>
                             <th>Ejemplares</th>
+                            <th>Prestados</th>
+                            <th>Disponibles</th>
                             <!-- con sec:authorize="hasRole('ADMIN')" podria ocultar columnas segun el rol -->
                             <th>Estado</th>
                             <th>Administracion</th>
@@ -59,13 +62,19 @@
                             <td th:text="${p.autor} == null ? 'sin registro' : ${p.autor.nombre}"></td>
                             <td th:text="${p.editorial} == null ? 'sin registro' : ${p.editorial.nombre} "></td>
                             <td th:text="${p.ejemplares}"></td>
+                            <td th:text="${p.ejemplaresPrestados}"></td>
+                            <td th:text="${p.ejemplaresRestantes}"></td>
                             <!--  == true ? 'Activo' : 'Baja'   Con esa instruccion consulto si el campo alta es true cambia 
                               por Activo sino cambia por Baja -->
-                            <td sec:authorize="hasRole('ADMIN')" th:text="${p.alta} == true ? 'Activo' : 'Baja'"></td>
+                            <!-- <td sec:authorize="hasRole('ADMIN')" th:text="${p.alta} == true ? 'Activo' : 'Baja' "></td> -->
                             <td sec:authorize="hasRole('ADMIN')">
-                              <a class="mx-2" th:href="@{/libros/registroLibro}+'?id='+${p.id}"><i class="fas fa-edit"></i></a>
-                              <a th:if="${p.alta} == true" class="mx-2" th:href="@{/libros/borrar}+'?id='+${p.id}"><i class="fas fa-trash-alt"></i></a>
-                              <a th:if="${p.alta} == false" class="mx-2" th:href="@{/libros/activar}+'?id='+${p.id}"><i class="fas fa-check"></i></a>
+                              <span th:if="${p.alta}" style="color: chartreuse;"><p>Activo</p></span>
+                              <span th:unless="${p.alta}" style="color:brown;"><p>Baja</p></span>
+                            </td>
+                            <td sec:authorize="hasRole('ADMIN')">
+                              <a class="mx-2" th:href="@{/libros/modificar}+'?id='+${p.id}"><i class="fas fa-edit" style="color: cornflowerblue;"></i></a>
+                              <a th:if="${p.alta} == true" class="mx-2" th:href="@{/libros/borrar}+'?id='+${p.id}"><i class="fas fa-trash-alt" style="color:rgb(231, 67, 17)"></i></a>
+                              <a th:if="${p.alta} == false" class="mx-2" th:href="@{/libros/activar}+'?id='+${p.id}"><i class="fas fa-check" style="color:rgb(57, 204, 37)"></i></a>
                             </td>
                         </tr>
                     </tbody>

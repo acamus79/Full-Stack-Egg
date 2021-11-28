@@ -57,13 +57,43 @@ public class EditorialService {
     }
     
     @Transactional(readOnly = true)
-    public Editorial buscaPorId(Editorial editorial) {
-        Optional<Editorial> optional = eRepo.findById(editorial.getId());
+    public Editorial buscaPorId(String id) {
+        Optional<Editorial> optional = eRepo.findById(id);
+        
         if (optional.isPresent())
         {
-            editorial = optional.get();
+            return optional.get();
+        }else{
+            return null;
+        }  
+    }
+    
+    @Transactional(readOnly = true)
+    public Optional<Editorial> opcionalPorId(String id) {
+        return eRepo.findById(id);
+    }
+    
+    @Transactional
+    public void borraEditorial (Editorial editorial) throws MiExcepcion {
+        Optional<Editorial> op = eRepo.findById(editorial.getId());
+        if (op.isPresent())
+        {
+            Editorial aux = op.get();
+            aux.setAlta(Boolean.FALSE);
+            eRepo.save(aux);
         }
-        return editorial;
+    }
+
+    @Transactional
+    public void activaEditorial (Editorial editorial) throws MiExcepcion {
+        
+        Optional<Editorial> op = eRepo.findById(editorial.getId());
+        if (op.isPresent())
+        {
+            Editorial aux = op.get();
+            aux.setAlta(Boolean.TRUE);
+            eRepo.save(aux);
+        }
     }
     
     private void validar(String nombre) throws MiExcepcion{

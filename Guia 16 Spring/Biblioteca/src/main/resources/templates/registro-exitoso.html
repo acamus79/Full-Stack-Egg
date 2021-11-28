@@ -3,9 +3,10 @@
   <head th:replace="/fragments/head :: head"></head>
   <body>
     <!-- NavBar -->
-    <nav th:replace="/fragments/navbar :: nav"></nav>
+    
     <!-- Header -->
     <header class="masthead2">
+      <nav th:replace="/fragments/navbar :: nav"></nav>
       <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="masthead-content container text-center">
             <br><h1>Biblioteca OnLine</h1>
@@ -13,11 +14,11 @@
       </div>               
     </header>
     <div class="d-flex justify-content-center">
-        <div class="container text-center">
+        <div class="container text-center mb-5">
             <br>
             <h2 class="text-white-70 mx-auto mt-2 mb-5" th:text="${titulo}"></h2>
             <p class="text-white-70 mx-auto mt-2 mb-5" th:text="${descripcion}"></p>
-            <a th:href="@{/login}" class="btn btn-primary btn-xl mt-3 mb-3">Ingresar</a>
+            <a th:href="@{/login}" class="btn btn-primary btn-xl mt-3 mb-3"><i class="far fa-user"></i> Ingresar</a>
             <br>
         </div>
     </div>

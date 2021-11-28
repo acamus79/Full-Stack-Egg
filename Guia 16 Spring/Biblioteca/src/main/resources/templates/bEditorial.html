@@ -6,14 +6,14 @@
     <header class="masthead2">
       <nav th:replace="/fragments/navbar :: nav"></nav>
     </header>
-        <!-- Mensajes de exito o error -->
-        <div class="container m-auto">
+         <!-- Mensajes de exito o error -->
+         <div class="container m-auto">
             <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3">
               <div class="card-body">
                 <h3 class="card-title text-center">Exito</h3>
                 <div class="col-lg-10 col-md-8 mx-auto my-auto text-center">
                     <p class="card-text" th:text="${exito}"></p>
-                    <a th:href="@{/autores/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> Regresar</a>
+                    <a th:href="@{/libros/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> Regresar</a>
                 </div>
               </div>
             </div>
@@ -25,35 +25,32 @@
             </div>
           </div>
     <div class="py-2 text-center container-fluid">
-        <div class="card-header d-flex"><h3>Activar Autor:</h3></div>
+        <div class="card-header d-flex"><h3>Borrar Editorial:</h3></div>
     </div>    
         <table class="card-text" cellpadding="18">
             <thead>
                 <tr>
-                    <th>Autor:</th>
-                    <td th:text="${autor.nombre}" colspan="2"></td>
+                    <th>Editorial:</th>
+                    <td th:text="${editorial.id} == null ? 'sin registro' : ${editorial.nombre}" colspan="2"></td>
                 </tr>
-                <tr>
+                 <tr>
                     <th>ID:</th>
-                    <!-- <td th:text="${autor.id} == null ? 'sin registro' : ${autor.id} "></td> -->
-                    <td th:text="${autor.id}"></td>
+                    <td th:text="${editorial.id} == null ? 'sin registro' : ${editorial.id} "></td>
                 </tr>
                 <tr>
                     <th>Estado:</th>
-                    <td th:text="${autor.alta} == true ? 'Activo' : 'Baja' "></td>
+                    <td th:text="${editorial.alta} == true ? 'Activo' : 'Baja' "></td>
                 </tr>
             </thead>
         </table>
-        <form th:action="@{/autores/activar}" method="post" th:object="${autor}">
+        <form th:action="@{/editoriales/borrar}" method="post" th:object="${editorial}">
             <input hidden th:field="*{id}">
             <div class="col-lg-10 col-md-8 mx-auto my-auto">
-            <button type="submit" class="btn btn-success text-white"><i class="fa fa-arrow-up"></i> ACTIVAR AUTOR</button>
-            <a th:href="@{/autores/lista}" class="btn btn-info my-2"><i class="fa fa-arrow-left"></i> CANCELAR</a>
+            <button type="submit" class="btn btn-danger align-items-center"><i class="fa fa-ban"></i> DESACTIVAR Editorial</button>
+            <a th:href="@{/editoriales/lista}" class="btn btn-info my-2"><i class="fa fa-arrow-left"></i> CANCELAR</a>
             </div>
         </form>
     </div>
-
-
     </div>
     <section th:replace="/fragments/btnFooters :: section"></section>
     <!-- Footer-->

@@ -46,7 +46,7 @@ public class AutorController {
             autorServicio.creaAutor(nombre);
             modelo.put("exito", "Registro Exitoso");
             return "nAutor";
-        } catch (Exception e)
+        } catch (MiExcepcion e)
         {
             modelo.put("error", "Ya existe un Autor con ese Nombre");
             return "nAutor";

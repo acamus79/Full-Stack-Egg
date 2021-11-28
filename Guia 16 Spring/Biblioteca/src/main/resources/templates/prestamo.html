@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head"></head>
+<body>
+<header class="masthead2">
+    <nav th:replace="/fragments/navbar :: nav"></nav>
+    <br>
+    <div class="container-fluid m-auto">
+        <!-- si el modelo tiene una variable "error" distinta de null crear un card de texto blanco con fondo danger -->
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <h6 class="card-text" th:text="${error}"></h6>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Contenido -->
+<div class="container-fluid m-auto">
+    <div th:if="${exito}!=null" class="card text-white bg-success mt-3">
+        <div class="card-body" align="center">
+            <h4 class="card-title">CONFIRMAMOS EL PRESTAMO del Libro -
+                <span th:text="${libro.titulo}"></span>
+            </h4>
+            <h4 class="card-text" th:text="${exito}"></h4>
+        </div>
+    </div>
+    <section class="py-2 text-center container-fluid">
+        <div class="col-lg-auto col-md-1 mx-auto">
+                <div class="form-group col-md-12">
+                        <div class="col-sm-12 col-md-12 mb-1">
+                            <ul class="list-group container-fluid">
+                                <li class="list-group-item bg-dark text-light">USUARIO:  <span class="mb-0" th:text="${usuario.nombre} + ' ' + ${usuario.apellido}"></span></li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-0"><b>USUARIO E-MAIL:</b></h5>
+                                        <h5 class="mb-0 " th:text="${usuario.mail}"></h5>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between ">
+                                        <h5 class="mb-0"><b>Libro Reservado:</b></h5>
+                                        <h5 class="mb-0 " th:text="${libro.titulo}+' - ISBN:'+${libro.isbn}"></h5>   
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-0"><b>Código de Reserva:</b></h5>
+                                        <h5 class="mb-0" th:text="${prestamo.id}"></h5>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-0"><b>Fecha del Pedido:</b></h5>
+                                        <h6 class="mb-0 " th:text="${#dates.format(prestamo.prestamo, 'dd-MM-yyyy')}"></h6>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between sino-item">
+                                        <div> El Usuario que presiona <b>"Confirmar"</b>, acepta y da su aprobación a las siguientes condiciones:
+                                            <p>1. El USUARIO que reciba libros en calidad de préstamo habrá de comprometerse a:</p>
+                                            <p>- Devolver en un plazo máximo 30 días los libros sin enmiendas, tachaduras, rotos, escritos,…, y en buen “estado de uso”. Teniendo claro que no 
+                                            se puede subrayar en los propios libros ni escribir en ellos. No se pondrán calcomanias de ningún tipo, no se 
+                                            usarán rotuladores, ni lápices a color. </p>
+                                           <p>- En caso de pérdida, destrucción del material prestado o la no reposición de los mismos, el USUARIO 
+                                            deberá abonar el coste del material y los gastos que conlleven su reposición.</p>
+                                        </div>
+                                    </div>        
+                                </li>
+                                <li class="list-group-item">
+                                    <form action="/prestamos/solicitud" method="post">
+                                    <div class="d-flex w-100 justify-content-center">
+                                        <!-- <input hidden type="text" th:field="*{usuario.id}" name="usuarioid"> 
+                                        th:field="*{libro.id}"-->
+                                        <!-- <option name="idlibro" th:value="${libro.id}"></option> -->
+                                        <!-- <input type="text" name="idlibro" th:value="${libro.id}" th:placeholder="${libro.id}"> -->
+                                        
+                                        <!-- <button type="submit" class="btn btn-info"><i class="fas fa-arrow-up"></i> CONFIRMAR</button> -->
+                                    </form>
+                                       <!-- <a class=" btn btn-success btn-sm mr-2 " href="/prestamos/solicitud"> Solicitar</a>  -->
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                </section>
+
+                </div>
+                <section th:replace="/fragments/btnFooters :: section"></section>
+                <!-- Footer-->
+                <footer th:replace="/fragments/footer :: footer"></footer>
+                <!-- Bootstrap core JS-->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

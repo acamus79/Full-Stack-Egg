@@ -47,7 +47,7 @@
         <form th:action="@{/autores/borrar}" method="post" th:object="${autor}">
             <input hidden th:field="*{id}">
             <div class="col-lg-10 col-md-8 mx-auto my-auto">
-            <button type="submit" class="btn btn-danger align-items-center">DESACTIVAR AUTOR</button>
+            <button type="submit" class="btn btn-danger align-items-center">></i> DESACTIVAR AUTOR</button>
             <a th:href="@{/autores/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> CANCELAR</a>
             </div>
         </form>

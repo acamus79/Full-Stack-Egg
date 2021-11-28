@@ -56,6 +56,7 @@ public class UsuarioService implements UserDetailsService {
 
         usuario.setAlta(new Date());
         usuario.setBaja(null);
+        usuario.setCantidadPrestamos(0);
 
         rUsuario.save(usuario);
 
@@ -191,7 +192,7 @@ public class UsuarioService implements UserDetailsService {
     }
 
     @Transactional(readOnly = true)
-    public List<Usuario> usuariosActivos() {
+    public List<Usuario> usuariosActivos() throws MiExcepcion{
         return rUsuario.buscaActivos();
     }
 

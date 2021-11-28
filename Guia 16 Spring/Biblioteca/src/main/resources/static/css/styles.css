@@ -361,7 +361,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  resize: none;
 }
+
 
 button,
 select {
@@ -402,7 +404,7 @@ button:not(:disabled),
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 fieldset {
@@ -11795,8 +11797,11 @@ body {
   align-items: center;
   justify-content:center;
 }
+
 .sino-item{
   padding: 2px;
   height: 90px;
   overflow: auto;
+  text-align: justify;
+  text-overflow: inherit;
 }

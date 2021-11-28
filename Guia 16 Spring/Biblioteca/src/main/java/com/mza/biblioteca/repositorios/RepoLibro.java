@@ -27,11 +27,11 @@ public interface RepoLibro extends JpaRepository<Libro, String>{
     @Query("SELECT p from Libro p WHERE p.titulo LIKE %?1% or p.autor.nombre LIKE %?1% or p.editorial.nombre LIKE %?1%")
     List<Libro> buscaTodo(@Param("buscar") String buscar);
     
-    @Query("SELECT p from Libro p WHERE p.alta = true")
+    @Query("SELECT p from Libro p WHERE p.alta = true AND p.ejemplaresRestantes > 0")
     List<Libro> listaActivos();
     
     @Query("SELECT i FROM Libro i WHERE i.isbn = :isbn")
-    public Optional<Libro> validaISBN (@Param("isbn") String isbn);
+    Optional<Libro> validaISBN (@Param("isbn") String isbn);
 
 //    @Query("SELECT a from Libro a WHERE a.alta =true")
 //    public List<Libro> activos();

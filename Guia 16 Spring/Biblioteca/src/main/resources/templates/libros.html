@@ -5,6 +5,12 @@
     <!-- Header -->
     <header class="masthead2">
       <nav th:replace="/fragments/navbar :: nav"></nav>
+      <form th:action="@{/libros/vista}" method="get">
+        <div class="text-center justify-content-center">
+          <input type="text" style="width: 70%;" name="buscar" placeholder="Buscar...">
+          <button type="submit" class="btn btn-info mb-3 mt-3 p-2">Buscar</button>
+        </div>
+      </form>
       <div class="container m-auto">
           <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
             <div class="card-body">
@@ -21,21 +27,11 @@
         </div>
       </header>
         <!-- Galeria de Libros -->
-
-
       <div class="libros-container">
-        <div class="galeria-item" th:each="item : ${libros}">
+        <div class="galeria-item" th:each="libro : ${libros}">
           <div th:replace="/fragments/librocard :: div"></div>
         </div>
-
       </div>
-
-        
-
-
-
-
-        
     <section th:replace="/fragments/btnFooters :: section"></section>
     <!-- Footer-->
     <footer th:replace="/fragments/footer :: footer"></footer>

@@ -6,6 +6,16 @@
       <nav th:replace="/fragments/navbar :: nav"></nav>
       <br>
       <div class="container m-auto">
+        <!-- si el modelo tiene una variable "exito" distinta de null crear un card de texto blanco con fondo success --> 
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3">
+          <div class="card-body">
+            <h3 class="card-title text-center">Exito</h3>
+            <div class="col-lg-10 col-md-8 mx-auto my-auto text-center">
+                <p class="card-text" th:text="${exito}"></p>
+                <a th:href="@{/libros/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> Regresar</a>
+            </div>
+          </div>
+        </div>
         <!-- si el modelo tiene una variable "error" distinta de null crear un card de texto blanco con fondo danger --> 
         <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
           <div class="card-body">
@@ -18,7 +28,7 @@
         <!-- Contenido -->
         <div class="container m-auto">
           <div class="card text-white bg-dark mb-3 mt-3">
-            <div class="card-body" align="center">
+            <div class="card-body">
           <h4 class="card-title">Formulario Registro de Libros</h4>
           <br>
           <!-- En esta linea declaro que la accion se va a desallorar en el metodo post de /Libros/registroLibro 
@@ -29,14 +39,14 @@
                 <div class="col-lg-8 col-md-5 mx-auto">
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="inputTitulo">Título del Libro</label>
+                    <label class="mb-2">Título del Libro</label>
                     <input type="text" class="form-control" name="titulo" th:placeholder="${libro.titulo}" required>
                   </div>
                </div>
                <div class="form-row mt-3">
                 <div class="form-group col-md-12">
-                  <label for="inputTitulo">Sinópsis</label>
-                  <input type="text" class="form-control" name="sinopsis" th:placeholder="${libro.sinopsis}">
+                  <label class="mb-2">Sinópsis</label>
+                    <textarea type="text" class="form-control" name="sinopsis" th:placeholder="${libro.sinopsis}"></textarea>
                 </div>
              </div>
               </div>
@@ -45,19 +55,19 @@
                 <div class="col-lg-8 col-md-1 mx-auto">
                   <div class="row py-lg-2">
                     <div class="form-group col-md-3">
-                      <label for="inputEjemplares">Año</label>
+                      <label class="mb-2">Año</label>
                       <input type="number" class="form-control" name="anio" th:placeholder="${libro.anio}" required>
                     </div>
                     <div class="form-group col-md-3">
-                      <label for="inputEjemplares">Ejemplares</label>
+                      <label class="mb-2">Ejemplares</label>
                       <input type="number" class="form-control" name="ejemplares" th:placeholder="${libro.ejemplares}" required>
                     </div>
                     <div class="form-group col-md-3">
-                      <label for="inputISBN">ISBN</label>
+                      <label class="mb-2">ISBN</label>
                       <input type="text" class="form-control" name="isbn" th:placeholder="${libro.isbn}">
                     </div>
                     <div class="form-group col-md-3">
-                    <label for="InputPortada">Portada</label>
+                    <label class="mb-2">Portada</label>
                       <input type="file" class="form-control" name="archivo"/>  
                   </div>
                 </div>
@@ -66,7 +76,7 @@
                 <div class="col-lg-8 col-md-1 mx-auto">
                   <div class="row py-lg-2">
                       <div class="form-group col-md-6">
-                        <label for="autor">Autor</label>
+                        <label class="mb-2">Autor</label>
                         <select class="form-control" th:field="*{autor.id}">
                           <option value="0" selected>Seleccione un Autor</option>
                           <option th:each="a : ${autores}" th:utext="${a.nombre}" th:value="${a.id}"></option>
@@ -75,7 +85,7 @@
                         <a th:href="@{/autores/registroAutor}" class="btn btn-primary p-2">Nuevo Autor</a>
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="editorial">Editorial</label>
+                        <label class="mb-2">Editorial</label>
                           <select class="form-control" th:field="*{editorial.id}">
                             <option value="0" selected>Seleccione una Editorial</option>
                             <option th:each="e : ${editoriales}" th:value="${e.id}" th:utext="${e.nombre}"></option>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+  <head th:replace="/fragments/head :: head"></head>
+  <body>
+    <header class="masthead2">
+      <nav th:replace="/fragments/navbar :: nav"></nav>
+      <br>
+      <div class="container m-auto">
+        <!-- si el modelo tiene una variable "error" distinta de null crear un card de texto blanco con fondo danger --> 
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Error</h5>
+            <p class="card-text" th:text="${error}"></p>
+          </div>
+        </div>
+      </div>
+    </header>  
+        <!-- Contenido -->
+        <div class="container-fluid m-auto">
+          <div class="card text-white bg-dark mt-3">
+            <div class="card-body" align="center">
+            <h4 class="card-title">Modificación del Libro -
+              <span th:text="${libro.titulo} + ' - ISBN'"></span>
+              <span class="mb-0" th:text="${libro.isbn}"></span>
+            </h4>
+            </div>
+          </div>
+          <section class="py-2 text-center container-fluid">
+            <div class="col-lg-auto col-md-1 mx-auto">
+              <div class="row py-lg-2">
+                <div class="form-group col-md-6">
+                  <!--libro-->
+          <div class="col-sm-12 col-md-12 mb-5">
+            <ul class="list-group ">
+              <li class="list-group-item">
+                <img th:if="${libro.portada != null}" th:src="${'/portada/libro/' + libro.id}" alt="" width="20%">
+                <img th:if="${libro.portada == null}" src="/img/sinPortada.jpg" alt="" width="80">
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-0"><b>Autor:</b></h5>
+                  <h5 class="mb-0 " th:text="${libro.autor.nombre}"></h5>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between ">
+                  <h5 class="mb-0">Editorial:</h5>
+                  <h6 class="mb-0 " th:text="${libro.editorial.nombre}"></h6>   
+                </div>
+              </li>
+                <li class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between ">
+                        <h5 class="mb-0">Año de Edición:</h5>
+                        <h6 class="mb-0" th:text="${libro.anio}"></h6>
+                    </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between ">
+                <h5 class="mb-0">Ejemplares Disponibles:</h5>
+                <h6 class="mb-0 " th:text="${libro.ejemplares}"></h6>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between sino-item">
+                  <div th:text="${libro.sinopsis}"></div>
+                </div>
+              </li>
+            </ul>
+        </div><!--Fin libro-->
+      </div>
+      <div class="form-group col-md-6">
+      <!-- En esta linea declaro que la accion se va a desallorar en el metodo post de /Libros/modificar
+      va a tener un objeto llamado libro, en la linea siguiente se declara un input oculto el campo id -->
+        <form th:action="@{/libros/modificar}" method="post" th:object="${libro}" enctype="multipart/form-data">
+          <input hidden th:field="*{id}">
+            <section class="py-2 text-center container-fluid">
+              <div class="col-lg-auto col-md-5 mx-auto">
+                <div class="row py-lg-2">
+                  <div class="form-group col-md-12">
+                    <h5><label>Nuevo Título del Libro: </label></h5>
+                      <input type="text" class="form-control" name="titulo" placeholder="Ingrese el Título Modificado">
+                  </div>
+                </div>
+                <div class="form-row mt-3">
+                  <div class="form-group col-md-12">
+                    <div class="form-group col-md-12 mt-2">
+                      <label>Nueva Sinópsis:</label>
+                      <input type="text" class="form-control" name="sinopsis" placeholder="Ingrese nueva sinópsis">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </section>
+              <section class="py-2 text-center container">
+                <div class="col-lg-auto col-md-1 mx-auto">
+                  <div class="row py-lg-2">
+                    <div class="form-group col-md-3">
+                      <label for="inputEjemplares">Nuevo Año</label>
+                      <input type="number" class="form-control" name="anio" placeholder="Año">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputEjemplares">Ejemplares</label>
+                      <input type="number" class="form-control" name="ejemplares" placeholder="Ejemplares">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="InputPortada">Portada</label>
+                      <input type="file" class="form-control" name="archivo"/>  
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="py-2 text-center container">
+                <div class="col-lg-auto col-md-1 mx-auto">
+                  <div class="row py-lg-2">
+                      <div class="form-group col-md-6">
+                        <label for="autor">Autor</label>
+                        <select class="form-control" th:field="*{autor.id}">
+                          <option value="0" selected>Seleccione un Autor</option>
+                          <option th:each="a : ${autores}" th:utext="${a.nombre}" th:value="${a.id}"></option>
+                        </select>
+                        <br>
+                        <a th:href="@{/autores/registroAutor}" class="btn btn-primary p-2">Nuevo Autor</a>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="editorial">Editorial</label>
+                          <select class="form-control" th:field="*{editorial.id}">
+                            <option value="0" selected>Seleccione una Editorial</option>
+                            <option th:each="e : ${editoriales}" th:value="${e.id}" th:utext="${e.nombre}"></option>
+                          </select>
+                        <br>
+                          <a th:href="@{/editoriales/registroEditorial}" class="btn btn-primary p-2">Nueva Editorial</a>
+                      </div>
+                  </div>
+                </div>
+              </section>                 
+              <section class="py-2 text-center container mb-3">
+                <div class="row py-lg-2">
+                  <div class="col-lg-6 col-md-8 mx-auto">
+                    <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i> Actualizar Datos</button>
+                  </div>
+                </div>
+              </section>
+              </form>
+          </div>
+        <section th:replace="/fragments/btnFooters :: section"></section>
+      <!-- Footer-->
+      <footer th:replace="/fragments/footer :: footer"></footer>
+      <!-- Bootstrap core JS-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+</html>

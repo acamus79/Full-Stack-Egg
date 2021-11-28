@@ -39,19 +39,31 @@
                         <tr>
                             <th>N°</th>
                             <th>Nombre</th>
-                            <th>Estado</th>
-                            <th>Administracion</th>
+                            <th sec:authorize="hasRole('ADMIN')">Estado</th>
+                            <th sec:authorize="hasRole('ADMIN')">Administracion</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each=" a,iterator : ${autores}">
                             <td th:text="${iterator.index+1}"></td>
                             <td th:text="${a.nombre}"></td>
-                            <td sec:authorize="hasRole('ADMIN')" th:text="${a.alta} == true ? 'Activo' : 'Baja'"></td>
                             <td sec:authorize="hasRole('ADMIN')">
-                              <a th:if="${a.alta} == true" class="mx-2" th:href="@{/autores/borrar}+'?id='+${a.id}"><i class="fas fa-trash-alt"></i></a>
-                              <a th:if="${a.alta} == false" class="mx-2" th:href="@{/autores/activar}+'?id='+${a.id}"><i class="fas fa-check"></i></a>
-
+                              <span th:if="${a.alta}" style="color: chartreuse;"><p>Activo</p></span>
+                              <span th:unless="${a.alta}" style="color:brown;"><p>Baja</p></span>
+                            </td>
+                            <!-- <td sec:authorize="hasRole('ADMIN')" th:text="${a.alta} == true ? 'Activo' : 'Baja'"> -->
+                            <!--<td>
+                              <i th:if="${autor.alta}" class="fa fa-circle text-success"></i> -->
+                              <!-- <i th:if="${autor.alta}" class="fas fa-check text-success"></i>
+                              <i th:unless="${autor.alta}" class="fa fa-ban" style="color:red;"></i>
+                            </td> -->
+                            <!-- <td>
+                              <a th:href="@{/autor/alta/_${autor.id}_}"><i class="fa fa-arrow-up"></i></a>
+                              <a th:href="@{/autor/baja/_${autor.id}_}"><i class="fa fa-ban"></i></a>
+                            </td> -->
+                            <td sec:authorize="hasRole('ADMIN')">
+                              <a th:if="${a.alta} == true" class="mx-2" th:href="@{/autores/borrar}+'?id='+${a.id}"><i class="fa fa-ban" style="color:brown;"></i></a>
+                              <a th:if="${a.alta} == false" class="mx-2" th:href="@{/autores/activar}+'?id='+${a.id}"><i class="fas fa-arrow-up" style="color: chartreuse;"></i></a>
                             </td>
                         </tr>
                     </tbody>

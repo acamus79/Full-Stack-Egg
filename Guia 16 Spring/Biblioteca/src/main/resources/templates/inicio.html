@@ -12,10 +12,11 @@
                 <div class="text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Biblioteca</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">Gestión de Libros web</h2>
-                    <a class="btn btn-primary" th:href="@{/libros/lista}"><i class="fas fa-book"></i> libros</a>
+                    <a class="btn btn-primary" th:href="@{/libros/vista}"><i class="fas fa-book"></i> libros</a>
                     <a class="btn btn-primary" th:href="@{/autores/lista}"><i class="fas fa-user-edit"></i> autores</a>
                     <a class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="far fa-newspaper"></i> editoriales</a>
-                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="fas fa-user-edit"></i> usuarios</a>
+                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/libros/lista}"><i class="fas fa-table"></i> lista de libros</a>
+                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="far fa-user"></i> usuarios</a>
                 </div>
             </div>
         </div>
@@ -43,7 +44,7 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-7">
-                <h2 class="display-4">Nuevo usuario</h2>
+                <h2 class="display-4">INGRESAR</h2>
                 <form th:action="@{/usuario/login}" method="post">
                     <p th:if="${error != null}" th:text="${error}" style="color:red"></p>
                     <p th:if="${logout != null}" th:text="${logout}" style="color:greenyellow"></p>

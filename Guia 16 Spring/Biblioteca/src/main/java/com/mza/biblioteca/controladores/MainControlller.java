@@ -4,6 +4,7 @@ import com.mza.biblioteca.entidades.Usuario;
 import com.mza.biblioteca.excepciones.MiExcepcion;
 import com.mza.biblioteca.servicios.UsuarioService;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -19,9 +20,9 @@ public class MainControlller {
     private UsuarioService sUsuario;
 
     @GetMapping("/")
-    public String index(ModelMap modelo) {
+    public String index(ModelMap modelo) throws MiExcepcion{
         List<Usuario> usuariosActivos = sUsuario.usuariosActivos();
-        //Recordar que utilizo el modelo,para viajar con la llave usuarios al HTML la lista usuariosactivos
+        //Recordar que utilizo el modelo, para viajar con la llave usuario al HTML la lista usuariosActivos
         modelo.addAttribute("usuarios", usuariosActivos);
         return "index.html";
     }
@@ -58,7 +59,7 @@ public class MainControlller {
     
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USUARIO')")
     @GetMapping("/inicio")
-    public String inicio(ModelMap modelo) {
+    public String inicio(ModelMap modelo, HttpSession session) {
     	
     	List<Usuario> usuarios = sUsuario.todosLosUsuarios();
     	

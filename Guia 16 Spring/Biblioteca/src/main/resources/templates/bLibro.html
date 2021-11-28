@@ -51,7 +51,7 @@
         <form th:action="@{/libros/borrar}" method="post" th:object="${libro}">
             <input hidden th:field="*{id}">
             <div class="col-lg-10 col-md-8 mx-auto my-auto">
-            <button type="submit" class="btn btn-danger align-items-center">BORRAR LIBRO</button>
+            <button type="submit" class="btn btn-danger align-items-center"><i class="fas fa-trash-alt"></i> DAR DE BAJA</button>
             <a th:href="@{/libros/lista}" class="btn btn-info my-2"><i class="fas fa-user-edit"></i> CANCELAR</a>
             </div>
         </form>
