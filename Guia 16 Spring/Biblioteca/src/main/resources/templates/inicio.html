@@ -16,7 +16,7 @@
                     <a class="btn btn-primary" th:href="@{/autores/lista}"><i class="fas fa-user-edit"></i> autores</a>
                     <a class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="far fa-newspaper"></i> editoriales</a>
                     <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/libros/lista}"><i class="fas fa-table"></i> lista de libros</a>
-                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/editoriales/lista}"><i class="far fa-user"></i> usuarios</a>
+                    <!-- <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary" th:href="@{/usuarios/lista}"><i class="far fa-user"></i> usuarios</a> -->
                 </div>
             </div>
         </div>

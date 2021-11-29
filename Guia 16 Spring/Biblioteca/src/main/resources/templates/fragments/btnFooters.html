@@ -2,9 +2,10 @@
     <div class="row py-lg-2">
       <div class="col-lg-10 col-md-8 mx-auto">
         <a th:href="@{/inicio}" class="btn btn-primary my-2 p-3"><i class="fas fa-home"></i> INICIO</a>
-        <a th:href="@{/libros/lista}" class="btn btn-primary my-2 p-3"><i class="fas fa-book"></i> LIBROS</a>
+        <a th:href="@{/libros/vista}" class="btn btn-primary my-2 p-3"><i class="fas fa-book"></i> LIBROS</a>
         <a th:href="@{/autores/lista}" class="btn btn-primary my-2 p-3"><i class="fas fa-user-edit"></i> AUTORES</a>
         <a th:href="@{/editoriales/lista}" class="btn btn-primary my-2 p-3"><i class="far fa-newspaper"></i> EDITORIALES</a>
+        <a sec:authorize="hasRole('ADMIN')" class="btn btn-primary my-2 p-3" th:href="@{/libros/lista}"><i class="fas fa-table"></i> lista de libros</a>
       </div>
     </div>
 </section>

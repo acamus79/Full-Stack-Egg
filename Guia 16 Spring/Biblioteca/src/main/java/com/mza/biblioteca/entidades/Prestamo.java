@@ -22,7 +22,7 @@ public class Prestamo implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2") @Column(length = 36)
-    private Long id;
+    private String id;
 
     private Boolean alta;
 
@@ -43,14 +43,14 @@ public class Prestamo implements Serializable {
     /**
      * @return the id
      */
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -123,6 +123,6 @@ public class Prestamo implements Serializable {
     public void setDevolucion(Date devolucion) {
         this.devolucion = devolucion;
     }
-    
-    
+
+   
 }
