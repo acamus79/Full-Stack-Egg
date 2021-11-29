@@ -20,7 +20,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Prestamo implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2") @Column(length = 36)
     private Long id;
 
     private Boolean alta;
