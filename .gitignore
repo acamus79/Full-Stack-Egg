@@ -1,143 +1,33 @@
-/Guia2_POO/nbproject/private/
-/Guia2_POO_Extras/nbproject/private/
-/Ejercicio07yEjercicio12Juntos/nbproject/private/
-/Guia2_POO_OtrosExtras/nbproject/private/
-/Ejercicio07y12Juntos_meet/nbproject/private/
-/ej07_y_ej12_meet/nbproject/private/
-/Guia2_POO_OtrosExtras/build/
-/OtrosExtra04/nbproject/private/
-/OtrosExtra04/build/
-/Guia 07 Java Colecciones/Guia06_ej_01/nbproject/private/
-/Guia 07 Java Colecciones/Guia07_ej_01/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_01_02/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_01_02/build/
-/Guia 07 Java Colecciones/EjemplosEgg/Colecciones/build/
-/Guia 07 Java Colecciones/EjemplosEgg/Colecciones/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_03/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_03/build/
-/Guia 07 Java Colecciones/guia7_ej_04/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_04/nbproject/private/
-/Guia 07 Java Colecciones/Ejercicio01/nbproject/private/
-/Guia 07 Java Colecciones/Ejercicio01/build/
-/Guia 07 Java Colecciones/guia07_ej_04/build/
-/Guia 07 Java Colecciones/guia07_ej_04/dist/
-/guia07_ej_04/nbproject/private/
-/guia07_ej_05/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_05/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_05/build/
-/Guia 07 Java Colecciones/guia07_ej_05/dist/
-/Guia 07 Java Colecciones/guia07_ej_06/nbproject/private/
-/Guia 07 Java Colecciones/guia07_ej_06/build/
-/Guia 07 Java Colecciones/guia07_ej_06/dist/
-/Guia 07 Java Colecciones/EjemplosEgg/EjemploHashMap/dist/
-/Guia 07 Java Colecciones/guia07_ej_01_02/dist/
-/Guia 07 Java Colecciones/guia07_ej_03/dist/
-/Guia 07 Java Colecciones/guia07_Extra_ej_01/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra_ej_01/build/
-/Guia 07 Java Colecciones/guia08_Extra_ej_02/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra_ej_02/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra_ej_02/build/
-/Guia 07 Java Colecciones/guia07_Extra_ej_02/dist/
-/Guia 07 Java Colecciones/guia07_Extra_ej_03/nbproject/private/
-/Guia 07 Java Colecciones/guia07_extra04/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra02/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra03/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra04/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra02/build/
-/Guia 07 Java Colecciones/guia07_Extra02/dist/
-/Guia 07 Java Colecciones/guia07_Extra01/nbproject/private/
-/Guia 07 Java Colecciones/guia07_Extra01/build/
-/Guia 07 Java Colecciones/guia07_Extra01/dist/
-/Guia 07 Java Colecciones/guia07_Extra03/build/
-/Guia 07 Java Colecciones/guia07_Extra03/dist/
-/Guia 07 Java Colecciones/guia07_Extra04/build/
-/Guia 07 Java Colecciones/Ejercicio_05_clandestino/nbproject/private/
-/Guia 07 Java Colecciones/Ejercicio_05_clandestino/build/
-/Guia 08 Java Relaciones/Ejercicio01/nbproject/private/
-/Guia 08 Java Relaciones/Ejercicio01/build/
-/Guia 08 Java Relaciones/ej_01/nbproject/private/
-/Guia 08 Java Relaciones/ej_01/build/
-/Guia 07 Java Colecciones/guia07_Extra04/dist/
-/Guia 08 Java Relaciones/ej_02/nbproject/private/
-/Guia 08 Java Relaciones/ej_02/build/
-/Guia 08 Java Relaciones/ej_03/nbproject/private/
-/Guia 08 Java Relaciones/G08_Ejercicio03/nbproject/private/
-/Guia 08 Java Relaciones/G08_Ejercicio02/nbproject/private/
-/Guia 08 Java Relaciones/G08_Ejercicio01/nbproject/private/
-/Guia 08 Java Relaciones/G08_Ejercicio02/build/
-/Ejercicio01/nbproject/private/
-/Ejercicio01_Mesa71/nbproject/private/
-/Ejercicio01_Mesa71/build/
-/Guia 08 Java Relaciones/Ejercicio02_Mesa52/nbproject/private/
-/Guia 08 Java Relaciones/Ejercicio02_Mesa52/build/
-/Guia 08 Java Relaciones/G08_Ejercicio03/build/
-/Guia 08 Java Relaciones/G08_Ejercicio03/dist/
-/Guia 08 Java Relaciones/G08_Extra04/nbproject/private/
-/Guia 08 Java Relaciones/G08_Extra04/build/
-/Guia 08 Java Relaciones/G08_Extra01/build/
-/Guia 08 Java Relaciones/G08_Extra02/nbproject/private/
-/Guia 08 Java Relaciones/G08_Extra04/dist/
-/Guia 09 Java Herencia/G09_Ejercicio01/nbproject/private/
-/Guia 09 Java Herencia/G09_Ejercicio01/build/
-/Guia 09 Java Herencia/G09_Ejercicio02/nbproject/private/
-/Guia 08 Java Relaciones/G09_Ejercicio03/nbproject/private/
-/Guia 08 Java Relaciones/G09_Ejercicio03/build/
-/Guia 08 Java Relaciones/G09_Ejercicio04/nbproject/private/
-/Guia 09 Java Herencia/Ejercicio02_Mesa9/nbproject/private/
-/Guia 09 Java Herencia/Ejercicio02_Mesa9/build/
-/Guia 09 Java Herencia/G09_Ejercicio03/nbproject/private/
-/Guia 09 Java Herencia/G09_Ejercicio03/build/
-/Guia 09 Java Herencia/G09_Ejercicio04/nbproject/private/
-/Guia 09 Java Herencia/G09_Ejercicio04/dist/
-/Guia 09 Java Herencia/G09_Ejercicio04/build/
-/Guia 09 Java Herencia/G09_Ejercicio03/dist/
-/Guia 09 Java Herencia/G09_Extra01/nbproject/private/
-/Guia 09 Java Herencia/Ejercicio03_Mesa37/nbproject/private/
-/Guia 09 Java Herencia/Ejercicio03_Mesa37/build/
-/Guia 09 Java Herencia/Ejercicio04_Mesa37/nbproject/private/
-/Guia 09 Java Herencia/Ejercicio04_Mesa37/build/
-/Guia 09 Java Herencia/Extra01_Mesa37/nbproject/private/
-/Guia 09 Java Herencia/G09_Extra01/build/
-/Guia 09 Java Herencia/G09_Extra01/dist/
-/Guia 09 Java Herencia/G09_Extra02/nbproject/private/
-/Guia 09 Java Herencia/G09_Extra02/build/
-/Guia 09 Java Herencia/G09_Extra03/nbproject/private/
-/Guia 09 Java Herencia/G09_Extra03/build/
-/Guia 09 Java Herencia/IntegradorTrucho/nbproject/private/
-/Guia 08 Java Relaciones/EjercicioUnoClande/nbproject/private/
-/Guia 08 Java Relaciones/EjercicioUnoClande/build/
-/Guia 09 Java Herencia/G09_Extra04/nbproject/private/
-/Guia 10 Java Excepciones/G10_Ejercicio01/nbproject/private/
-/Guia 10 Java Excepciones/G10_Ejercicio01/build/
-/Guia 10 Java Excepciones/G10_Ejercicio02/nbproject/private/
-/Guia 10 Java Excepciones/G10_Ejercicio02/build/
-/Guia 10 Java Excepciones/G10_Ejercicio03/nbproject/private/
-/Guia 10 Java Excepciones/G10_Ejercicio03/build/
-/Guia 10 Java Excepciones/G10_Ejercicio04/nbproject/private/
-/Guia 10 Java Excepciones/G10_Ejercicio04/build/
-/Guia 10 Java Excepciones/G10_Otros_5_6_7_8/nbproject/private/
-/Guia 10 Java Excepciones/G10_Otros_5_6_7_8/build/
-/Guia 10 Java Excepciones/ManejoExepcionesClase/nbproject/private/
-/Guia 10 Java Excepciones/ManejoExepcionesClase/build/
-/Guia 09 Java Herencia/Examen/nbproject/private/
-Guia 10 Java Excepciones/Examen/nbproject/private/private.properties
-/Guia 12 JDBC/JDBC/nbproject/private/
-/Guia 12 JDBC/JDBC/build/
-/Guia 12 JDBC/EggJDBC/build/
-/Guia 12 JDBC/EggJDBC/dist/
-/Guia 12 JDBC/EggJDBC/nbproject/private/
-/Guia 12 JDBC/Ejercicio01/nbproject/private/
-/Guia 12 JDBC/Tienda/nbproject/private/
-/Guia 12 JDBC/Tienda/build/
-/Guia 12 JDBC/Tienda/dist/
-/Guia 12 JDBC/Estancias/nbproject/private/
-/Guia 12 JDBC/Estancias/build/
-/Guia 12 JDBC/Estancias/dist/
-/Guia 12 JDBC/Tienda_Clande/nbproject/private/
-/Guia 12 JDBC/Tienda_Clande/build/
-/Guia 09 Java Herencia/testJPA/nbproject/private/
-/Guia 13 JPA/Libreria/nbproject/private/
-/Guia 13 JPA/Libreria/build/
-/Guia 13 JPA/Libreria2/nbproject/private/
-/Guia 13 JPA/Libreria2/build/
-/Guia 13 JPA/Libreria/dist/
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
