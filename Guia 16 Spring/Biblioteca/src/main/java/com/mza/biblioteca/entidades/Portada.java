@@ -6,9 +6,9 @@
 
 package com.mza.biblioteca.entidades;
 
-import javax.persistence.*;
-
 import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 /**
  * 

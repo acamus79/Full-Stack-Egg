@@ -13,13 +13,12 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.mza.biblioteca.entidades.Libro;
 import com.mza.biblioteca.entidades.Prestamo;
 import com.mza.biblioteca.entidades.Usuario;
-import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  *
