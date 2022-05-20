@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+/Guia 07 Java Colecciones/guia07_Extra03/nbproject/private/
+/Guia 12 JDBC/Tienda_Clande/nbproject/private/
+/Guia 13 JPA/Libreria2/nbproject/private/
+/Guia 13 JPA/Libreria/nbproject/private/
